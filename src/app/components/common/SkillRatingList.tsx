@@ -13,7 +13,7 @@ interface SkillRatingsListProps {
 const SkillRatingsList = ({ label, ratings }: SkillRatingsListProps) => {
   return (
     <>
-      <p className="text-lg">{label}</p>
+      <p className="font-bold">{label}</p>
       <SkillRating rating="Erinomaisesti" skills={ratings.excellent} />
       <SkillRating rating="Hyvin" skills={ratings.good} />
       <SkillRating rating="Huonosti" skills={ratings.poor} />

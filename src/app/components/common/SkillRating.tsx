@@ -8,7 +8,7 @@ interface SkillRatingProps {
 const SkillRating = ({ rating, skills }: SkillRatingProps) => {
   return (
     <>
-      <span>{rating}</span>
+      <span className="font-semibold">{rating}</span>
       {skills.length
         ? <div className="flex">
           {skills.map(skill =>
