@@ -1,5 +1,5 @@
 import { data } from "@/data/data"
-import { validateUrl } from "@/utils/valiators"
+import { validateUrl } from "@/utils/validators"
 import IconLink from "./common/IconLink"
 
 const Contact = () => {
