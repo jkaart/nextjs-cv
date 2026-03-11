@@ -37,6 +37,10 @@ export const getProjects = async (limit?: number): Promise<ProjectMetadata[]> =>
   const projects = files
     .map((file: string) => getProjectMetadata(file))
 
+  if (limit) {
+    return projects.slice(0, limit)
+  }
+
   return projects
 }
 
