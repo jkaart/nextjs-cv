@@ -2,6 +2,7 @@ import { data } from "@/data/data"
 import Contact from "./Contact"
 import Section from "./common/Section"
 import Educations from "./Educations"
+import Projects from "./Projects"
 import Skills from "./Skills"
 import WorkExperiences from "./WorkExperiences"
 
@@ -19,6 +20,7 @@ const Hero = async () => {
           </Section>
           <Section title="Työkokemus"><WorkExperiences /></Section>
           <Section title="Koulutus"><Educations /></Section>
+          <Section title="Projektit"><Projects /></Section>
         </div>
         <div className="block order-1 w-1/5">
           <Contact />
