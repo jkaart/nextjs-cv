@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { MDXRemote } from "next-mdx-remote/rsc"
+import MDXContent from "@/app/components/MDXContent"
 import { getProject } from "@/utils/projects"
 
 interface ProjectProps {
@@ -10,7 +10,9 @@ interface ProjectProps {
 
 const Project = async ({ params }: ProjectProps) => {
   const { slug } = await params
-  console.log(slug)
+  if (!slug) {
+    return null
+  }
   const project = await getProject(slug)
 
   if (!project) {
@@ -21,11 +23,10 @@ const Project = async ({ params }: ProjectProps) => {
   const { title } = metadata
 
   return (
-    <>
-      <h2>{title}</h2>
-      <MDXRemote source={content} />
-    </>
-
+    <main className="prose dark:prose-invert">
+      <h1>{title}</h1>
+      <MDXContent source={content} slug={slug} />
+    </main>
   )
 }
 
