@@ -5,8 +5,8 @@ const Skills = () => {
   return (
     <div className="p-2">
       <h2 className="text-xl font-semibold">Taidot</h2>
-      <div className="text-4xl grid gap-1 grid-cols-5">
-        {data.skill.map(skill => <span key={skill.id} className={skill.iconClass} />)}
+      <div className="flex flex-wrap text-4xl">
+        {data.skill.map(skill => <span key={skill.id} className={`${skill.iconClass} me-1 mb-1`} />)}
       </div>
     </div>
   )

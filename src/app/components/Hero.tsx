@@ -10,11 +10,17 @@ const Hero = async () => {
   const { default: Description } = await import(`@/data/mdx/me/description.mdx`)
   const fullName = `${data.me.firstName} ${data.me.lastName}`
   return (
-    <div className="m-1">
+    <>
       <h2 className="text-4xl text-center">{fullName}</h2>
       <h2 className="text-3xl text-center mb-2">{data.me.jobTitle}</h2>
-      <div className="flex gap-2">
-        <div className="block order-2">
+      <div className="grid gap-2 lg:grid-cols-6 lg:grid-rows-1">
+        <div>
+          <div className="grid">
+            <Contact />
+            <Skills />
+          </div>
+        </div>
+        <div className="lg:col-span-5">
           <Section title="Kuvaus">
             <Description />
           </Section>
@@ -22,12 +28,8 @@ const Hero = async () => {
           <Section title="Koulutus"><Educations /></Section>
           <Section title="Projektit"><Projects /></Section>
         </div>
-        <div className="block order-1 w-1/5">
-          <Contact />
-          <Skills />
-        </div>
       </div>
-    </div>
+    </>
   )
 }
 
