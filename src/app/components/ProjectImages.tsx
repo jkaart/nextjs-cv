@@ -6,8 +6,6 @@ interface ProjectImagesProps {
 }
 
 const ProjectImages = async ({ slug }: ProjectImagesProps) => {
-
-  console.log('slug in ProjectImages', slug)
   const images = await getProjectImages(slug)
 
   if (!images) {

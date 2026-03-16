@@ -7,7 +7,6 @@ interface MDXContentProps {
 }
 
 const MDXContent = ({ source, slug }: MDXContentProps) => {
-  console.log('slug in MDXContent', slug)
   const components = {
     ProjectImages: () => <ProjectImages slug={slug} />
   }

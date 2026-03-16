@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from 'node:fs'
+import { readFileSync } from 'node:fs'
 import { readdir } from 'node:fs/promises'
 import path from 'node:path'
 import matter from 'gray-matter'
@@ -68,6 +68,5 @@ export const getProjectImages = async (slug: string) => {
     .filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file))
     .map(file => `/assets/projects/${slug}/${file}`)
 
-  console.log(images)
   return images
 }
