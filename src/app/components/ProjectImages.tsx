@@ -1,23 +1,20 @@
-import Image from "next/image"
 import { getProjectImages } from "@/utils/projects"
+import ImageGallery from "./ImageGallery"
 
 interface ProjectImagesProps {
   slug: string
+  subdirPath?: string
 }
 
-const ProjectImages = async ({ slug }: ProjectImagesProps) => {
-  const images = await getProjectImages(slug)
+const ProjectImages = async ({ slug, subdirPath }: ProjectImagesProps) => {
+  const images = await getProjectImages(!subdirPath ? slug : `${slug}/${subdirPath}`)
 
   if (!images) {
     return null
   }
 
   return (
-    <div className="mx-2">
-      {images.map((src, index) => (
-        <Image alt={`${slug} project image ${index + 1}`} src={src} key={src} width={1280} height={720} />
-      ))}
-    </div>
+    <ImageGallery slug={slug} images={images} />
   )
 }
 
