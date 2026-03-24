@@ -4,9 +4,10 @@ import { type JSX, useState } from 'react'
 interface TooltipProps {
   content: JSX.Element
   children: JSX.Element
+  testid?: string
 }
 
-const Tooltip = ({ children, content }: TooltipProps) => {
+const Tooltip = ({ children, content, testid }: TooltipProps) => {
   const [showTooltip, setShowTooltip] = useState<boolean>(false)
   return (
     <div
@@ -14,8 +15,9 @@ const Tooltip = ({ children, content }: TooltipProps) => {
       role="tooltip"
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
+      data-testid={testid}
     >
-      <div>
+      <div data-testid='tooltip-children-container'>
         {children}
       </div>
       {showTooltip && (
@@ -37,7 +39,10 @@ const Tooltip = ({ children, content }: TooltipProps) => {
           flex
           flex-col
           p-2
-          '>
+          '
+          data-testid='tooltip-content-container'
+        >
+
           {content}
         </div>
       )}

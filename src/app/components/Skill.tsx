@@ -6,7 +6,7 @@ interface SkillProps {
 }
 
 const Skill = ({ skill }: SkillProps) => (
-  <Tooltip content={<span>{skill.language}</span>}>
+  <Tooltip testid='skill' content={<span>{skill.language}</span>}>
     <span className={`${skill.iconClass} me-1 mb-1`} />
   </Tooltip>
 )
