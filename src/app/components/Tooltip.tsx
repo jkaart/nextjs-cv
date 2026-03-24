@@ -18,9 +18,29 @@ const Tooltip = ({ children, content }: TooltipProps) => {
       <div>
         {children}
       </div>
-      {showTooltip &&
-        (<div className='dark:bg-white dark:text-black bg-white text-sm absolute z-50 top-full left-1/2 -translate-x-1/2 border border-black dark:border-white w-max flex flex-col p-2'>{content}</div>
-        )}
+      {showTooltip && (
+        <div className='
+          dark:bg-white
+          dark:text-black
+          bg-white
+          text-sm
+          absolute
+          z-50
+          top-full
+          left-1/2
+          -translate-x-1/2
+          border
+          border-black
+          dark:border-white
+          rounded-sm
+          w-max
+          flex
+          flex-col
+          p-2
+          '>
+          {content}
+        </div>
+      )}
     </div>
   )
 }
