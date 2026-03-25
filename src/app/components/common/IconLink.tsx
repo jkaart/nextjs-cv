@@ -13,7 +13,7 @@ const IconLink = ({ href, iconType }: IconLinkProps) => {
   }
 
   return (
-    <a href={href}>{Icon}</a>
+    <a data-testid='icon-link' href={href}>{Icon}</a>
   )
 }
 
