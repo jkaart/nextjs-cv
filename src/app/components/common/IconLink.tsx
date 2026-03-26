@@ -1,4 +1,4 @@
-import { getIcon, type IconType } from "@/utils/getIcon"
+import { getIcon, type IconType } from '@/utils/getIcon'
 
 interface IconLinkProps {
   href: string
@@ -13,7 +13,9 @@ const IconLink = ({ href, iconType }: IconLinkProps) => {
   }
 
   return (
-    <a data-testid='icon-link' href={href}>{Icon}</a>
+    <a data-testid='icon-link' href={href}>
+      {Icon}
+    </a>
   )
 }
 

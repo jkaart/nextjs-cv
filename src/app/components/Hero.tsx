@@ -1,12 +1,12 @@
-import type { Data } from "@/data/data"
-import Contact from "./Contact"
-import Section from "./common/Section"
-import Description from "./Description"
-import Educations from "./Educations"
-import HeroHeader from "./HeroHeader"
-import Projects from "./Projects"
-import Skills from "./Skills"
-import WorkExperiences from "./WorkExperiences"
+import type { Data } from '@/data/data'
+import Contact from './Contact'
+import Section from './common/Section'
+import Description from './Description'
+import Educations from './Educations'
+import HeroHeader from './HeroHeader'
+import Projects from './Projects'
+import Skills from './Skills'
+import WorkExperiences from './WorkExperiences'
 
 interface HeroProps {
   data: Data
@@ -15,18 +15,26 @@ interface HeroProps {
 const Hero = async ({ data }: HeroProps) => (
   <>
     <HeroHeader me={data.me} />
-    <div className="grid gap-2 lg:grid-cols-6 lg:grid-rows-1">
+    <div className='grid gap-2 lg:grid-cols-6 lg:grid-rows-1'>
       <div>
-        <div className="grid">
+        <div className='grid'>
           <Contact contact={data.contact} />
           <Skills skills={data.skill} />
         </div>
       </div>
-      <div className="lg:col-span-5">
-        <Section title="Kuvaus"><Description /></Section>
-        <Section title="Työkokemus"><WorkExperiences workExperiences={data.workExperience} /></Section>
-        <Section title="Koulutus"><Educations educations={data.education} /></Section>
-        <Section title="Projektit"><Projects /></Section>
+      <div className='lg:col-span-5'>
+        <Section title='Kuvaus'>
+          <Description />
+        </Section>
+        <Section title='Työkokemus'>
+          <WorkExperiences workExperiences={data.workExperience} />
+        </Section>
+        <Section title='Koulutus'>
+          <Educations educations={data.education} />
+        </Section>
+        <Section title='Projektit'>
+          <Projects />
+        </Section>
       </div>
     </div>
   </>

@@ -1,5 +1,5 @@
-import { getProjectImages } from "@/utils/projects"
-import ImageGallery from "./ImageGallery"
+import { getProjectImages } from '@/utils/projects'
+import ImageGallery from './ImageGallery'
 
 interface ProjectImagesProps {
   slug: string
@@ -7,15 +7,15 @@ interface ProjectImagesProps {
 }
 
 const ProjectImages = async ({ slug, subdirPath }: ProjectImagesProps) => {
-  const images = await getProjectImages(!subdirPath ? slug : `${slug}/${subdirPath}`)
+  const images = await getProjectImages(
+    !subdirPath ? slug : `${slug}/${subdirPath}`
+  )
 
   if (!images) {
     return null
   }
 
-  return (
-    <ImageGallery slug={slug} images={images} />
-  )
+  return <ImageGallery slug={slug} images={images} />
 }
 
 export default ProjectImages

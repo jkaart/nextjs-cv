@@ -1,36 +1,36 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next'
+import { Geist, Geist_Mono } from 'next/font/google'
+import './globals.css'
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+  variable: '--font-geist-sans',
+  subsets: ['latin']
+})
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+  variable: '--font-geist-mono',
+  subsets: ['latin']
+})
 
 export const metadata: Metadata = {
-  title: "CV",
-  description: "Jani Kaartisen CV/ansioluettelo",
-};
+  title: 'CV',
+  description: 'Jani Kaartisen CV/ansioluettelo'
+}
 
 const RootLayout = ({
-  children,
+  children
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) => {
   return (
-    <html lang="fi">
+    <html lang='fi'>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased m-1`}
       >
         {children}
       </body>
     </html>
-  );
+  )
 }
 
 export default RootLayout

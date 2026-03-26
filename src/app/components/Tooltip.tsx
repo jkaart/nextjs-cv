@@ -12,16 +12,15 @@ const Tooltip = ({ children, content, testid }: TooltipProps) => {
   return (
     <div
       className='relative'
-      role="tooltip"
+      role='tooltip'
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
       data-testid={testid}
     >
-      <div data-testid='tooltip-children-container'>
-        {children}
-      </div>
+      <div data-testid='tooltip-children-container'>{children}</div>
       {showTooltip && (
-        <div className='
+        <div
+          className='
           dark:bg-white
           dark:text-black
           bg-white
@@ -42,7 +41,6 @@ const Tooltip = ({ children, content, testid }: TooltipProps) => {
           '
           data-testid='tooltip-content-container'
         >
-
           {content}
         </div>
       )}

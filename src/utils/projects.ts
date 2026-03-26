@@ -17,8 +17,20 @@ interface Project {
   content: string
 }
 
-const mdxRootDirectory = path.join(process.cwd(), 'src', 'data', 'mdx', 'projects')
-export const assetsRootDirectory = path.join(process.cwd(), 'src', 'data', 'assets', 'projects')
+const mdxRootDirectory = path.join(
+  process.cwd(),
+  'src',
+  'data',
+  'mdx',
+  'projects'
+)
+export const assetsRootDirectory = path.join(
+  process.cwd(),
+  'src',
+  'data',
+  'assets',
+  'projects'
+)
 
 export const getProject = async (slug: string): Promise<Project | null> => {
   try {
@@ -28,17 +40,17 @@ export const getProject = async (slug: string): Promise<Project | null> => {
     const { data, content } = matter(fileContents)
 
     return { metadata: { ...data, slug }, content }
-  }
-  catch {
+  } catch {
     return null
   }
 }
 
-export const getProjects = async (limit?: number): Promise<ProjectMetadata[]> => {
+export const getProjects = async (
+  limit?: number
+): Promise<ProjectMetadata[]> => {
   const files = await readdir(mdxRootDirectory)
 
-  const projects = files
-    .map((file: string) => getProjectMetadata(file))
+  const projects = files.map((file: string) => getProjectMetadata(file))
 
   if (limit) {
     return projects.slice(0, limit)

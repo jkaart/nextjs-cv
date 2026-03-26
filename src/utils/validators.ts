@@ -1,5 +1,9 @@
 export const validateUrl = (url: string): string => {
-  if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('mailto://')) {
+  if (
+    url.startsWith('http://') ||
+    url.startsWith('https://') ||
+    url.startsWith('mailto://')
+  ) {
     return url
   }
   if (url.includes('@')) {

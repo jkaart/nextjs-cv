@@ -1,6 +1,6 @@
-import "devicon/devicon.min.css"
-import type { Skill as SkillType } from "@/data/data"
-import Skill from "./Skill"
+import 'devicon/devicon.min.css'
+import type { Skill as SkillType } from '@/data/data'
+import Skill from './Skill'
 
 interface SkillsProps {
   skills: SkillType[]
@@ -23,11 +23,12 @@ const Skills = ({ skills }: SkillsProps) => {
   })
 
   return (
-    <div className="p-2">
-      <h2 className="text-xl font-semibold">Taidot</h2>
-      <div className="flex flex-wrap text-5xl">
-        {sortedSkills.map(skill => <Skill key={skill.id} skill={skill} />
-        )}
+    <div className='p-2'>
+      <h2 className='text-xl font-semibold'>Taidot</h2>
+      <div className='flex flex-wrap text-5xl'>
+        {sortedSkills.map(skill => (
+          <Skill key={skill.id} skill={skill} />
+        ))}
       </div>
     </div>
   )

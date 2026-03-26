@@ -1,17 +1,21 @@
-"use client"
+'use client'
 
-import { useState } from "react"
-import type { Education as EducationType } from "@/data/data"
-import Education from "./common/Education"
-import ShowMore from "./common/ShowMore"
+import { useState } from 'react'
+import type { Education as EducationType } from '@/data/data'
+import Education from './common/Education'
+import ShowMore from './common/ShowMore'
 
 interface EducationsProps {
   educations: EducationType[]
 }
 
 const Educations = ({ educations }: EducationsProps) => {
-  const sortedEducations = educations.sort((a, b) => b.yearOfDecree - a.yearOfDecree)
-  const [educationsState, setEducationsState] = useState<EducationType[]>([sortedEducations[0]])
+  const sortedEducations = educations.sort(
+    (a, b) => b.yearOfDecree - a.yearOfDecree
+  )
+  const [educationsState, setEducationsState] = useState<EducationType[]>([
+    sortedEducations[0]
+  ])
   return (
     <>
       {educationsState.map(education => (

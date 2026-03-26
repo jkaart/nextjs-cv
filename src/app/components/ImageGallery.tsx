@@ -1,8 +1,8 @@
 'use client'
 
-import Image from "next/image"
-import { useState } from "react"
-import FullScreenImage from "./FullScreenImage"
+import Image from 'next/image'
+import { useState } from 'react'
+import FullScreenImage from './FullScreenImage'
 
 export interface ImageProps {
   src: string
@@ -19,14 +19,31 @@ const ImageGallery = ({ images, slug }: ImageGalleryProps) => {
 
   return (
     <>
-      <div className="mx-2">
+      <div className='mx-2'>
         {images.map((src, index) => (
-          <button key={src} onClick={() => setSelectedImage({ src, alt: `${slug} project image ${index + 1}` })} type="button">
-            <Image alt={`${slug} project image ${index + 1}`} src={src} width={1280} height={720} />
+          <button
+            key={src}
+            onClick={() =>
+              setSelectedImage({
+                src,
+                alt: `${slug} project image ${index + 1}`
+              })
+            }
+            type='button'
+          >
+            <Image
+              alt={`${slug} project image ${index + 1}`}
+              src={src}
+              width={1280}
+              height={720}
+            />
           </button>
         ))}
       </div>
-      <FullScreenImage selectedImage={selectedImage} setSelectedImage={setSelectedImage} />
+      <FullScreenImage
+        selectedImage={selectedImage}
+        setSelectedImage={setSelectedImage}
+      />
     </>
   )
 }
