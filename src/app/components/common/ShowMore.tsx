@@ -7,7 +7,7 @@ interface ShowMoreProps<T> {
   setData: Dispatch<SetStateAction<T[]>>
 }
 
-function ShowMore<T>({ data, setData }: ShowMoreProps<T>) {
+const ShowMore = <T,>({ data, setData }: ShowMoreProps<T>) => {
   const [showMore, setShowMore] = useState<boolean>(true)
 
   const showMoreHandler = () => {
