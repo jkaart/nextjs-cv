@@ -1,3 +1,5 @@
+'use client'
+
 import { Path, Svg } from '@react-pdf/renderer'
 import { useEffect, useState } from 'react'
 import { getDevIconPath } from '@/utils/getDevIcon'
