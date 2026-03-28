@@ -1,5 +1,6 @@
 import type { Data } from '@/data/data'
 import Contact from './Contact'
+import CVDownload from './CVDownload'
 import Section from './common/Section'
 import Description from './Description'
 import Educations from './Educations'
@@ -15,6 +16,7 @@ interface HeroProps {
 const Hero = async ({ data }: HeroProps) => (
   <>
     <HeroHeader me={data.me} />
+    <CVDownload />
     <div className='grid gap-2 lg:grid-cols-6 lg:grid-rows-1'>
       <div>
         <div className='dark:bg-gray-800 grid'>
