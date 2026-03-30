@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Document,
   Link,
@@ -6,8 +8,11 @@ import {
   Text,
   View
 } from '@react-pdf/renderer'
+import { useEffect, useState } from 'react'
 import { data } from '@/data/data'
+import { loadMdx } from '@/utils/loadMdx'
 import { validateUrl } from '@/utils/validators'
+import PDFDescription from './PDFDescription'
 import Icon from './PDFIcon'
 
 const styles = StyleSheet.create({
@@ -92,6 +97,12 @@ const PDFSkillList = () => {
 }
 
 const PDFResume = () => {
+  const [mdx, setMdx] = useState<string>('')
+
+  useEffect(() => {
+    loadMdx('src/data/mdx/me/', 'description.mdx').then(setMdx)
+  }, [])
+
   return (
     <Document>
       <Page size='A4' style={styles.page}>
@@ -124,21 +135,10 @@ const PDFResume = () => {
           >
             <View>
               <Text style={styles.sectionHeader}>Kuvaus</Text>
-              <Text style={{ display: 'flex', flexDirection: 'row' }}>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Distinctio praesentium, deleniti ea temporibus pariatur quasi
-                vitae nulla accusamus libero quas repellendus tenetur obcaecati
-                sed mollitia velit nihil. Ducimus, nihil? Labore.
-              </Text>
+              <PDFDescription mdx={mdx} />
             </View>
             <View>
               <Text style={styles.sectionHeader}>Työkokemus</Text>
-              <Text>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo at
-                quasi quae veniam esse sint quis ea aspernatur ipsa? Blanditiis
-                id consectetur quam quaerat. Porro reiciendis voluptatem iusto
-                dicta dolorum?
-              </Text>
             </View>
           </View>
         </View>
