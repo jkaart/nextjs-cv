@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import MDXContent from '@/app/components/MDXContent'
+import MdxLayout from '@/app/components/MDXLayout'
 import { getProject } from '@/utils/projects'
 
 interface ProjectProps {
@@ -23,9 +24,11 @@ const Project = async ({ params }: ProjectProps) => {
   const { title } = metadata
 
   return (
-    <main className='prose dark:prose-invert'>
-      <h1>{title}</h1>
-      <MDXContent source={content} slug={slug} />
+    <main>
+      <MdxLayout>
+        <h1>{title}</h1>
+        <MDXContent source={content} slug={slug} />
+      </MdxLayout>
     </main>
   )
 }

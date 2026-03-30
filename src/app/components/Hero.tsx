@@ -16,27 +16,28 @@ interface HeroProps {
 const Hero = async ({ data }: HeroProps) => (
   <>
     <HeroHeader me={data.me} />
-    <CVDownload />
-    <div className='grid gap-2 lg:grid-cols-6 lg:grid-rows-1'>
-      <div>
-        <div className='dark:bg-gray-800 grid'>
-          <Contact contact={data.contact} />
-          <Skills skills={data.skill} />
+    <div className='mx-auto w-5/6'>
+      <div className='grid gap-2 lg:grid-cols-8 lg:grid-rows-1'>
+        <div className='lg:col-span-2'>
+          <div className='dark:bg-gray-800 grid'>
+            <Contact contact={data.contact} />
+            <Skills skills={data.skill} />
+          </div>
         </div>
-      </div>
-      <div className='lg:col-span-5'>
-        <Section title='Kuvaus'>
-          <Description />
-        </Section>
-        <Section title='Työkokemus'>
-          <WorkExperiences workExperiences={data.workExperience} />
-        </Section>
-        <Section title='Koulutus'>
-          <Educations educations={data.education} />
-        </Section>
-        <Section title='Projektit'>
-          <Projects />
-        </Section>
+        <div className='lg:col-span-6'>
+          <Section title='Kuvaus'>
+            <Description />
+          </Section>
+          <Section title='Työkokemus'>
+            <WorkExperiences workExperiences={data.workExperience} />
+          </Section>
+          <Section title='Koulutus'>
+            <Educations educations={data.education} />
+          </Section>
+          <Section title='Projektit'>
+            <Projects />
+          </Section>
+        </div>
       </div>
     </div>
   </>
