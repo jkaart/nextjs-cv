@@ -5,6 +5,7 @@ import PDFResume from './PDFResume'
 
 interface CVDownloadProps {
   label: string
+  className?: string
 }
 
 const PDFDownloadLink = dynamic(
@@ -12,8 +13,10 @@ const PDFDownloadLink = dynamic(
   { ssr: false }
 )
 
-const CVDownload = ({ label }: CVDownloadProps) => {
-  return <PDFDownloadLink document={<PDFResume />}>{label}</PDFDownloadLink>
-}
+const CVDownload = ({ label, className }: CVDownloadProps) => (
+  <PDFDownloadLink className={className} document={<PDFResume />}>
+    {label}
+  </PDFDownloadLink>
+)
 
 export default CVDownload

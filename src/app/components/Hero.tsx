@@ -1,6 +1,5 @@
 import type { Data } from '@/data/data'
 import Contact from './Contact'
-import CVDownload from './CVDownload'
 import Section from './common/Section'
 import Description from './Description'
 import Educations from './Educations'
