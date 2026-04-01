@@ -9,8 +9,9 @@ import {
   View
 } from '@react-pdf/renderer'
 import { useEffect, useState } from 'react'
-import { data } from '@/data/data'
+import { data, type Skill } from '@/data/data'
 import { loadMdx } from '@/utils/loadMdx'
+import { sortSkills } from '@/utils/sortSkills'
 import { validateUrl } from '@/utils/validators'
 import PDFDescription from './PDFDescription'
 import Icon from './PDFIcon'
@@ -50,6 +51,10 @@ interface PDFLinkProps {
   src: string
 }
 
+interface PDFSkillListProps {
+  skills: Skill[]
+}
+
 const PDFLink = ({ title, src }: PDFLinkProps) => (
   <View style={{ flexDirection: 'row', gap: '2px' }}>
     <View>
@@ -61,28 +66,14 @@ const PDFLink = ({ title, src }: PDFLinkProps) => (
   </View>
 )
 
-const PDFSkillList = () => {
-  const sortedSkills = data.skill.sort((a, b) => {
-    const skillA = a.language.toLowerCase()
-    const skillB = b.language.toLowerCase()
-
-    if (skillA < skillB) {
-      return -1
-    }
-
-    if (skillA < skillB) {
-      return 1
-    }
-
-    return 0
-  })
+const PDFSkillList = ({ skills }: PDFSkillListProps) => {
+  const sortedSkills = sortSkills(skills)
   return (
     <View
       style={{
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        justifyContent: 'center',
         gap: '2.5mm 2.5mm',
         width: '7cm'
       }}
@@ -125,7 +116,7 @@ const PDFResume = () => {
             <PDFLink src={data.contact.gitHub} title='GitHub' />
             <PDFLink src={data.contact.linkedIn} title='LinkedIn' />
             <Text style={styles.skill}>Taidot</Text>
-            <PDFSkillList />
+            <PDFSkillList skills={data.skill} />
           </View>
           <View
             style={{
