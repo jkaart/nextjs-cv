@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import type { WorkExperience as WorkExperienceType } from '@/data/data'
+import { sortWorkExperiences } from '@/utils/sortWorkExperiences'
 import ShowMore from './common/ShowMore'
 import WorkExperience from './common/WorkExperience'
 
@@ -10,9 +11,8 @@ interface WorkExperiencesProps {
 }
 
 const WorkExperiences = ({ workExperiences }: WorkExperiencesProps) => {
-  const sortedWorkExperiences = workExperiences.sort(
-    (a, b) => b.startDate.getTime() - a.startDate.getTime()
-  )
+  const sortedWorkExperiences = sortWorkExperiences(workExperiences)
+
   const [workExperiencesState, setWorkExperienceState] = useState<
     WorkExperienceType[]
   >([sortedWorkExperiences[0]])
