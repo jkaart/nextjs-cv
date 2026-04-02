@@ -22,7 +22,6 @@ const Icon = ({ iconName }: IconProps) => {
   }, [iconName])
 
   if (path === '') return null
-  console.log(iconName, ':', path)
 
   return (
     <Svg style={{ width: '1cm', height: '1cm' }}>
