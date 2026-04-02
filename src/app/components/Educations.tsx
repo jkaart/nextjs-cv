@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import type { Education as EducationType } from '@/data/data'
+import { sortEducations } from '@/utils/sortEducations'
 import Education from './common/Education'
 import ShowMore from './common/ShowMore'
 
@@ -10,9 +11,7 @@ interface EducationsProps {
 }
 
 const Educations = ({ educations }: EducationsProps) => {
-  const sortedEducations = educations.sort(
-    (a, b) => b.yearOfDecree - a.yearOfDecree
-  )
+  const sortedEducations = sortEducations(educations)
   const [educationsState, setEducationsState] = useState<EducationType[]>([
     sortedEducations[0]
   ])
