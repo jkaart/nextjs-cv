@@ -18,7 +18,7 @@ const Hero = async ({ data }: HeroProps) => (
     <div className='mx-auto w-5/6'>
       <div className='grid gap-2 lg:grid-cols-8 lg:grid-rows-1'>
         <div className='lg:col-span-2'>
-          <div className='dark:bg-gray-800 grid'>
+          <div className='bg-gray-100 dark:bg-gray-800 border rounded-md p-2 mb-3 grid'>
             <Contact contact={data.contact} />
             <Skills skills={data.skill} />
           </div>

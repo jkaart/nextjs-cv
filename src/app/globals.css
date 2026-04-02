@@ -2,7 +2,8 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #d1d5db;
+  /* oklch(0.9288 0.0126 255.5079) slate-200 */
+  --background: oklch(0.9288 0.0126 255.5079);
   --foreground: #171717;
 }
 
@@ -15,7 +16,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #212121;
+    /* oklch(37.7% 0 0) neutral-700 */
+    --background: oklch(37.1% 0 0);
+
     --foreground: #ededed;
   }
 }
