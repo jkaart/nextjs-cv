@@ -1,6 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
+import useProjects from '../hooks/useProjects'
 import PDFResume from './PDFResume'
 
 interface CVDownloadProps {
@@ -13,10 +14,17 @@ const PDFDownloadLink = dynamic(
   { ssr: false }
 )
 
-const CVDownload = ({ label, className }: CVDownloadProps) => (
-  <PDFDownloadLink className={className} document={<PDFResume />}>
-    {label}
-  </PDFDownloadLink>
-)
+const CVDownload = ({ label, className }: CVDownloadProps) => {
+  const { projects, loading } = useProjects()
+  if (loading || !projects) return <div>Loading...</div>
+  return (
+    <PDFDownloadLink
+      className={className}
+      document={<PDFResume projects={projects} />}
+    >
+      {label}
+    </PDFDownloadLink>
+  )
+}
 
 export default CVDownload

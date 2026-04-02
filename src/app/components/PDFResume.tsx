@@ -11,28 +11,31 @@ import {
 import { useEffect, useState } from 'react'
 import { data, type Skill } from '@/data/data'
 import { loadMdx } from '@/utils/loadMdx'
+import type { ProjectMetadata } from '@/utils/projects'
 import { sortSkills } from '@/utils/sortSkills'
 import { validateUrl } from '@/utils/validators'
 import PDFDescription from './PDFDescription'
+import PDFEducations from './PDFEducations'
 import Icon from './PDFIcon'
+import PDFProjects from './PDFProjects'
+import PDFWorkExperiences from './PDFWorkExperiences'
 
 const styles = StyleSheet.create({
   page: {
-    margin: '0.75cm'
+    padding: '0.75cm'
   },
   header: {
-    textAlign: 'center'
+    textAlign: 'center',
+    marginBottom: '5px'
   },
   h1: {
     fontSize: '24px'
   },
-  info: {
+  h2: {
     fontSize: '16px',
     fontWeight: 'bold'
   },
   skill: {
-    fontSize: '16px',
-    fontWeight: 'bold',
     marginTop: '10px'
   },
   container: {
@@ -40,9 +43,20 @@ const styles = StyleSheet.create({
     fontSize: '12px',
     gap: '0.5cm'
   },
-  sectionHeader: {
-    fontSize: '12px',
-    fontWeight: 'bold'
+  sectionContainer: {
+    padding: '5px',
+    border: '1px black solid',
+    borderRadius: '3px',
+    width: '12cm',
+    backgroundColor: '#f9fafb'
+  },
+  infoAndSkillsContainer: {
+    backgroundColor: '#f9fafb',
+    border: '1px black solid',
+    borderRadius: '3px',
+    width: '7cm',
+    padding: '5px',
+    height: 'auto'
   }
 })
 
@@ -53,6 +67,10 @@ interface PDFLinkProps {
 
 interface PDFSkillListProps {
   skills: Skill[]
+}
+
+interface PDFResumeProps {
+  projects: ProjectMetadata[]
 }
 
 const PDFLink = ({ title, src }: PDFLinkProps) => (
@@ -81,13 +99,14 @@ const PDFSkillList = ({ skills }: PDFSkillListProps) => {
       {sortedSkills.map(skill => (
         <View style={{ alignItems: 'center' }} key={skill.id}>
           <Icon iconName={skill.iconName} />
+          <Text style={{ fontSize: '10px' }}>{skill.language}</Text>
         </View>
       ))}
     </View>
   )
 }
 
-const PDFResume = () => {
+const PDFResume = ({ projects }: PDFResumeProps) => {
   const [mdx, setMdx] = useState<string>('')
 
   useEffect(() => {
@@ -104,32 +123,35 @@ const PDFResume = () => {
           <Text>{data.me.jobTitle}</Text>
         </View>
         <View style={styles.container}>
-          <View
-            style={{
-              border: '1px black solid',
-              width: '7cm'
-            }}
-          >
-            <Text style={styles.info}>Tiedot</Text>
-            <PDFLink src={data.contact.homepage} title='Kotisivu' />
-            <PDFLink src={data.contact.email} title='Sähköposti' />
-            <PDFLink src={data.contact.gitHub} title='GitHub' />
-            <PDFLink src={data.contact.linkedIn} title='LinkedIn' />
-            <Text style={styles.skill}>Taidot</Text>
-            <PDFSkillList skills={data.skill} />
+          <View>
+            <View style={styles.infoAndSkillsContainer}>
+              <Text style={styles.h2}>Tiedot</Text>
+              <PDFLink src={data.contact.homepage} title='Kotisivu' />
+              <PDFLink src={data.contact.email} title='Sähköposti' />
+              <PDFLink src={data.contact.gitHub} title='GitHub' />
+              <PDFLink src={data.contact.linkedIn} title='LinkedIn' />
+              <Text style={[styles.h2, styles.skill]}>Taidot</Text>
+              <PDFSkillList skills={data.skill} />
+            </View>
           </View>
-          <View
-            style={{
-              border: '1px black solid',
-              width: '12cm'
-            }}
-          >
+          <View style={styles.sectionContainer}>
             <View>
-              <Text style={styles.sectionHeader}>Kuvaus</Text>
-              <PDFDescription mdx={mdx} />
+              <Text style={styles.h2}>Kuvaus</Text>
+              <View style={{ marginLeft: '5px' }}>
+                <PDFDescription mdx={mdx} />
+              </View>
             </View>
             <View>
-              <Text style={styles.sectionHeader}>Työkokemus</Text>
+              <Text style={styles.h2}>Työkokemus</Text>
+              <PDFWorkExperiences workExperiences={data.workExperience} />
+            </View>
+            <View>
+              <Text style={styles.h2}>Koulutus</Text>
+              <PDFEducations educations={data.education} />
+            </View>
+            <View>
+              <Text style={styles.h2}>Projektit</Text>
+              <PDFProjects projects={projects} />
             </View>
           </View>
         </View>
