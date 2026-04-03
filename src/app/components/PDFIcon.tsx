@@ -24,7 +24,13 @@ const Icon = ({ iconName }: IconProps) => {
   if (path === '') return null
 
   return (
-    <Svg style={{ width: '1cm', height: '1cm' }}>
+    <Svg
+      style={{
+        width: '24px',
+        height: '24px',
+        marginBottom: '2px'
+      }}
+    >
       <Path fill='black' d={path} />
     </Svg>
   )
