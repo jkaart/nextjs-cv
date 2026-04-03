@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { dateToString } from '@/utils/dateToString'
 import { formatProjectDates } from '@/utils/formatProjectDates'
+import { formatTechnologiesString } from '@/utils/formatTechnologiesString'
 import type { ProjectMetadata } from '@/utils/projects'
 
 interface ProjectListItemProps {
@@ -25,7 +25,7 @@ const ProjectListItem = ({ project, href }: ProjectListItemProps) => {
           Käytetyt teknologiat:
         </span>
         <div className='inline-flex gap-1 font-bold'>
-          {technologies.join(', ')}
+          {formatTechnologiesString(technologies)}
         </div>
       </div>
       <div>
