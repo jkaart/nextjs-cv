@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import CVDownload from './CVDownload'
-import HamburgerMenu from './HamburberMenu'
+import HamburgerMenu from './HamburgerMenu'
 
 interface NavBarProps {
   className?: string
