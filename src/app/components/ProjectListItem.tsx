@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { dateToString } from '@/utils/dateToString'
+import { formatProjectDates } from '@/utils/formatProjectDates'
 import type { ProjectMetadata } from '@/utils/projects'
 
 interface ProjectListItemProps {
@@ -10,14 +11,10 @@ interface ProjectListItemProps {
 const ProjectListItem = ({ project, href }: ProjectListItemProps) => {
   const technologies = project.technologies ? project.technologies.sort() : []
 
-  const startDate = project.startDate
-    ? dateToString(new Date(project.startDate), 'date')
-    : null
-  const endDate = project.endDate
-    ? project.endDate === 'current'
-      ? 'nykyinen'
-      : dateToString(new Date(project.endDate), 'date')
-    : null
+  const { startDate, endDate } = formatProjectDates(
+    project.startDate,
+    project.endDate
+  )
 
   return (
     <Link className='border p-2' href={href}>
@@ -27,17 +24,8 @@ const ProjectListItem = ({ project, href }: ProjectListItemProps) => {
         <span className='inline-flex me-1 font-bold'>
           Käytetyt teknologiat:
         </span>
-        <div className='inline-flex gap-1'>
-          {technologies.map((technology, index) => (
-            <div key={technology} className='font-bold'>
-              {technology}
-              {technologies.length > 1
-                ? technologies.length - (index + 1)
-                  ? ','
-                  : null
-                : null}
-            </div>
-          ))}
+        <div className='inline-flex gap-1 font-bold'>
+          {technologies.join(', ')}
         </div>
       </div>
       <div>
