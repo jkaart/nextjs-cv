@@ -20,7 +20,7 @@ import Icon from './PDFIcon'
 import PDFProjects from './PDFProjects'
 import PDFWorkExperiences from './PDFWorkExperiences'
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   page: {
     padding: '0.75cm'
   },
@@ -29,18 +29,35 @@ const styles = StyleSheet.create({
     marginBottom: '5px'
   },
   h1: {
-    fontSize: '24px'
+    fontWeight: 'bold',
+    fontSize: '22px'
   },
   h2: {
-    fontSize: '16px',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize: '20px'
+  },
+  h3: {
+    fontWeight: 'bold',
+    fontSize: '18px'
+  },
+  h4: {
+    fontWeight: 'bold',
+    fontSize: '16px'
+  },
+  h5: {
+    fontWeight: 'bold',
+    fontSize: '14px'
+  },
+  h6: {
+    fontWeight: 'bold',
+    fontSize: '12px'
   },
   skill: {
     marginTop: '10px'
   },
   container: {
     flexDirection: 'row',
-    fontSize: '12px',
+    fontSize: '10px',
     gap: '0.5cm'
   },
   sectionContainer: {
@@ -92,14 +109,18 @@ const PDFSkillList = ({ skills }: PDFSkillListProps) => {
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        gap: '2.5mm 2.5mm',
-        width: '7cm'
+        gap: '2.5mm 2.5mm'
       }}
     >
       {sortedSkills.map(skill => (
-        <View style={{ alignItems: 'center' }} key={skill.id}>
+        <View
+          style={{
+            alignItems: 'center'
+          }}
+          key={skill.id}
+        >
           <Icon iconName={skill.iconName} />
-          <Text style={{ fontSize: '10px' }}>{skill.language}</Text>
+          <Text style={{ fontSize: '8px' }}>{skill.language}</Text>
         </View>
       ))}
     </View>
@@ -118,39 +139,39 @@ const PDFResume = ({ projects }: PDFResumeProps) => {
       <Page size='A4' style={styles.page}>
         <View style={styles.header}>
           <Text
-            style={styles.h1}
+            style={styles.h3}
           >{`${data.me.firstName} ${data.me.lastName}`}</Text>
           <Text>{data.me.jobTitle}</Text>
         </View>
         <View style={styles.container}>
           <View>
             <View style={styles.infoAndSkillsContainer}>
-              <Text style={styles.h2}>Tiedot</Text>
+              <Text style={styles.h4}>Tiedot</Text>
               <PDFLink src={data.contact.homepage} title='Kotisivu' />
               <PDFLink src={data.contact.email} title='Sähköposti' />
               <PDFLink src={data.contact.gitHub} title='GitHub' />
               <PDFLink src={data.contact.linkedIn} title='LinkedIn' />
-              <Text style={[styles.h2, styles.skill]}>Taidot</Text>
+              <Text style={[styles.h4, styles.skill]}>Taidot</Text>
               <PDFSkillList skills={data.skill} />
             </View>
           </View>
           <View style={styles.sectionContainer}>
             <View>
-              <Text style={styles.h2}>Kuvaus</Text>
+              <Text style={styles.h4}>Kuvaus</Text>
               <View style={{ marginLeft: '5px' }}>
                 <PDFDescription mdx={mdx} />
               </View>
             </View>
             <View>
-              <Text style={styles.h2}>Työkokemus</Text>
+              <Text style={styles.h4}>Työkokemus</Text>
               <PDFWorkExperiences workExperiences={data.workExperience} />
             </View>
             <View>
-              <Text style={styles.h2}>Koulutus</Text>
+              <Text style={styles.h4}>Koulutus</Text>
               <PDFEducations educations={data.education} />
             </View>
             <View>
-              <Text style={styles.h2}>Projektit</Text>
+              <Text style={styles.h4}>Projektit</Text>
               <PDFProjects projects={projects} />
             </View>
           </View>
