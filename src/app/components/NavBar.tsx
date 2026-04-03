@@ -28,7 +28,7 @@ const NavBar = ({ className }: NavBarProps) => {
       </div>
       <HamburgerMenu state={isOpen} onClick={() => setIsOpen(!isOpen)} />
       {isOpen && (
-        <div className='text-xl font-bold absolute left-0 right-0 -top-10 pt-2 pb-5 px-2 flex-col bg-background border-b space-y-2 flex z-50'>
+        <div className='text-xl font-bold absolute right-0 left-0 pt-2 pb-5 px-2 flex-col bg-background border-b space-y-2 flex'>
           <Link className='hover:text-blue-600' href='/'>
             Etusivu
           </Link>

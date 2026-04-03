@@ -6,7 +6,7 @@ interface HamburgerMenuProps {
 const HamburgerMenu = ({ state, onClick }: HamburgerMenuProps) => {
   return (
     <div
-      className={`absolute -top-18 mx-1 lg:hidden ${state && 'flex -left-2 -top-20 py-2 px-2 z-50 w-full bg-background'}`}
+      className={`absolute lg:hidden ${state ? 'flex top-0 py-2 px-2 z-50 w-full bg-background' : 'left-1 top-1'}`}
     >
       <button onClick={onClick} className='flex flex-col gap-1.5' type='button'>
         <span

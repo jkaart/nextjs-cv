@@ -1,12 +1,6 @@
 import { data } from '@/data/data'
 import Hero from './components/Hero'
 
-const Home = () => {
-  return (
-    <main>
-      <Hero data={data} />
-    </main>
-  )
-}
+const Home = () => <Hero data={data} />
 
 export default Home
