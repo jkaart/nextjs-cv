@@ -9,8 +9,10 @@ interface SkillsProps {
 const Skills = ({ skills }: SkillsProps) => {
   const sortedSkills = sortSkills(skills)
   return (
-    <div className='p-2'>
-      <h2 className='text-xl font-semibold'>Taidot</h2>
+    <div>
+      <h2 className='inline-block mb-2 text-2xl font-bold border-b-4'>
+        Taidot
+      </h2>
       <div className='flex flex-wrap text-5xl gap-2'>
         {sortedSkills.map(skill => (
           <Skill key={skill.id} skill={skill} />

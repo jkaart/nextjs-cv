@@ -8,8 +8,10 @@ interface ContactProps {
 
 const Contact = ({ contact }: ContactProps) => {
   return (
-    <div className='p-2'>
-      <h2 className='text-xl font-semibold'>Tiedot</h2>
+    <div>
+      <h2 className='inline-block mb-2 text-2xl font-bold border-b-4'>
+        Tiedot
+      </h2>
       <div className='text-4xl flex flex-wrap gap-1'>
         <IconLink href={validateUrl(contact.homepage)} iconType='homePage' />
         <IconLink href={validateUrl(contact.email)} iconType='eMail' />

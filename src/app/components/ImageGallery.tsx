@@ -34,16 +34,18 @@ const ImageGallery = ({ images, slug }: ImageGalleryProps) => {
             <Image
               alt={`${slug} project image ${index + 1}`}
               src={src}
-              width={1280}
-              height={720}
+              width={800}
+              height={480}
             />
           </button>
         ))}
       </div>
-      <FullScreenImage
-        selectedImage={selectedImage}
-        setSelectedImage={setSelectedImage}
-      />
+      {selectedImage && (
+        <FullScreenImage
+          selectedImage={selectedImage}
+          setSelectedImage={setSelectedImage}
+        />
+      )}
     </>
   )
 }

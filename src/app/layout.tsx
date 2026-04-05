@@ -30,7 +30,7 @@ const RootLayout = ({
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col h-screen justify-between`}
       >
         <Header />
-        <main className='mt-10 lg:mt-20'>{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

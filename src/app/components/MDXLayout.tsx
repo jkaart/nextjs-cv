@@ -1,5 +1,10 @@
-const MdxLayout = ({ children }: { children: React.ReactNode }) => {
-  return <div className='prose dark:prose-invert'>{children}</div>
+interface MdxLayoutProps {
+  children: React.ReactNode
+  className?: string
+}
+
+const MdxLayout = ({ children, className }: MdxLayoutProps) => {
+  return <div className={className}>{children}</div>
 }
 
 export default MdxLayout

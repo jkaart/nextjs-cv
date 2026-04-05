@@ -32,5 +32,6 @@ body {
 @layer utilities {
   .prose {
     max-width: 100%;
+    color: var(--foreground);
   }
 }

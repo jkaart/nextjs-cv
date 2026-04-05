@@ -5,7 +5,7 @@ const Description = async () => {
     `@data/mdx/me/description.mdx`
   )
   return (
-    <MdxLayout>
+    <MdxLayout className='prose dark:prose-invert'>
       <DescriptionContent />
     </MdxLayout>
   )
