@@ -1,4 +1,4 @@
-import { data } from '@/data/data'
+import { data } from '@data/data'
 
 const Footer = () => (
   <div className='w-full py-5 mt-2 text-center bg-slate-300 dark:bg-neutral-800'>

@@ -1,4 +1,4 @@
-import type { Skill } from '@/data/data'
+import type { Skill } from '@data/data'
 
 export const compareSkills = (a: Skill, b: Skill) => {
   const skillA = a.language.toLowerCase()

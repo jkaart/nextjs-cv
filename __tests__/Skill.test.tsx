@@ -1,5 +1,5 @@
-import Skill from '@/app/components/Skill'
-import type { Skill as SkillType } from '@/data/data'
+import Skill from '@components/Skill'
+import type { Skill as SkillType } from '@data/data'
 import '@testing-library/jest-dom'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 

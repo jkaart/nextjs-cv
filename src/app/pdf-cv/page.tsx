@@ -1,8 +1,8 @@
 'use client'
 
+import PDFResume from '@components/PDFResume'
+import useProjects from '@hooks/useProjects'
 import dynamic from 'next/dynamic'
-import PDFResume from '../components/PDFResume'
-import useProjects from '../hooks/useProjects'
 
 const PDFViewer = dynamic(
   () => import('@react-pdf/renderer').then(mod => mod.PDFViewer),

@@ -1,4 +1,4 @@
-import Contact from '@/app/components/Contact'
+import Contact from '@components/Contact'
 import { render, screen } from '@testing-library/react'
 
 describe('Contact', () => {

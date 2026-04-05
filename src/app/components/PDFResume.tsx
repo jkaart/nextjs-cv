@@ -1,5 +1,11 @@
 'use client'
 
+import PDFDescription from '@components/PDFDescription'
+import PDFEducations from '@components/PDFEducations'
+import Icon from '@components/PDFIcon'
+import PDFProjects from '@components/PDFProjects'
+import PDFWorkExperiences from '@components/PDFWorkExperiences'
+import { data, type Skill } from '@data/data'
 import {
   Document,
   Link,
@@ -8,17 +14,11 @@ import {
   Text,
   View
 } from '@react-pdf/renderer'
+import { loadMdx } from '@utils/loadMdx'
+import type { ProjectMetadata } from '@utils/projects'
+import { sortSkills } from '@utils/sortSkills'
+import { validateUrl } from '@utils/validators'
 import { useEffect, useState } from 'react'
-import { data, type Skill } from '@/data/data'
-import { loadMdx } from '@/utils/loadMdx'
-import type { ProjectMetadata } from '@/utils/projects'
-import { sortSkills } from '@/utils/sortSkills'
-import { validateUrl } from '@/utils/validators'
-import PDFDescription from './PDFDescription'
-import PDFEducations from './PDFEducations'
-import Icon from './PDFIcon'
-import PDFProjects from './PDFProjects'
-import PDFWorkExperiences from './PDFWorkExperiences'
 
 export const styles = StyleSheet.create({
   page: {

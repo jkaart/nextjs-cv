@@ -1,8 +1,8 @@
 'use client'
 
 import { Path, Svg } from '@react-pdf/renderer'
+import { getDevIconPath } from '@utils/getDevIcon'
 import { useEffect, useState } from 'react'
-import { getDevIconPath } from '@/utils/getDevIcon'
 
 interface IconProps {
   iconName: string

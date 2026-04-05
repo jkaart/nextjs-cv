@@ -1,8 +1,8 @@
 'use client'
 
+import PDFResume from '@components/PDFResume'
+import useProjects from '@hooks/useProjects'
 import dynamic from 'next/dynamic'
-import useProjects from '../hooks/useProjects'
-import PDFResume from './PDFResume'
 
 interface CVDownloadProps {
   label: string

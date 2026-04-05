@@ -1,7 +1,7 @@
+import MDXContent from '@components/MDXContent'
+import { getProject } from '@utils/projects'
 import { notFound } from 'next/navigation'
-import MDXContent from '@/app/components/MDXContent'
-import MdxLayout from '@/app/components/MDXLayout'
-import { getProject } from '@/utils/projects'
+import MdxLayout from '../../components/MDXLayout'
 
 interface ProjectProps {
   params: {

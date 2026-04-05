@@ -1,4 +1,4 @@
-import { getIcon, type IconType } from '@/utils/getIcon'
+import { getIcon, type IconType } from '@utils/getIcon'
 
 interface IconLinkProps {
   href: string

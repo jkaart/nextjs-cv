@@ -1,7 +1,7 @@
+import PDFWorkExperience from '@components/PDFWorkExperience'
+import type { WorkExperience as WorkExperienceType } from '@data/data'
 import { View } from '@react-pdf/renderer'
-import type { WorkExperience as WorkExperienceType } from '@/data/data'
-import { sortWorkExperiences } from '@/utils/sortWorkExperiences'
-import PDFWorkExperience from './PDFWorkExperience'
+import { sortWorkExperiences } from '@utils/sortWorkExperiences'
 
 interface PDFWorkExperienceProps {
   workExperiences: WorkExperienceType[]

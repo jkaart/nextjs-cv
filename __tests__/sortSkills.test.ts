@@ -1,5 +1,5 @@
-import type { Skill } from '@/data/data'
-import { compareSkills, sortSkills } from '@/utils/sortSkills'
+import type { Skill } from '@data/data'
+import { compareSkills, sortSkills } from '@utils/sortSkills'
 
 describe('sortSkills', () => {
   const skillsData = [

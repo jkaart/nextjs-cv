@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
+import HeroHeader from '@components/HeroHeader'
+import type { Me } from '@data/data'
 import { render, screen } from '@testing-library/react'
-import HeroHeader from '@/app/components/HeroHeader'
-import type { Me } from '@/data/data'
 
 describe('HeroHeader', () => {
   const me = {

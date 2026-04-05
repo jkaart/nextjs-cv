@@ -1,5 +1,5 @@
+import type { ImageProps } from '@components/ImageGallery'
 import Image from 'next/image'
-import type { ImageProps } from './ImageGallery'
 
 interface FullScreenImageProps {
   selectedImage: ImageProps | null

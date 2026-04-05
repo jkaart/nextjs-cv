@@ -1,4 +1,4 @@
-import { formatProjectDates } from "@/utils/formatProjectDates"
+import { formatProjectDates } from "@utils/formatProjectDates"
 
 describe('formatProjectDates', () => {
   it('return object which contains formatted startDate and endDate in "DD.MM.YYYY" format', () => {

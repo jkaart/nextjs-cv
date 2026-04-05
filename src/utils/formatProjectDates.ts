@@ -1,4 +1,4 @@
-import { dateToString } from "./dateToString"
+import { dateToString } from "@utils/dateToString"
 
 export const formatProjectDates = (startDate: string | undefined, endDate: string | undefined) => {
   const formattedStartDate = startDate

@@ -1,8 +1,8 @@
-import MdxLayout from './MDXLayout'
+import MdxLayout from '@components/MDXLayout'
 
 const Description = async () => {
   const { default: DescriptionContent } = await import(
-    `@/data/mdx/me/description.mdx`
+    `@data/mdx/me/description.mdx`
   )
   return (
     <MdxLayout>

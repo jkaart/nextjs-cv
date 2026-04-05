@@ -1,5 +1,5 @@
+import type { ProjectMetadata } from '@utils/projects'
 import { useEffect, useState } from 'react'
-import type { ProjectMetadata } from '@/utils/projects'
 
 const useProjects = () => {
   const [projects, setProjects] = useState<ProjectMetadata[] | null>(null)

@@ -1,7 +1,7 @@
+import PDFEducation from '@components/PDFEducation'
+import type { Education as EducationType } from '@data/data'
 import { View } from '@react-pdf/renderer'
-import type { Education as EducationType } from '@/data/data'
-import { sortEducations } from '@/utils/sortEducations'
-import PDFEducation from './PDFEducation'
+import { sortEducations } from '@utils/sortEducations'
 
 interface PDFEducationsProps {
   educations: EducationType[]

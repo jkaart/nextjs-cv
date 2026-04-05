@@ -1,10 +1,10 @@
 'use client'
 
+import Education from '@components/common/Education'
+import ShowMore from '@components/common/ShowMore'
+import type { Education as EducationType } from '@data/data'
+import { sortEducations } from '@utils/sortEducations'
 import { useState } from 'react'
-import type { Education as EducationType } from '@/data/data'
-import { sortEducations } from '@/utils/sortEducations'
-import Education from './common/Education'
-import ShowMore from './common/ShowMore'
 
 interface EducationsProps {
   educations: EducationType[]

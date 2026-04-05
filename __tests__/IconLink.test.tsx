@@ -1,4 +1,4 @@
-import IconLink from '@/app/components/common/IconLink'
+import IconLink from '@components/common/IconLink'
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 

@@ -1,4 +1,4 @@
-import NavBar from './NavBar'
+import NavBar from '@components/NavBar'
 
 const Header = () => (
   <div className='fixed w-full border-b bg-slate-300 dark:bg-neutral-800 z-50'>

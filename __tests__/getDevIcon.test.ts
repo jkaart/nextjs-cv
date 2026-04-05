@@ -1,4 +1,4 @@
-import { getDevIcon, getDevIconPath } from "@/utils/getDevIcon"
+import { getDevIcon, getDevIconPath } from "@utils/getDevIcon"
 
 describe('getDevIcon', () => {
   it('should return an icon component for valid icon names', async () => {

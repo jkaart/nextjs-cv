@@ -1,5 +1,5 @@
-import ProjectListItem from '@/app/components/ProjectListItem'
-import type { ProjectMetadata } from '@/utils/projects'
+import ProjectListItem from '@components/ProjectListItem'
+import type { ProjectMetadata } from '@utils/projects'
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 

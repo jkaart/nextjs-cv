@@ -1,4 +1,4 @@
-import { dateToString } from "@/utils/dateToString"
+import { dateToString } from "@utils/dateToString"
 
 describe('dateToString', () => {
   describe('with month format (default)', () => {

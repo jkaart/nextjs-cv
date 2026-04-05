@@ -1,4 +1,4 @@
-import { getProjectImages } from '@/utils/projects'
+import { getProjectImages } from '@utils/projects'
 import ImageGallery from './ImageGallery'
 
 interface ProjectImagesProps {

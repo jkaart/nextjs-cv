@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
+import Educations from '@components/Educations'
+import type { Education as EducationType } from '@data/data'
 import { render, screen } from '@testing-library/react'
-import Educations from '@/app/components/Educations'
-import type { Education as EducationType } from '@/data/data'
 
 describe('Educations', () => {
   const educations = [

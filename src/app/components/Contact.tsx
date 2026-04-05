@@ -1,6 +1,6 @@
-import type { Contact as ContactType } from '@/data/data'
-import { validateUrl } from '@/utils/validators'
-import IconLink from './common/IconLink'
+import IconLink from '@components/common/IconLink'
+import type { Contact as ContactType } from '@data/data'
+import { validateUrl } from '@utils/validators'
 
 interface ContactProps {
   contact: ContactType

@@ -1,5 +1,5 @@
-import type { WorkExperience as WorkExperienceType } from '@/data/data'
-import { dateToString } from '@/utils/dateToString'
+import type { WorkExperience as WorkExperienceType } from '@data/data'
+import { dateToString } from '@utils/dateToString'
 
 interface WorkExperienceProps {
   workExperience: WorkExperienceType

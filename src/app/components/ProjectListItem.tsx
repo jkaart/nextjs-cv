@@ -1,7 +1,7 @@
+import { formatProjectDates } from '@utils/formatProjectDates'
+import { formatTechnologiesString } from '@utils/formatTechnologiesString'
+import type { ProjectMetadata } from '@utils/projects'
 import Link from 'next/link'
-import { formatProjectDates } from '@/utils/formatProjectDates'
-import { formatTechnologiesString } from '@/utils/formatTechnologiesString'
-import type { ProjectMetadata } from '@/utils/projects'
 
 interface ProjectListItemProps {
   project: ProjectMetadata

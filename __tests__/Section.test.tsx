@@ -1,4 +1,4 @@
-import Section from '@/app/components/common/Section'
+import Section from '@components/common/Section'
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 

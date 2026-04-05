@@ -1,5 +1,5 @@
-import WorkExperience from '@/app/components/common/WorkExperience'
-import type { WorkExperience as WorkExperienceType } from '@/data/data'
+import WorkExperience from '@components/common/WorkExperience'
+import type { WorkExperience as WorkExperienceType } from '@data/data'
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 

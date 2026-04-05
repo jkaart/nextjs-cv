@@ -1,4 +1,4 @@
-import { getIcon } from '@/utils/getIcon'
+import { getIcon } from '@utils/getIcon'
 import '@testing-library/jest-dom'
 import {
   FaGithub as GithubIcon,

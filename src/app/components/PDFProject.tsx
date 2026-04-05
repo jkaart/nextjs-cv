@@ -1,8 +1,8 @@
+import { styles } from '@components/PDFResume'
 import { Text, View } from '@react-pdf/renderer'
-import { formatProjectDates } from '@/utils/formatProjectDates'
-import { formatTechnologiesString } from '@/utils/formatTechnologiesString'
-import type { ProjectMetadata } from '@/utils/projects'
-import { styles } from './PDFResume'
+import { formatProjectDates } from '@utils/formatProjectDates'
+import { formatTechnologiesString } from '@utils/formatTechnologiesString'
+import type { ProjectMetadata } from '@utils/projects'
 
 interface PDFProjectProps {
   project: ProjectMetadata

@@ -1,5 +1,5 @@
-import Education from '@/app/components/common/Education'
-import type { Education as EducationType } from '@/data/data'
+import Education from '@components/common/Education'
+import type { Education as EducationType } from '@data/data'
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 

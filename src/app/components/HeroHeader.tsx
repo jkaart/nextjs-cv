@@ -1,4 +1,4 @@
-import type { Me } from '@/data/data'
+import type { Me } from '@data/data'
 
 interface HeroHeaderProps {
   me: Me

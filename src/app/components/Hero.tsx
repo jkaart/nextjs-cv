@@ -1,12 +1,12 @@
-import type { Data } from '@/data/data'
-import Contact from './Contact'
-import Section from './common/Section'
-import Description from './Description'
-import Educations from './Educations'
-import HeroHeader from './HeroHeader'
-import Projects from './Projects'
-import Skills from './Skills'
-import WorkExperiences from './WorkExperiences'
+import Contact from '@components/Contact'
+import Section from '@components/common/Section'
+import Description from '@components/Description'
+import Educations from '@components/Educations'
+import HeroHeader from '@components/HeroHeader'
+import Projects from '@components/Projects'
+import Skills from '@components/Skills'
+import WorkExperiences from '@components/WorkExperiences'
+import type { Data } from '@data/data'
 
 interface HeroProps {
   data: Data

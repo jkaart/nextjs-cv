@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
+import ShowMore from '@components/common/ShowMore'
 import { act, render, screen } from '@testing-library/react'
-import ShowMore from '@/app/components/common/ShowMore'
 
 describe('ShowMore', () => {
   it('renders button with "Näytä lisää" initially', () => {

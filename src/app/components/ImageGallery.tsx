@@ -1,8 +1,8 @@
 'use client'
 
+import FullScreenImage from '@components/FullScreenImage'
 import Image from 'next/image'
 import { useState } from 'react'
-import FullScreenImage from './FullScreenImage'
 
 export interface ImageProps {
   src: string

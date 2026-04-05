@@ -1,9 +1,9 @@
 'use client'
 
+import CVDownload from '@components/CVDownload'
+import HamburgerMenu from '@components/HamburgerMenu'
 import Link from 'next/link'
 import { useState } from 'react'
-import CVDownload from './CVDownload'
-import HamburgerMenu from './HamburgerMenu'
 
 interface NavBarProps {
   className?: string

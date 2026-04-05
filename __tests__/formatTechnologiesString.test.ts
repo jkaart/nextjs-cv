@@ -1,4 +1,4 @@
-import { formatTechnologiesString } from '@/utils/formatTechnologiesString'
+import { formatTechnologiesString } from '@utils/formatTechnologiesString'
 
 describe('formatTechnologiesString', () => {
   describe('basic functionality', () => {

@@ -1,5 +1,5 @@
+import ProjectImages from '@components/ProjectImages'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import ProjectImages from './ProjectImages'
 
 interface MDXContentProps {
   source: string

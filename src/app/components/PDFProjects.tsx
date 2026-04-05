@@ -1,8 +1,8 @@
 'use client'
 
+import PDFProject from '@components/PDFProject'
 import { View } from '@react-pdf/renderer'
-import type { ProjectMetadata } from '@/utils/projects'
-import PDFProject from './PDFProject'
+import type { ProjectMetadata } from '@utils/projects'
 
 interface PDFProjectsProps {
   projects: ProjectMetadata[]
