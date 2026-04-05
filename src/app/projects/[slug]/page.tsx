@@ -4,9 +4,7 @@ import { notFound } from 'next/navigation'
 import MdxLayout from '../../components/MDXLayout'
 
 interface ProjectProps {
-  params: {
-    slug: string
-  }
+  params: Promise<{ slug: string }>
 }
 
 const Project = async ({ params }: ProjectProps) => {
