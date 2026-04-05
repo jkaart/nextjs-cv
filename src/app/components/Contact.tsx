@@ -10,20 +10,12 @@ const Contact = ({ contact }: ContactProps) => {
   return (
     <div className='p-2'>
       <h2 className='text-xl font-semibold'>Tiedot</h2>
-      <ul className='text-3xl flex flex-wrap'>
-        <li className='me-2'>
-          <IconLink href={validateUrl(contact.homepage)} iconType='homePage' />
-        </li>
-        <li className='me-2'>
-          <IconLink href={validateUrl(contact.email)} iconType='eMail' />
-        </li>
-        <li className='me-2'>
-          <IconLink href={validateUrl(contact.gitHub)} iconType='gitHub' />
-        </li>
-        <li>
-          <IconLink href={validateUrl(contact.linkedIn)} iconType='linkedIn' />
-        </li>
-      </ul>
+      <div className='text-4xl flex flex-wrap gap-1'>
+        <IconLink href={validateUrl(contact.homepage)} iconType='homePage' />
+        <IconLink href={validateUrl(contact.email)} iconType='eMail' />
+        <IconLink href={validateUrl(contact.gitHub)} iconType='gitHub' />
+        <IconLink href={validateUrl(contact.linkedIn)} iconType='linkedIn' />
+      </div>
     </div>
   )
 }
