@@ -3,9 +3,10 @@ import { getIcon, type IconType } from '@/utils/getIcon'
 interface IconLinkProps {
   href: string
   iconType: IconType
+  className?: string
 }
 
-const IconLink = ({ href, iconType }: IconLinkProps) => {
+const IconLink = ({ href, iconType, className }: IconLinkProps) => {
   const Icon = getIcon(iconType)
 
   if (Icon instanceof Error) {
@@ -13,7 +14,12 @@ const IconLink = ({ href, iconType }: IconLinkProps) => {
   }
 
   return (
-    <a data-testid='icon-link' href={href}>
+    <a
+      className={className}
+      data-testid='icon-link'
+      target='_blank'
+      href={href}
+    >
       {Icon}
     </a>
   )

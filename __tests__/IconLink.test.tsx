@@ -25,4 +25,11 @@ describe('IconLink', () => {
 
     expect(icon).toBeVisible()
   })
+
+  it('renders with target blank attribute', () => {
+    render(<IconLink href={href} iconType='homePage' />)
+    const Component = screen.getByTestId('icon-link')
+
+    expect(Component).toHaveAttribute('target', '_blank')
+  })
 })
