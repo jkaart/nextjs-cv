@@ -17,8 +17,8 @@ const ProjectListItem = ({ project, href }: ProjectListItemProps) => {
   )
 
   return (
-    <div className='border rounded-xl p-2 bg-gray-200 hover:shadow-gray-400 dark:bg-gray-700 hover:shadow-lg'>
-      <Link className=' p-2' href={href}>
+    <Link href={href}>
+      <div className='border rounded-xl p-2 bg-gray-200 hover:shadow-gray-400 dark:bg-gray-700 hover:shadow-lg'>
         <h3 className='text-l font-bold'>{project.title}</h3>
         <p>{project.summary}</p>
         <div className='my-2'>
@@ -32,8 +32,8 @@ const ProjectListItem = ({ project, href }: ProjectListItemProps) => {
         <div>
           {startDate} - {endDate}
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   )
 }
 
