@@ -17,21 +17,23 @@ const ProjectListItem = ({ project, href }: ProjectListItemProps) => {
   )
 
   return (
-    <Link className='border p-2' href={href}>
-      <h3 className='text-l font-bold'>{project.title}</h3>
-      <p>{project.summary}</p>
-      <div className='my-2'>
-        <span className='inline-flex me-1 font-bold'>
-          Käytetyt teknologiat:
-        </span>
-        <div className='inline-flex gap-1 font-bold'>
-          {formatTechnologiesString(technologies)}
+    <div className='border rounded-xl p-2 bg-gray-200 hover:shadow-gray-400 dark:bg-gray-700 hover:shadow-lg'>
+      <Link className=' p-2' href={href}>
+        <h3 className='text-l font-bold'>{project.title}</h3>
+        <p>{project.summary}</p>
+        <div className='my-2'>
+          <span className='inline-flex me-1 font-bold'>
+            Käytetyt teknologiat:
+          </span>
+          <div className='inline-flex gap-1 font-bold'>
+            {formatTechnologiesString(technologies)}
+          </div>
         </div>
-      </div>
-      <div>
-        {startDate} - {endDate}
-      </div>
-    </Link>
+        <div>
+          {startDate} - {endDate}
+        </div>
+      </Link>
+    </div>
   )
 }
 
