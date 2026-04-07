@@ -16,29 +16,27 @@ interface HeroProps {
 const Hero = async ({ data }: HeroProps) => (
   <>
     <HeroHeader me={data.me} />
-    <div>
-      <div className='grid gap-2 lg:grid-cols-8 lg:grid-rows-1'>
-        <div className='lg:col-span-2'>
-          <div className='bg-gray-100 dark:bg-gray-800 border rounded-md p-2 mb-3 grid gap-5'>
-            <MePhoto image={data.me.image} />
-            <Contact contact={data.contact} />
-            <Skills skills={data.skill} />
-          </div>
+    <div className='grid gap-2 lg:grid-cols-8 lg:grid-rows-1'>
+      <div className='lg:col-span-2'>
+        <div className='bg-gray-100 dark:bg-gray-800 border rounded-md p-2 mb-3 grid gap-5'>
+          <MePhoto image={data.me.image} />
+          <Contact contact={data.contact} />
+          <Skills skills={data.skill} />
         </div>
-        <div className='lg:col-span-6'>
-          <Section title='Kuvaus'>
-            <Description />
-          </Section>
-          <Section title='Työkokemus'>
-            <WorkExperiences workExperiences={data.workExperience} />
-          </Section>
-          <Section title='Koulutus'>
-            <Educations educations={data.education} />
-          </Section>
-          <Section title='Projektit'>
-            <Projects />
-          </Section>
-        </div>
+      </div>
+      <div className='lg:col-span-6'>
+        <Section title='Kuvaus'>
+          <Description />
+        </Section>
+        <Section title='Työkokemus'>
+          <WorkExperiences workExperiences={data.workExperience} />
+        </Section>
+        <Section title='Koulutus'>
+          <Educations educations={data.education} />
+        </Section>
+        <Section title='Projektit'>
+          <Projects />
+        </Section>
       </div>
     </div>
   </>
