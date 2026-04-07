@@ -13,7 +13,7 @@ interface HeroProps {
 }
 
 const Hero = async ({ data }: HeroProps) => (
-  <div className='mt-10 lg:mt-20'>
+  <>
     <HeroHeader me={data.me} />
     <div className='mx-auto w-5/6'>
       <div className='grid gap-2 lg:grid-cols-8 lg:grid-rows-1'>
@@ -39,7 +39,7 @@ const Hero = async ({ data }: HeroProps) => (
         </div>
       </div>
     </div>
-  </div>
+  </>
 )
 
 export default Hero
