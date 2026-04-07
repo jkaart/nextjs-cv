@@ -19,6 +19,7 @@ import type { ProjectMetadata } from '@utils/projects'
 import { sortSkills } from '@utils/sortSkills'
 import { validateUrl } from '@utils/validators'
 import { useEffect, useState } from 'react'
+import MePhoto from './PDFMePhoto'
 
 export const styles = StyleSheet.create({
   page: {
@@ -146,6 +147,7 @@ const PDFResume = ({ projects }: PDFResumeProps) => {
         <View style={styles.container}>
           <View>
             <View style={styles.infoAndSkillsContainer}>
+              <MePhoto image={data.me.image} />
               <Text style={styles.h4}>Tiedot</Text>
               <PDFLink src={data.contact.homepage} title='Kotisivu' />
               <PDFLink src={data.contact.email} title='Sähköposti' />
