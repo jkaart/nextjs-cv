@@ -27,10 +27,10 @@ const RootLayout = ({
   return (
     <html lang='fi'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col h-screen justify-between`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         <Header />
-        <main>{children}</main>
+        {children}
         <Footer />
       </body>
     </html>

@@ -22,12 +22,14 @@ const Project = async ({ params }: ProjectProps) => {
   const { title } = metadata
 
   return (
-    <MdxLayout className='flex justify-center'>
-      <div className='prose dark:prose-invert mt-10 lg:mt-20 lg:w-1/2 p-2 border bg-gray-100 dark:bg-gray-800'>
-        <h1>{title}</h1>
-        <MDXContent source={content} slug={slug} />
-      </div>
-    </MdxLayout>
+    <main className='flex-1 lg:mx-auto mb-2 lg:max-w-4xl mx-3'>
+      <MdxLayout className='prose dark:prose-invert p-2 border border-t-0 bg-gray-100 dark:bg-gray-800'>
+        <div>
+          <h1>{title}</h1>
+          <MDXContent source={content} slug={slug} />
+        </div>
+      </MdxLayout>
+    </main>
   )
 }
 
