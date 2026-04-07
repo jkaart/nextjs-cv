@@ -3,6 +3,10 @@
 import FullScreenImage from '@components/FullScreenImage'
 import Image from 'next/image'
 import { useState } from 'react'
+import {
+  FaArrowCircleLeft as ArrowLeft,
+  FaArrowCircleRight as ArrowRight
+} from 'react-icons/fa'
 
 export interface ImageProps {
   src: string
@@ -14,31 +18,128 @@ interface ImageGalleryProps {
   slug: string
 }
 
+interface ArrowButtonProps {
+  direction: 'prev' | 'next'
+  images: ImageProps[]
+  setCurrentIndex: React.Dispatch<React.SetStateAction<number>>
+  className?: string
+}
+
+interface PrevAndNextButtonProps {
+  images: ImageProps[]
+  setCurrentIndex: React.Dispatch<React.SetStateAction<number>>
+  className?: string
+}
+
+const PrevButton = ({
+  images,
+  setCurrentIndex,
+  className
+}: PrevAndNextButtonProps) => {
+  const prevSlide = () => {
+    setCurrentIndex(
+      prevIndex => (prevIndex - 1 + images.length) % images.length
+    )
+  }
+
+  return (
+    <div className='my-auto'>
+      <button className={className} onClick={prevSlide} type='button'>
+        <ArrowLeft data-testid='left-arrow' className='w-10 h-10' />
+      </button>
+    </div>
+  )
+}
+
+const NextButton = ({
+  images,
+  setCurrentIndex,
+  className
+}: PrevAndNextButtonProps) => {
+  const nextSlide = () => {
+    setCurrentIndex(
+      prevIndex => (prevIndex + 1 + images.length) % images.length
+    )
+  }
+
+  return (
+    <div className='my-auto'>
+      <button className={className} onClick={nextSlide} type='button'>
+        <ArrowRight data-testid='right-arrow' className='w-10 h-10' />
+      </button>
+    </div>
+  )
+}
+
+const ArrowButton = ({
+  direction,
+  images,
+  setCurrentIndex,
+  className
+}: ArrowButtonProps) => {
+  return direction === 'prev' ? (
+    <PrevButton
+      images={images}
+      className={className}
+      setCurrentIndex={setCurrentIndex}
+    />
+  ) : (
+    <NextButton
+      images={images}
+      className={className}
+      setCurrentIndex={setCurrentIndex}
+    />
+  )
+}
+
 const ImageGallery = ({ images, slug }: ImageGalleryProps) => {
   const [selectedImage, setSelectedImage] = useState<ImageProps | null>(null)
+  const [currentIndex, setCurrentIndex] = useState<number>(0)
+
+  const imagePropsArray: ImageProps[] = images.map((src, index) => ({
+    src,
+    alt: `${slug} project image ${index + 1}`
+  }))
 
   return (
     <>
-      <div className='mx-2'>
-        {images.map((src, index) => (
+      <div data-testid='image-gallery' className='flex flex-row'>
+        <div className='my-auto'>
+          <ArrowButton
+            direction='prev'
+            images={imagePropsArray}
+            setCurrentIndex={setCurrentIndex}
+            className='mx-1'
+          />
+        </div>
+        <div data-testid='image-container'>
           <button
-            key={src}
+            key={currentIndex}
             onClick={() =>
               setSelectedImage({
-                src,
-                alt: `${slug} project image ${index + 1}`
+                src: images[currentIndex],
+                alt: `${slug} project image ${currentIndex + 1}`
               })
             }
             type='button'
           >
             <Image
-              alt={`${slug} project image ${index + 1}`}
-              src={src}
+              alt={`${slug} project image ${currentIndex + 1}`}
+              src={images[currentIndex]}
               width={800}
               height={480}
+              data-testid='selected-image'
             />
           </button>
-        ))}
+        </div>
+        <div className='my-auto'>
+          <ArrowButton
+            direction='next'
+            images={imagePropsArray}
+            setCurrentIndex={setCurrentIndex}
+            className='mx-1'
+          />
+        </div>
       </div>
       {selectedImage && (
         <FullScreenImage

@@ -21,6 +21,7 @@ const FullScreenImage = ({
           alt={selectedImage.alt}
           width={1280}
           height={720}
+          data-testid='fullscreen-image'
         />
       </button>
     </div>
