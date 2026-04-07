@@ -112,7 +112,10 @@ const ImageGallery = ({ images, slug }: ImageGalleryProps) => {
             className='mx-1'
           />
         </div>
-        <div data-testid='image-container'>
+        <div
+          data-testid='image-container'
+          className='flex items-center justify-center w-200 h-120'
+        >
           <button
             key={currentIndex}
             onClick={() =>
