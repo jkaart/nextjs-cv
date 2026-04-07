@@ -6,7 +6,7 @@ interface EducationProps {
 
 const Education = ({ education }: EducationProps) => {
   return (
-    <div className='mb-2'>
+    <div data-testid='education' className='mb-2'>
       <ul>
         <li className='font-semibold'>{education.professionalTitle}</li>
         <li>{education.education}</li>

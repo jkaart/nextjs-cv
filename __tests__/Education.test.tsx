@@ -58,8 +58,14 @@ describe('Education', () => {
   it('renders all fields in a list within a div with mb-2 class', () => {
     render(<Education education={education} />)
 
+    const educationDiv = screen.getByTestId('education')
+    expect(educationDiv).toBeInTheDocument()
+    expect(educationDiv).toHaveClass('mb-2')
+
     const ulElement = screen.getByRole('list')
     expect(ulElement).toBeInTheDocument()
+
+    expect(educationDiv).toContainElement(ulElement)
 
     const liElements = screen.getAllByRole('listitem')
     expect(liElements).toHaveLength(5)
