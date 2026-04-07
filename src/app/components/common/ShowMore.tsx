@@ -21,7 +21,11 @@ const ShowMore = <T,>({ data, setData }: ShowMoreProps<T>) => {
 
   return (
     <div className='text-center'>
-      <button type='button' onClick={showMoreHandler}>
+      <button
+        className='cursor-pointer hover:text-shadow-md hover:text-shadow-gray-400 dark:hover:text-shadow-gray-600'
+        type='button'
+        onClick={showMoreHandler}
+      >
         {showMore ? 'Näytä lisää' : 'Näytä vähemmän'}
       </button>
     </div>
