@@ -1,5 +1,5 @@
 import { styles } from '@components/PDFResume'
-import { Text, View } from '@react-pdf/renderer'
+import { Link, Text, View } from '@react-pdf/renderer'
 import { formatProjectDates } from '@utils/formatProjectDates'
 import { formatTechnologiesString } from '@utils/formatTechnologiesString'
 import type { ProjectMetadata } from '@utils/projects'
@@ -26,6 +26,14 @@ const PDFProject = ({ project }: PDFProjectProps) => {
       <Text>
         {startDate} - {endDate}
       </Text>
+      <View>
+        {project.urls?.map(url => (
+          <View style={{ flexDirection: 'row', gap: 2 }} key={url.url}>
+            <Text>{url.title}</Text>
+            <Link href={url.url}>{url.url}</Link>
+          </View>
+        ))}
+      </View>
     </View>
   )
 }
