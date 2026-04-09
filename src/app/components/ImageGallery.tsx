@@ -103,7 +103,10 @@ const ImageGallery = ({ images, slug }: ImageGalleryProps) => {
 
   return (
     <>
-      <div data-testid='image-gallery' className='flex flex-row'>
+      <div
+        data-testid='image-gallery'
+        className='flex flex-row border border-red-700'
+      >
         <div className='my-auto'>
           <ArrowButton
             direction='prev'
@@ -114,7 +117,7 @@ const ImageGallery = ({ images, slug }: ImageGalleryProps) => {
         </div>
         <div
           data-testid='image-container'
-          className='flex items-center justify-center w-200 h-120'
+          className='flex items-center justify-center w-200 h-50 lg:h-120'
         >
           <button
             key={currentIndex}
