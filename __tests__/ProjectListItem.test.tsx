@@ -10,7 +10,8 @@ describe('ProjectListItem', () => {
     summary: 'This is a brief description of my awesome project.',
     technologies: ['React', 'TypeScript', 'Node.js'],
     startDate: '2023-01-01',
-    endDate: '2023-12-31'
+    endDate: '2023-12-31',
+    urls: [{ url: 'https://github.com/example/repo', title: 'GitHub' }]
   }
 
   it('renders ProjectListItem component', () => {
@@ -113,5 +114,83 @@ describe('ProjectListItem', () => {
 
     const linkElement = container.querySelector('a') as HTMLAnchorElement
     expect(linkElement?.getAttribute('href')).toBe('/custom-path')
+  })
+
+  it('renders ProjectUrl buttons for each external URL', () => {
+    const projectWithUrls: ProjectMetadata = {
+      ...mockProject,
+      urls: [
+        { url: 'https://github.com/example/repo', title: 'GitHub Repository' },
+        { url: 'https://example.com/docs', title: 'Documentation' }
+      ]
+    }
+
+    render(
+      <ProjectListItem project={projectWithUrls} href='/projects/project-1' />
+    )
+
+    const urlButtons = screen.getAllByRole('button')
+    expect(urlButtons).toHaveLength(2)
+
+    expect(screen.getByText('GitHub Repository')).toBeInTheDocument()
+    expect(screen.getByText('Documentation')).toBeInTheDocument()
+  })
+
+  it('renders ProjectUrl button with correct href attribute', () => {
+    const projectWithUrls: ProjectMetadata = {
+      ...mockProject
+    }
+
+    render(
+      <ProjectListItem project={projectWithUrls} href='/projects/project-1' />
+    )
+
+    const urlButton = screen.getByText('GitHub') as HTMLButtonElement
+    expect(urlButton).toHaveAttribute('type', 'button')
+  })
+
+  it('renders ProjectUrl button with hover classes', () => {
+    const projectWithUrls: ProjectMetadata = {
+      ...mockProject
+    }
+
+    render(
+      <ProjectListItem project={projectWithUrls} href='/projects/project-1' />
+    )
+
+    const urlButton = screen.getByText('GitHub') as HTMLButtonElement
+    expect(urlButton).toHaveClass('hover:text-blue-600', 'hover:cursor-pointer')
+  })
+
+  it('handles ProjectUrl with empty urls array', () => {
+    const projectWithEmptyUrls: ProjectMetadata = {
+      ...mockProject,
+      urls: []
+    }
+
+    render(
+      <ProjectListItem
+        project={projectWithEmptyUrls}
+        href='/projects/project-1'
+      />
+    )
+
+    expect(screen.queryByRole('button')).not.toBeInTheDocument()
+  })
+
+  it('handles ProjectUrl with undefined urls', () => {
+    const projectWithoutUrls: ProjectMetadata = {
+      ...mockProject,
+      urls: undefined
+    }
+
+    render(
+      <ProjectListItem
+        project={projectWithoutUrls}
+        href='/projects/project-1'
+      />
+    )
+
+    expect(screen.queryByRole('button')).not.toBeInTheDocument()
   })
 })
