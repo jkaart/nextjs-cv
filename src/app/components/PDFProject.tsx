@@ -23,7 +23,7 @@ const PDFProject = ({ project }: PDFProjectProps) => {
       <Text style={{ fontWeight: 'bold', marginBottom: '5px' }}>
         {`Käytetyt teknologiat: ${formatTechnologiesString(technologies)}`}
       </Text>
-      <Text>
+      <Text style={{ marginBottom: '5px' }}>
         {startDate} - {endDate}
       </Text>
       <View>

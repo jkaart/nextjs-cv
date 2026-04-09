@@ -9,7 +9,7 @@ interface PDFProjectsProps {
 }
 
 const PDFProjects = ({ projects }: PDFProjectsProps) => (
-  <View>
+  <View style={{ marginLeft: '5px' }}>
     {projects.map(project => (
       <PDFProject key={project.slug} project={project} />
     ))}
