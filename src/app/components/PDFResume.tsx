@@ -9,6 +9,7 @@ import { Document, Page, StyleSheet, Text, View } from '@react-pdf/renderer'
 import { loadMdx } from '@utils/loadMdx'
 import type { ProjectMetadata } from '@utils/projects'
 import { useEffect, useState } from 'react'
+import PDFFooter from './PDFFooter'
 import PDFLink from './PDFLink'
 import MePhoto from './PDFMePhoto'
 import PDFSkillList from './PDFSkills'
@@ -124,6 +125,7 @@ const PDFResume = ({ projects }: PDFResumeProps) => {
             </View>
           </View>
         </View>
+        <PDFFooter />
       </Page>
     </Document>
   )
