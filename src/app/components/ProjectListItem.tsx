@@ -1,3 +1,4 @@
+import ProjectUrl from '@components/ProjectUrl'
 import { formatProjectDates } from '@utils/formatProjectDates'
 import { formatTechnologiesString } from '@utils/formatTechnologiesString'
 import type { ProjectMetadata } from '@utils/projects'
@@ -31,6 +32,11 @@ const ProjectListItem = ({ project, href }: ProjectListItemProps) => {
         </div>
         <div>
           {startDate} - {endDate}
+        </div>
+        <div>
+          {project.urls?.map(url => (
+            <ProjectUrl key={url.url} href={url.url} title={url.title} />
+          ))}
         </div>
       </div>
     </Link>

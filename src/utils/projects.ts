@@ -3,12 +3,18 @@ import { readdir } from 'node:fs/promises'
 import path from 'node:path'
 import matter from 'gray-matter'
 
+interface Url {
+  title: string
+  url: string
+}
+
 export interface ProjectMetadata {
   title?: string
   summary?: string
   technologies?: string[]
   startDate?: string
   endDate?: string | 'current'
+  urls?: Url[]
   slug: string
 }
 
