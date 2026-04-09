@@ -20,6 +20,9 @@
     "plugins": [
       {
         "name": "next"
+      },
+      {
+        "name": "@mdx-js/typescript-plugin"
       }
     ],
     "paths": {
@@ -43,7 +46,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    "**/*.mts",
+    "**/*.mdx"
   ],
   "exclude": [
     "node_modules"
