@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { readdir } from 'node:fs/promises'
 import path from 'node:path'
 import matter from 'gray-matter'
+import { sortProjects } from './sortProjects'
 
 interface Url {
   title: string
@@ -57,12 +58,22 @@ export const getProjects = async (
   const files = await readdir(mdxRootDirectory)
 
   const projects = files.map((file: string) => getProjectMetadata(file))
+  const filteredProjectsWithEndDate = projects.filter(
+    (project): project is ProjectMetadata & { endDate: string } =>
+      typeof project.endDate === 'string'
+  )
+
+  const filteredProjectsWithoutEndDate = projects.filter((project): project is ProjectMetadata => typeof project.endDate === 'undefined')
+
+  const sortedProjects = sortProjects(filteredProjectsWithEndDate)
+
+  const allProjects = [...sortedProjects, ...filteredProjectsWithoutEndDate]
 
   if (limit) {
-    return projects.slice(0, limit)
+    return allProjects.slice(0, limit)
   }
 
-  return projects
+  return allProjects
 }
 
 export const getProjectMetadata = (filepath: string): ProjectMetadata => {
