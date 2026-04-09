@@ -2,24 +2,16 @@
 
 import PDFDescription from '@components/PDFDescription'
 import PDFEducations from '@components/PDFEducations'
-import Icon from '@components/PDFIcon'
 import PDFProjects from '@components/PDFProjects'
 import PDFWorkExperiences from '@components/PDFWorkExperiences'
-import { data, type Skill } from '@data/data'
-import {
-  Document,
-  Link,
-  Page,
-  StyleSheet,
-  Text,
-  View
-} from '@react-pdf/renderer'
+import { data } from '@data/data'
+import { Document, Page, StyleSheet, Text, View } from '@react-pdf/renderer'
 import { loadMdx } from '@utils/loadMdx'
 import type { ProjectMetadata } from '@utils/projects'
-import { sortSkills } from '@utils/sortSkills'
-import { validateUrl } from '@utils/validators'
 import { useEffect, useState } from 'react'
+import PDFLink from './PDFLink'
 import MePhoto from './PDFMePhoto'
+import PDFSkillList from './PDFSkills'
 
 export const styles = StyleSheet.create({
   page: {
@@ -78,54 +70,8 @@ export const styles = StyleSheet.create({
   }
 })
 
-interface PDFLinkProps {
-  title: string
-  src: string
-}
-
-interface PDFSkillListProps {
-  skills: Skill[]
-}
-
 interface PDFResumeProps {
   projects: ProjectMetadata[]
-}
-
-const PDFLink = ({ title, src }: PDFLinkProps) => (
-  <View style={{ flexDirection: 'row', gap: '2px' }}>
-    <View>
-      <Text>{title}:</Text>
-    </View>
-    <View>
-      <Link src={validateUrl(src)}>{src}</Link>
-    </View>
-  </View>
-)
-
-const PDFSkillList = ({ skills }: PDFSkillListProps) => {
-  const sortedSkills = sortSkills(skills)
-  return (
-    <View
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        gap: '2.5mm 2.5mm'
-      }}
-    >
-      {sortedSkills.map(skill => (
-        <View
-          style={{
-            alignItems: 'center'
-          }}
-          key={skill.id}
-        >
-          <Icon iconName={skill.iconName} />
-          <Text style={{ fontSize: '8px' }}>{skill.language}</Text>
-        </View>
-      ))}
-    </View>
-  )
 }
 
 const PDFResume = ({ projects }: PDFResumeProps) => {
