@@ -2,7 +2,7 @@ name: Publish public repo
 
 on:
   push:
-    branches: [test]
+    branches: [main]
 
 jobs:
   publish:
