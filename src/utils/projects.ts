@@ -63,7 +63,10 @@ export const getProjects = async (
       typeof project.endDate === 'string'
   )
 
-  const filteredProjectsWithoutEndDate = projects.filter((project): project is ProjectMetadata => typeof project.endDate === 'undefined')
+  const filteredProjectsWithoutEndDate = projects.filter(
+    (project): project is ProjectMetadata =>
+      typeof project.endDate === 'undefined'
+  )
 
   const sortedProjects = sortProjects(filteredProjectsWithEndDate)
 

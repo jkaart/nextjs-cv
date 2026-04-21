@@ -28,7 +28,9 @@ describe('formatTechnologiesString', () => {
   describe('special characters in technology names', () => {
     it('should handle technology names with dots', () => {
       const technologies = ['Node.js', 'Express.js']
-      expect(formatTechnologiesString(technologies)).toBe('Node.js ja Express.js')
+      expect(formatTechnologiesString(technologies)).toBe(
+        'Node.js ja Express.js'
+      )
     })
 
     it('should handle technology names with hyphens', () => {

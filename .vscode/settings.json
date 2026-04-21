@@ -6,7 +6,7 @@
   "files.associations": {
     "css": "tailwindcss"
   },
-  "[typescriptreact]": {
+  "[typescript, typescriptreact]": {
     "editor.defaultFormatter": "biomejs.biome"
   }
 }

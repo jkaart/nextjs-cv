@@ -1,6 +1,9 @@
 import type { ProjectMetadata } from './projects'
 
-export const compareProjects = (a: ProjectMetadata & { endDate: string }, b: ProjectMetadata & { endDate: string }) => {
+export const compareProjects = (
+  a: ProjectMetadata & { endDate: string },
+  b: ProjectMetadata & { endDate: string }
+) => {
   const projectA = a.endDate.toLowerCase()
   const projectB = b.endDate.toLowerCase()
 
@@ -9,6 +12,8 @@ export const compareProjects = (a: ProjectMetadata & { endDate: string }, b: Pro
   return 0
 }
 
-export const sortProjects = (projects: (ProjectMetadata & { endDate: string })[]) => {
+export const sortProjects = (
+  projects: (ProjectMetadata & { endDate: string })[]
+) => {
   return [...projects].sort(compareProjects)
 }
