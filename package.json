@@ -7,7 +7,7 @@
     "dev:webpack": "npm-run-all --parallel watch:assets next:dev -- --webpack",
     "next:dev": "next dev",
     "watch:assets": "chokidar 'src/data/assets/**/*' -c 'cp -r src/data/assets public/assets'",
-    "prebuild": "rm -rf public/assets && cp -r src/data/assets public/assets",
+    "prebuild": "rm -rf public/assets && mkdir -p public/assets/ && cp -r src/data/assets/* public/assets/",
     "build": "next build",
     "start": "next start",
     "lint": "biome check",
