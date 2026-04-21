@@ -1,6 +1,9 @@
-import { dateToString } from "@utils/dateToString"
+import { dateToString } from '@utils/dateToString'
 
-export const formatProjectDates = (startDate: string | undefined, endDate: string | undefined) => {
+export const formatProjectDates = (
+  startDate: string | undefined,
+  endDate: string | undefined
+) => {
   const formattedStartDate = startDate
     ? Number.isNaN(new Date(startDate).getTime())
       ? null

@@ -30,7 +30,7 @@ describe('sortSkills', () => {
       level: 'excellent',
       type: 'frontend',
       iconName: 'SiJavascript'
-    },
+    }
   ] satisfies Skill[]
 
   const rightSortedSkills = [
@@ -66,60 +66,66 @@ describe('sortSkills', () => {
 
   describe('compareSkills', () => {
     it('returns -1 when a < b', () => {
-      expect(compareSkills(
-        {
-          id: '2',
-          language: 'a',
-          level: 'good',
-          type: 'frontend',
-          iconName: 'SiCss'
-        },
-        {
-          id: '1',
-          language: 'b',
-          level: 'excellent',
-          type: 'frontend',
-          iconName: 'SiHtml5'
-        }
-      )).toBe(-1);
-    });
+      expect(
+        compareSkills(
+          {
+            id: '2',
+            language: 'a',
+            level: 'good',
+            type: 'frontend',
+            iconName: 'SiCss'
+          },
+          {
+            id: '1',
+            language: 'b',
+            level: 'excellent',
+            type: 'frontend',
+            iconName: 'SiHtml5'
+          }
+        )
+      ).toBe(-1)
+    })
 
     it('returns 1 when a > b', () => {
-      expect(compareSkills(
-        {
-          id: '1',
-          language: 'b',
-          level: 'excellent',
-          type: 'frontend',
-          iconName: 'SiHtml5'
-        },
-        {
-          id: '2',
-          language: 'a',
-          level: 'good',
-          type: 'frontend',
-          iconName: 'SiCss'
-        }
-      )).toBe(1);
-    });
+      expect(
+        compareSkills(
+          {
+            id: '1',
+            language: 'b',
+            level: 'excellent',
+            type: 'frontend',
+            iconName: 'SiHtml5'
+          },
+          {
+            id: '2',
+            language: 'a',
+            level: 'good',
+            type: 'frontend',
+            iconName: 'SiCss'
+          }
+        )
+      ).toBe(1)
+    })
 
     it('returns 0 when equal', () => {
-      expect(compareSkills(
-        {
-          id: '2',
-          language: 'a',
-          level: 'good',
-          type: 'frontend',
-          iconName: 'SiCss'
-        },
-        {
-          id: '2',
-          language: 'a',
-          level: 'good',
-          type: 'frontend',
-          iconName: 'SiCss'
-        }
-      )).toBe(0);
+      expect(
+        compareSkills(
+          {
+            id: '2',
+            language: 'a',
+            level: 'good',
+            type: 'frontend',
+            iconName: 'SiCss'
+          },
+          {
+            id: '2',
+            language: 'a',
+            level: 'good',
+            type: 'frontend',
+            iconName: 'SiCss'
+          }
+        )
+      ).toBe(0)
     })
   })
 
@@ -135,27 +141,27 @@ describe('sortSkills', () => {
     })
 
     it('returns single item array unchanged', () => {
-      const data = [{
-        id: '1',
-        language: 'React',
-        level: 'excellent',
-        type: 'frontend',
-        iconName: 'SiReact'
-      }] satisfies Skill[]
+      const data = [
+        {
+          id: '1',
+          language: 'React',
+          level: 'excellent',
+          type: 'frontend',
+          iconName: 'SiReact'
+        }
+      ] satisfies Skill[]
 
       expect(sortSkills(data)).toEqual(data)
     })
 
     it('keeps order of equal elements (stable sort)', () => {
       const results = sortSkills(skillsData)
-      expect(results
-        .map(result => result.language))
-        .toEqual([
-          'CSS',
-          'HTML',
-          'JavaScript',
-          'React'
-        ])
+      expect(results.map(result => result.language)).toEqual([
+        'CSS',
+        'HTML',
+        'JavaScript',
+        'React'
+      ])
     })
 
     it('does not mutate original array', () => {
@@ -166,20 +172,25 @@ describe('sortSkills', () => {
     })
 
     it('returns array sorted in ascending order invariant', () => {
-      const result = sortSkills(skillsData);
+      const result = sortSkills(skillsData)
 
       for (let index = 1; index < result.length; index++) {
-        const prev = result[index - 1].language.toLowerCase();
-        const curr = result[index].language.toLowerCase();
+        const prev = result[index - 1].language.toLowerCase()
+        const curr = result[index].language.toLowerCase()
 
-        expect(prev <= curr).toBe(true);
+        expect(prev <= curr).toBe(true)
       }
     })
 
     it('correctly orders when first item should come after second', () => {
       const result = sortSkills(skillsData)
 
-      expect(result.map(s => s.language)).toEqual(['CSS', 'HTML', 'JavaScript', 'React']);
+      expect(result.map(s => s.language)).toEqual([
+        'CSS',
+        'HTML',
+        'JavaScript',
+        'React'
+      ])
     })
   })
 })

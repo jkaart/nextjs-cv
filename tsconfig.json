@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -26,18 +22,10 @@
       }
     ],
     "paths": {
-      "@components/*": [
-        "./src/app/components/*"
-      ],
-      "@utils/*": [
-        "./src/utils/*"
-      ],
-      "@hooks/*": [
-        "./src/app/hooks/*"
-      ],
-      "@data/*": [
-        "./src/data/*"
-      ]
+      "@components/*": ["./src/app/components/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@hooks/*": ["./src/app/hooks/*"],
+      "@data/*": ["./src/data/*"]
     }
   },
   "include": [
@@ -49,7 +37,5 @@
     "**/*.mts",
     "**/*.mdx"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
