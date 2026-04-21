@@ -27,6 +27,9 @@ jobs:
   PRTitleLint:
     if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+      statuses: write
 
     steps:
       - name: Lint PR title
