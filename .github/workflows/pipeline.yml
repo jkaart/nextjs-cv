@@ -90,6 +90,7 @@ jobs:
           git remote add public https://${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/jkaart/nextjs-cv.git
           git push -f public HEAD:main
   Tag_release:
+    permissions: write-all
     needs: [ Deploy ]
     runs-on: ubuntu-latest
     steps:
