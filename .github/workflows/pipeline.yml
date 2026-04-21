@@ -2,14 +2,12 @@ name: Deployment pipeline
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-  SKIP_CONDITION: ${{ contains(join(github.event.commits.*.message, ''), '#skip') }}
 on:
   push:
     branches:
       - main
   pull_request:
     branches: [ main ]
-    types: [ opened, synchronize ]
 jobs:
   Lint:
     runs-on: ubuntu-latest
@@ -50,6 +48,7 @@ jobs:
       - name: Run build
         run: npm run build
   Deploy:
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     name: Deploy
     runs-on: ubuntu-latest
     needs: [ Build ]
@@ -64,6 +63,7 @@ jobs:
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
   Publish_source:
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     needs: [ Test, Deploy ]
 
@@ -90,13 +90,13 @@ jobs:
           git remote add public https://${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/jkaart/nextjs-cv.git
           git push -f public HEAD:main
   Tag_release:
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, '#skip') }}
     permissions: write-all
     needs: [ Deploy ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - name: Bump version and push tag
-        if: ${{ github.event_name == 'push' && env.SKIP_CONDITION  == 'false'}}
         uses: anothrNick/github-tag-action@4ed44965e0db8dab2b466a16da04aec3cc312fd8
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
