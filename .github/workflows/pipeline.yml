@@ -19,6 +19,7 @@ jobs:
         with:
           node-version: "24"
 
+      - run: npm install --package-lock-only
       - run: npm ci
 
       - name: Validate commits
@@ -120,6 +121,7 @@ jobs:
         with:
           node-version: "24"
 
+      - run: npm install --package-lock-only
       - run: npm ci
 
       - name: Run semantic-release
