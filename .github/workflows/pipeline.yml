@@ -4,12 +4,50 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 on:
   push:
-    branches: '**'
+    branches: [ "**" ]
   pull_request:
     branches: [ main ]
 jobs:
+  CommitLint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      - run: npm install --package-lock-only
+      - run: npm ci
+
+      - name: Validate commits
+        run: npx commitlint --from=origin/main --to=HEAD
+  PRTitleLint:
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+      statuses: write
+
+    steps:
+      - name: Lint PR title
+        uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          types: |
+            feat
+            fix
+            docs
+            style
+            refactor
+            test
+            chore
   Lint:
     runs-on: ubuntu-latest
+    needs: [ CommitLint ]
 
     steps:
       - uses: actions/checkout@v6
@@ -23,7 +61,7 @@ jobs:
 
   Test:
     runs-on: ubuntu-latest
-    needs: [ Lint ]
+    needs: [ Lint, CommitLint]
 
     steps:
       - uses: actions/checkout@v6
@@ -36,7 +74,7 @@ jobs:
         run: npm run test
   Build:
     runs-on: ubuntu-latest
-    needs: [Lint, Test]
+    needs: [ Lint, Test, CommitLint ]
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -47,10 +85,10 @@ jobs:
       - name: Run build
         run: npm run build
   Deploy:
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, '#skip') }}
     name: Deploy
     runs-on: ubuntu-latest
-    needs: [ Build ]
+    needs: [ Build, CommitLint ]
     steps:
       - uses: actions/checkout@v6
       - name: Install Vercel CLI
@@ -61,10 +99,10 @@ jobs:
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
-  Publish_source:
+  PublishSource:
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main'  && !contains(github.event.head_commit.message, '#skip') }}
     runs-on: ubuntu-latest
-    needs: [ Test, Deploy ]
+    needs: [ Test, Deploy, CommitLint ]
 
     steps:
       - name: Checkout private repo
@@ -88,15 +126,26 @@ jobs:
           cd public_repo
           git remote add public https://${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/jkaart/nextjs-cv.git
           git push -f public HEAD:main
-  Tag_release:
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main'  && !contains(github.event.head_commit.message, '#skip') }}
-    permissions: write-all
-    needs: [ Deploy ]
+  Release:
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, '#skip') }}
+    needs: [ Deploy, CommitLint ]
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+
     steps:
       - uses: actions/checkout@v6
-      - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@4ed44965e0db8dab2b466a16da04aec3cc312fd8
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      - run: npm install --package-lock-only
+      - run: npm ci
+
+      - name: Run semantic-release
+        run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEFAULT_BUMP: patch
