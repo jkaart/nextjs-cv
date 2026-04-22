@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/jkaart/nextjs-cv-private/compare/v1.0.0...v1.0.1) (2026-04-22)
+
+
+### Bug Fixes
+
+* bug that caused a 500 error ([dbd65a7](https://github.com/jkaart/nextjs-cv-private/commit/dbd65a740ed1987f3ea971705f926720beb3a351))
+
 # 1.0.0 (2026-04-21)
 
 
