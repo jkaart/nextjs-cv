@@ -6,10 +6,11 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 interface NavBarProps {
+  meDescriptionRaw: string
   className?: string
 }
 
-const NavBar = ({ className }: NavBarProps) => {
+const NavBar = ({ className, meDescriptionRaw }: NavBarProps) => {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <nav className={className}>
@@ -23,7 +24,11 @@ const NavBar = ({ className }: NavBarProps) => {
             Näytä
           </Link>
           <span>/</span>
-          <CVDownload className='hover:text-blue-600' label='Lataa' />
+          <CVDownload
+            className='hover:text-blue-600'
+            label='Lataa'
+            meDescriptionRaw={meDescriptionRaw}
+          />
         </div>
       </div>
       <HamburgerMenu state={isOpen} onClick={() => setIsOpen(!isOpen)} />
@@ -33,7 +38,8 @@ const NavBar = ({ className }: NavBarProps) => {
             Etusivu
           </Link>
           <div>
-            PDF: <Link href='/pdf-cv'>Näytä</Link>/<CVDownload label='Lataa' />
+            PDF: <Link href='/pdf-cv'>Näytä</Link>/
+            <CVDownload meDescriptionRaw={meDescriptionRaw} label='Lataa' />
           </div>
         </div>
       )}
