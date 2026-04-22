@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/jkaart/nextjs-cv-private/compare/v1.1.0...v1.1.1) (2026-04-22)
+
+
+### Bug Fixes
+
+* **pdfresume:** fix (hopefully) for 500 error that occurred when loading the page ([8ed03fe](https://github.com/jkaart/nextjs-cv-private/commit/8ed03fe46d4d7f4df0bcec87c27607f783f43e72))
+
 # [1.1.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.0.1...v1.1.0) (2026-04-22)
 
 
