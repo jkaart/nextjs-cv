@@ -14,7 +14,8 @@
     "format": "biome format --write",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prepare": "npx husky"
+    "prepare": "npx husky",
+    "commit": "npx cz"
   },
   "dependencies": {
     "@mdx-js/language-service": "^0.7.3",
