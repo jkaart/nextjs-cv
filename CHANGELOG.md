@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.0.1...v1.1.0) (2026-04-22)
+
+
+### Bug Fixes
+
+* missing import ([06cfa44](https://github.com/jkaart/nextjs-cv-private/commit/06cfa443b2720c25ea45452c8b5c14a1eb4eecb0))
+
+
+### Features
+
+* **package.json:** added commit npm script ([ef8c320](https://github.com/jkaart/nextjs-cv-private/commit/ef8c3200dfc433efb80c947b2d7630dcd637f12a))
+
 ## [1.0.1](https://github.com/jkaart/nextjs-cv-private/compare/v1.0.0...v1.0.1) (2026-04-22)
 
 
