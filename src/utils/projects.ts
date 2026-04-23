@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs'
-import { readdir } from 'node:fs/promises'
+import { readdir, stat } from 'node:fs/promises'
 import path from 'node:path'
 import matter from 'gray-matter'
 import { sortProjects } from './sortProjects'
@@ -24,17 +24,12 @@ interface Project {
   content: string
 }
 
-const mdxRootDirectory = path.join(
-  process.cwd(),
-  'src',
-  'data',
-  'mdx',
-  'projects'
-)
+const dataRootDirectory = path.join(process.cwd(), 'src', 'data')
+
+const mdxRootDirectory = path.join(dataRootDirectory, 'mdx', 'projects')
+
 export const assetsRootDirectory = path.join(
-  process.cwd(),
-  'src',
-  'data',
+  dataRootDirectory,
   'assets',
   'projects'
 )
@@ -101,4 +96,31 @@ export const getProjectImages = async (slug: string) => {
     .map(file => `/assets/projects/${slug}/${file}`)
 
   return images
+}
+
+const scanDir = async (dir: string): Promise<string[]> => {
+  const entries = await readdir(dir, { withFileTypes: true })
+  const files = await Promise.all(
+    entries.map(async entry => {
+      const full = path.join(dir, entry.name)
+      if (entry.isDirectory()) return scanDir(full)
+      return full
+    })
+  )
+  return files.flat()
+}
+
+export const getLastContentUpdate = async () => {
+  const files = await scanDir(dataRootDirectory)
+
+  const times = await Promise.all(
+    files
+      .filter(file => /\.(mdx|tsx|jpg|jpeg|png|webp)$/.test(file))
+      .map(async file => {
+        const fileStat = await stat(file)
+        return fileStat.mtimeMs
+      })
+  )
+
+  return new Date(Math.max(...times))
 }
