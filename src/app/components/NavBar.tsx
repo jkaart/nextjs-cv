@@ -34,11 +34,19 @@ const NavBar = ({ className, meDescriptionRaw }: NavBarProps) => {
       <HamburgerMenu state={isOpen} onClick={() => setIsOpen(!isOpen)} />
       {isOpen && (
         <div className='text-xl font-bold absolute right-0 left-0 pt-2 pb-5 px-2 flex-col bg-background border-b space-y-2 flex'>
-          <Link className='hover:text-blue-600' href='/'>
+          <Link
+            className='hover:text-blue-600'
+            onClick={() => setIsOpen(false)}
+            href='/'
+          >
             Etusivu
           </Link>
           <div>
-            PDF: <Link href='/pdf-cv'>Näytä</Link>/
+            PDF:{' '}
+            <Link onClick={() => setIsOpen(false)} href='/pdf-cv'>
+              Näytä
+            </Link>
+            /
             <CVDownload meDescriptionRaw={meDescriptionRaw} label='Lataa' />
           </div>
         </div>
