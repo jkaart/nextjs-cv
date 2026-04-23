@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/jkaart/nextjs-cv-private/compare/v1.1.1...v1.1.2) (2026-04-23)
+
+
+### Bug Fixes
+
+* **pipeline:** update public repo remote URL to use secret variable ([66b9537](https://github.com/jkaart/nextjs-cv-private/commit/66b953735d81c6941314a27fa1302a9c349058bd))
+
 ## [1.1.1](https://github.com/jkaart/nextjs-cv-private/compare/v1.1.0...v1.1.1) (2026-04-22)
 
 
