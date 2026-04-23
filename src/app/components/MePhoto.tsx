@@ -7,14 +7,16 @@ export interface MePhotoProps {
 
 const MePhoto = ({ image }: MePhotoProps) => (
   <div className='flex flex-row justify-center items-center'>
-    <Image
-      className='rounded-md bg-gray-500'
-      loading='eager'
-      width={173}
-      height={230}
-      src={image.src}
-      alt={image.altText}
-    />
+    {image.src !== '' && (
+      <Image
+        className='rounded-md bg-gray-500'
+        loading='eager'
+        width={173}
+        height={230}
+        src={image.src}
+        alt={image.altText}
+      />
+    )}
   </div>
 )
 
