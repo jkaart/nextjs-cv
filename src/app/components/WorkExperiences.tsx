@@ -15,7 +15,7 @@ const WorkExperiences = ({ workExperiences }: WorkExperiencesProps) => {
 
   const [workExperiencesState, setWorkExperienceState] = useState<
     WorkExperienceType[]
-  >([sortedWorkExperiences[0]])
+  >(workExperiences.length ? [sortedWorkExperiences[0]] : [])
   return (
     <>
       {workExperiencesState.map(workExperience => (
@@ -24,7 +24,12 @@ const WorkExperiences = ({ workExperiences }: WorkExperiencesProps) => {
           workExperience={workExperience}
         />
       ))}
-      <ShowMore data={sortedWorkExperiences} setData={setWorkExperienceState} />
+      {workExperiences.length > 1 ? (
+        <ShowMore
+          data={sortedWorkExperiences}
+          setData={setWorkExperienceState}
+        />
+      ) : null}
     </>
   )
 }
