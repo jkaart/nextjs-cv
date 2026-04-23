@@ -1,3 +1,19 @@
+# [1.2.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.1.2...v1.2.0) (2026-04-23)
+
+
+### Bug Fixes
+
+* **ImageGallery:** remove unnecessary border from image gallery ([fe2a6bb](https://github.com/jkaart/nextjs-cv-private/commit/fe2a6bbeb8d2396abf1e920ddee37c67b5057e4d))
+* **ImageGallery:** removed unneeded border color ([e5c762e](https://github.com/jkaart/nextjs-cv-private/commit/e5c762e9fcd4b2cd9d9daa5fe312ea7536b76040))
+* **pipeline:** update path in git filter-repo command to deploy_publish.yml ([f2669bc](https://github.com/jkaart/nextjs-cv-private/commit/f2669bc2bf213beee8ade319dfd621056af39609))
+* **ProjectListItem:** source code links to column and left ([f959c79](https://github.com/jkaart/nextjs-cv-private/commit/f959c7919808a611ce5c03081236065119461481))
+
+
+### Features
+
+* **footer:** content update date ([809b71a](https://github.com/jkaart/nextjs-cv-private/commit/809b71a59c466f04cc94eb4919ca4ceff12e4313))
+* **navbar:** autohide mobile menu when menu item clicked ([31bede8](https://github.com/jkaart/nextjs-cv-private/commit/31bede8c25593596106406cd4719c8867951b86a))
+
 ## [1.1.2](https://github.com/jkaart/nextjs-cv-private/compare/v1.1.1...v1.1.2) (2026-04-23)
 
 
