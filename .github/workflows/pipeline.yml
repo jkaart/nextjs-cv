@@ -124,7 +124,7 @@ jobs:
       - name: Push to public repo
         run: |
           cd public_repo
-          git remote add public https://${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/jkaart/nextjs-cv.git
+          git remote add public https://${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/${{ secrets.PUBLIC_REPO }}.git
           git push -f public HEAD:main
   Release:
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, '#skip') }}
