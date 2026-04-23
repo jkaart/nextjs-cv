@@ -51,7 +51,7 @@ jobs:
           git filter-repo \
           --invert-paths \
           --path src/data/ \
-          --path .github/workflows/publish_public.yml
+          --path .github/workflows/deploy_publish.yml
 
       - name: Push to public repo
         run: |
