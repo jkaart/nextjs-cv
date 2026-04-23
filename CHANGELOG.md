@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/jkaart/nextjs-cv-private/compare/v1.3.0...v1.3.1) (2026-04-23)
+
+
+### Bug Fixes
+
+* **MePhoto:** conditionally render Image component based on image source ([66af69f](https://github.com/jkaart/nextjs-cv-private/commit/66af69f5a40208f71d4fb757a5d81e6e75bb88f0))
+
 # [1.3.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.2.0...v1.3.0) (2026-04-23)
 
 
