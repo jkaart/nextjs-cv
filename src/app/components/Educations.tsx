@@ -12,15 +12,17 @@ interface EducationsProps {
 
 const Educations = ({ educations }: EducationsProps) => {
   const sortedEducations = sortEducations(educations)
-  const [educationsState, setEducationsState] = useState<EducationType[]>([
-    sortedEducations[0]
-  ])
+  const [educationsState, setEducationsState] = useState<EducationType[]>(
+    educations.length ? [sortedEducations[0]] : []
+  )
   return (
     <>
       {educationsState.map(education => (
         <Education key={education.id} education={education} />
       ))}
-      <ShowMore data={sortedEducations} setData={setEducationsState} />
+      {educations.length > 1 ? (
+        <ShowMore data={sortedEducations} setData={setEducationsState} />
+      ) : null}
     </>
   )
 }
