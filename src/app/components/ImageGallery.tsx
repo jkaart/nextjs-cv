@@ -103,10 +103,7 @@ const ImageGallery = ({ images, slug }: ImageGalleryProps) => {
 
   return (
     <>
-      <div
-        data-testid='image-gallery'
-        className='flex flex-row border border-red-700'
-      >
+      <div data-testid='image-gallery' className='flex flex-row border'>
         <div className='my-auto'>
           <ArrowButton
             direction='prev'
