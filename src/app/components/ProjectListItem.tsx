@@ -33,7 +33,7 @@ const ProjectListItem = ({ project, href }: ProjectListItemProps) => {
         <div>
           {startDate} - {endDate}
         </div>
-        <div>
+        <div className='flex flex-col'>
           {project.urls?.map(url => (
             <ProjectUrl key={url.url} href={url.url} title={url.title} />
           ))}
