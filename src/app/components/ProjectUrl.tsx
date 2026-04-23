@@ -7,7 +7,7 @@ interface ProjectUrlProps {
 
 const ProjectUrl = ({ href, title }: ProjectUrlProps) => (
   <button
-    className='hover:text-blue-600 hover:cursor-pointer'
+    className='hover:text-blue-600 hover:cursor-pointer text-left'
     onClick={event => {
       event.preventDefault()
       event.stopPropagation()
