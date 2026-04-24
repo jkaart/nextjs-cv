@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic'
 
 interface PDFClientProps {
   meDescriptionRaw: string
+  lastContentUpdate: string
 }
 
 const PDFViewer = dynamic(
@@ -13,13 +14,17 @@ const PDFViewer = dynamic(
   { ssr: false }
 )
 
-const PDFClient = ({ meDescriptionRaw }: PDFClientProps) => {
+const PDFClient = ({ meDescriptionRaw, lastContentUpdate }: PDFClientProps) => {
   const { projects, loading } = useProjects()
 
   if (loading || !projects) return <div>Loading...</div>
   return (
     <PDFViewer className='w-full h-svh'>
-      <PDFResume meDescriptionRaw={meDescriptionRaw} projects={projects} />
+      <PDFResume
+        lastContentUpdate={lastContentUpdate}
+        meDescriptionRaw={meDescriptionRaw}
+        projects={projects}
+      />
     </PDFViewer>
   )
 }

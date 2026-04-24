@@ -72,9 +72,14 @@ export const styles = StyleSheet.create({
 interface PDFResumeProps {
   projects: ProjectMetadata[]
   meDescriptionRaw: string
+  lastContentUpdate: string
 }
 
-const PDFResume = ({ projects, meDescriptionRaw }: PDFResumeProps) => {
+const PDFResume = ({
+  projects,
+  meDescriptionRaw,
+  lastContentUpdate
+}: PDFResumeProps) => {
   return (
     <Document>
       <Page size='A4' style={styles.page}>
@@ -118,7 +123,7 @@ const PDFResume = ({ projects, meDescriptionRaw }: PDFResumeProps) => {
             </View>
           </View>
         </View>
-        <PDFFooter />
+        <PDFFooter lastContentUpdate={lastContentUpdate} />
       </Page>
     </Document>
   )

@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic'
 interface CVDownloadProps {
   label: string
   meDescriptionRaw: string
+  lastContentUpdate: string
   className?: string
 }
 
@@ -18,6 +19,7 @@ const PDFDownloadLink = dynamic(
 const CVDownload = ({
   label,
   meDescriptionRaw,
+  lastContentUpdate,
   className
 }: CVDownloadProps) => {
   const { projects, loading } = useProjects()
@@ -26,7 +28,11 @@ const CVDownload = ({
     <PDFDownloadLink
       className={className}
       document={
-        <PDFResume meDescriptionRaw={meDescriptionRaw} projects={projects} />
+        <PDFResume
+          lastContentUpdate={lastContentUpdate}
+          meDescriptionRaw={meDescriptionRaw}
+          projects={projects}
+        />
       }
     >
       {label}

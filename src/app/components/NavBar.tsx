@@ -7,10 +7,15 @@ import { useState } from 'react'
 
 interface NavBarProps {
   meDescriptionRaw: string
+  lastContentUpdate: string
   className?: string
 }
 
-const NavBar = ({ className, meDescriptionRaw }: NavBarProps) => {
+const NavBar = ({
+  className,
+  meDescriptionRaw,
+  lastContentUpdate
+}: NavBarProps) => {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <nav className={className}>
@@ -25,6 +30,7 @@ const NavBar = ({ className, meDescriptionRaw }: NavBarProps) => {
           </Link>
           <span>/</span>
           <CVDownload
+            lastContentUpdate={lastContentUpdate}
             className='hover:text-blue-600'
             label='Lataa'
             meDescriptionRaw={meDescriptionRaw}
@@ -47,7 +53,11 @@ const NavBar = ({ className, meDescriptionRaw }: NavBarProps) => {
               Näytä
             </Link>
             /
-            <CVDownload meDescriptionRaw={meDescriptionRaw} label='Lataa' />
+            <CVDownload
+              lastContentUpdate={lastContentUpdate}
+              meDescriptionRaw={meDescriptionRaw}
+              label='Lataa'
+            />
           </div>
         </div>
       )}
