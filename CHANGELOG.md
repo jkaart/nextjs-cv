@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/jkaart/nextjs-cv-private/compare/v1.4.0...v1.4.1) (2026-04-25)
+
+
+### Bug Fixes
+
+* **workflows:** filter changelog and template data ([78e3cbb](https://github.com/jkaart/nextjs-cv-private/commit/78e3cbb66c204728baf26b9c6b396a598c14dd87))
+
 # [1.4.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.3.0...v1.4.0) (2026-04-25)
 
 
