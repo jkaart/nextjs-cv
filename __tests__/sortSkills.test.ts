@@ -1,4 +1,4 @@
-import type { Skill } from '@data/data'
+import type { Skill } from '@types'
 import { compareSkills, sortSkills } from '@utils/sortSkills'
 
 describe('sortSkills', () => {

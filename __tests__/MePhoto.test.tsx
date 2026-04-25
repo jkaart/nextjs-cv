@@ -1,5 +1,5 @@
 import MePhoto from '@components/MePhoto'
-import type { Image as MeImage } from '@data/data'
+import type { Image as MeImage } from '@types'
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 
