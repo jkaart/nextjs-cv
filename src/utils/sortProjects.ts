@@ -1,4 +1,4 @@
-import type { ProjectMetadata } from './projects'
+import type { ProjectMetadata } from '@utils/projects'
 
 export const compareProjects = (
   a: ProjectMetadata & { endDate: string },

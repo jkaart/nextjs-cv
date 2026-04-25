@@ -1,5 +1,5 @@
-import type { Education as EducationType } from '@data/data'
 import { Text, View } from '@react-pdf/renderer'
+import type { Education as EducationType } from '@types'
 
 interface PDFEducationsProps {
   education: EducationType

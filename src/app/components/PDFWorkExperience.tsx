@@ -1,5 +1,5 @@
-import type { WorkExperience } from '@data/data'
 import { Text, View } from '@react-pdf/renderer'
+import type { WorkExperience } from '@types'
 import { dateToString } from '@utils/dateToString'
 
 interface PDFWorkExperienceProps {

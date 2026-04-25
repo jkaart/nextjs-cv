@@ -1,5 +1,5 @@
+import type { MePhotoProps } from '@components/MePhoto'
 import { Image } from '@react-pdf/renderer'
-import type { MePhotoProps } from './MePhoto'
 
 const MePhoto = ({ image }: MePhotoProps) => {
   return (

@@ -2,7 +2,7 @@
 
 import Education from '@components/common/Education'
 import ShowMore from '@components/common/ShowMore'
-import type { Education as EducationType } from '@data/data'
+import type { Education as EducationType } from '@types'
 import { sortEducations } from '@utils/sortEducations'
 import { useState } from 'react'
 

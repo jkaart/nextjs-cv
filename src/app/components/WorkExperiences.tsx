@@ -2,7 +2,7 @@
 
 import ShowMore from '@components/common/ShowMore'
 import WorkExperience from '@components/common/WorkExperience'
-import type { WorkExperience as WorkExperienceType } from '@data/data'
+import type { WorkExperience as WorkExperienceType } from '@types'
 import { sortWorkExperiences } from '@utils/sortWorkExperiences'
 import { useState } from 'react'
 

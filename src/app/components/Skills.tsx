@@ -1,5 +1,5 @@
 import Skill from '@components/Skill'
-import type { Skill as SkillType } from '@data/data'
+import type { Skill as SkillType } from '@types'
 import { sortSkills } from '@utils/sortSkills'
 
 interface SkillsProps {

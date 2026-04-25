@@ -1,5 +1,5 @@
+import ImageGallery from '@components/ImageGallery'
 import { getProjectImages } from '@utils/projects'
-import ImageGallery from './ImageGallery'
 
 interface ProjectImagesProps {
   slug: string

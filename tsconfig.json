@@ -25,7 +25,8 @@
       "@components/*": ["./src/app/components/*"],
       "@utils/*": ["./src/utils/*"],
       "@hooks/*": ["./src/app/hooks/*"],
-      "@data/*": ["./src/data/*"]
+      "@data/*": ["./src/data/*"],
+      "@types": ["./src/types.ts"]
     }
   },
   "include": [

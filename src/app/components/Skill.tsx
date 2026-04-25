@@ -1,5 +1,5 @@
 import Tooltip from '@components/Tooltip'
-import type { Skill as SkillType } from '@data/data'
+import type { Skill as SkillType } from '@types'
 import { getDevIcon } from '@utils/getDevIcon'
 
 interface SkillProps {

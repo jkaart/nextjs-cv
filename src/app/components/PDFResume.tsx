@@ -2,15 +2,15 @@
 
 import PDFDescription from '@components/PDFDescription'
 import PDFEducations from '@components/PDFEducations'
+import PDFFooter from '@components/PDFFooter'
+import PDFLink from '@components/PDFLink'
+import MePhoto from '@components/PDFMePhoto'
 import PDFProjects from '@components/PDFProjects'
+import PDFSkillList from '@components/PDFSkills'
 import PDFWorkExperiences from '@components/PDFWorkExperiences'
 import { data } from '@data/data'
 import { Document, Page, StyleSheet, Text, View } from '@react-pdf/renderer'
 import type { ProjectMetadata } from '@utils/projects'
-import PDFFooter from './PDFFooter'
-import PDFLink from './PDFLink'
-import MePhoto from './PDFMePhoto'
-import PDFSkillList from './PDFSkills'
 
 export const styles = StyleSheet.create({
   page: {

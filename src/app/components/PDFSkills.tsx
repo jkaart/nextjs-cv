@@ -1,7 +1,7 @@
-import type { Skill } from '@data/data'
+import Icon from '@components/PDFIcon'
 import { Text, View } from '@react-pdf/renderer'
+import type { Skill } from '@types'
 import { sortSkills } from '@utils/sortSkills'
-import Icon from './PDFIcon'
 
 interface PDFSkillListProps {
   skills: Skill[]

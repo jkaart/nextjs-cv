@@ -7,7 +7,7 @@ import MePhoto from '@components/MePhoto'
 import Projects from '@components/Projects'
 import Skills from '@components/Skills'
 import WorkExperiences from '@components/WorkExperiences'
-import type { Data } from '@data/data'
+import type { Data } from '@types'
 
 interface HeroProps {
   data: Data

@@ -1,4 +1,4 @@
-import type { Image as MeImage } from '@data/data'
+import type { Image as MeImage } from '@types'
 import Image from 'next/image'
 
 export interface MePhotoProps {

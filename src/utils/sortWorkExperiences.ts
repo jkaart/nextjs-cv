@@ -1,4 +1,4 @@
-import type { WorkExperience } from '@data/data'
+import type { WorkExperience } from '@types'
 
 export const compareWorkExperiences = (a: WorkExperience, b: WorkExperience) =>
   b.startDate.getTime() - a.startDate.getTime()

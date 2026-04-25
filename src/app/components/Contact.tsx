@@ -1,5 +1,5 @@
 import IconLink from '@components/common/IconLink'
-import type { Contact as ContactType } from '@data/data'
+import type { Contact as ContactType } from '@types'
 import { validateUrl } from '@utils/validators'
 
 interface ContactProps {

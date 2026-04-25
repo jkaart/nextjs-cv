@@ -1,4 +1,4 @@
-import type { Education as EducationType } from '@data/data'
+import type { Education as EducationType } from '@types'
 
 interface EducationProps {
   education: EducationType

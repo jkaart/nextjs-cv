@@ -1,8 +1,8 @@
 import { readFileSync } from 'node:fs'
 import { readdir, stat } from 'node:fs/promises'
 import path from 'node:path'
+import { sortProjects } from '@utils/sortProjects'
 import matter from 'gray-matter'
-import { sortProjects } from './sortProjects'
 
 interface Url {
   title: string
