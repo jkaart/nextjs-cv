@@ -43,7 +43,7 @@ jobs:
 
       - name: Clone repo
         run: |
-          git clone --mirror https://${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/${{ github.repository }} public_repo 
+          git clone https://${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/${{ github.repository }} public_repo
 
       - name: Filter repo
         run: |
@@ -51,12 +51,33 @@ jobs:
           git filter-repo \
           --invert-paths \
           --path src/data/ \
-          --path .github/workflows/deploy_publish.yml
+          --path .github/workflows/deploy_publish.yml \
+          --path .vercelignore
 
+      - name: Copy template data
+        run: |
+          cd public_repo
+
+          mkdir -p src/data
+          cp -r ../templateData/* src/data/
+      - name: Commit template data
+        run: |
+          cd public_repo
+
+          git config user.email "jkaart@gmail.com"
+          git config user.name "Jani Kaartinen"
+
+          git add -A
+          git commit -m "Public version (data replaced with examples)" || echo "No changes"
       - name: Push to public repo
         run: |
           cd public_repo
-          git remote add public https://${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/${{ secrets.PUBLIC_REPO }}.git
+          git remote add public https://${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/${{ secrets.PUBLIC_REPO }}
+
+          git ls-tree -r HEAD --name-only | grep data || true
+          git log -1
+          git diff HEAD~1 || true
+
           git push -f public HEAD:main
 
   Release:
