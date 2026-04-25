@@ -51,6 +51,8 @@ jobs:
           git filter-repo \
           --invert-paths \
           --path src/data/ \
+          --path templateData \
+          --path CHANGELOG.md \
           --path .github/workflows/deploy_publish.yml \
           --path .vercelignore
 
