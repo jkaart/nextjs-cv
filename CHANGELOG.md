@@ -1,3 +1,17 @@
+# [1.4.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.3.0...v1.4.0) (2026-04-25)
+
+
+### Bug Fixes
+
+* **deploy_publish:** correct workflow_run reference in conditional checks #skip ([08809e4](https://github.com/jkaart/nextjs-cv-private/commit/08809e40f4a855fd297b23ca0eb0415600a5692d)), closes [#skip](https://github.com/jkaart/nextjs-cv-private/issues/skip)
+* **MePhoto:** conditionally render Image component based on image source ([66af69f](https://github.com/jkaart/nextjs-cv-private/commit/66af69f5a40208f71d4fb757a5d81e6e75bb88f0))
+
+
+### Features
+
+* added data template for public repo ([6ff6a3b](https://github.com/jkaart/nextjs-cv-private/commit/6ff6a3b1327f2e1626caa65243cb5c8f43016af6))
+* **PDFResume:** content update date for footer ([1c037b8](https://github.com/jkaart/nextjs-cv-private/commit/1c037b8c004dac6cdb2ef6f9b6d7311b732cff7b))
+
 # [1.3.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.2.0...v1.3.0) (2026-04-23)
 
 
