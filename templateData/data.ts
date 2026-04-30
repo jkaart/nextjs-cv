@@ -1,14 +1,14 @@
-import type { Data, RawData } from '@types'
-import { v4 as uuidv4 } from 'uuid'
+import type { Data, DataWithoutId } from '@types'
+import { addIdToData } from '@utils/addDataToId'
 
-const rawData: RawData = {
+const rawData: DataWithoutId = {
   me: {
     firstName: 'John',
     lastName: 'Doe',
     jobTitle: 'Toimitusjohtaja',
     image: {
       src: '',
-      altText: 'Kuva minusta'
+      altText: 'Picture of me'
     }
   },
   contact: {
@@ -17,20 +17,11 @@ const rawData: RawData = {
     homepage: '',
     gitHub: ''
   },
+  language: [],
+  hobbies: [],
   education: [],
   skill: [],
   workExperience: []
 }
 
-export const data: Data = {
-  ...rawData,
-  education: rawData.education.map(education => ({
-    ...education,
-    id: uuidv4()
-  })),
-  skill: rawData.skill.map(skill => ({ ...skill, id: uuidv4() })),
-  workExperience: rawData.workExperience.map(workExperience => ({
-    ...workExperience,
-    id: uuidv4()
-  }))
-}
+export const data: Data = addIdToData(rawData)
