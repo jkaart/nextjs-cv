@@ -1,5 +1,5 @@
 import type { Data, DataWithoutId } from '@types'
-import { addIdToData } from '@utils/addDataToId'
+import { addIdToData } from '@utils/addIdToData'
 
 const rawData: DataWithoutId = {
   me: {
