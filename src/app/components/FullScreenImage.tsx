@@ -14,16 +14,19 @@ const FullScreenImage = ({
     return null
   }
   return (
-    <div className='fixed top-0 left-0 w-full h-full flex justify-center items-center'>
-      <button onClick={() => setSelectedImage(null)} type='button'>
-        <Image
-          src={selectedImage.src}
-          alt={selectedImage.alt}
-          width={1280}
-          height={720}
-          data-testid='fullscreen-image'
-        />
-      </button>
+    <div className='fixed inset-0 flex items-center justify-center z-100 bg-black/90'>
+      <div className='relative flex w-full max-w-7xl h-auto px-4 items-center justify-center'>
+        <button onClick={() => setSelectedImage(null)} type='button'>
+          <Image
+            src={selectedImage.src}
+            alt={selectedImage.alt}
+            width={1280}
+            height={720}
+            data-testid='fullscreen-image'
+            className='w-full h-auto scale-100'
+          />
+        </button>
+      </div>
     </div>
   )
 }
