@@ -103,8 +103,11 @@ const ImageGallery = ({ images, slug }: ImageGalleryProps) => {
 
   return (
     <>
-      <div data-testid='image-gallery' className='flex flex-row'>
-        <div className='my-auto'>
+      <div
+        data-testid='image-gallery'
+        className='flex flex-row justify-center items-center w-full max-w-4xl mx-auto'
+      >
+        <div className='flex justify-start'>
           <ArrowButton
             direction='prev'
             images={imagePropsArray}
@@ -112,10 +115,7 @@ const ImageGallery = ({ images, slug }: ImageGalleryProps) => {
             className='mx-1'
           />
         </div>
-        <div
-          data-testid='image-container'
-          className='flex items-center justify-center w-200 h-50 lg:h-120'
-        >
+        <div data-testid='image-container' className='w-full'>
           <button
             key={currentIndex}
             onClick={() =>
@@ -125,17 +125,22 @@ const ImageGallery = ({ images, slug }: ImageGalleryProps) => {
               })
             }
             type='button'
+            className='w-full'
           >
-            <Image
-              alt={`${slug} project image ${currentIndex + 1}`}
-              src={images[currentIndex]}
-              width={800}
-              height={480}
-              data-testid='selected-image'
-            />
+            <div className='relative w-full h-75 lg:h-150'>
+              <Image
+                alt={`${slug} project image ${currentIndex + 1}`}
+                src={images[currentIndex]}
+                fill
+                sizes='100vw, 100vh'
+                data-testid='selected-image'
+                className='object-contain mb-0 mt-0'
+                priority
+              />
+            </div>
           </button>
         </div>
-        <div className='my-auto'>
+        <div className='flex justify-end'>
           <ArrowButton
             direction='next'
             images={imagePropsArray}

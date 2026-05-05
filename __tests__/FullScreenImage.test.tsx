@@ -82,14 +82,14 @@ describe('FullScreenImage', () => {
     )
     const container = screen.getByRole('img').closest('div')
     expect(container).toHaveClass(
-      'fixed',
-      'top-0',
-      'left-0',
-      'w-full',
-      'h-full',
+      'relative',
       'flex',
-      'justify-center',
-      'items-center'
+      'w-full',
+      'max-w-7xl',
+      'h-auto',
+      'px-4',
+      'items-center',
+      'justify-center'
     )
   })
 
