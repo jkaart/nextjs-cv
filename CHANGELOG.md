@@ -1,3 +1,16 @@
+# [1.5.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.4.2...v1.5.0) (2026-05-05)
+
+
+### Bug Fixes
+
+* **ImageGallery:** Large images scaling correctly ([8a4cfc1](https://github.com/jkaart/nextjs-cv-private/commit/8a4cfc1d05285433dcd009ffb90917f9dd3cd7c2))
+* **ImageGallery:** Large images scaling correctly ([9a636bc](https://github.com/jkaart/nextjs-cv-private/commit/9a636bccb2cc45d1e3b6f2bdb2fb19a4a87e9b42))
+
+
+### Features
+
+* **data:** Updated Ossi2 project and added project images ([aec255a](https://github.com/jkaart/nextjs-cv-private/commit/aec255a0463179cb74b16faf12fc34967d1c879c))
+
 ## [1.4.2](https://github.com/jkaart/nextjs-cv-private/compare/v1.4.1...v1.4.2) (2026-05-05)
 
 
