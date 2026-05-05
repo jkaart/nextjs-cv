@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/jkaart/nextjs-cv-private/compare/v1.4.1...v1.4.2) (2026-05-05)
+
+
+### Bug Fixes
+
+* **addIdToData:** typo in file name ([0f0e4ac](https://github.com/jkaart/nextjs-cv-private/commit/0f0e4acadd4fee277af264f420d9a3803623f3fb))
+
 ## [1.4.1](https://github.com/jkaart/nextjs-cv-private/compare/v1.4.0...v1.4.1) (2026-04-25)
 
 
