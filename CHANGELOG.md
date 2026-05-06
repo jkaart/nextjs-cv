@@ -1,3 +1,12 @@
+# [1.6.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.5.0...v1.6.0) (2026-05-06)
+
+
+### Features
+
+* add Hobbies component and integrate it into Hero component ([f3f1a6f](https://github.com/jkaart/nextjs-cv-private/commit/f3f1a6fd6fbb9a0fdd03f8c36af27205145d6643))
+* **data:** Updated Ossi2 project and added project images ([2407a7b](https://github.com/jkaart/nextjs-cv-private/commit/2407a7bb7d5f0e601e521003cf2ab7141860c235))
+* **HeadingH2:** create HeadingH2 component and use it in Contact, Skills, and Section components ([17f9cc0](https://github.com/jkaart/nextjs-cv-private/commit/17f9cc0c4efb738fc2fe315e9c170848f0192b3c))
+
 # [1.5.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.4.2...v1.5.0) (2026-05-05)
 
 
