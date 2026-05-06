@@ -13,6 +13,9 @@ export const addIdToData = (data: DataWithoutId) => {
       ...workExperience,
       id: uuidv4()
     })),
-    language: data.language.map(language => ({ ...language, id: uuidv4() }))
+    languageSkill: data.languageSkill.map(language => ({
+      ...language,
+      id: uuidv4()
+    }))
   }
 }

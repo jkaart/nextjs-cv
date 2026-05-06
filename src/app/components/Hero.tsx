@@ -3,12 +3,13 @@ import Section from '@components/common/Section'
 import Description from '@components/Description'
 import Educations from '@components/Educations'
 import HeroHeader from '@components/HeroHeader'
+import Hobbies from '@components/Hobbies'
+import LanguageSkills from '@components/LanguageSkills'
 import MePhoto from '@components/MePhoto'
 import Projects from '@components/Projects'
 import Skills from '@components/Skills'
 import WorkExperiences from '@components/WorkExperiences'
 import type { Data } from '@types'
-import Hobbies from './Hobbies'
 
 interface HeroProps {
   data: Data
@@ -19,11 +20,12 @@ const Hero = async ({ data }: HeroProps) => (
     <HeroHeader me={data.me} />
     <div className='grid gap-2 lg:grid-cols-8 lg:grid-rows-1'>
       <div className='lg:col-span-2'>
-        <div className='bg-gray-100 dark:bg-gray-800 border rounded-md p-2 mb-3 grid gap-5'>
+        <div className='bg-gray-100 dark:bg-gray-800 border rounded-md py-2 mb-3 grid gap-5 px-3'>
           <MePhoto image={data.me.image} />
           <Contact contact={data.contact} />
           <Skills skills={data.skill} />
-          <Hobbies hobbies={data.hobbies} />
+          <LanguageSkills languageSkills={data.languageSkill} />
+          <Hobbies hobbies={data.hobby} />
         </div>
       </div>
       <div className='lg:col-span-6'>

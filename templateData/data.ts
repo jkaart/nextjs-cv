@@ -17,8 +17,8 @@ const rawData: DataWithoutId = {
     homepage: '',
     gitHub: ''
   },
-  language: [],
-  hobbies: [],
+  languageSkill: [],
+  hobby: [],
   education: [],
   skill: [],
   workExperience: []
