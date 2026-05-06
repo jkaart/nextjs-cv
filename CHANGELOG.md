@@ -1,3 +1,11 @@
+# [1.8.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.7.0...v1.8.0) (2026-05-06)
+
+
+### Features
+
+* **PDFResume:**  display language skills in PDFResume ([5fc2075](https://github.com/jkaart/nextjs-cv-private/commit/5fc2075fa6490b7a932215bf452a594ffe1433ed))
+* **PDFResume:** add hobbies section to PDFResume ([b84ac51](https://github.com/jkaart/nextjs-cv-private/commit/b84ac5112795a064d4a4c7d3ee47bb6e48129b26))
+
 # [1.7.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.6.0...v1.7.0) (2026-05-06)
 
 
