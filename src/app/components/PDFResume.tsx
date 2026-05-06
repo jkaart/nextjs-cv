@@ -11,6 +11,7 @@ import PDFWorkExperiences from '@components/PDFWorkExperiences'
 import { data } from '@data/data'
 import { Document, Page, StyleSheet, Text, View } from '@react-pdf/renderer'
 import type { ProjectMetadata } from '@utils/projects'
+import PDFLanguageSkills from './PDFLanguageSkills'
 
 export const styles = StyleSheet.create({
   page: {
@@ -100,6 +101,8 @@ const PDFResume = ({
               <PDFLink src={data.contact.linkedIn} title='LinkedIn' />
               <Text style={[styles.h4, styles.skill]}>Taidot</Text>
               <PDFSkillList skills={data.skill} />
+              <Text style={[styles.h4, styles.skill]}>Kielitaito</Text>
+              <PDFLanguageSkills languageSkills={data.languageSkill} />
             </View>
           </View>
           <View style={styles.sectionContainer}>
