@@ -1,6 +1,6 @@
 type Id = string
 
-type Level = 'poor' | 'good' | 'excellent'
+type Level = 'veryPoor' | 'poor' | 'good' | 'veryGood' | 'excellent'
 
 export interface Image {
   src: string
@@ -47,16 +47,19 @@ export interface WorkExperience {
   endDate: Date
 }
 
-export interface Hobby {
-  id: Id
-  hobby: string
+interface LanguageLevels {
+  spoken: Level
+  written: Level
 }
 
 export interface Language {
   id: Id
   language: string
-  level: Level
+  levels: LanguageLevels
+  motherLanguage?: boolean
 }
+
+export type Hobby = string
 
 type WithoutId<T> = {
   [K in keyof T]: T[K] extends (infer U)[]
@@ -79,12 +82,3 @@ export interface Data {
 }
 
 export type DataWithoutId = WithoutId<Data>
-// export type DataWithoutId = {
-//     me: Omit<Me, "id">;
-//     contact: Omit<Contact, "id">;
-//     language: Omit<Language[], "id">;
-//     hobbies: Omit<Hobby[], "id">;
-//     education: Omit<Education[], "id">;
-//     skill: Omit<Skill[], "id">;
-//     workExperience: Omit<WorkExperience[], "id">;
-// }
