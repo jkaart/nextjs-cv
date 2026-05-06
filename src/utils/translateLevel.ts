@@ -13,6 +13,6 @@ export const translateLevel = (level: Level) => {
     case 'excellent':
       return 'erinomainen'
     default:
-     throw TypeError('invalid level')
+      throw TypeError('invalid level')
   }
 }

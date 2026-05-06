@@ -1,6 +1,6 @@
 type Id = string
 
-type Level = 'veryPoor' | 'poor' | 'good' | 'veryGood' | 'excellent'
+export type Level = 'veryPoor' | 'poor' | 'good' | 'veryGood' | 'excellent'
 
 export interface Image {
   src: string
@@ -52,10 +52,10 @@ interface LanguageLevels {
   written: Level
 }
 
-export interface Language {
+export interface LanguageSkill {
   id: Id
   language: string
-  levels: LanguageLevels
+  levels?: LanguageLevels
   motherLanguage?: boolean
 }
 
@@ -74,8 +74,8 @@ type WithoutId<T> = {
 export interface Data {
   me: Me
   contact: Contact
-  language: Language[]
-  hobbies: Hobby[]
+  languageSkill: LanguageSkill[]
+  hobby: Hobby[]
   education: Education[]
   skill: Skill[]
   workExperience: WorkExperience[]
