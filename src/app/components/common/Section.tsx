@@ -1,3 +1,4 @@
+import HeadingH2 from '@components/common/HeadingH2'
 import type { ReactNode } from 'react'
 
 interface SectionProps {
@@ -8,9 +9,7 @@ interface SectionProps {
 const Section = ({ title, children }: SectionProps) => (
   <section data-testid='section'>
     <div className='border rounded-md p-2 mb-3 bg-gray-100 dark:bg-gray-800'>
-      <h2 className='inline-block text-2xl font-bold border-b-4 mb-2'>
-        {title}
-      </h2>
+      <HeadingH2 text={title} />
       {children}
     </div>
   </section>
