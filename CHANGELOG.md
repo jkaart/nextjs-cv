@@ -1,3 +1,12 @@
+# [1.7.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.6.0...v1.7.0) (2026-05-06)
+
+
+### Features
+
+* add LanguageSkills and LanguageSkill components ([865b065](https://github.com/jkaart/nextjs-cv-private/commit/865b065f882f40c54e98ddd5ac746bd8e74ef7cc))
+* **translateLevel:** add translateLevel function for level translations ([24438cb](https://github.com/jkaart/nextjs-cv-private/commit/24438cbfcf9e0901f0bf980615ce2a188c33b8a8))
+* **translateLevel:** add translateLevel function for level translations ([f7eb8fd](https://github.com/jkaart/nextjs-cv-private/commit/f7eb8fd83d578056ec9500d3ca213371ada18364))
+
 # [1.6.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.5.0...v1.6.0) (2026-05-06)
 
 
