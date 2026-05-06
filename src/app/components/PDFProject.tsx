@@ -1,7 +1,7 @@
 import { styles } from '@components/PDFResume'
 import { Link, Text, View } from '@react-pdf/renderer'
 import { formatProjectDates } from '@utils/formatProjectDates'
-import { formatTechnologiesString } from '@utils/formatTechnologiesString'
+import { formatString } from '@utils/formatString'
 import type { ProjectMetadata } from '@utils/projects'
 
 interface PDFProjectProps {
@@ -21,7 +21,7 @@ const PDFProject = ({ project }: PDFProjectProps) => {
       <Text style={styles.h6}>{project.title}</Text>
       <Text style={{ marginBottom: '5px' }}>{project.summary}</Text>
       <Text style={{ fontWeight: 'bold', marginBottom: '5px' }}>
-        {`Käytetyt teknologiat: ${formatTechnologiesString(technologies)}`}
+        {`Käytetyt teknologiat: ${formatString(technologies)}`}
       </Text>
       <Text style={{ marginBottom: '5px' }}>
         {startDate} - {endDate}
