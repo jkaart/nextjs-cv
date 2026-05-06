@@ -8,6 +8,7 @@ import Projects from '@components/Projects'
 import Skills from '@components/Skills'
 import WorkExperiences from '@components/WorkExperiences'
 import type { Data } from '@types'
+import Hobbies from './Hobbies'
 
 interface HeroProps {
   data: Data
@@ -22,6 +23,7 @@ const Hero = async ({ data }: HeroProps) => (
           <MePhoto image={data.me.image} />
           <Contact contact={data.contact} />
           <Skills skills={data.skill} />
+          <Hobbies hobbies={data.hobbies} />
         </div>
       </div>
       <div className='lg:col-span-6'>

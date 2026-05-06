@@ -13,7 +13,6 @@ export const addIdToData = (data: DataWithoutId) => {
       ...workExperience,
       id: uuidv4()
     })),
-    language: data.language.map(language => ({ ...language, id: uuidv4() })),
-    hobbies: data.hobbies.map(hobby => ({ ...hobby, id: uuidv4() }))
+    language: data.language.map(language => ({ ...language, id: uuidv4() }))
   }
 }
