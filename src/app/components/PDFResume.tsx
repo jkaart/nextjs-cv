@@ -11,6 +11,7 @@ import PDFWorkExperiences from '@components/PDFWorkExperiences'
 import { data } from '@data/data'
 import { Document, Page, StyleSheet, Text, View } from '@react-pdf/renderer'
 import type { ProjectMetadata } from '@utils/projects'
+import PDFHobbies from './PDFHobbies'
 import PDFLanguageSkills from './PDFLanguageSkills'
 
 export const styles = StyleSheet.create({
@@ -45,7 +46,7 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: '12px'
   },
-  skill: {
+  title: {
     marginTop: '10px'
   },
   container: {
@@ -76,6 +77,14 @@ interface PDFResumeProps {
   lastContentUpdate: string
 }
 
+interface TitleProps {
+  title: string
+}
+
+const Title = ({ title }: TitleProps) => (
+  <Text style={[styles.h4, styles.title]}>{title}</Text>
+)
+
 const PDFResume = ({
   projects,
   meDescriptionRaw,
@@ -99,10 +108,12 @@ const PDFResume = ({
               <PDFLink src={data.contact.email} title='Sähköposti' />
               <PDFLink src={data.contact.gitHub} title='GitHub' />
               <PDFLink src={data.contact.linkedIn} title='LinkedIn' />
-              <Text style={[styles.h4, styles.skill]}>Taidot</Text>
+              <Title title='Taidot' />
               <PDFSkillList skills={data.skill} />
-              <Text style={[styles.h4, styles.skill]}>Kielitaito</Text>
+              <Title title='Kielitaito' />
               <PDFLanguageSkills languageSkills={data.languageSkill} />
+              <Title title='Harrastukset' />
+              <PDFHobbies hobbies={data.hobby} />
             </View>
           </View>
           <View style={styles.sectionContainer}>
