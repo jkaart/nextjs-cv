@@ -13,6 +13,8 @@ const IconLink = ({ href, iconType, className }: IconLinkProps) => {
     return null
   }
 
+  const testId = `react-icon-${iconType.toLowerCase()}`
+
   return (
     <a
       className={className}
@@ -20,7 +22,7 @@ const IconLink = ({ href, iconType, className }: IconLinkProps) => {
       target='_blank'
       href={href}
     >
-      {Icon}
+      {<Icon data-testid={testId} />}
     </a>
   )
 }
