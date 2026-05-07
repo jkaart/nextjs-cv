@@ -1,4 +1,4 @@
-name: Deployment & publish source
+name: Release
 on:
   workflow_run:
     workflows: [ "Deploy" ]
