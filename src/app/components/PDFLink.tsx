@@ -16,8 +16,6 @@ const PDFLink = ({ iconType, src }: PDFLinkProps) => {
   const result = extractIconPaths(Icon)
   if (!result || !result.viewBox || !result.paths) return null
 
-  console.log(iconType, result.viewBox, result.paths)
-
   return (
     <View style={{ flexDirection: 'row', gap: '2px', alignItems: 'center' }}>
       <View
