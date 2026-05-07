@@ -3,6 +3,8 @@
 import PDFDescription from '@components/PDFDescription'
 import PDFEducations from '@components/PDFEducations'
 import PDFFooter from '@components/PDFFooter'
+import PDFHobbies from '@components/PDFHobbies'
+import PDFLanguageSkills from '@components/PDFLanguageSkills'
 import PDFLink from '@components/PDFLink'
 import MePhoto from '@components/PDFMePhoto'
 import PDFProjects from '@components/PDFProjects'
@@ -11,8 +13,6 @@ import PDFWorkExperiences from '@components/PDFWorkExperiences'
 import { data } from '@data/data'
 import { Document, Page, StyleSheet, Text, View } from '@react-pdf/renderer'
 import type { ProjectMetadata } from '@utils/projects'
-import PDFHobbies from './PDFHobbies'
-import PDFLanguageSkills from './PDFLanguageSkills'
 
 export const styles = StyleSheet.create({
   page: {
@@ -94,6 +94,7 @@ const PDFResume = ({
     <Document>
       <Page size='A4' style={styles.page}>
         <View style={styles.header}>
+          <Text style={styles.h1}>Ansioluettelo</Text>
           <Text
             style={styles.h3}
           >{`${data.me.firstName} ${data.me.lastName}`}</Text>
@@ -104,10 +105,10 @@ const PDFResume = ({
             <View style={styles.infoAndSkillsContainer}>
               <MePhoto image={data.me.image} />
               <Text style={styles.h4}>Tiedot</Text>
-              <PDFLink src={data.contact.homepage} title='Kotisivu' />
-              <PDFLink src={data.contact.email} title='Sähköposti' />
-              <PDFLink src={data.contact.gitHub} title='GitHub' />
-              <PDFLink src={data.contact.linkedIn} title='LinkedIn' />
+              <PDFLink src={data.contact.homepage} iconType='homePage' />
+              <PDFLink src={data.contact.email} iconType='eMail' />
+              <PDFLink src={data.contact.gitHub} iconType='gitHub' />
+              <PDFLink src={data.contact.linkedIn} iconType='linkedIn' />
               <Title title='Taidot' />
               <PDFSkillList skills={data.skill} />
               <Title title='Kielitaito' />

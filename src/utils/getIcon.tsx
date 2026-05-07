@@ -3,20 +3,20 @@ import {
   FaLinkedin as LinkedInIcon
 } from 'react-icons/fa6'
 import { IoMdHome as HomepageIcon } from 'react-icons/io'
-import { MdOutlineAlternateEmail as EmailIcon } from 'react-icons/md'
+import { MdAlternateEmail as EmailIcon } from 'react-icons/md'
 
 export type IconType = 'homePage' | 'eMail' | 'gitHub' | 'linkedIn'
 
 export const getIcon = (type: IconType) => {
   switch (type) {
     case 'homePage':
-      return <HomepageIcon data-testid='react-icon-homepage' />
+      return HomepageIcon
     case 'eMail':
-      return <EmailIcon data-testid='react-icon-email' />
+      return EmailIcon
     case 'gitHub':
-      return <GithubIcon data-testid='react-icon-github' />
+      return GithubIcon
     case 'linkedIn':
-      return <LinkedInIcon data-testid='react-icon-linkedin' />
+      return LinkedInIcon
     default:
       return new Error('unknown iconType')
   }
