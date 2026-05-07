@@ -1,0 +1,29 @@
+name: Deployment & publish source
+on:
+  workflow_run:
+    workflows: [ "Deploy" ]
+    types:
+      - completed
+jobs:
+  Release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      - run: npm install --package-lock-only
+      - run: npm ci
+
+      - name: Run semantic-release
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HUSKY: 0
