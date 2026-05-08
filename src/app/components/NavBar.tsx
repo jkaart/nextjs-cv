@@ -1,21 +1,14 @@
 'use client'
 
-import CVDownload from '@components/CVDownload'
 import HamburgerMenu from '@components/HamburgerMenu'
 import Link from 'next/link'
 import { useState } from 'react'
 
 interface NavBarProps {
-  meDescriptionRaw: string
-  lastContentUpdate: string
   className?: string
 }
 
-const NavBar = ({
-  className,
-  meDescriptionRaw,
-  lastContentUpdate
-}: NavBarProps) => {
+const NavBar = ({ className }: NavBarProps) => {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <nav className={className}>
@@ -23,19 +16,6 @@ const NavBar = ({
         <Link className='hover:text-blue-600' href='/'>
           Etusivu
         </Link>
-        <div className='flex align-middle gap-1'>
-          <div>PDF:</div>
-          <Link className='hover:text-blue-600' href='/pdf-cv'>
-            Näytä
-          </Link>
-          <span>/</span>
-          <CVDownload
-            lastContentUpdate={lastContentUpdate}
-            className='hover:text-blue-600'
-            label='Lataa'
-            meDescriptionRaw={meDescriptionRaw}
-          />
-        </div>
       </div>
       <HamburgerMenu state={isOpen} onClick={() => setIsOpen(!isOpen)} />
       {isOpen && (
@@ -47,18 +27,6 @@ const NavBar = ({
           >
             Etusivu
           </Link>
-          <div>
-            PDF:{' '}
-            <Link onClick={() => setIsOpen(false)} href='/pdf-cv'>
-              Näytä
-            </Link>
-            /
-            <CVDownload
-              lastContentUpdate={lastContentUpdate}
-              meDescriptionRaw={meDescriptionRaw}
-              label='Lataa'
-            />
-          </div>
         </div>
       )}
     </nav>

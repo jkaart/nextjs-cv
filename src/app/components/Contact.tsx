@@ -5,9 +5,10 @@ import { validateUrl } from '@utils/validators'
 
 interface ContactProps {
   contact: ContactType
+  children: React.JSX.Element
 }
 
-const Contact = ({ contact }: ContactProps) => {
+const Contact = ({ contact, children }: ContactProps) => {
   return (
     <div>
       <HeadingH2 text='Tiedot' />
@@ -16,6 +17,7 @@ const Contact = ({ contact }: ContactProps) => {
         <IconLink href={validateUrl(contact.email)} iconType='eMail' />
         <IconLink href={validateUrl(contact.gitHub)} iconType='gitHub' />
         <IconLink href={validateUrl(contact.linkedIn)} iconType='linkedIn' />
+        {children}
       </div>
     </div>
   )

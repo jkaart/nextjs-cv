@@ -1,4 +1,5 @@
 import Contact from '@components/Contact'
+import PDFMenuButton from '@components/CVDownloadMenuButton'
 import Section from '@components/common/Section'
 import Description from '@components/Description'
 import Educations from '@components/Educations'
@@ -13,16 +14,23 @@ import type { Data } from '@types'
 
 interface HeroProps {
   data: Data
+  lastContentUpdate: string
+  meDescriptionRaw: string
 }
 
-const Hero = async ({ data }: HeroProps) => (
+const Hero = ({ data, lastContentUpdate, meDescriptionRaw }: HeroProps) => (
   <>
     <HeroHeader me={data.me} />
     <div className='grid gap-2 lg:grid-cols-8 lg:grid-rows-1'>
       <div className='lg:col-span-2'>
         <div className='bg-gray-100 dark:bg-gray-800 border rounded-md py-2 mb-3 grid gap-5 px-3'>
           <MePhoto image={data.me.image} />
-          <Contact contact={data.contact} />
+          <Contact contact={data.contact}>
+            <PDFMenuButton
+              lastContentUpdate={lastContentUpdate}
+              meDescriptionRaw={meDescriptionRaw}
+            />
+          </Contact>
           <Skills skills={data.skill} />
           <LanguageSkills languageSkills={data.languageSkill} />
           <Hobbies hobbies={data.hobby} />
