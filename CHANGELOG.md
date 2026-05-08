@@ -1,3 +1,10 @@
+## [1.9.2](https://github.com/jkaart/nextjs-cv-private/compare/v1.9.1...v1.9.2) (2026-05-08)
+
+
+### Bug Fixes
+
+* **layout:** change main element width to full ([46ef010](https://github.com/jkaart/nextjs-cv-private/commit/46ef010406cad3863da14f2fc3abc3643ca2abfc))
+
 ## [1.9.1](https://github.com/jkaart/nextjs-cv-private/compare/v1.9.0...v1.9.1) (2026-05-08)
 
 
