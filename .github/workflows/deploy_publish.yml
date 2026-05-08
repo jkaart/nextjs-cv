@@ -59,6 +59,8 @@ jobs:
           --path templateData \
           --path CHANGELOG.md \
           --path .github/workflows/deploy_publish.yml \
+          --path release_template.yml \
+          --path ToDo.md \
           --path .vercelignore
 
       - name: Copy template data
