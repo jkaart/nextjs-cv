@@ -69,7 +69,6 @@ jobs:
 
           mkdir -p src/data
           cp -r ../templateData/* src/data/
-          cp -r ../release_template.yml .github/workflows/release.yml
       - name: Commit template data
         run: |
           cd public_repo
