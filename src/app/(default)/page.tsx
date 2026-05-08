@@ -1,16 +1,18 @@
-import PDFClient from '@components/PDFClient'
+import Hero from '@components/Hero'
+import { data } from '@data/data'
 import { dateToString } from '@utils/dateToString'
 import { meDescriptionRaw } from '@utils/meDescriptionRaw'
 import { getLastContentUpdate } from '@utils/projects'
 
-const PDFPage = async () => {
+const Home = async () => {
   const lastContentUpdate = dateToString(await getLastContentUpdate(), 'date')
   return (
-    <PDFClient
-      lastContentUpdate={lastContentUpdate}
+    <Hero
+      data={data}
       meDescriptionRaw={meDescriptionRaw}
+      lastContentUpdate={lastContentUpdate}
     />
   )
 }
 
-export default PDFPage
+export default Home
