@@ -16,6 +16,9 @@ const NavBar = ({ className }: NavBarProps) => {
         <Link className='hover:text-blue-600' href='/'>
           Etusivu
         </Link>
+        <Link className='hover:text-blue-600' href='/projects'>
+          Kaikki projektit
+        </Link>
       </div>
       <HamburgerMenu state={isOpen} onClick={() => setIsOpen(!isOpen)} />
       {isOpen && (
@@ -26,6 +29,9 @@ const NavBar = ({ className }: NavBarProps) => {
             href='/'
           >
             Etusivu
+          </Link>
+          <Link onClick={() => setIsOpen(false)} href='/projects'>
+            Kaikki projektit
           </Link>
         </div>
       )}
