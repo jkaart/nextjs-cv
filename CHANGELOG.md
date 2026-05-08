@@ -1,3 +1,18 @@
+# [1.9.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.8.0...v1.9.0) (2026-05-08)
+
+
+### Bug Fixes
+
+* **ci:** fix public source semantic release ([f997560](https://github.com/jkaart/nextjs-cv-private/commit/f9975602d6869a210afd74d0368df050ecd0e78c))
+* **ci:** fix typo ([d5f5f10](https://github.com/jkaart/nextjs-cv-private/commit/d5f5f10155611bc127591866e6516d30f47bb84f))
+* **contact:** removed slashes from email address ([66d20e6](https://github.com/jkaart/nextjs-cv-private/commit/66d20e617eeb41f3dc3effcdc930bc265eeec556))
+* font loading warning ([22c0c7f](https://github.com/jkaart/nextjs-cv-private/commit/22c0c7f89cceee388056f36d6156b6d93085acf5))
+
+
+### Features
+
+* add layout and project pages with dynamic content rendering ([fb2a3ba](https://github.com/jkaart/nextjs-cv-private/commit/fb2a3bac04e30fea223c01171280f18c42a07dde))
+
 # [1.8.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.7.0...v1.8.0) (2026-05-06)
 
 
