@@ -1,3 +1,15 @@
+# [1.10.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.9.2...v1.10.0) (2026-05-08)
+
+
+### Bug Fixes
+
+* **layout:** main element overflow ([08dc46e](https://github.com/jkaart/nextjs-cv-private/commit/08dc46eabe55aca24b0c74ffd3e964b3e56641e3))
+
+
+### Features
+
+* **allprojects:** page which shows all projects ([9524042](https://github.com/jkaart/nextjs-cv-private/commit/9524042c6df9f41eb94f2b8de33e6ae99341c1dd))
+
 ## [1.9.2](https://github.com/jkaart/nextjs-cv-private/compare/v1.9.1...v1.9.2) (2026-05-08)
 
 
