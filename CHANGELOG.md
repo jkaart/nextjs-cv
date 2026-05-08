@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/jkaart/nextjs-cv-private/compare/v1.9.0...v1.9.1) (2026-05-08)
+
+
+### Bug Fixes
+
+* **projects:** limit number of projects fetched to 3 ([2779138](https://github.com/jkaart/nextjs-cv-private/commit/2779138a6e79065acfe8787ee699c24f2fb33d28))
+
 # [1.9.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.8.0...v1.9.0) (2026-05-08)
 
 
