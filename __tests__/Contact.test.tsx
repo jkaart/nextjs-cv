@@ -28,7 +28,7 @@ describe('Contact', () => {
   it('renders email link with mailto protocol when provided', () => {
     render(<Contact contact={mockContact} />)
     const links = screen.getAllByRole('link')
-    expect(links[1]).toHaveAttribute('href', 'mailto://john.doe@example.com')
+    expect(links[1]).toHaveAttribute('href', 'mailto:john.doe@example.com')
   })
 
   it('renders gitHub link when provided', () => {
