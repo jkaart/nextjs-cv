@@ -3,7 +3,9 @@ interface DefaultLayoutProps {
 }
 
 const DefaultLayout = ({ children }: DefaultLayoutProps) => (
-  <main className='flex-1 lg:mx-auto lg:max-w-5xl mx-3 mb-2 w-full'>{children}</main>
+  <main className='flex-1 lg:mx-auto lg:max-w-5xl mx-3 mb-2 lg:w-full'>
+    {children}
+  </main>
 )
 
 export default DefaultLayout
