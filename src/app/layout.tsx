@@ -12,7 +12,8 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
-  subsets: ['latin']
+  subsets: ['latin'],
+  preload: false
 })
 
 export const metadata: Metadata = {
@@ -28,7 +29,7 @@ const RootLayout = ({
   return (
     <html lang='fi'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
+        className={`${geistSans.className} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         <Header />
         {children}
