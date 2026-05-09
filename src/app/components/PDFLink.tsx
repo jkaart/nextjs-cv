@@ -2,7 +2,7 @@ import PDFSvgIcon from '@components/PDFSvgIcon'
 import { Link, View } from '@react-pdf/renderer'
 import { extractIconPaths } from '@utils/getDevIcon'
 import { getIcon, type IconType } from '@utils/getIcon'
-import { validateUrl } from '@utils/validators'
+import { normalizeUrl } from '@utils/normalizeUrl'
 
 interface PDFLinkProps {
   iconType: IconType
@@ -29,7 +29,7 @@ const PDFLink = ({ iconType, src }: PDFLinkProps) => {
         <PDFSvgIcon viewBox={result.viewBox} paths={result.paths} />
       </View>
       <View>
-        <Link src={validateUrl(src)}>{src}</Link>
+        <Link src={normalizeUrl(src)}>{src}</Link>
       </View>
     </View>
   )

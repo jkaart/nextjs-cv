@@ -1,4 +1,4 @@
-export const validateUrl = (url: string): string => {
+export const normalizeUrl = (url: string): string => {
   if (
     url.startsWith('http://') ||
     url.startsWith('https://') ||
