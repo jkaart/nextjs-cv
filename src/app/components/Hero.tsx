@@ -23,7 +23,7 @@ const Hero = ({ data, lastContentUpdate, meDescriptionRaw }: HeroProps) => (
     <HeroHeader me={data.me} />
     <div className='grid gap-2 lg:grid-cols-8 lg:grid-rows-1'>
       <div className='lg:col-span-2'>
-        <div className='bg-gray-100 dark:bg-gray-800 border rounded-md py-2 mb-3 grid gap-5 px-3'>
+        <div className='bg-primary-background border rounded-md py-2 mb-3 grid gap-5 px-3'>
           <MePhoto image={data.me.image} />
           <Contact contact={data.contact}>
             <PDFMenuButton

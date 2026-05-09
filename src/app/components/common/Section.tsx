@@ -8,7 +8,7 @@ interface SectionProps {
 
 const Section = ({ title, children }: SectionProps) => (
   <section data-testid='section'>
-    <div className='border rounded-md p-2 mb-3 bg-gray-100 dark:bg-gray-800'>
+    <div className='border rounded-md p-2 mb-3 bg-primary-background'>
       <HeadingH2 text={title} />
       {children}
     </div>

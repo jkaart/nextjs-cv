@@ -4,6 +4,7 @@ import './globals.css'
 import Footer from '@components/Footer'
 import Header from '@components/Header'
 import { data } from '@data/data'
+import { ThemeProvider } from 'next-themes'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -27,13 +28,15 @@ const RootLayout = ({
   children: React.ReactNode
 }>) => {
   return (
-    <html lang='fi'>
+    <html lang='fi' suppressHydrationWarning>
       <body
         className={`${geistSans.className} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
-        <Header />
-        {children}
-        <Footer me={data.me} />
+        <ThemeProvider enableSystem={true} defaultTheme='system'>
+          <Header />
+          {children}
+          <Footer me={data.me} />
+        </ThemeProvider>
       </body>
     </html>
   )

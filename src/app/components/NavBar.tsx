@@ -3,6 +3,7 @@
 import HamburgerMenu from '@components/HamburgerMenu'
 import Link from 'next/link'
 import { useState } from 'react'
+import ThemeChange from './ThemeChange'
 
 interface NavBarProps {
   className?: string
@@ -33,6 +34,7 @@ const NavBar = ({ className }: NavBarProps) => {
           <Link onClick={() => setIsOpen(false)} href='/projects'>
             Kaikki projektit
           </Link>
+          <ThemeChange />
         </div>
       )}
     </nav>

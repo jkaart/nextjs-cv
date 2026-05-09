@@ -9,7 +9,7 @@ interface ProjectProps {
 const Project = ({ project }: ProjectProps) => (
   <Link
     href={`/projects/${project.slug}`}
-    className='border rounded-md p-2 bg-gray-100 dark:bg-gray-800'
+    className='border rounded-md p-2 bg-primary-background'
   >
     <h3 className='font-bold text-lg'>{project.title}</h3>
     <p>{project.summary}</p>
@@ -25,7 +25,7 @@ const Project = ({ project }: ProjectProps) => (
 const AllProjects = async () => {
   const projects = await getProjects()
   return (
-    <div className='flex flex-col gap-2'>
+    <div className='flex flex-col gap-2 text-primary-foreground'>
       {projects.map(project => (
         <Project key={project.slug} project={project} />
       ))}

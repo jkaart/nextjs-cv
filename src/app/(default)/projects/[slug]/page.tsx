@@ -22,7 +22,7 @@ const Project = async ({ params }: ProjectProps) => {
   const { title } = metadata
 
   return (
-    <MdxLayout className='prose dark:prose-invert p-2 border border-t-0 bg-gray-100 dark:bg-gray-800 h-auto'>
+    <MdxLayout className='prose dark:prose-invert p-2 border border-t-0 bg-primary-background text-primary-foreground h-auto'>
       <div>
         <h1>{title}</h1>
         <MDXContent source={content} slug={slug} />
