@@ -86,12 +86,21 @@ jobs:
           mkdir -p public_repo/.github/workflows
           cp release_template.yml public_repo/.github/workflows/release.yml
 
+      - name: Get original commit message
+        id: commitmsg
+        run: |
+          echo "message<<EOF" >> $GITHUB_OUTPUT
+          git log -1 --pretty=%B >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
       - name: Commit changes
         run: |
           cd public_repo
           git add -A
-          git status
-          git commit -m "sync: public repository update" || echo "No changes"
+
+          git commit \
+            --author="$(git log -1 --pretty='%an <%ae>')" \
+            -m "${COMMIT_MESSAGE}"
 
       - name: Push changes
         run: |
