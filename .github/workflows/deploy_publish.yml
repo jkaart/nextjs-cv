@@ -4,7 +4,7 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 on:
   workflow_run:
-    workflows: [ "CI" ]
+    workflows: ["CI"]
     types:
       - completed
 jobs:
@@ -21,7 +21,8 @@ jobs:
         run: npm install --global vercel@latest
 
       - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN
+        run:
+          vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN
           }}
 
       - name: Build Project Artifacts
@@ -34,58 +35,59 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' &&
       github.event.workflow_run.head_branch == 'main' &&
       !contains(github.event.workflow_run.head_commit.message, '#skip') }}
+
     runs-on: ubuntu-latest
-    needs: [ Deploy ]
+    needs: [Deploy]
 
     steps:
       - name: Checkout private repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           persist-credentials: false
 
-      - name: Install git-filter-repo
-        run: pip install git-filter-repo
-
-      - name: Clone repo
+      - name: Configure Git
         run: |
-          git clone https://${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/${{ github.repository }} public_repo
+          git config --global user.email "example@gmail.com"
+          git config --global user.name "John Doe"
 
-      - name: Filter repo
+      - name: Clone public repo
+        run: |
+          git clone https://${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/${{ secrets.PUBLIC_REPO }} public_repo
+
+      - name: Sync source into public repo
+        run: |
+          rsync -av --delete \
+            --exclude '.git' \
+            --exclude 'src/data' \
+            --exclude 'templateData' \
+            --exclude 'CHANGELOG.md' \
+            --exclude '.github/workflows/deploy_publish.yml' \
+            --exclude '.github/workflows/release.yml' \
+            --exclude 'release_template.yml' \
+            --exclude 'ToDo.md' \
+            --exclude '.vercelignore' \
+            ./ public_repo/
+
+      - name: Replace private data with template data
+        run: |
+          rm -rf public_repo/src/data
+          mkdir -p public_repo/src/data
+          cp -r templateData/* public_repo/src/data/
+
+      - name: Add release workflow
+        run: |
+          mkdir -p public_repo/.github/workflows
+          cp release_template.yml public_repo/.github/workflows/release.yml
+
+      - name: Commit changes
         run: |
           cd public_repo
-          git filter-repo \
-          --invert-paths \
-          --path src/data/ \
-          --path templateData \
-          --path CHANGELOG.md \
-          --path .github/workflows/deploy_publish.yml \
-          --path .github/workflows/release.yml \
-          --path release_template.yml \
-          --path ToDo.md \
-          --path .vercelignore
-
-      - name: Copy template data
-        run: |
-          cd public_repo
-
-          mkdir -p src/data
-          cp -r ../templateData/* src/data/
-      - name: Commit template data
-        run: |
-          cd public_repo
-
-          git config user.email "jkaart@gmail.com"
-          git config user.name "Jani Kaartinen"
-
           git add -A
-          git commit -m "Public version (data replaced with examples)" || echo "No changes"
-      - name: Push to public repo
+          git status
+          git commit -m "sync: public repository update" || echo "No changes"
+
+      - name: Push changes
         run: |
           cd public_repo
-          git remote add public https://${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/${{ secrets.PUBLIC_REPO }}
-
-          git ls-tree -r HEAD --name-only | grep data || true
-          git log -1
-          git diff HEAD~1 || true
-
-          git push -f public HEAD:main
+          git push origin main
