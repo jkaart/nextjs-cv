@@ -41,7 +41,7 @@ jobs:
 
     steps:
       - name: Checkout private repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -55,6 +55,9 @@ jobs:
         run: |
           git clone https://${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/${{ secrets.PUBLIC_REPO }} public_repo
 
+          cd public_repo
+          git fetch --tags
+
       - name: Sync source into public repo
         run: |
           rsync -av --delete \
@@ -67,6 +70,7 @@ jobs:
             --exclude 'release_template.yml' \
             --exclude 'ToDo.md' \
             --exclude '.vercelignore' \
+            --exclude 'public_repo' \
             ./ public_repo/
 
       - name: Replace private data with template data
