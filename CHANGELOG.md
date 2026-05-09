@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.10.1...v1.11.0) (2026-05-09)
+
+
+### Features
+
+* implement theme switching and update styles for light/dark modes ([170bb82](https://github.com/jkaart/nextjs-cv-private/commit/170bb8270842a656e30c5a206a9a9f8646f5686b))
+
 ## [1.10.1](https://github.com/jkaart/nextjs-cv-private/compare/v1.10.0...v1.10.1) (2026-05-09)
 
 
