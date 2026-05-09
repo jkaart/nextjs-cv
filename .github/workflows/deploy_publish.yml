@@ -11,7 +11,9 @@ jobs:
   Deploy:
     if: ${{ github.event.workflow_run.conclusion == 'success' &&
       github.event.workflow_run.head_branch == 'main' &&
-      !contains(github.event.workflow_run.head_commit.message, '#skip') }}
+      !contains(github.event.workflow_run.head_commit.message, '#skip') ||
+      !contains(github.event.workflow_run.head_commit.message, '#skip_deploy') }}
+
     runs-on: ubuntu-latest
 
     steps:
