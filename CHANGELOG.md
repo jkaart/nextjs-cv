@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/jkaart/nextjs-cv-private/compare/v1.10.0...v1.10.1) (2026-05-09)
+
+
+### Bug Fixes
+
+* **ci:** publish source ([ff9ceb7](https://github.com/jkaart/nextjs-cv-private/commit/ff9ceb7dc0701959bf6f5101afac057b0a4f3d15))
+
 # [1.10.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.9.2...v1.10.0) (2026-05-08)
 
 
