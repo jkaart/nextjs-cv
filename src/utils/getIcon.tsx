@@ -7,6 +7,14 @@ import { MdAlternateEmail as EmailIcon } from 'react-icons/md'
 
 export type IconType = 'homePage' | 'eMail' | 'gitHub' | 'linkedIn'
 
+/**
+ * Retrieves the appropriate React icon component based on the icon type.
+ * Returns the corresponding icon from react-icons libraries (Fa, IoMd, Md).
+ * Throws an error for unknown icon types.
+ *
+ * @param type - The type of icon to retrieve ('homePage', 'eMail', 'gitHub', or 'linkedIn')
+ * @returns The React icon component or Error if type is invalid
+ */
 export const getIcon = (type: IconType) => {
   switch (type) {
     case 'homePage':

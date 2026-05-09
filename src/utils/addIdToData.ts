@@ -1,6 +1,13 @@
 import type { DataWithoutId } from '@types'
 import { v4 as uuidv4 } from 'uuid'
 
+/**
+ * Adds unique UUID identifiers to all nested arrays in the data object.
+ * Generates IDs for education, skill, workExperience, and languageSkill arrays.
+ *
+ * @param data - The DataWithoutId object containing arrays without IDs
+ * @returns A new Data object with all array items having unique UUID ids
+ */
 export const addIdToData = (data: DataWithoutId) => {
   return {
     ...data,

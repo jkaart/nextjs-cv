@@ -34,6 +34,15 @@ export const assetsRootDirectory = path.join(
   'projects'
 )
 
+/**
+ * Retrieves a single project by its slug from the MDX directory.
+ * Reads the .mdx file, extracts frontmatter metadata using gray-matter,
+ * and returns the project object with metadata and content.
+ * Returns null if the project doesn't exist or an error occurs.
+ *
+ * @param slug - The unique identifier for the project (filename without extension)
+ * @returns Project object with metadata and content, or null if not found
+ */
 export const getProject = async (slug: string): Promise<Project | null> => {
   try {
     const filePath = path.join(mdxRootDirectory, `${slug}.mdx`)
@@ -47,6 +56,15 @@ export const getProject = async (slug: string): Promise<Project | null> => {
   }
 }
 
+/**
+ * Retrieves all projects from the MDX directory with optional limit.
+ * Extracts metadata from each .mdx file, filters by endDate type,
+ * sorts completed projects (with endDate) before ongoing ones,
+ * and applies limit if specified.
+ *
+ * @param limit - Optional maximum number of projects to return
+ * @returns Array of project metadata objects, sorted with completed first
+ */
 export const getProjects = async (
   limit?: number
 ): Promise<ProjectMetadata[]> => {
@@ -74,6 +92,14 @@ export const getProjects = async (
   return allProjects
 }
 
+/**
+ * Extracts metadata from a single project file by its filepath.
+ * Removes the .mdx extension to create slug, reads file content,
+ * and extracts frontmatter data using gray-matter parser.
+ *
+ * @param filepath - The filename of the MDX file (e.g., 'project1.mdx')
+ * @returns ProjectMetadata object with extracted frontmatter and generated slug
+ */
 export const getProjectMetadata = (filepath: string): ProjectMetadata => {
   const slug = filepath.replace(/\.mdx$/, '')
   const filePath = path.join(mdxRootDirectory, filepath)
@@ -83,6 +109,15 @@ export const getProjectMetadata = (filepath: string): ProjectMetadata => {
   return { ...data, slug }
 }
 
+/**
+ * Retrieves all image URLs for a specific project from the assets directory.
+ * Filters files by common image extensions (jpg, jpeg, png, webp),
+ * constructs relative paths to each image file.
+ * Returns null if slug is empty or no images found.
+ *
+ * @param slug - The project identifier matching the assets folder name
+ * @returns Array of image URLs relative to /assets/projects/, or null if invalid
+ */
 export const getProjectImages = async (slug: string) => {
   if (!slug) {
     return null
@@ -98,6 +133,14 @@ export const getProjectImages = async (slug: string) => {
   return images
 }
 
+/**
+ * Recursively scans a directory and returns all file paths.
+ * Traverses subdirectories to collect both files and nested directories,
+ * flattens the result into a single array of absolute file paths.
+ *
+ * @param dir - The root directory path to scan recursively
+ * @returns Array of full file paths for all files in the directory tree
+ */
 const scanDir = async (dir: string): Promise<string[]> => {
   const entries = await readdir(dir, { withFileTypes: true })
   const files = await Promise.all(
@@ -110,6 +153,14 @@ const scanDir = async (dir: string): Promise<string[]> => {
   return files.flat()
 }
 
+/**
+ * Finds the last modification time across all project content and asset files.
+ * Scans the data directory recursively for MDX, TSX, and image files,
+ * retrieves their modification times, and returns the most recent one.
+ * Useful for determining when content was last updated.
+ *
+ * @returns Date object representing the latest file modification time, or current date if no files found
+ */
 export const getLastContentUpdate = async () => {
   const files = await scanDir(dataRootDirectory)
 
