@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/jkaart/nextjs-cv-private/compare/v1.12.0...v1.12.1) (2026-05-10)
+
+
+### Bug Fixes
+
+* **PDFEducation:**  component to display the year of decree correctly ([e0a8ea5](https://github.com/jkaart/nextjs-cv-private/commit/e0a8ea5e7bd9c92bf13b92388e08b90438e6bfab))
+
 # [1.12.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.11.1...v1.12.0) (2026-05-10)
 
 
