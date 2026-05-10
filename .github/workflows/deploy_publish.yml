@@ -9,11 +9,12 @@ on:
       - completed
 jobs:
   Deploy:
-    if: ${{ github.event.workflow_run.conclusion == 'success' &&
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
       github.event.workflow_run.head_branch == 'main' &&
-      !contains(github.event.workflow_run.head_commit.message, '#skip_publish_source') ||
-      !contains(github.event.workflow_run.head_commit.message, '#skip_deploy') }}
-
+      !(contains(github.event.workflow_run.head_commit.message, '#skip_publish_source') || 
+      contains(github.event.workflow_run.head_commit.message, '#skip_deploy'))
+    
     runs-on: ubuntu-latest
 
     steps:
@@ -24,8 +25,7 @@ jobs:
 
       - name: Pull Vercel Environment Information
         run:
-          vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN
-          }}
+          vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Build Project Artifacts
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
@@ -34,10 +34,7 @@ jobs:
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
 
   PublishSource:
-    if: ${{ github.event.workflow_run.conclusion == 'success' &&
-      github.event.workflow_run.head_branch == 'main' &&
-      !contains(github.event.workflow_run.head_commit.message, '#skip_publish_source') }}
-
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && !contains(github.event.workflow_run.head_commit.message, '#skip_publish_source')
     runs-on: ubuntu-latest
     needs: [Deploy]
 
@@ -102,11 +99,20 @@ jobs:
 
           git add -A
 
-          git commit \
-            --author="${{ steps.commitmeta.outputs.author }}" \
-            -m "${{ steps.commitmeta.outputs.message }}"
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit \
+              --author="${{ steps.commitmeta.outputs.author }}" \
+              -m "${{ steps.commitmeta.outputs.message }}"
+          fi
 
       - name: Push changes
         run: |
           cd public_repo
-          git push origin main
+
+          if [ -n "$(git log origin/main..HEAD)" ]; then
+            git push origin main
+          else
+            echo "Nothing to push"
+          fi
