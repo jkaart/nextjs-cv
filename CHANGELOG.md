@@ -1,3 +1,11 @@
+## [1.11.1](https://github.com/jkaart/nextjs-cv-private/compare/v1.11.0...v1.11.1) (2026-05-10)
+
+
+### Bug Fixes
+
+* **Header:** header margins and font size ([b4784d2](https://github.com/jkaart/nextjs-cv-private/commit/b4784d278f9e1fd09d25d946b09ba6c8493caa5b))
+* **NavBar:** update className type to use HTMLProps for better type safety ([de642ba](https://github.com/jkaart/nextjs-cv-private/commit/de642ba2a6fbe101b9be850f9c575267fd362f6b))
+
 # [1.11.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.10.1...v1.11.0) (2026-05-09)
 
 
