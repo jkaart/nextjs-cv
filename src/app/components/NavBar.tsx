@@ -2,11 +2,11 @@
 
 import HamburgerMenu from '@components/HamburgerMenu'
 import Link from 'next/link'
-import { useState } from 'react'
+import { type HTMLProps, useState } from 'react'
 import ThemeChange from './ThemeChange'
 
 interface NavBarProps {
-  className?: string
+  className?: HTMLProps<HTMLElement>['className']
 }
 
 const NavBar = ({ className }: NavBarProps) => {
