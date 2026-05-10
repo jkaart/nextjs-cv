@@ -12,7 +12,7 @@ const Education = ({ education }: EducationProps) => {
         <li>{education.education}</li>
         <li>{education.academy}</li>
         <li>{education.degree}</li>
-        <li>{education.yearOfDecree}</li>
+        <li>{education.dateOfDecree.getFullYear()}</li>
       </ul>
     </div>
   )

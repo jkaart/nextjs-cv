@@ -10,7 +10,7 @@ import type { Education } from '@types'
  * @returns Negative number if a comes before b, positive if after, 0 if equal
  */
 export const compareEducations = (a: Education, b: Education) =>
-  b.yearOfDecree - a.yearOfDecree
+  Number(b.dateOfDecree) - Number(a.dateOfDecree)
 
 /**
  * Sorts an array of education entries by year of decree in descending order.

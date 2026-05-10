@@ -11,7 +11,7 @@ describe('Educations', () => {
       education: 'Computer Science',
       academy: 'University of Technology',
       degree: 'Perustutkinto',
-      yearOfDecree: 2020
+      dateOfDecree: new Date('2020-01-01')
     },
     {
       id: '2',
@@ -19,7 +19,7 @@ describe('Educations', () => {
       education: 'Computer Science',
       academy: 'University of Applied Sciences',
       degree: 'Ammattitutkinto',
-      yearOfDecree: 2015
+      dateOfDecree: new Date('2015-05-30')
     }
   ] satisfies EducationType[]
 

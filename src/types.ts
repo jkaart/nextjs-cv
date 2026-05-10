@@ -21,12 +21,12 @@ export interface Contact {
   gitHub: string
 }
 
-export interface Education {
+export interface EducationRaw {
   id: Id
   academy: string
   education: string
   degree: 'Perustutkinto' | 'Ammattitutkinto' | 'Työvoimakoulutus'
-  yearOfDecree: number
+  dateOfDecree: string
   professionalTitle: string
 }
 
@@ -38,13 +38,13 @@ export interface Skill {
   iconName: string
 }
 
-export interface WorkExperience {
+export interface WorkExperienceRaw {
   id: Id
   title: string
   workplaceName: string
   job: string
-  startDate: Date
-  endDate: Date
+  startDate: string
+  endDate: string
 }
 
 interface LanguageLevels {
@@ -71,14 +71,29 @@ type WithoutId<T> = {
       : T[K]
 }
 
-export interface Data {
+export interface DataWithId {
   me: Me
   contact: Contact
   languageSkill: LanguageSkill[]
   hobby: Hobby[]
-  education: Education[]
+  education: EducationRaw[]
   skill: Skill[]
-  workExperience: WorkExperience[]
+  workExperience: WorkExperienceRaw[]
 }
 
-export type DataWithoutId = WithoutId<Data>
+export type DataWithoutId = WithoutId<DataWithId>
+
+export type ParseDateFields<T> = {
+  [K in keyof T]: K extends 'dateOfDecree' | 'startDate' | 'endDate'
+    ? Date
+    : T[K] extends Array<infer U>
+      ? ParseDateFields<U>[]
+      : T[K] extends object
+        ? ParseDateFields<T[K]>
+        : T[K]
+}
+
+export type Data = ParseDateFields<DataWithId>
+
+export type Education = ParseDateFields<EducationRaw>
+export type WorkExperience = ParseDateFields<WorkExperienceRaw>

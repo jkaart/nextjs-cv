@@ -10,7 +10,7 @@ describe('Education', () => {
     education: 'Computer Science',
     academy: 'University of Technology',
     degree: 'Perustutkinto',
-    yearOfDecree: 2020
+    dateOfDecree: new Date('2020-01-01')
   } satisfies EducationType
 
   it('renders Education component', () => {
@@ -51,7 +51,7 @@ describe('Education', () => {
   it('renders year of decree field', () => {
     render(<Education education={education} />)
 
-    const yearOfDecree = screen.getByText(education.yearOfDecree.toString())
+    const yearOfDecree = screen.getByText(education.dateOfDecree.getFullYear())
     expect(yearOfDecree).toBeInTheDocument()
   })
 
