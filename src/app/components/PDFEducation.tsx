@@ -12,7 +12,7 @@ const PDFEducation = ({ education }: PDFEducationsProps) => {
       <Text>{education.education}</Text>
       <Text>{education.academy}</Text>
       <Text>{education.degree}</Text>
-      <Text>{education.yearOfDecree}</Text>
+      <Text>{education.dateOfDecree.getFullYear()}</Text>
     </View>
   )
 }

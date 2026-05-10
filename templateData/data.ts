@@ -1,5 +1,6 @@
-import type { Data, DataWithoutId } from '@types'
+import type { Data, DataWithId, DataWithoutId } from '@types'
 import { addIdToData } from '@utils/addIdToData'
+import { parseDateFields } from '@utils/parseDateFields'
 
 const rawData: DataWithoutId = {
   me: {
@@ -24,4 +25,6 @@ const rawData: DataWithoutId = {
   workExperience: []
 }
 
-export const data: Data = addIdToData(rawData)
+const dataWithId: DataWithId = addIdToData(rawData)
+
+export const data: Data = parseDateFields(dataWithId)
