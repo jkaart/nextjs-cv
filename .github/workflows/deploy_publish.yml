@@ -86,24 +86,25 @@ jobs:
           mkdir -p public_repo/.github/workflows
           cp release_template.yml public_repo/.github/workflows/release.yml
 
-      - name: Get original commit message
-        id: commitmsg
+      - name: Get original commit meta
+        id: commitmeta
         run: |
             {
               echo 'message<<EOF'
               git log -1 --pretty=%B
               echo EOF
+              echo "author=$(git log -1 --pretty='%an <%ae>')"
             } >> "$GITHUB_OUTPUT"
 
       - name: Commit changes
         run: |
           cd public_repo
+
           git add -A
 
           git commit \
-            --author="$(git log -1 --pretty='%an <%ae>')" \
-            -m "${{ steps.commitmsg.outputs.message }}" \
-            || echo "No changes"
+            --author="${{ steps.commitmeta.outputs.author }}" \
+            -m "${{ steps.commitmeta.outputs.message }}"
 
       - name: Push changes
         run: |
