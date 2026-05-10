@@ -17,6 +17,15 @@ const Footer = async ({ me }: FooterProps) => {
       <span>
         Sisältö päivitetty viimeksi: {dateToString(lastUpdated, 'date')}
       </span>
+      <span>
+        <a
+          className='text-xs'
+          href='https://www.flaticon.com/free-icons/resume-and-cv'
+          title='resume and cv icons'
+        >
+          Resume and cv icons created by feen - Flaticon
+        </a>
+      </span>
     </footer>
   )
 }
