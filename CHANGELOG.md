@@ -1,3 +1,15 @@
+# [1.12.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.11.1...v1.12.0) (2026-05-10)
+
+
+### Bug Fixes
+
+* test if this now works #skip_deploy ([5405f52](https://github.com/jkaart/nextjs-cv-private/commit/5405f526023a9aea66cede6e6f1a3a5807551e9a)), closes [#skip_deploy](https://github.com/jkaart/nextjs-cv-private/issues/skip_deploy)
+
+
+### Features
+
+* **favicon:** changed default nextjs favicon to another one ([5ed3b6a](https://github.com/jkaart/nextjs-cv-private/commit/5ed3b6ae4182dce8eeca9b57525f9481af9c467e))
+
 ## [1.11.1](https://github.com/jkaart/nextjs-cv-private/compare/v1.11.0...v1.11.1) (2026-05-10)
 
 
