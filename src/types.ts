@@ -2,6 +2,15 @@ type Id = string
 
 export type Level = 'veryPoor' | 'poor' | 'good' | 'veryGood' | 'excellent'
 
+type Degree =
+  | 'Perustutkinto'
+  | 'Ammattitutkinto'
+  | 'Ammattikorkeakoulututkinto'
+  | 'Ylioppilastutkinto'
+  | 'Yliopistotutkinto'
+  | 'Työvoimakoulutus'
+  | 'Muu'
+
 export interface Image {
   src: string
   altText: string
@@ -25,7 +34,7 @@ export interface EducationRaw {
   id: Id
   academy: string
   education: string
-  degree: 'Perustutkinto' | 'Ammattitutkinto' | 'Työvoimakoulutus'
+  degree: Degree
   dateOfDecree: string
   professionalTitle: string
 }
