@@ -35,7 +35,7 @@ export interface EducationRaw {
   academy: string
   education: string
   degree: Degree
-  dateOfDecree: string
+  dateOfGraduation: string
   professionalTitle: string
 }
 
@@ -93,7 +93,7 @@ export interface DataWithId {
 export type DataWithoutId = WithoutId<DataWithId>
 
 export type ParseDateFields<T> = {
-  [K in keyof T]: K extends 'dateOfDecree' | 'startDate' | 'endDate'
+  [K in keyof T]: K extends 'dateOfGraduation' | 'startDate' | 'endDate'
     ? Date
     : T[K] extends Array<infer U>
       ? ParseDateFields<U>[]

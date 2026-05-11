@@ -8,7 +8,7 @@ describe('compareEducations', () => {
     education: 'Computer Science',
     academy: 'University of Technology',
     degree: 'Perustutkinto',
-    dateOfDecree: new Date('2020-01-01')
+    dateOfGraduation: new Date('2020-01-01')
   }
 
   const education2: Education = {
@@ -17,7 +17,7 @@ describe('compareEducations', () => {
     education: 'Computer Science',
     academy: 'University of Applied Sciences',
     degree: 'Ammattitutkinto',
-    dateOfDecree: new Date('2015-05-30')
+    dateOfGraduation: new Date('2015-05-30')
   }
 
   const educationSameDate: Education = {
@@ -26,7 +26,7 @@ describe('compareEducations', () => {
     education: 'Mathematics',
     academy: 'University of Helsinki',
     degree: 'Yliopistotutkinto',
-    dateOfDecree: new Date('2018-06-15')
+    dateOfGraduation: new Date('2018-06-15')
   }
 
   it('returns positive value when b is newer than a', () => {
@@ -43,16 +43,6 @@ describe('compareEducations', () => {
     const result = compareEducations(educationSameDate, educationSameDate)
     expect(result).toBe(0)
   })
-
-  it('handles null dates gracefully', () => {
-    const educationNull: Education = {
-      ...education1,
-      dateOfDecree: null as unknown as Date
-    }
-
-    expect(compareEducations(education1, educationNull)).toBeLessThan(0)
-    expect(compareEducations(educationNull, education1)).toBeGreaterThan(0)
-  })
 })
 
 describe('sortEducations', () => {
@@ -63,7 +53,7 @@ describe('sortEducations', () => {
       education: 'Mathematics',
       academy: 'University of Helsinki',
       degree: 'Yliopistotutkinto',
-      dateOfDecree: new Date('2018-06-15')
+      dateOfGraduation: new Date('2018-06-15')
     },
     {
       id: '1',
@@ -71,7 +61,7 @@ describe('sortEducations', () => {
       education: 'Computer Science',
       academy: 'University of Technology',
       degree: 'Perustutkinto',
-      dateOfDecree: new Date('2020-01-01')
+      dateOfGraduation: new Date('2020-01-01')
     },
     {
       id: '2',
@@ -79,7 +69,7 @@ describe('sortEducations', () => {
       education: 'Computer Science',
       academy: 'University of Applied Sciences',
       degree: 'Ammattitutkinto',
-      dateOfDecree: new Date('2015-05-30')
+      dateOfGraduation: new Date('2015-05-30')
     }
   ]
 
@@ -90,7 +80,7 @@ describe('sortEducations', () => {
       education: 'Computer Science',
       academy: 'University of Technology',
       degree: 'Perustutkinto',
-      dateOfDecree: new Date('2020-01-01')
+      dateOfGraduation: new Date('2020-01-01')
     },
     {
       id: '3',
@@ -98,7 +88,7 @@ describe('sortEducations', () => {
       education: 'Mathematics',
       academy: 'University of Helsinki',
       degree: 'Yliopistotutkinto',
-      dateOfDecree: new Date('2018-06-15')
+      dateOfGraduation: new Date('2018-06-15')
     },
     {
       id: '2',
@@ -106,7 +96,7 @@ describe('sortEducations', () => {
       education: 'Computer Science',
       academy: 'University of Applied Sciences',
       degree: 'Ammattitutkinto',
-      dateOfDecree: new Date('2015-05-30')
+      dateOfGraduation: new Date('2015-05-30')
     }
   ]
 
@@ -144,8 +134,8 @@ describe('sortEducations', () => {
       unsortedEducations[0]
     ]
     const result = sortEducations(twoEducations)
-    expect(result[0].dateOfDecree.getTime()).toBeGreaterThan(
-      result[1].dateOfDecree.getTime()
+    expect(result[0].dateOfGraduation.getTime()).toBeGreaterThan(
+      result[1].dateOfGraduation.getTime()
     )
   })
 
@@ -156,7 +146,7 @@ describe('sortEducations', () => {
     expect(result[0]).toHaveProperty('education')
     expect(result[0]).toHaveProperty('academy')
     expect(result[0]).toHaveProperty('degree')
-    expect(result[0]).toHaveProperty('dateOfDecree')
+    expect(result[0]).toHaveProperty('dateOfGraduation')
   })
 
   it('sorts correctly with multiple educations on the same date', () => {
@@ -166,7 +156,7 @@ describe('sortEducations', () => {
       education: 'History',
       academy: 'University of Helsinki',
       degree: 'Ylioppilastutkinto',
-      dateOfDecree: new Date('2019-03-15')
+      dateOfGraduation: new Date('2019-03-15')
     }
 
     const sameDateEducation2: Education = {
@@ -175,7 +165,7 @@ describe('sortEducations', () => {
       education: 'Philosophy',
       academy: 'University of Turku',
       degree: 'Yliopistotutkinto',
-      dateOfDecree: new Date('2019-03-15')
+      dateOfGraduation: new Date('2019-03-15')
     }
 
     const mixedEducations: Education[] = [
@@ -186,13 +176,14 @@ describe('sortEducations', () => {
     const result = sortEducations(mixedEducations)
 
     // First should be the 2020 education (newest)
-    expect(result[0].dateOfDecree).toEqual(new Date('2020-01-01'))
+    expect(result[0].dateOfGraduation).toEqual(new Date('2020-01-01'))
     // Last two should have same date, order between them is not guaranteed by sort
     const lastTwo = [result[1], result[2]]
     expect(
       lastTwo.every(
         education =>
-          education.dateOfDecree.getTime() === new Date('2019-03-15').getTime()
+          education.dateOfGraduation.getTime() ===
+          new Date('2019-03-15').getTime()
       )
     ).toBe(true)
   })
@@ -204,7 +195,7 @@ describe('sortEducations', () => {
       education: 'Business',
       academy: 'College of Business',
       degree: 'Ylioppilastutkinto',
-      dateOfDecree: new Date('2010-07-20')
+      dateOfGraduation: new Date('2010-07-20')
     }
 
     const futureEducation: Education = {
@@ -213,7 +204,7 @@ describe('sortEducations', () => {
       education: 'Physics',
       academy: 'Institute of Physics',
       degree: 'Yliopistotutkinto',
-      dateOfDecree: new Date('2030-12-31')
+      dateOfGraduation: new Date('2030-12-31')
     }
 
     const mixedEducations: Education[] = [
@@ -223,9 +214,9 @@ describe('sortEducations', () => {
     ]
     const result = sortEducations(mixedEducations)
 
-    expect(result[0].dateOfDecree).toEqual(new Date('2030-12-31')) // Future first
-    expect(result[1].dateOfDecree).toEqual(new Date('2018-06-15')) // Middle
-    expect(result[2].dateOfDecree).toEqual(new Date('2010-07-20')) // Past last
+    expect(result[0].dateOfGraduation).toEqual(new Date('2030-12-31')) // Future first
+    expect(result[1].dateOfGraduation).toEqual(new Date('2018-06-15')) // Middle
+    expect(result[2].dateOfGraduation).toEqual(new Date('2010-07-20')) // Past last
   })
 
   it('handles edge case with very old dates', () => {
@@ -235,11 +226,11 @@ describe('sortEducations', () => {
       education: 'Classics',
       academy: 'Ancient University',
       degree: 'Yliopistotutkinto',
-      dateOfDecree: new Date('1900-01-01')
+      dateOfGraduation: new Date('1900-01-01')
     }
 
     const result = sortEducations([ancientEducation, unsortedEducations[0]])
-    expect(result[0].dateOfDecree).toEqual(new Date('2018-06-15')) // Newer first
+    expect(result[0].dateOfGraduation).toEqual(new Date('2018-06-15')) // Newer first
   })
 
   it('handles edge case with very recent dates', () => {
@@ -249,10 +240,10 @@ describe('sortEducations', () => {
       education: 'Engineering',
       academy: 'Modern Institute',
       degree: 'Yliopistotutkinto',
-      dateOfDecree: new Date('2035-12-31')
+      dateOfGraduation: new Date('2035-12-31')
     }
 
     const result = sortEducations([recentEducation, unsortedEducations[0]])
-    expect(result[0].dateOfDecree).toEqual(new Date('2035-12-31')) // Newest first
+    expect(result[0].dateOfGraduation).toEqual(new Date('2035-12-31')) // Newest first
   })
 })

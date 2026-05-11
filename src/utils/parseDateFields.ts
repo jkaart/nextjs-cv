@@ -5,7 +5,7 @@ export const parseDateFields = (data: DataWithId) => {
     ...data,
     education: data.education.map(education => ({
       ...education,
-      dateOfDecree: new Date(education.dateOfDecree)
+      dateOfGraduation: new Date(education.dateOfGraduation)
     })),
     workExperience: data.workExperience.map(workExperience => ({
       ...workExperience,
