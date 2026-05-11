@@ -1,3 +1,10 @@
+## [1.12.2](https://github.com/jkaart/nextjs-cv-private/compare/v1.12.1...v1.12.2) (2026-05-11)
+
+
+### Bug Fixes
+
+* **sortHobbies:** compare by lowerCase with localCompare function ([63d2981](https://github.com/jkaart/nextjs-cv-private/commit/63d298131c2761c7d5c71b5ad9db868c41a6b19a))
+
 ## [1.12.1](https://github.com/jkaart/nextjs-cv-private/compare/v1.12.0...v1.12.1) (2026-05-10)
 
 
