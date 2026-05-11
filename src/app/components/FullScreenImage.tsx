@@ -6,6 +6,26 @@ interface FullScreenImageProps {
   setSelectedImage: React.Dispatch<React.SetStateAction<ImageProps | null>>
 }
 
+/**
+ * Component that displays a selected image in full-screen mode with an overlay.
+ * Shows the image centered on screen with a black background and provides a way
+ * to close the view by clicking anywhere or using the built-in button. The component
+ * conditionally renders null when no image is selected.
+ *
+ * @interface FullScreenImageProps - Props interface for FullScreenImage component
+ * @param {ImageProps | null} props.selectedImage - Image object containing src and alt text, or null to hide the overlay
+ * @param {React.Dispatch<React.SetStateAction<ImageProps | null>>} props.setSelectedImage - Function to update the selected image state (pass null to close)
+ *
+ * @example
+ * ```tsx
+ * const [selectedImage, setSelectedImage] = useState<ImageProps | null>(null)
+ *
+ * <FullScreenImage
+ *   selectedImage={selectedImage}
+ *   setSelectedImage={setSelectedImage}
+ * />
+ * ```
+ */
 const FullScreenImage = ({
   selectedImage,
   setSelectedImage
@@ -30,4 +50,5 @@ const FullScreenImage = ({
     </div>
   )
 }
+
 export default FullScreenImage

@@ -6,6 +6,20 @@ interface FooterProps {
   me: Me
 }
 
+/**
+ * Component that renders the footer section of the CV page.
+ * Displays copyright information, last content update timestamp, and attribution
+ * for icons used in the project. The footer uses Tailwind CSS for styling with
+ * support for dark mode.
+ *
+ * @interface FooterProps - Props interface for Footer component
+ * @param {Me} props.me - Object containing personal information (firstName, lastName) for copyright display
+ *
+ * @example
+ * ```tsx
+ * <Footer me={{ firstName: 'John', lastName: 'Doe' }} />
+ * ```
+ */
 const Footer = async ({ me }: FooterProps) => {
   const lastUpdated = await getLastContentUpdate()
 

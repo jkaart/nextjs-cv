@@ -6,6 +6,23 @@ export interface CVDownloadMenuProps {
   meDescriptionRaw: string
 }
 
+/**
+ * Dropdown menu component that provides options to view or download the CV.
+ * Displays a "View" link and a "Download" button, appearing when hovering over
+ * the profile section. Uses Tailwind CSS for styling with dark mode support.
+ *
+ * @interface CVDownloadMenuProps - Props interface for CVDownloadMenu component
+ * @param {string} props.lastContentUpdate - Timestamp of last content update shown in PDF footer
+ * @param {string} props.meDescriptionRaw - Raw MDX content for the description section of the CV
+ *
+ * @example
+ * ```tsx
+ * <CVDownloadMenu
+ *   lastContentUpdate='2024-01-15'
+ *   meDescriptionRaw={meDescription}
+ * />
+ * ```
+ */
 const CVDownloadMenu = ({
   lastContentUpdate,
   meDescriptionRaw

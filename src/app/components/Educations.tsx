@@ -10,6 +10,23 @@ interface EducationsProps {
   educations: EducationType[]
 }
 
+/**
+ * Component that displays education history with a "show more" feature.
+ * Renders the first education entry by default and provides an option to view
+ * additional entries through a ShowMore component. Educations are sorted in
+ * reverse chronological order using the sortEducations utility function.
+ *
+ * @interface EducationsProps - Props interface for Educations component
+ * @param {EducationType[]} props.educations - Array of education objects containing degree, institution, dates, and descriptions
+ *
+ * @example
+ * ```tsx
+ * <Educations educations={[
+ *   { id: '1', degree: 'Bachelor of Science', institution: 'University Name' },
+ *   { id: '2', degree: 'Master of Arts', institution: 'Another University' }
+ * ]} />
+ * ```
+ */
 const Educations = ({ educations }: EducationsProps) => {
   const sortedEducations = sortEducations(educations)
   const [educationsState, setEducationsState] = useState<EducationType[]>(

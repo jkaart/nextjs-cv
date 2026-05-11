@@ -18,6 +18,37 @@ interface HeroProps {
   meDescriptionRaw: string
 }
 
+/**
+ * Main hero section component that displays the core content of a CV/resume.
+ * Organizes personal information, work experience, education, and projects into
+ * a responsive grid layout with two columns on large screens (lg breakpoint).
+ * The left column contains photo, contact info, skills, languages, and hobbies.
+ * The right column contains detailed sections for description, work experience,
+ * education, and projects. Uses Tailwind CSS for responsive styling.
+ *
+ * @interface HeroProps - Props interface for Hero component
+ * @param {Data} props.data - Object containing all CV data including personal info (me), contact details, skills, languages, hobbies, work experiences, education, and projects
+ * @param {string} props.lastContentUpdate - Date string indicating when the content was last updated; used by PDF menu button to show update status
+ * @param {string} props.meDescriptionRaw - Raw description text about the person; passed to PDFMenuButton for display in downloadable CV
+ *
+ * @example
+ * ```tsx
+ * // In a page that uses server-side data fetching
+ * import Hero from '@components/Hero'
+ * import { getCVData } from '@/lib/data-fetcher'
+ *
+ * const HeroSection = async () => {
+ *   const data = await getCVData()
+ *   return (
+ *     <Hero
+ *       data={data}
+ *       lastContentUpdate="2024-01-15"
+ *       meDescriptionRaw="Motivated software developer with 5 years of experience..."
+ *     />
+ *   )
+ * }
+ * ```
+ */
 const Hero = ({ data, lastContentUpdate, meDescriptionRaw }: HeroProps) => (
   <>
     <HeroHeader me={data.me} />
