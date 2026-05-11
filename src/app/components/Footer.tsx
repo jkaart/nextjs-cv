@@ -14,9 +14,7 @@ const Footer = async ({ me }: FooterProps) => {
       <span>
         &#169; 2026 {me.firstName} {me.lastName}
       </span>
-      <span>
-        Sisältö päivitetty viimeksi: {dateToString(lastUpdated, 'date')}
-      </span>
+      <span>Sisältö päivitetty: {dateToString(lastUpdated, 'date')}</span>
       <span>
         <a
           className='text-xs'
