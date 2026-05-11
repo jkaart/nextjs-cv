@@ -105,6 +105,33 @@ describe('dateToString', () => {
     })
   })
 
+  describe('with year format', () => {
+    it('should return "YYYY" for a given date', () => {
+      const date = new Date(2024, 5, 15) // June 15, 2024
+      expect(dateToString(date, 'year')).toBe('2024')
+    })
+
+    it('should return "YYYY" when outputFormat is explicitly set to year', () => {
+      const date = new Date(2030, 11, 25) // December 25, 2030
+      expect(dateToString(date, 'year')).toBe('2030')
+    })
+
+    it('should handle different years correctly', () => {
+      const date = new Date(2000, 6, 15) // July 15, 2000
+      expect(dateToString(date, 'year')).toBe('2000')
+    })
+
+    it('should handle single digit years (e.g., year 9)', () => {
+      const date = new Date(9, 6, 15) // July 15, 1909
+      expect(dateToString(date, 'year')).toBe('1909')
+    })
+
+    it('should handle negative years correctly', () => {
+      const date = new Date(-2024, 5, 15) // June 15, -2024
+      expect(dateToString(date, 'year')).toBe('-2024')
+    })
+  })
+
   describe('invalid outputFormat', () => {
     it('should use default month format when empty string is provided', () => {
       const date = new Date(2024, 5, 15)
