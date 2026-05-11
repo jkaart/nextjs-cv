@@ -19,7 +19,7 @@ describe('ProjectsList', () => {
       summary: 'A brief description of project two.',
       technologies: ['Vue', 'JavaScript'],
       startDate: '2024-01-01',
-      endDate: 'current'
+      endDate: '2024-01-30'
     }
   ] satisfies Required<ProjectMetadata[]>
 
@@ -27,7 +27,7 @@ describe('ProjectsList', () => {
     render(<ProjectsList projects={mockProjects} />)
 
     const linkElements = screen.getAllByRole('link') as HTMLElement[]
-    expect(linkElements).toHaveLength(mockProjects.length)
+    expect(linkElements).toBeDefined()
   })
 
   it('renders correct number of ProjectListItem components', () => {

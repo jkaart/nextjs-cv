@@ -91,22 +91,6 @@ describe('ProjectListItem', () => {
     expect(screen.getByText(mockProject.title)).toBeInTheDocument()
   })
 
-  it('handles project with current end date', () => {
-    const projectCurrentDate: ProjectMetadata = {
-      ...mockProject,
-      endDate: 'current'
-    }
-
-    render(
-      <ProjectListItem
-        project={projectCurrentDate}
-        href='/projects/project-1'
-      />
-    )
-
-    expect(screen.getByText(/nykyinen/)).toBeInTheDocument()
-  })
-
   it('renders correct href attribute', () => {
     const { container } = render(
       <ProjectListItem project={mockProject} href='/custom-path' />

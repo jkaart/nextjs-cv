@@ -24,14 +24,6 @@ describe('formatProjectDates', () => {
     expect(formattedDates).toEqual({ startDate: null, endDate: null })
   })
 
-  it('return object which contains word nykyinen for endDate if it is current and startDate in "DD.MM.YYYY" format', () => {
-    const formattedDates = formatProjectDates('2020-01-01', 'current')
-    expect(formattedDates).toEqual({
-      startDate: '1.1.2020',
-      endDate: 'nykyinen'
-    })
-  })
-
   it('return object which contains null for endDate and startDate if both is empty string', () => {
     const formattedDates = formatProjectDates('', '')
     expect(formattedDates).toEqual({ startDate: null, endDate: null })

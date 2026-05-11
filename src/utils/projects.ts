@@ -14,7 +14,7 @@ export interface ProjectMetadata {
   summary?: string
   technologies?: string[]
   startDate?: string
-  endDate?: string | 'current'
+  endDate?: string
   urls?: Url[]
   slug: string
 }

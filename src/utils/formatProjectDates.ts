@@ -5,8 +5,8 @@ import { dateToString } from '@utils/dateToString'
  * Validates input dates and handles special cases like 'current' for ongoing projects.
  * Returns null for invalid or undefined dates.
  *
- * @param startDate - Start date as ISO string, 'current', or undefined
- * @param endDate - End date as ISO string, 'current', or undefined
+ * @param startDate - Start date as ISO string or undefined
+ * @param endDate - End date as ISO string or undefined
  * @returns Object containing formatted start and end dates in DD.MM.YYYY format, or null values
  */
 export const formatProjectDates = (
@@ -20,11 +20,9 @@ export const formatProjectDates = (
     : null
 
   const formattedEndDate = endDate
-    ? endDate === 'current'
-      ? 'nykyinen'
-      : Number.isNaN(new Date(endDate).getTime())
-        ? null
-        : dateToString(new Date(endDate), 'date')
+    ? Number.isNaN(new Date(endDate).getTime())
+      ? null
+      : dateToString(new Date(endDate), 'date')
     : null
 
   return { startDate: formattedStartDate, endDate: formattedEndDate }
