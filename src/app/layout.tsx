@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import Footer from '@components/Footer'
@@ -16,11 +15,6 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
   preload: false
 })
-
-export const metadata: Metadata = {
-  title: 'CV',
-  description: 'Jani Kaartisen CV/ansioluettelo'
-}
 
 const RootLayout = ({
   children
@@ -42,4 +36,5 @@ const RootLayout = ({
   )
 }
 
+export { metadata } from '@data/metaData'
 export default RootLayout
