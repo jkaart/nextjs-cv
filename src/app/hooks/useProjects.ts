@@ -1,6 +1,21 @@
 import type { ProjectMetadata } from '@utils/projects'
 import { useEffect, useState } from 'react'
 
+/**
+ * Custom hook to fetch project metadata from the API.
+ * Fetches all projects by default or a limited number of projects based on the limit parameter.
+ *
+ * @param {number} [limit] - Optional maximum number of projects to fetch. If provided and greater than 0, only that many projects will be returned. Defaults to fetching all projects.
+ * @returns {{ projects: ProjectMetadata[] | null, loading: boolean }} Object containing the fetched projects array (or null if not loaded yet) and a loading state flag.
+ *
+ * @example
+ * // Fetch all projects
+ * const { projects, loading } = useProjects()
+ *
+ * @example
+ * // Fetch only the latest 3 projects
+ * const { projects, loading } = useProjects(3)
+ */
 const useProjects = (limit?: number) => {
   const [projects, setProjects] = useState<ProjectMetadata[] | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
