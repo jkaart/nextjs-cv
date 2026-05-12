@@ -10,7 +10,7 @@ describe('Contact', () => {
     homepage: 'https://example.com',
     email: 'john.doe@example.com',
     gitHub: 'https://github.com/johndoe',
-    linkedIn: ''
+    linkedIn: 'https://linkedin.com/in/example'
   }
 
   it('renders heading with correct text', () => {
