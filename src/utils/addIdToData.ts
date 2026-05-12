@@ -1,4 +1,4 @@
-import type { DataWithoutId } from '@types'
+import type { DataWithId, DataWithoutId } from '@types'
 import { v4 as uuidv4 } from 'uuid'
 
 /**
@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid'
  * @param data - The DataWithoutId object containing arrays without IDs
  * @returns A new Data object with all array items having unique UUID ids
  */
-export const addIdToData = (data: DataWithoutId) => {
+export const addIdToData = (data: DataWithoutId): DataWithId => {
   return {
     ...data,
     education: data.education.map(education => ({
