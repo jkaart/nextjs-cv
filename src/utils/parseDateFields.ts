@@ -1,7 +1,7 @@
 import type { Data, DataWithId } from '@types'
 
-export const parseDateFields = (data: DataWithId) => {
-  const dataWithDateObjects: Data = {
+export const parseDateFields = (data: DataWithId): Data => {
+  return {
     ...data,
     education: data.education.map(education => ({
       ...education,
@@ -13,5 +13,4 @@ export const parseDateFields = (data: DataWithId) => {
       endDate: new Date(workExperience.endDate)
     }))
   }
-  return dataWithDateObjects
 }
