@@ -1,7 +1,10 @@
+/** Unique identifier for entities */
 type Id = string
 
+/** Proficiency level enumeration */
 export type Level = 'veryPoor' | 'poor' | 'good' | 'veryGood' | 'excellent'
 
+/** Finnish education system degrees */
 type Degree =
   | 'Perustutkinto'
   | 'Ammattitutkinto'
@@ -11,11 +14,13 @@ type Degree =
   | 'Työvoimakoulutus'
   | 'Muu'
 
+/** Image metadata */
 export interface Image {
   src: string
   altText: string
 }
 
+/** Personal information about the profile owner */
 export interface Me {
   firstName: string
   lastName: string
@@ -23,6 +28,7 @@ export interface Me {
   image: Image
 }
 
+/** Contact information */
 export interface Contact {
   email: string
   linkedIn: string
@@ -30,6 +36,7 @@ export interface Contact {
   gitHub: string
 }
 
+/** Raw education data from source */
 export interface EducationRaw {
   id: Id
   academy: string
@@ -39,6 +46,7 @@ export interface EducationRaw {
   professionalTitle: string
 }
 
+/** Skill information with proficiency level */
 export interface Skill {
   id: Id
   language: string
@@ -47,6 +55,7 @@ export interface Skill {
   iconName: string
 }
 
+/** Raw work experience data from source */
 export interface WorkExperienceRaw {
   id: Id
   title: string
@@ -56,11 +65,13 @@ export interface WorkExperienceRaw {
   endDate: string
 }
 
+/** Language proficiency levels for spoken and written skills */
 interface LanguageLevels {
   spoken: Level
   written: Level
 }
 
+/** Language skill with optional proficiency levels */
 export interface LanguageSkill {
   id: Id
   language: string
@@ -68,8 +79,10 @@ export interface LanguageSkill {
   motherLanguage?: boolean
 }
 
+/** Hobby or interest */
 export type Hobby = string
 
+/** Utility type that removes the 'id' field from objects and arrays */
 type WithoutId<T> = {
   [K in keyof T]: T[K] extends (infer U)[]
     ? U extends { id: Id }
@@ -80,6 +93,7 @@ type WithoutId<T> = {
       : T[K]
 }
 
+/** Main data structure containing all profile information with IDs */
 export interface DataWithId {
   me: Me
   contact: Contact
@@ -90,8 +104,10 @@ export interface DataWithId {
   workExperience: WorkExperienceRaw[]
 }
 
+/** Main data structure without ID fields for display purposes */
 export type DataWithoutId = WithoutId<DataWithId>
 
+/** Utility type that converts date string fields to Date objects */
 export type ParseDateFields<T> = {
   [K in keyof T]: K extends 'dateOfGraduation' | 'startDate' | 'endDate'
     ? Date
@@ -102,7 +118,11 @@ export type ParseDateFields<T> = {
         : T[K]
 }
 
+/** Fully parsed data structure with Date objects instead of date strings */
 export type Data = ParseDateFields<DataWithId>
 
+/** Parsed education data with Date objects */
 export type Education = ParseDateFields<EducationRaw>
+
+/** Parsed work experience data with Date objects */
 export type WorkExperience = ParseDateFields<WorkExperienceRaw>
