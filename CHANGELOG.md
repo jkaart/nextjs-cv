@@ -1,3 +1,12 @@
+## [1.13.2](https://github.com/jkaart/nextjs-cv-private/compare/v1.13.1...v1.13.2) (2026-05-12)
+
+
+### Bug Fixes
+
+* add return type to addIdToData function for improved type safety ([3a6f773](https://github.com/jkaart/nextjs-cv-private/commit/3a6f7736177ec9f39dcfaed1998e949de8c731e9))
+* prevent rendering of IconLink component when href is empty ([5bb08bf](https://github.com/jkaart/nextjs-cv-private/commit/5bb08bfc9ce4153a00a8d3ea561ee1b2d4255663))
+* update linkedIn property in mockContact for accurate testing ([9e08c6a](https://github.com/jkaart/nextjs-cv-private/commit/9e08c6a64fe8eace22bde1b1abbee978e84c3fcf))
+
 ## [1.13.1](https://github.com/jkaart/nextjs-cv-private/compare/v1.13.0...v1.13.1) (2026-05-12)
 
 
