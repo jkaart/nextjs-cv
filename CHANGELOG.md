@@ -1,3 +1,12 @@
+## [1.13.1](https://github.com/jkaart/nextjs-cv-private/compare/v1.13.0...v1.13.1) (2026-05-12)
+
+
+### Bug Fixes
+
+* **jest:** update moduleNameMapper for correct path resolution ([aace9e6](https://github.com/jkaart/nextjs-cv-private/commit/aace9e6d0962112dc3f2da26f6003cf938b54fb8))
+* **parseDateFields:** add return type annotation for improved type safety ([ddf36c4](https://github.com/jkaart/nextjs-cv-private/commit/ddf36c4d808cc40cb3f6a813fc205e226b9a350d))
+* update className prop types to use HTMLProps for better type safety ([ba544a8](https://github.com/jkaart/nextjs-cv-private/commit/ba544a809d9737d0aab51c532d4c17a2e6915fa1))
+
 # [1.13.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.12.2...v1.13.0) (2026-05-12)
 
 
