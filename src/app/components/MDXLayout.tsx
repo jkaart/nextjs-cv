@@ -1,6 +1,8 @@
+import type { HTMLProps } from 'react'
+
 interface MdxLayoutProps {
   children: React.ReactNode
-  className?: string
+  className?: HTMLProps<HTMLElement>['className']
 }
 
 /**
@@ -36,8 +38,8 @@ interface MdxLayoutProps {
  * }
  * ```
  */
-const MdxLayout = ({ children, className }: MdxLayoutProps) => {
-  return <div className={className}>{children}</div>
-}
+const MdxLayout = ({ children, className }: MdxLayoutProps) => (
+  <div className={className}>{children}</div>
+)
 
 export default MdxLayout

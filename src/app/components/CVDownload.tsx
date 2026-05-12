@@ -3,13 +3,14 @@
 import PDFResume from '@components/PDFResume'
 import useProjects from '@hooks/useProjects'
 import dynamic from 'next/dynamic'
+import type { HTMLProps } from 'react'
 
 interface CVDownloadProps {
   label: string
   meDescriptionRaw: string
   lastContentUpdate: string
   pdfFileName: string
-  className?: string
+  className?: HTMLProps<HTMLElement>['className']
 }
 
 const PDFDownloadLink = dynamic(

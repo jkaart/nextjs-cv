@@ -1,9 +1,10 @@
 import { getIcon, type IconType } from '@utils/getIcon'
+import type { HTMLProps } from 'react'
 
 interface IconLinkProps {
   href: string
   iconType: IconType
-  className?: string
+  className?: HTMLProps<HTMLElement>['className']
 }
 
 /**

@@ -2,7 +2,7 @@
 
 import FullScreenImage from '@components/FullScreenImage'
 import Image from 'next/image'
-import { useState } from 'react'
+import { type HTMLProps, useState } from 'react'
 import {
   FaArrowCircleLeft as ArrowLeft,
   FaArrowCircleRight as ArrowRight
@@ -26,13 +26,13 @@ interface ArrowButtonProps {
   direction: 'prev' | 'next'
   images: ImageProps[]
   setCurrentIndex: React.Dispatch<React.SetStateAction<number>>
-  className?: string
+  className?: HTMLProps<HTMLElement>['className']
 }
 
 interface PrevAndNextButtonProps {
   images: ImageProps[]
   setCurrentIndex: React.Dispatch<React.SetStateAction<number>>
-  className?: string
+  className?: HTMLProps<HTMLElement>['className']
 }
 
 /**
