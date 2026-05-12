@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/jkaart/nextjs-cv-private/compare/v1.12.2...v1.13.0) (2026-05-12)
+
+
+### Features
+
+* **CVDownload:** add pdfFileName prop for customizable download filenames ([fae2ec2](https://github.com/jkaart/nextjs-cv-private/commit/fae2ec2ef525b379243641ec5632fa4269394aa1))
+
 ## [1.12.2](https://github.com/jkaart/nextjs-cv-private/compare/v1.12.1...v1.12.2) (2026-05-11)
 
 
