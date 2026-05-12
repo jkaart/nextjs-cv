@@ -29,6 +29,8 @@ const IconLink = ({ href, iconType, className }: IconLinkProps) => {
     return null
   }
 
+  if (href === '') return null
+
   const testId = `react-icon-${iconType.toLowerCase()}`
 
   return (
