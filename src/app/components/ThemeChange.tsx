@@ -8,6 +8,28 @@ interface ThemeChangeProps {
   className?: HTMLProps<HTMLElement>['className']
 }
 
+/**
+ * Renders a theme toggle button that switches between light and dark themes.
+ * Displays sun icon for dark mode (switch to light) and moon icon for light mode (switch to dark).
+ * Shows "Vaihda teemaa" text on large screens, hidden on mobile devices.
+ * Uses aria-label and title attributes for accessibility with dynamic theme state.
+ *
+ * @param props - Component props containing optional className for styling customization
+ * @param props.className - Optional CSS class name to apply additional styles to the button
+ *
+ * @example
+ * ```tsx
+ * // Default usage in navigation bar
+ * <nav>
+ *   <ThemeChange />
+ * </nav>
+ *
+ * // With custom styling
+ * <button className='bg-blue-500 hover:bg-blue-600'>
+ *   <ThemeChange className='text-white' />
+ * </button>
+ * ```
+ */
 const ThemeChange = ({ className }: ThemeChangeProps) => {
   const [mounted, setMounted] = useState(false)
   const { setTheme, resolvedTheme } = useTheme()

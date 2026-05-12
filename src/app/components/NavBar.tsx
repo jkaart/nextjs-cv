@@ -9,6 +9,36 @@ interface NavBarProps {
   className?: HTMLProps<HTMLElement>['className']
 }
 
+/**
+ * Navigation bar component with responsive design and mobile hamburger menu.
+ * Provides desktop navigation links and a collapsible mobile menu with theme toggle.
+ *
+ * @param {NavBarProps} props - Component props for custom styling
+ * @param {string} [props.className] - Optional CSS class name for additional styling
+ *
+ * @example
+ * ```tsx
+ * // Basic usage in layout
+ * <NavBar />
+ *
+ * // Usage with custom className for spacing
+ * <NavBar className="border-b border-gray-200">
+ *  { Navigation content }
+ * </NavBar>
+ *
+ * // Integration in page component
+ * export default function Home() {
+ *   return (
+ *     <>
+ *       <NavBar />
+ *       <main className="container mx-auto px-4 py-8">
+ *         <h1>Welcome</h1>
+ *       </main>
+ *     </>
+ *   )
+ * }
+ * ```
+ */
 const NavBar = ({ className }: NavBarProps) => {
   const [isOpen, setIsOpen] = useState(false)
   return (

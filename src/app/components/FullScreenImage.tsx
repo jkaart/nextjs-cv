@@ -7,23 +7,28 @@ interface FullScreenImageProps {
 }
 
 /**
- * Component that displays a selected image in full-screen mode with an overlay.
- * Shows the image centered on screen with a black background and provides a way
- * to close the view by clicking anywhere or using the built-in button. The component
- * conditionally renders null when no image is selected.
+ * Full-screen image overlay component that displays a selected gallery image.
+ * Renders on top of the main gallery when an image is clicked, providing a larger view.
+ * Includes close button and backdrop for accessibility and user experience.
+ * Automatically unmounts when no image is selected (selectedImage prop is null).
+ * Uses Next.js Image component with fixed positioning for responsive full-screen display.
  *
  * @interface FullScreenImageProps - Props interface for FullScreenImage component
- * @param {ImageProps | null} props.selectedImage - Image object containing src and alt text, or null to hide the overlay
- * @param {React.Dispatch<React.SetStateAction<ImageProps | null>>} props.setSelectedImage - Function to update the selected image state (pass null to close)
+ * @param {ImageProps | null} props.selectedImage - The image to display in full screen mode, containing src and alt properties; pass null to hide the overlay
+ * @param {React.Dispatch<React.SetStateAction<ImageProps | null>>} props.setSelectedImage - State updater function to close overlay by setting selectedImage to null
  *
  * @example
  * ```tsx
+ * import { useState } from 'react'
+ * type ImageProps = { src: string; alt: string }
+ *
  * const [selectedImage, setSelectedImage] = useState<ImageProps | null>(null)
  *
  * <FullScreenImage
  *   selectedImage={selectedImage}
  *   setSelectedImage={setSelectedImage}
  * />
+ * // Renders full-screen overlay with close button when selectedImage is not null; hides when null
  * ```
  */
 const FullScreenImage = ({

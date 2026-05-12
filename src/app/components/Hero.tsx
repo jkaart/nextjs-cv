@@ -60,6 +60,7 @@ const Hero = ({ data, lastContentUpdate, meDescriptionRaw }: HeroProps) => (
             <PDFMenuButton
               lastContentUpdate={lastContentUpdate}
               meDescriptionRaw={meDescriptionRaw}
+              pdfFileName={`Ansioluettelo_${data.me.firstName}_${data.me.lastName}.pdf`}
             />
           </Contact>
           <Skills skills={data.skill} />

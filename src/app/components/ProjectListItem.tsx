@@ -9,6 +9,34 @@ interface ProjectListItemProps {
   href: string
 }
 
+/**
+ * Displays a single project as a list item with title, summary, technologies, dates, and external links.
+ * Renders as a clickable link that navigates to the specified href when clicked.
+ * Shows project metadata including used technologies (sorted alphabetically), formatted date range,
+ * and buttons for each external URL associated with the project.
+ *
+ * @param props - Component props containing project metadata and navigation link
+ * @param props.project - ProjectMetadata object with project information (title, summary, technologies, dates, URLs)
+ * @param props.href - The URL path to navigate to when the item is clicked
+ *
+ * @example
+ * ```tsx
+ * const mockProject: ProjectMetadata = {
+ *   slug: 'my-project',
+ *   title: 'My Awesome Project',
+ *   summary: 'A brief description of my awesome project.',
+ *   technologies: ['React', 'TypeScript', 'Node.js'],
+ *   startDate: '2023-01-01',
+ *   endDate: '2023-12-31',
+ *   urls: [
+ *     { url: 'https://github.com/example/repo', title: 'GitHub' },
+ *     { url: 'https://example.com/docs', title: 'Documentation' }
+ *   ]
+ * }
+ *
+ * <ProjectListItem project={mockProject} href='/projects/my-project' />
+ * ```
+ */
 const ProjectListItem = ({ project, href }: ProjectListItemProps) => {
   const technologies = project.technologies ? project.technologies.sort() : []
 

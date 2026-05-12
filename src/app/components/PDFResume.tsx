@@ -81,10 +81,66 @@ interface TitleProps {
   title: string
 }
 
+/**
+ * Renders a section header with h4 styling and top margin.
+ * Used consistently across the resume to separate different content sections.
+ *
+ * @param props - Component props containing the title text
+ * @param props.title - The section header text to display (e.g., 'Taidot', 'Kielitaito')
+ * @returns React element representing a styled section header in PDF format
+ *
+ * @example
+ * ```tsx
+ * // Usage for skills section
+ * <Title title='Taidot' />
+ * ```
+ *
+ * @example
+ * ```tsx
+ * // Usage for hobbies section
+ * <Title title='Harrastukset' />
+ * ```
+ */
 const Title = ({ title }: TitleProps) => (
   <Text style={[styles.h4, styles.title]}>{title}</Text>
 )
 
+/**
+ * Main component that renders the complete CV/resume as a PDF document.
+ * Organizes personal information, skills, work experience, education, and projects
+ * into a two-column layout with proper styling and formatting.
+ *
+ * @param props - Component props containing resume data
+ * @param props.projects - Array of project metadata to display in the Projects section
+ * @param props.meDescriptionRaw - Raw MDX content for the personal description section
+ * @param props.lastContentUpdate - Date string indicating when the content was last updated (shown in footer)
+ * @returns React element representing a complete A4 PDF resume document
+ *
+ * @example
+ * ```tsx
+ * // Basic usage with data from the data directory
+ * const projects = await getProjects();
+ * return <PDFResume projects={projects} meDescriptionRaw={description} lastContentUpdate="2024-01-15" />;
+ * ```
+ *
+ * @example
+ * ```tsx
+ * // Usage in a PDF viewer component
+ * export default function CVViewer() {
+ *   const [resumeData, setResumeData] = useState<PDFResumeProps>({
+ *     projects: [],
+ *     meDescriptionRaw: '',
+ *     lastContentUpdate: ''
+ *   });
+ *
+ *   useEffect(() => {
+ *     fetchCVData().then(setResumeData);
+ *   }, []);
+ *
+ *   return <PDFResume {...resumeData} />;
+ * }
+ * ```
+ */
 const PDFResume = ({
   projects,
   meDescriptionRaw,
