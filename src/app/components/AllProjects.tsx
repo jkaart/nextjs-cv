@@ -1,5 +1,5 @@
-import Project from '@components/Project'
 import { getProjects } from '@utils/projects'
+import ProjectListItem from './ProjectListItem'
 
 /**
  * Server component that fetches and displays all projects from the MDX directory.
@@ -25,7 +25,12 @@ const AllProjects = async () => {
   return (
     <div className='flex flex-col gap-2 text-primary-foreground'>
       {projects.map(project => (
-        <Project key={project.slug} project={project} />
+        <ProjectListItem
+          key={project.slug}
+          href={`/projects/${project.slug}`}
+          project={project}
+          className='bg-primary-background'
+        />
       ))}
     </div>
   )

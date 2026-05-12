@@ -3,10 +3,13 @@ import { formatProjectDates } from '@utils/formatProjectDates'
 import { formatString } from '@utils/formatString'
 import type { ProjectMetadata } from '@utils/projects'
 import Link from 'next/link'
+import type { HTMLProps } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 interface ProjectListItemProps {
   project: ProjectMetadata
   href: string
+  className?: HTMLProps<HTMLElement>['className']
 }
 
 /**
@@ -18,6 +21,7 @@ interface ProjectListItemProps {
  * @param props - Component props containing project metadata and navigation link
  * @param props.project - ProjectMetadata object with project information (title, summary, technologies, dates, URLs)
  * @param props.href - The URL path to navigate to when the item is clicked
+ * @param props.className - Optional additional CSS classes for styling customization
  *
  * @example
  * ```tsx
@@ -37,7 +41,11 @@ interface ProjectListItemProps {
  * <ProjectListItem project={mockProject} href='/projects/my-project' />
  * ```
  */
-const ProjectListItem = ({ project, href }: ProjectListItemProps) => {
+const ProjectListItem = ({
+  project,
+  href,
+  className
+}: ProjectListItemProps) => {
   const technologies = project.technologies ? project.technologies.sort() : []
 
   const { startDate, endDate } = formatProjectDates(
@@ -45,9 +53,14 @@ const ProjectListItem = ({ project, href }: ProjectListItemProps) => {
     project.endDate
   )
 
+  const mergedClassNames = twMerge(
+    'border rounded-xl p-2 bg-secondary-background hover:shadow-gray-400 hover:shadow-lg',
+    className
+  )
+
   return (
     <Link href={href}>
-      <div className='border rounded-xl p-2 bg-secondary-background hover:shadow-gray-400 hover:shadow-lg'>
+      <div className={mergedClassNames}>
         <h3 className='text-l font-bold'>{project.title}</h3>
         <p>{project.summary}</p>
         <div className='my-2'>
