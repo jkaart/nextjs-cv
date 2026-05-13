@@ -28,11 +28,19 @@ const isLocalDev = () => {
   return process.env.USE_LOCAL_DATA === 'true'
 }
 
-const dataRootDirectory = isLocalDev()
-  ? path.join(process.cwd(), '../data')
-  : path.join(process.cwd(), 'mockData')
+const isProduction = () => {
+  return process.env.NODE_ENV === 'production'
+}
 
-console.log(dataRootDirectory)
+export const getDataRoot = (): string => {
+  return isLocalDev()
+    ? path.join(process.cwd(), '/src/data') // Local dev
+    : isProduction()
+      ? path.join(process.cwd(), '../data') // Production
+      : path.join(process.cwd(), 'mockData') // Non local dev / mock data
+}
+
+const dataRootDirectory = getDataRoot()
 
 const mdxRootDirectory = path.join(dataRootDirectory, 'mdx', 'projects')
 
