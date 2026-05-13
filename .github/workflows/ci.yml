@@ -87,6 +87,10 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: "24"
+      - name: Clone data
+        run: |
+          git clone https://${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/${{ secrets.PRIVATE_REPO }} private-data
+          cp -r private-data/* src/data/
       - name: Install dependencies
         run: npm install
       - name: Run build
