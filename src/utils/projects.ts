@@ -34,9 +34,9 @@ const isProduction = () => {
 
 export const getDataRoot = (): string => {
   return isLocalDev()
-    ? path.join(process.cwd(), '/src/data') // Local dev
+    ? path.join(process.cwd(), '../data') // Local dev
     : isProduction()
-      ? path.join(process.cwd(), '../data') // Production
+      ? path.join(process.cwd(), 'src/data') // Production
       : path.join(process.cwd(), 'mockData') // Non local dev / mock data
 }
 
