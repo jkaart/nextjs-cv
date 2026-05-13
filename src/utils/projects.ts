@@ -32,6 +32,8 @@ const dataRootDirectory = isLocalDev()
   ? path.join(process.cwd(), '../data')
   : path.join(process.cwd(), 'mockData')
 
+console.log(dataRootDirectory)
+
 const mdxRootDirectory = path.join(dataRootDirectory, 'mdx', 'projects')
 
 export const assetsRootDirectory = path.join(
