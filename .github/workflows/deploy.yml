@@ -21,7 +21,7 @@ jobs:
         run: |
           git clone https://${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/${{ secrets.PRIVATE_REPO }} private-data
           mkdir -p src/data
-          mv -r private-data/* src/data/
+          mv private-data/* src/data/
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
@@ -47,8 +47,7 @@ jobs:
         run: |
           git clone https://${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/${{ secrets.PRIVATE_REPO }} private-data
           mkdir -p src/data
-          cp -r private-data/* src/data/
-          rm -r private-data
+          mv private-data/* src/data/
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
