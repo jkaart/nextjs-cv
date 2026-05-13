@@ -1,8 +1,8 @@
-const fs = require('fs')
-const path = require('path')
+const fs = require('node:fs')
+const path = require('node:path')
 
 const source =
-  process.env.USE_LOCAL_DATA === 'true'
+  process.env.USE_LOCAL_CONTENT === 'true'
     ? path.join(process.cwd(), '../data')
     : path.join(process.cwd(), 'mockData')
 
