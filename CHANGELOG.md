@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/jkaart/nextjs-cv/compare/v1.13.2...v1.14.0) (2026-05-13)
+
+
+### Features
+
+* **workflows:** deployment to vercel ([bd3ed1d](https://github.com/jkaart/nextjs-cv/commit/bd3ed1db2f2755ccc9cb8358f3cc708c027089b0))
+
 ## [1.13.2](https://github.com/jkaart/nextjs-cv-private/compare/v1.13.1...v1.13.2) (2026-05-12)
 
 
