@@ -24,7 +24,13 @@ interface Project {
   content: string
 }
 
-const dataRootDirectory = path.join(process.cwd(), 'src', 'data')
+const isLocalDev = () => {
+  return process.env.USE_LOCAL_DATA === 'true'
+}
+
+const dataRootDirectory = isLocalDev()
+  ? path.join(process.cwd(), '../data')
+  : path.join(process.cwd(), 'mockData')
 
 const mdxRootDirectory = path.join(dataRootDirectory, 'mdx', 'projects')
 
