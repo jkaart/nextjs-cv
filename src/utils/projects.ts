@@ -42,6 +42,12 @@ export const getDataRoot = (): string => {
 
 const dataRootDirectory = getDataRoot()
 
+console.log('DEBUG START')
+console.log('USE_LOCAL_DATA', process.env.USE_LOCAL_DATA)
+console.log('NODE_ENV', process.env.NODE_ENV)
+console.log('dataRootDirectory', dataRootDirectory)
+console.log('DEBUG END')
+
 const mdxRootDirectory = path.join(dataRootDirectory, 'mdx', 'projects')
 
 export const assetsRootDirectory = path.join(
