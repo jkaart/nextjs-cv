@@ -17,11 +17,10 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Clone data
+      - name: Clone private content
         run: |
-          git clone https://${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/${{ secrets.PRIVATE_REPO }} private-data
-          mkdir -p src/data
-          mv private-data/* src/data/
+          rm -rf ../data
+          git clone https://${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/${{ secrets.PRIVATE_REPO }} ../data
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
@@ -43,11 +42,10 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Clone data
+      - name: Clone private content
         run: |
-          git clone https://${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/${{ secrets.PRIVATE_REPO }} private-data
-          mkdir -p src/data
-          mv private-data/* src/data/
+          rm -rf ../data
+          git clone https://${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/${{ secrets.PRIVATE_REPO }} ../data
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
