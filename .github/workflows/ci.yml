@@ -89,9 +89,9 @@ jobs:
           node-version: "24"
       - name: Clone data
         run: |
-          git clone https://${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/${{ secrets.PRIVATE_REPO }} private-data
-          mkdir -p src/data
-          mv private-data/* src/data/
+          rm -rf ../data
+          git clone https://${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/${{ secrets.PRIVATE_REPO }} ../data
+
       - name: Install dependencies
         run: npm install
       - name: Run build

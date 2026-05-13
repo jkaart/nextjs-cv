@@ -24,23 +24,7 @@ interface Project {
   content: string
 }
 
-const isLocalDev = () => {
-  return process.env.USE_LOCAL_DATA === 'true'
-}
-
-const isProduction = () => {
-  return process.env.NODE_ENV === 'production'
-}
-
-export const getDataRoot = (): string => {
-  return isLocalDev()
-    ? path.join(process.cwd(), '../data') // Local dev
-    : isProduction()
-      ? path.join(process.cwd(), 'src/data') // Production
-      : path.join(process.cwd(), 'mockData') // Non local dev / mock data
-}
-
-const dataRootDirectory = getDataRoot()
+const dataRootDirectory = path.join(process.cwd(), 'src/data')
 
 console.log('DEBUG START')
 console.log('USE_LOCAL_DATA', process.env.USE_LOCAL_DATA)
