@@ -4,6 +4,8 @@ on:
     branches: [ "**" ]
   pull_request:
     branches: [ main ]
+  repository_dispatch:
+    types: [sync-source]
 
 permissions:
   pull-requests: write
