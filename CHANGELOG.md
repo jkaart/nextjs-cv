@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/jkaart/nextjs-cv/compare/v1.0.0...v1.1.0) (2026-05-14)
+
+
+### Features
+
+* add repository_dispatch event for sync-source in CI workflow ([e136fa7](https://github.com/jkaart/nextjs-cv/commit/e136fa75c4c5dac6390cb5b84e8753ad67b62280)), closes [#8](https://github.com/jkaart/nextjs-cv/issues/8)
+
 # 1.0.0 (2026-05-13)
 
 
