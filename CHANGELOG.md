@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/jkaart/nextjs-cv/compare/v1.1.0...v1.2.0) (2026-05-14)
+
+
+### Features
+
+* update deployment conditions to include client payload branches ([#11](https://github.com/jkaart/nextjs-cv/issues/11)) ([da16235](https://github.com/jkaart/nextjs-cv/commit/da1623524a35ce777192787c75d63b54a30d60d5))
+
 # [1.1.0](https://github.com/jkaart/nextjs-cv/compare/v1.0.0...v1.1.0) (2026-05-14)
 
 
