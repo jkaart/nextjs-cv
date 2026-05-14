@@ -150,7 +150,7 @@ const PDFResume = ({
     <Document>
       <Page size='A4' style={styles.page}>
         <View style={styles.header}>
-          <Text style={styles.h1}>Ansioluettelo</Text>
+          <Text style={styles.h1}>Ansioluettelo ja portfolio</Text>
           <Text
             style={styles.h3}
           >{`${data.me.firstName} ${data.me.lastName}`}</Text>

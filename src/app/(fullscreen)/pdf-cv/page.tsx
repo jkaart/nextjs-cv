@@ -2,6 +2,11 @@ import PDFClient from '@components/PDFClient'
 import { dateToString } from '@utils/dateToString'
 import { meDescriptionRaw } from '@utils/meDescriptionRaw'
 import { getLastContentUpdate } from '@utils/projects'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'PDF'
+}
 
 const PDFPage = async () => {
   const lastContentUpdate = dateToString(await getLastContentUpdate(), 'date')
