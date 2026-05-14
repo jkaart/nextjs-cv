@@ -15,6 +15,11 @@ jobs:
       !contains(github.event.workflow_run.head_commit.message, '#skip_deploy')
     runs-on: ubuntu-latest
     steps:
+      - name: Debug workflow_run
+        run: |
+          echo "branch=${{ github.event.workflow_run.head_branch }}"
+          echo "event=${{ github.event.workflow_run.event }}"
+
       - uses: actions/checkout@v6
 
       - name: Clone private content

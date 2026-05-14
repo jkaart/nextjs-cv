@@ -31,11 +31,6 @@ jobs:
       - name: Validate commits
         run: npx commitlint --from=origin/main --to=HEAD
 
-      - name: Debug workflow_run
-        run: |
-          echo "branch=${{ github.event.workflow_run.head_branch }}"
-          echo "event=${{ github.event.workflow_run.event }}"
-
   LintPR:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
