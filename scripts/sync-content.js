@@ -4,8 +4,6 @@ const path = require('node:path')
 const source = path.resolve('../data')
 const target = path.resolve('./src/data')
 
-console.log('Syncing data...')
-
 fs.rmSync(target, { recursive: true, force: true })
 fs.mkdirSync(target, { recursive: true })
 fs.cpSync(source, target, { recursive: true })
@@ -20,5 +18,3 @@ const assetSource = path.join(source, 'assets')
 if (fs.existsSync(assetSource)) {
   fs.cpSync(assetSource, publicAssets, { recursive: true })
 }
-
-console.log('Sync complete')
