@@ -7,6 +7,15 @@ interface ProjectProps {
   params: Promise<{ slug: string }>
 }
 
+export const generateMetadata = async ({ params }: ProjectProps) => {
+  const { slug } = await params
+  const project = await getProject(slug)
+
+  if (project) {
+    return project.metadata
+  }
+}
+
 const Project = async ({ params }: ProjectProps) => {
   const { slug } = await params
   if (!slug) {
