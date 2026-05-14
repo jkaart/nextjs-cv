@@ -16,11 +16,13 @@ jobs:
           echo "branch=${{ github.event.workflow_run.head_branch }}"
           echo "event=${{ github.event.workflow_run.event }}"
   Deploy:
-
     if: >-
       github.event.workflow_run.conclusion == 'success' &&
       github.event.workflow_run.head_branch == 'main' &&
-      !contains(github.event.workflow_run.head_commit.message, '#skip_deploy')
+      (
+        github.event.workflow_run.head_commit == null ||
+        !contains(github.event.workflow_run.head_commit.message, '#skip_deploy')
+      )
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -46,7 +48,10 @@ jobs:
       github.event.workflow_run.conclusion == 'success' &&
       (github.event.workflow_run.head_branch == 'main' ||
         github.event.workflow_run.head_branch == 'dev') &&
-      !contains(github.event.workflow_run.head_commit.message, '#skip_deploy')
+      (
+        github.event.workflow_run.head_commit == null ||
+        !contains(github.event.workflow_run.head_commit.message, '#skip_deploy')
+      )
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
