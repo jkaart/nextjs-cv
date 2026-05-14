@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ main ]
   repository_dispatch:
-    types: [sync-source]
+    types: [sync-content]
 
 permissions:
   pull-requests: write
