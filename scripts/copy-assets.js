@@ -1,11 +1,7 @@
 const fs = require('node:fs')
 const path = require('node:path')
 
-const src =
-  process.env.USE_LOCAL_CONTENT === 'true'
-    ? path.join(process.cwd(), '../data/assets')
-    : path.join(process.cwd(), 'src/data/assets')
-
+const src = path.join(process.cwd(), 'src/data/assets')
 const dest = path.join(process.cwd(), 'public/assets')
 
 fs.rmSync(dest, { recursive: true, force: true })

@@ -12,18 +12,9 @@ console.log('Preparing content...')
 console.log('Source:', source)
 console.log('Destination:', destination)
 
-fs.rmSync(destination, {
-  recursive: true,
-  force: true
-})
-
-fs.mkdirSync(destination, {
-  recursive: true
-})
-
-fs.cpSync(source, destination, {
-  recursive: true
-})
+fs.rmSync(destination, { recursive: true, force: true })
+fs.mkdirSync(destination, { recursive: true })
+fs.cpSync(source, destination, { recursive: true })
 
 console.log('Files copied:')
 console.log(fs.readdirSync(destination))
