@@ -6,36 +6,19 @@ const target = path.resolve('./src/data')
 
 console.log('Syncing data...')
 
-fs.rmSync(target, {
-  recursive: true,
-  force: true
-})
-
-fs.mkdirSync(target, {
-  recursive: true
-})
-
-fs.cpSync(source, target, {
-  recursive: true
-})
+fs.rmSync(target, { recursive: true, force: true })
+fs.mkdirSync(target, { recursive: true })
+fs.cpSync(source, target, { recursive: true })
 
 const publicAssets = path.resolve('./public/assets')
 
-fs.rmSync(publicAssets, {
-  recursive: true,
-  force: true
-})
-
-fs.mkdirSync(publicAssets, {
-  recursive: true
-})
+fs.rmSync(publicAssets, { recursive: true, force: true })
+fs.mkdirSync(publicAssets, { recursive: true })
 
 const assetSource = path.join(source, 'assets')
 
 if (fs.existsSync(assetSource)) {
-  fs.cpSync(assetSource, publicAssets, {
-    recursive: true
-  })
+  fs.cpSync(assetSource, publicAssets, { recursive: true })
 }
 
 console.log('Sync complete')
