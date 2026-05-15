@@ -10,28 +10,24 @@ on:
       - completed
 jobs:
   DeployProduction:
-    if: >-
+    if: |
       github.event.workflow_run.conclusion == 'success' &&
       github.event.workflow_run.head_branch == 'main' &&
       (
-        startsWith(github.event.workflow_run.head_commit.message,'feat:') ||
-        startsWith(github.event.workflow_run.head_commit.message,'fix:') ||
-        startsWith(github.event.workflow_run.head_commit.message,'refactor:') ||
-        startsWith(github.event.workflow_run.head_commit.message,'perf:')
+        startsWith(github.event.workflow_run.head_commit.message,'/feat:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'/fix:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'/refactor:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'/perf:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'/build:')
       )
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
 
-      - name: Install git-restore-mtime
-        run: sudo apt install -y git-restore-mtime
-
       - name: Clone private content
         run: |
           rm -rf ../data
           git clone https://${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/${{ secrets.PRIVATE_REPO }} ../data
-          cd ../data
-          git restore-mtime
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
@@ -45,15 +41,15 @@ jobs:
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
 
   DeployPreview:
-    if: >-
+    if: |
       github.event.workflow_run.conclusion == 'success' &&
-      github.event.workflow_run.head_branch == 'preview' &&
+      github.event.workflow_run.head_branch == 'prev' &&
       (
-        startsWith(github.event.workflow_run.head_commit.message,'feat:') ||
-        startsWith(github.event.workflow_run.head_commit.message,'fix:') ||
-        startsWith(github.event.workflow_run.head_commit.message,'refactor:') ||
-        startsWith(github.event.workflow_run.head_commit.message,'perf:') ||
-        startsWith(github.event.workflow_run.head_commit.message,'build:')
+        startsWith(github.event.workflow_run.head_commit.message,'/feat:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'/fix:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'/refactor:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'/perf:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'/build:')
       )
     runs-on: ubuntu-latest
     steps:
@@ -76,15 +72,15 @@ jobs:
         run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
 
   DeployDevelopment:
-    if: >-
+    if: |
       github.event.workflow_run.conclusion == 'success' &&
-      github.event.workflow_run.head_branch == 'development' &&
+      github.event.workflow_run.head_branch == 'dev' &&
       (
-        startsWith(github.event.workflow_run.head_commit.message,'feat:') ||
-        startsWith(github.event.workflow_run.head_commit.message,'fix:') ||
-        startsWith(github.event.workflow_run.head_commit.message,'refactor:') ||
-        startsWith(github.event.workflow_run.head_commit.message,'perf:') ||
-        startsWith(github.event.workflow_run.head_commit.message,'build:')
+        startsWith(github.event.workflow_run.head_commit.message,'/feat:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'/fix:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'/refactor:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'/perf:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'/build:')
       )
     runs-on: ubuntu-latest
     steps:
