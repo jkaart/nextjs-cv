@@ -31,7 +31,7 @@ jobs:
       - run: npm ci
 
       - name: Validate commits
-        run: npx commitlint --from=origin/main --from=${{ github.event.client_payload.base || 'main' }}
+        run: npx commitlint --from=origin/main --from=${{ github.event.client_payload.branch || 'main' }}
 
   LintPR:
     if: github.event_name == 'pull_request'
