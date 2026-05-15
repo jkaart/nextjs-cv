@@ -17,6 +17,7 @@ export interface ProjectMetadata {
   endDate?: string
   urls?: Url[]
   slug: string
+  lastUpdateDate: Date
 }
 
 interface Project {
@@ -50,7 +51,10 @@ export const getProject = async (slug: string): Promise<Project | null> => {
 
     const { data, content } = matter(fileContents)
 
-    return { metadata: { ...data, slug }, content }
+    const fileStat = await stat(filePath)
+    const lastUpdateDate = new Date(fileStat.mtimeMs)
+
+    return { metadata: { ...data, slug, lastUpdateDate }, content }
   } catch {
     return null
   }
@@ -70,7 +74,11 @@ export const getProjects = async (
 ): Promise<ProjectMetadata[]> => {
   const files = await readdir(mdxRootDirectory)
 
-  const projects = files.map((file: string) => getProjectMetadata(file))
+  const projectPromises = files.map((file: string) => getProjectMetadata(file))
+  const projects = (await Promise.all(projectPromises)).filter(
+    (project): project is ProjectMetadata => project !== null
+  )
+
   const filteredProjectsWithEndDate = projects.filter(
     (project): project is ProjectMetadata & { endDate: string } =>
       typeof project.endDate === 'string'
@@ -100,13 +108,18 @@ export const getProjects = async (
  * @param filepath - The filename of the MDX file (e.g., 'project1.mdx')
  * @returns ProjectMetadata object with extracted frontmatter and generated slug
  */
-export const getProjectMetadata = (filepath: string): ProjectMetadata => {
+export const getProjectMetadata = async (
+  filepath: string
+): Promise<ProjectMetadata | null> => {
   const slug = filepath.replace(/\.mdx$/, '')
-  const filePath = path.join(mdxRootDirectory, filepath)
-  const fileContent = readFileSync(filePath, { encoding: 'utf-8' })
+  const project = await getProject(slug)
 
-  const { data } = matter(fileContent)
-  return { ...data, slug }
+  if (!project) {
+    return null
+  }
+  const metadata = project.metadata
+
+  return metadata
 }
 
 /**
