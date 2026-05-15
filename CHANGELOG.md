@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/jkaart/nextjs-cv/compare/v1.2.0...v1.3.0) (2026-05-15)
+
+
+### Features
+
+* update metadata titles and improve header text for better clarity  ([#19](https://github.com/jkaart/nextjs-cv/issues/19)) ([6e89b48](https://github.com/jkaart/nextjs-cv/commit/6e89b4842cb389fd43c1aaaac7e7d207203823aa)), closes [#13](https://github.com/jkaart/nextjs-cv/issues/13) [#15](https://github.com/jkaart/nextjs-cv/issues/15)
+
 # [1.2.0](https://github.com/jkaart/nextjs-cv/compare/v1.1.0...v1.2.0) (2026-05-14)
 
 
