@@ -57,15 +57,13 @@ jobs:
 
   Lint:
     if: >-
-        (
-          startsWith(github.event.head_commit.message, 'feat:') ||
-          startsWith(github.event.head_commit.message, 'fix:') ||
-          startsWith(github.event.head_commit.message, 'refactor:') ||
-          startsWith(github.event.head_commit.message, 'test:') ||
-          startsWith(github.event.head_commit.message, 'docs:') ||
-          startsWith(github.event.head_commit.message, 'perf:') ||
-          startsWith(github.event.head_commit.message, 'build:')
-        )
+        startsWith(github.event.head_commit.message, 'feat:') ||
+        startsWith(github.event.head_commit.message, 'fix:') ||
+        startsWith(github.event.head_commit.message, 'refactor:') ||
+        startsWith(github.event.head_commit.message, 'test:') ||
+        startsWith(github.event.head_commit.message, 'docs:') ||
+        startsWith(github.event.head_commit.message, 'perf:') ||
+        startsWith(github.event.head_commit.message, 'build:')
     runs-on: ubuntu-latest
     needs: [CommitLint]
 
@@ -84,14 +82,12 @@ jobs:
 
   Test:
     if: >-
-        (
           startsWith(github.event.head_commit.message, 'feat:') ||
           startsWith(github.event.head_commit.message, 'fix:') ||
           startsWith(github.event.head_commit.message, 'refactor:') ||
           startsWith(github.event.head_commit.message, 'test:') ||
           startsWith(github.event.head_commit.message, 'perf:') ||
           startsWith(github.event.head_commit.message, 'build:')
-        )
     runs-on: ubuntu-latest
     needs: [Lint, CommitLint]
 
@@ -110,14 +106,12 @@ jobs:
 
   Build:
     if: >-
-        (
           startsWith(github.event.head_commit.message, 'feat:') ||
           startsWith(github.event.head_commit.message, 'fix:') ||
           startsWith(github.event.head_commit.message, 'refactor:') ||
           startsWith(github.event.head_commit.message, 'test:') ||
           startsWith(github.event.head_commit.message, 'perf:') ||
           startsWith(github.event.head_commit.message, 'build:')
-        )
     runs-on: ubuntu-latest
     needs: [Lint, Test, CommitLint]
 
