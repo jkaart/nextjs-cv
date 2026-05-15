@@ -2,35 +2,36 @@ name: Deployment
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
 on:
   workflow_run:
     workflows: ["CI"]
     types:
       - completed
 jobs:
-  Debug:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Debug workflow_run
-        run: |
-          echo "branch=${{ github.event.workflow_run.head_branch }}"
-          echo "event=${{ github.event.workflow_run.event }}"
-  Deploy:
+  DeployProduction:
     if: >-
       github.event.workflow_run.conclusion == 'success' &&
       github.event.workflow_run.head_branch == 'main' &&
       (
-        github.event.workflow_run.head_commit == null ||
-        !contains(github.event.workflow_run.head_commit.message, '#skip_deploy')
+        startsWith(github.event.workflow_run.head_commit.message,'feat:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'fix:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'refactor:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'perf:')
       )
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
 
+      - name: Install git-restore-mtime
+        run: sudo apt install -y git-restore-mtime
+
       - name: Clone private content
         run: |
           rm -rf ../data
           git clone https://${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/${{ secrets.PRIVATE_REPO }} ../data
+          cd ../data
+          git restore-mtime
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
@@ -43,14 +44,16 @@ jobs:
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
 
-  Deploy_preview:
+  DeployPreview:
     if: >-
       github.event.workflow_run.conclusion == 'success' &&
-      (github.event.workflow_run.head_branch == 'main' ||
-        github.event.workflow_run.head_branch == 'dev') &&
+      github.event.workflow_run.head_branch == 'preview' &&
       (
-        github.event.workflow_run.head_commit == null ||
-        !contains(github.event.workflow_run.head_commit.message, '#skip_deploy')
+        startsWith(github.event.workflow_run.head_commit.message,'feat:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'fix:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'refactor:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'perf:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'build:')
       )
     runs-on: ubuntu-latest
     steps:
@@ -65,6 +68,37 @@ jobs:
         run: npm install --global vercel@latest
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Project Artifacts
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+
+  DeployDevelopment:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'development' &&
+      (
+        startsWith(github.event.workflow_run.head_commit.message,'feat:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'fix:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'refactor:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'perf:') ||
+        startsWith(github.event.workflow_run.head_commit.message,'build:')
+      )
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Clone private content
+        run: |
+          rm -rf ../data
+          git clone https://${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/${{ secrets.PRIVATE_REPO }} ../data
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=development --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Build Project Artifacts
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
