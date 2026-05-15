@@ -17,11 +17,12 @@ export interface ProjectMetadata {
   endDate?: string
   urls?: Url[]
   slug: string
-  lastUpdateDate: Date
 }
 
+export type SSRProjectMetadata = ProjectMetadata & { lastUpdateDate: Date }
+
 interface Project {
-  metadata: ProjectMetadata
+  metadata: SSRProjectMetadata
   content: string
 }
 
@@ -42,7 +43,7 @@ export const assetsRootDirectory = path.join(
  * Returns null if the project doesn't exist or an error occurs.
  *
  * @param slug - The unique identifier for the project (filename without extension)
- * @returns Project object with metadata and content, or null if not found
+ * @returns Promise resolving to project object with SSR metadata and content, or null if not found
  */
 export const getProject = async (slug: string): Promise<Project | null> => {
   try {
@@ -71,7 +72,7 @@ export const getProject = async (slug: string): Promise<Project | null> => {
  */
 export const getProjects = async (
   limit?: number
-): Promise<ProjectMetadata[]> => {
+): Promise<ProjectMetadata[] | SSRProjectMetadata[]> => {
   const files = await readdir(mdxRootDirectory)
 
   const projectPromises = files.map((file: string) => getProjectMetadata(file))
