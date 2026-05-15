@@ -30,7 +30,6 @@ if (fs.existsSync(path.join(source, '.git'))) {
 
     if (!timestamp) continue
 
-    //const sourceFile = path.join(source, file)
     const destFile = path.join(destination, file)
 
     if (!fs.existsSync(destFile)) continue

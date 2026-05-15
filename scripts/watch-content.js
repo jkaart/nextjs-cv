@@ -14,8 +14,8 @@ const sync = () => {
       execSync('node scripts/sync-content.js', {
         stdio: 'inherit'
       })
-    } catch (err) {
-      console.error(err)
+    } catch (error) {
+      console.error(error)
     }
   }, 100)
 }
