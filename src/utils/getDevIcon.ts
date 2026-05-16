@@ -37,10 +37,7 @@ export interface IconPaths {
 export const getDevIcon = (iconName: DevIconName) => {
   return dynamic(() =>
     import('react-icons/si').then(icons => {
-      return (
-        (icons[iconName] as ReactIconsType) ||
-        (() => null)
-      )
+      return (icons[iconName] as ReactIconsType) || (() => null)
     })
   )
 }
@@ -61,7 +58,7 @@ export const extractIconPaths = (
     if (Array.isArray(element.props?.children)) {
       const paths = element.props.children.map(children => ({
         d: children.props?.d ? children.props.d : '',
-        fill: children.props?.fill ? children.props.fill : null
+        fill: children.props?.fill ? children.props.fill : ''
       }))
 
       // Extract svg viewBox

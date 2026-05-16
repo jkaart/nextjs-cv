@@ -8,7 +8,7 @@ interface PathType {
   /** SVG path data string defining the shape geometry */
   d: string
   /** Fill color, defaults to black if not provided */
-  fill: string | null
+  fill: string
 }
 
 interface PDFSvgIconProps {
@@ -32,7 +32,7 @@ interface PDFSvgIconProps {
  * ```tsx
  * // Usage for a simple checkmark icon
  * const checkmarkPaths = [
- *   { d: 'M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z', fill: null }
+ *   { d: 'M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z', fill: '' }
  * ]
  * <PDFSvgIcon viewBox="0 0 24 24" paths={checkmarkPaths} />
  * ```
@@ -41,7 +41,7 @@ interface PDFSvgIconProps {
  * ```tsx
  * // Usage for a complex icon with multiple path segments
  * const starPaths = [
- *   { d: 'M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z', fill: null },
+ *   { d: 'M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z', fill: '' },
  *   { d: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z', fill: 'none' }
  * ]
  * <PDFSvgIcon viewBox="0 0 24 24" paths={starPaths} />
@@ -53,7 +53,7 @@ const PDFSvgIcon = ({ viewBox, paths }: PDFSvgIconProps) => (
       <Path
         key={path.d}
         d={path.d ? path.d : ''}
-        fill={path.fill ? path.fill : 'black'}
+        fill={path.fill === '' ? 'black' : path.fill}
       />
     ))}
   </Svg>
