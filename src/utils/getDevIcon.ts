@@ -96,11 +96,9 @@ export const extractIconPaths = (
  */
 export const getDevIconPath = async (iconName: string) => {
   const icons = await import('react-icons/si')
-  const Component = icons[iconName as keyof typeof icons] as DevIconType
+  const Component = icons[
+    iconName as keyof typeof icons
+  ] as unknown as ReactIconsType
 
-  if (typeof Component === 'function') {
-    const result = extractIconPaths(Component)
-    return result
-  }
-  return null
+  return extractIconPaths(Component)
 }
