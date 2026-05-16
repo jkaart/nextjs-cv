@@ -31,7 +31,7 @@ export interface IconPaths {
  * Dynamically imports and returns a React icon component from react-icons/si package.
  * Uses Next.js dynamic import to avoid bundle size issues with unused icons.
  *
- * @param iconName - The name of the icon component (e.g., 'siReact', 'siGithub')
+ * @param iconName - The name of the icon component (e.g., 'SiReact', 'SiGithub')
  * @returns A dynamically imported React component or null if icon not found
  */
 export const getDevIcon = (iconName: DevIconName) => {
@@ -91,7 +91,7 @@ export const extractIconPaths = (
  * Asynchronously retrieves SVG path data for a specific icon.
  * Dynamically imports the icon, extracts its paths and viewBox using extractIconPaths.
  *
- * @param iconName - The name of the icon component (e.g., 'siReact', 'siGithub')
+ * @param iconName - The name of the icon component (e.g., 'SiReact', 'SiGithub')
  * @returns Promise resolving to IconPaths object or null if icon not found
  */
 export const getDevIconPath = async (iconName: string) => {
