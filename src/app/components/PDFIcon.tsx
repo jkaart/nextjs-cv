@@ -58,7 +58,7 @@ const Icon = ({ iconName }: IconProps) => {
 
   return (
     <View style={{ width: '24px', height: '24px' }}>
-      <PDFSvgIcon paths={iconPaths.paths} viewBox={iconPaths.viewBox} />
+      <PDFSvgIcon iconPaths={iconPaths} />
     </View>
   )
 }
