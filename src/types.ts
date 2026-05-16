@@ -1,7 +1,6 @@
 import type { IconType as ReactIconType } from 'react-icons'
-import type * as DevIcons from 'react-icons/si'
 
-export type DevIconName = keyof typeof DevIcons
+export type DevIconName = keyof typeof import('react-icons/si')
 
 export type DevIconType = Record<DevIconName, ReactIconType>
 
