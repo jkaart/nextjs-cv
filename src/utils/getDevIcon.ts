@@ -38,7 +38,7 @@ export const getDevIcon = (iconName: DevIconName) => {
   return dynamic(() =>
     import('react-icons/si').then(icons => {
       return (
-        (icons[iconName as keyof typeof icons] as ReactIconsType) ||
+        (icons[iconName] as ReactIconsType) ||
         (() => null)
       )
     })
