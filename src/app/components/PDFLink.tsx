@@ -43,7 +43,7 @@ interface PDFLinkProps {
  * ```
  */
 const PDFLink = ({ iconType, src }: PDFLinkProps) => {
-  const Icon = getIcon(iconType as IconType)
+  const Icon = getIcon(iconType)
   if (Icon instanceof Error) return null
 
   const result = extractIconPaths(Icon)
