@@ -1,21 +1,9 @@
 import { Path, Svg } from '@react-pdf/renderer'
-
-/**
- * SVG path definition for an individual icon element.
- * Each path contains a d attribute with the path data and fill color.
- */
-interface PathType {
-  /** SVG path data string defining the shape geometry */
-  d: string
-  /** Fill color, defaults to black if not provided */
-  fill: string
-}
+import type { IconPaths } from '@utils/getDevIcon'
 
 interface PDFSvgIconProps {
-  /** SVG viewBox string defining the coordinate system (e.g., "0 0 24 24") */
-  viewBox: string
-  /** Array of path definitions with d and fill properties */
-  paths: PathType[]
+  /** Object with SVG viewBox string defining the coordinate system (e.g., "0 0 24 24") and array of path definitions with d and fill properties */
+  iconPaths: IconPaths
 }
 
 /**
@@ -24,8 +12,9 @@ interface PDFSvgIconProps {
  * Paths are keyed by their d attribute for unique identification in the render tree.
  *
  * @param props - Component props containing viewBox and paths configuration
- * @param props.viewBox - SVG viewBox string defining the coordinate system (e.g., "0 0 24 24")
- * @param props.paths - Array of PathType objects, each with d (path data) and fill properties
+ * @param props.iconPaths - Object with iconViewBox with SVG coordinate system and  array of paths with d and fill
+ * @param props.iconPaths.viewBox - SVG viewBox string defining the coordinate system (e.g., "0 0 24 24")
+ * @param props.iconPaths.paths - Array of PathType objects, each with d (path data) and fill properties
  * @returns React element representing an Svg container with multiple Path elements
  *
  * @example
@@ -47,9 +36,9 @@ interface PDFSvgIconProps {
  * <PDFSvgIcon viewBox="0 0 24 24" paths={starPaths} />
  * ```
  */
-const PDFSvgIcon = ({ viewBox, paths }: PDFSvgIconProps) => (
-  <Svg viewBox={viewBox}>
-    {paths.map(path => (
+const PDFSvgIcon = ({ iconPaths }: PDFSvgIconProps) => (
+  <Svg viewBox={iconPaths.viewBox}>
+    {iconPaths.paths.map(path => (
       <Path
         key={path.d}
         d={path.d ? path.d : ''}

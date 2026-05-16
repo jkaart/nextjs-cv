@@ -17,9 +17,9 @@ interface SvgElement {
   }
 }
 
-interface IconPath {
+export interface IconPath {
   d: string
-  fill: string | null
+  fill: string
 }
 
 export interface IconPaths {

@@ -59,7 +59,7 @@ const PDFLink = ({ iconType, src }: PDFLinkProps) => {
           height: '18px'
         }}
       >
-        <PDFSvgIcon viewBox={result.viewBox} paths={result.paths} />
+        <PDFSvgIcon iconPaths={result} />
       </View>
       <View>
         <Link src={normalizeUrl(src)}>{src}</Link>
