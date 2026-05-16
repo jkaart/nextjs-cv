@@ -30,7 +30,7 @@ jobs:
       - run: git fetch origin main:main
       - run: npm ci
       - name: Validate commits
-        run: npx commitlint --from=origin/main --to=HEAD
+        run: npx commitlint --from=main --to=HEAD
 
   LintPR:
     if: github.event_name == 'pull_request'
