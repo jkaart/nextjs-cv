@@ -1,3 +1,4 @@
+import type { IconType as ReactIconsType } from 'react-icons'
 import {
   FaGithub as GithubIcon,
   FaLinkedin as LinkedInIcon
@@ -13,9 +14,9 @@ export type IconType = 'homePage' | 'eMail' | 'gitHub' | 'linkedIn'
  * Throws an error for unknown icon types.
  *
  * @param type - The type of icon to retrieve ('homePage', 'eMail', 'gitHub', or 'linkedIn')
- * @returns The React icon component or Error if type is invalid
+ * @returns The React icon component or Error object if type is invalid
  */
-export const getIcon = (type: IconType) => {
+export const getIcon = (type: IconType): ReactIconsType | Error => {
   switch (type) {
     case 'homePage':
       return HomepageIcon

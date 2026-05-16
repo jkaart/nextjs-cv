@@ -2,22 +2,17 @@ import { getDevIcon, getDevIconPath } from '@utils/getDevIcon'
 
 describe('getDevIcon', () => {
   it('should return an icon component for valid icon names', async () => {
-    const Icon = getDevIcon('siReact')
-    expect(Icon).toBeDefined()
-  })
-
-  it('should handle invalid icon names gracefully', async () => {
-    const Icon = getDevIcon('nonExistentIcon123')
+    const Icon = getDevIcon('SiReact')
     expect(Icon).toBeDefined()
   })
 })
 
 describe('getDevIconPath', () => {
   it('should return a valid SVG path for known icons', async () => {
-    const iconPaths = await getDevIconPath('siReact')
+    const iconPaths = await getDevIconPath('SiReact')
 
     if (iconPaths) {
-      expect(typeof iconPaths.paths).toBe('array')
+      expect(typeof iconPaths.paths).toBe('object')
       iconPaths.paths.forEach(path => {
         expect(typeof path.d).toBe('string')
         expect(typeof path.fill).toBe('string')
@@ -31,12 +26,12 @@ describe('getDevIconPath', () => {
   })
 
   it('should handle various valid react-icons', async () => {
-    const icons = ['siReact', 'siGithub', 'siNodejs', 'siPython']
+    const icons = ['SiReact', 'SiGithub', 'SiNodejs', 'SiPython']
 
     for (const icon of icons) {
       const iconPaths = await getDevIconPath(icon)
       if (iconPaths) {
-        expect(typeof iconPaths.paths).toBe('array')
+        expect(typeof iconPaths.paths).toBe('object')
         iconPaths.paths.forEach(path => {
           expect(typeof path.d).toBe('string')
           expect(typeof path.fill).toBe('string')

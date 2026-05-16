@@ -20,9 +20,6 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Install git-restore-mtime
-        run: sudo apt install -y git-restore-mtime
-
       - name: Clone private content
         run: |
           rm -rf ../data

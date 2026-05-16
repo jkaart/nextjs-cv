@@ -46,7 +46,7 @@ const Skill = ({ skill }: SkillProps) => {
 
   return (
     <Tooltip testid='skill' content={<span>{skill.language}</span>}>
-      <Icon />
+      <Icon className='w-8' />
     </Tooltip>
   )
 }
