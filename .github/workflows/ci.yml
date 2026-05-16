@@ -22,7 +22,6 @@ jobs:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
-          ref: ${{ github.ref_name }}
       - uses: actions/setup-node@v6
         with:
           node-version: "24"
@@ -31,7 +30,7 @@ jobs:
       - run: git fetch origin main:main
       - run: npm ci
       - name: Validate commits
-        run: npx commitlint --from=main --to=HEAD
+        run: npx commitlint --from=origin/main --to=HEAD
 
   LintPR:
     if: github.event_name == 'pull_request'
