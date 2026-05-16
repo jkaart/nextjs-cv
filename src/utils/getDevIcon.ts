@@ -1,4 +1,4 @@
-import type { DevIconName, DevIconType } from '@types'
+import type { DevIconName } from '@types'
 import dynamic from 'next/dynamic'
 import type { IconType as ReactIconsType } from 'react-icons'
 
