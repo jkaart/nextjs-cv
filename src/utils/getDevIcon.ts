@@ -1,5 +1,6 @@
+import type { DevIconName, DevIconType } from '@types'
 import dynamic from 'next/dynamic'
-import type { IconType } from 'react-icons'
+import type { IconType as ReactIconsType } from 'react-icons'
 
 interface SvgPathChild {
   props?: {
@@ -33,17 +34,15 @@ export interface IconPaths {
  * @param iconName - The name of the icon component (e.g., 'siReact', 'siGithub')
  * @returns A dynamically imported React component or null if icon not found
  */
-export const getDevIcon = (iconName: string) => {
-  const Icon = dynamic(
-    () =>
-      import('react-icons/si').then(icons => {
-        const Component = icons[iconName as keyof typeof icons]
-
-        return Component || (() => null)
-      }) as Promise<React.ComponentType>
+export const getDevIcon = (iconName: DevIconName) => {
+  return dynamic(() =>
+    import('react-icons/si').then(icons => {
+      return (
+        (icons[iconName as keyof typeof icons] as ReactIconsType) ||
+        (() => null)
+      )
+    })
   )
-
-  return Icon
 }
 
 /**
@@ -53,7 +52,9 @@ export const getDevIcon = (iconName: string) => {
  * @param Component - The React icon component to analyze
  * @returns IconPaths object containing paths array and viewBox, or null if extraction fails
  */
-export const extractIconPaths = (Component: IconType): IconPaths | null => {
+export const extractIconPaths = (
+  Component: ReactIconsType
+): IconPaths | null => {
   if (typeof Component === 'function') {
     const element = Component({}) as React.ReactElement as SvgElement
 
@@ -95,7 +96,7 @@ export const extractIconPaths = (Component: IconType): IconPaths | null => {
  */
 export const getDevIconPath = async (iconName: string) => {
   const icons = await import('react-icons/si')
-  const Component = icons[iconName as keyof typeof icons] as IconType
+  const Component = icons[iconName as keyof typeof icons] as DevIconType
 
   if (typeof Component === 'function') {
     const result = extractIconPaths(Component)
