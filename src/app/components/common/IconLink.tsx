@@ -1,4 +1,6 @@
+import ComponentWrapper from '@components/common/ComponentWrapper'
 import { getIcon, type IconType } from '@utils/getIcon'
+import Link from 'next/link'
 import type { HTMLProps } from 'react'
 
 interface IconLinkProps {
@@ -34,14 +36,17 @@ const IconLink = ({ href, iconType, className }: IconLinkProps) => {
   const testId = `react-icon-${iconType.toLowerCase()}`
 
   return (
-    <a
-      className={className}
-      data-testid='icon-link'
-      target='_blank'
-      href={href}
-    >
-      {<Icon data-testid={testId} />}
-    </a>
+    <ComponentWrapper>
+      <Link
+        className={className}
+        data-testid='icon-link'
+        target='_blank'
+        href={href}
+        rel='canonical'
+      >
+        {<Icon data-testid={testId} />}
+      </Link>
+    </ComponentWrapper>
   )
 }
 

@@ -1,3 +1,4 @@
+import ComponentWrapper from '@components/common/ComponentWrapper'
 import Tooltip from '@components/Tooltip'
 import type { Skill as SkillType } from '@types'
 import { getDevIcon } from '@utils/getDevIcon'
@@ -45,9 +46,11 @@ const Skill = ({ skill }: SkillProps) => {
   const Icon = getDevIcon(skill.iconName)
 
   return (
-    <Tooltip testid='skill' content={<span>{skill.language}</span>}>
-      <Icon className='w-8' />
-    </Tooltip>
+    <ComponentWrapper>
+      <Tooltip testid='skill' content={<span>{skill.language}</span>}>
+        <Icon className='w-8' />
+      </Tooltip>
+    </ComponentWrapper>
   )
 }
 
