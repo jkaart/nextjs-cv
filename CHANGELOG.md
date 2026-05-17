@@ -1,3 +1,17 @@
+# [1.4.0](https://github.com/jkaart/nextjs-cv/compare/v1.3.0...v1.4.0) (2026-05-17)
+
+
+### Bug Fixes
+
+* remove unnecessary commands in the clone step of deployment workflow ([#26](https://github.com/jkaart/nextjs-cv/issues/26)) ([49869a5](https://github.com/jkaart/nextjs-cv/commit/49869a5c6ee32323f653a9bd76d1de57236614a9))
+* semantic release ([#47](https://github.com/jkaart/nextjs-cv/issues/47)) ([d7b3bb1](https://github.com/jkaart/nextjs-cv/commit/d7b3bb16c9a589527e00037fe283b40c54f09d5e))
+* update CI workflow group naming and commitlint fetch reference ([cf29d5a](https://github.com/jkaart/nextjs-cv/commit/cf29d5a732bac2f7a36f010dadde5eb2630e9c52)), closes [#27](https://github.com/jkaart/nextjs-cv/issues/27) [#34](https://github.com/jkaart/nextjs-cv/issues/34) [#32](https://github.com/jkaart/nextjs-cv/issues/32)
+
+
+### Features
+
+* sync dev to main ([#32](https://github.com/jkaart/nextjs-cv/issues/32)) ([8192fd2](https://github.com/jkaart/nextjs-cv/commit/8192fd2090710625ab4e3b7a14486b0ea25ca9f0)), closes [#27](https://github.com/jkaart/nextjs-cv/issues/27)
+
 # [1.3.0](https://github.com/jkaart/nextjs-cv/compare/v1.2.0...v1.3.0) (2026-05-15)
 
 
