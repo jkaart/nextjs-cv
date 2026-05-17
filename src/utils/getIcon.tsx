@@ -14,7 +14,7 @@ export type IconType = 'homePage' | 'eMail' | 'gitHub' | 'linkedIn'
  * Throws an error for unknown icon types.
  *
  * @param type - The type of icon to retrieve ('homePage', 'eMail', 'gitHub', or 'linkedIn')
- * @returns The React icon component or Error object if type is invalid
+ * @returns The React icon component or instanceof Error if type is invalid
  */
 export const getIcon = (type: IconType): ReactIconsType | Error => {
   switch (type) {
