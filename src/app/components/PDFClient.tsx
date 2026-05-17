@@ -17,8 +17,8 @@ const PDFViewer = dynamic(
 /**
  * Client-side component that renders the CV as a downloadable PDF using react-pdf.
  * Dynamically imports the PDFViewer to avoid SSR issues and fetches project data
- * via useProjects hook before rendering the PDFResume document. Uses Tailwind CSS
- * for full viewport styling (w-full h-svh).
+ * from 3 latest project via useProjects hook before rendering the PDFResume document.
+ * Uses Tailwind CSS for full viewport styling (w-full h-svh).
  *
  * @interface PDFClientProps - Props interface for PDFClient component
  * @param {string} props.meDescriptionRaw - Raw MDX content for the description section of the CV
@@ -40,7 +40,7 @@ const PDFViewer = dynamic(
  * ```
  */
 const PDFClient = ({ meDescriptionRaw, lastContentUpdate }: PDFClientProps) => {
-  const { projects, loading } = useProjects()
+  const { projects, loading } = useProjects(3)
 
   if (loading || !projects) return <div>Loading...</div>
   return (
