@@ -69,7 +69,7 @@ const CVDownload = ({
   className
 }: CVDownloadProps) => {
   const { projects, loading } = useProjects(3)
-  if (loading || !projects) return <div>Loading...</div>
+  if (loading) return <div>Loading...</div>
   return (
     <PDFDownloadLink
       className={className}
