@@ -32,7 +32,7 @@ export interface IconPaths {
  * Uses Next.js dynamic import to avoid bundle size issues with unused icons.
  *
  * @param iconName - The name of the icon component (e.g., 'SiReact', 'SiGithub')
- * @returns A dynamically imported React component or null if icon not found
+ * @returns A dynamically imported React component; if the icon is not found, the returned fallback component renders null
  */
 export const getDevIcon = (iconName: DevIconName) => {
   return dynamic(() =>
