@@ -1,3 +1,25 @@
+# [1.5.0](https://github.com/jkaart/nextjs-cv/compare/v1.4.0...v1.5.0) (2026-05-17)
+
+
+### Bug Fixes
+
+* noopener,noreferrer attribute needed for SEO ([#59](https://github.com/jkaart/nextjs-cv/issues/59)) ([594f7c7](https://github.com/jkaart/nextjs-cv/commit/594f7c7c967b654d047a6630bf2e820a66857876))
+* potential fix for pull request finding ([89beb66](https://github.com/jkaart/nextjs-cv/commit/89beb66faef9aa25416e1dd88e49df04fee146a0))
+* potential fix for pull request finding ([13eee99](https://github.com/jkaart/nextjs-cv/commit/13eee99f21c3a4236e1e7f41bbff2664eb58f07e))
+* potential fix for pull request finding ([2bed17b](https://github.com/jkaart/nextjs-cv/commit/2bed17b9fc196299763c2148a1033c5005fd3df5))
+* potential fix for pull request finding ([d85e84c](https://github.com/jkaart/nextjs-cv/commit/d85e84cd777109b0f516207a05ba94e568158603))
+* project url ([#54](https://github.com/jkaart/nextjs-cv/issues/54)) ([99b9d66](https://github.com/jkaart/nextjs-cv/commit/99b9d666baa53c96250e5316d0366169be31c898))
+* **ProjectUrl:** ensure button type is explicitly set ([0c7d143](https://github.com/jkaart/nextjs-cv/commit/0c7d1430a55b56f91903fefe67676dd8876686b0))
+* update CVDownloadMenu styles for improved layout and appearance ([#52](https://github.com/jkaart/nextjs-cv/issues/52)) ([4823be6](https://github.com/jkaart/nextjs-cv/commit/4823be6b3c127df3942b9b32b1f9d5e9abb350c2))
+* use projects ([#53](https://github.com/jkaart/nextjs-cv/issues/53)) ([655a19d](https://github.com/jkaart/nextjs-cv/commit/655a19d055537bd56bec3a362a9e1c1b066d7bf3))
+* wrap Skill and IconLink components in ComponentWrapper for delay render ([#56](https://github.com/jkaart/nextjs-cv/issues/56)) ([4492d4f](https://github.com/jkaart/nextjs-cv/commit/4492d4f62103799149bc090421952236207038e8))
+
+
+### Features
+
+* add ComponentWrapper for conditional rendering of children ([#55](https://github.com/jkaart/nextjs-cv/issues/55)) ([86784a6](https://github.com/jkaart/nextjs-cv/commit/86784a68126b3b1f7c81f8d376955fc8719764ee))
+* limit projects to 3 latest project in PDFClient ([#51](https://github.com/jkaart/nextjs-cv/issues/51)) ([8f7a459](https://github.com/jkaart/nextjs-cv/commit/8f7a459d84f1c77fd315d8b61d89365c901a4cd1))
+
 # [1.4.0](https://github.com/jkaart/nextjs-cv/compare/v1.3.0...v1.4.0) (2026-05-17)
 
 
