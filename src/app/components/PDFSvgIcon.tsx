@@ -20,20 +20,26 @@ interface PDFSvgIconProps {
  * @example
  * ```tsx
  * // Usage for a simple checkmark icon
- * const checkmarkPaths = [
+ * const checkmarkIcon = {
+ *  paths:[
  *   { d: 'M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z', fill: '' }
- * ]
- * <PDFSvgIcon viewBox="0 0 24 24" paths={checkmarkPaths} />
+ *  ],
+ *  viewBox: '0 0 24 24'
+ * }
+ * <PDFSvgIcon iconPaths={checkmarkIcon} />
  * ```
  *
  * @example
  * ```tsx
  * // Usage for a complex icon with multiple path segments
- * const starPaths = [
+ * const starIcon = {
+ *  paths: [
  *   { d: 'M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z', fill: '' },
  *   { d: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z', fill: 'none' }
- * ]
- * <PDFSvgIcon viewBox="0 0 24 24" paths={starPaths} />
+ *  ],
+ *  viewBox: '0 0 24 24'
+ * }
+ * <PDFSvgIcon iconPaths={starIcon} />
  * ```
  */
 const PDFSvgIcon = ({ iconPaths }: PDFSvgIconProps) => (
