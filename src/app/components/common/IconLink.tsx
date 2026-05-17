@@ -42,7 +42,7 @@ const IconLink = ({ href, iconType, className }: IconLinkProps) => {
         data-testid='icon-link'
         target='_blank'
         href={href}
-        rel='canonical'
+        rel='noopener noreferrer'
       >
         {<Icon data-testid={testId} />}
       </Link>
