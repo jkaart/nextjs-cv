@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
  * Fetches all projects by default or a limited number of projects based on the limit parameter.
  *
  * @param {number} [limit] - Optional maximum number of projects to fetch. If provided and greater than 0, only that many projects will be returned. Defaults to fetching all projects.
- * @returns {{ projects: ProjectMetadata[] | null, loading: boolean }} Object containing the fetched projects array (or null if not loaded yet) and a loading state flag.
+ * @returns {{ projects: ProjectMetadata[], loading: boolean }} Object containing the fetched projects array and a loading state flag.
  *
  * @example
  * // Fetch all projects
@@ -17,7 +17,7 @@ import { useEffect, useState } from 'react'
  * const { projects, loading } = useProjects(3)
  */
 const useProjects = (limit?: number) => {
-  const [projects, setProjects] = useState<ProjectMetadata[] | null>(null)
+  const [projects, setProjects] = useState<ProjectMetadata[]>([])
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
