@@ -98,4 +98,11 @@ describe('ProjectUrl', () => {
 
     expect(button).toHaveTextContent(longTitle)
   })
+
+  it('renders with rel="canonical" attribute', () => {
+    render(<ProjectUrl href='https://example.com' title='example' />)
+    const button = screen.getByRole('button')
+
+    expect(button).toHaveAttribute('rel', 'canonical')
+  })
 })
