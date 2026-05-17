@@ -55,7 +55,11 @@ describe('ProjectUrl', () => {
       fireEvent.click(button)
     })
 
-    expect(mockWindowOpen).toHaveBeenCalledWith(defaultProps.href, '_blank')
+    expect(mockWindowOpen).toHaveBeenCalledWith(
+      defaultProps.href,
+      '_blank',
+      'noopener,noreferrer'
+    )
     mockWindowOpen.mockRestore()
   })
 
