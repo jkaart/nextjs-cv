@@ -26,9 +26,8 @@ const ProjectUrl = ({ href, title }: ProjectUrlProps) => (
     onClick={event => {
       event.preventDefault()
       event.stopPropagation()
-      window.open(href, '_blank')
+      window.open(href, '_blank', 'noopener,noreferrer')
     }}
-    type='button'
   >
     {title}
   </button>
