@@ -44,10 +44,13 @@ const CVDownloadMenu = ({
     className='
           dark:bg-blue-100
           dark:text-black
+          bg-blue-100
+          text-black
+          w-25
           absolute
           text-sm
           z-100
-          top-0
+          -top-2
           left-full
           flex
           flex-col
