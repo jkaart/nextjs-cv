@@ -28,7 +28,6 @@ const ProjectUrl = ({ href, title }: ProjectUrlProps) => (
       event.stopPropagation()
       window.open(href, '_blank')
     }}
-    rel='canonical'
     type='button'
   >
     {title}
