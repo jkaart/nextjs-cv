@@ -7,7 +7,8 @@ import { ThemeProvider } from 'next-themes'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
-  subsets: ['latin']
+  subsets: ['latin'],
+  preload: false
 })
 
 const geistMono = Geist_Mono({
