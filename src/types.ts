@@ -1,8 +1,5 @@
-import type { IconType as ReactIconType } from 'react-icons'
-
-export type DevIconName = keyof typeof import('react-icons/si')
-
-export type DevIconType = Record<DevIconName, ReactIconType>
+import type { DevIconName } from '@allDevIconTypes'
+import type { SelectedDevIconName } from '@selectedDevIconTypes'
 
 /** Unique identifier for entities */
 type Id = string
@@ -58,8 +55,10 @@ export interface Skill {
   language: string
   level: Level
   type: 'frontend' | 'backend' | 'frontend/backend' | 'other'
-  iconName: DevIconName
+  iconName: SelectedDevIconName
 }
+
+export type SkillRaw = Skill & { skillName: DevIconName }
 
 /** Raw work experience data from source */
 export interface WorkExperienceRaw {

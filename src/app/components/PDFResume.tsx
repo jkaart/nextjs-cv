@@ -161,10 +161,10 @@ const PDFResume = ({
             <View style={styles.infoAndSkillsContainer}>
               <MePhoto image={data.me.image} />
               <Text style={styles.h4}>Tiedot</Text>
-              <PDFLink src={data.contact.homepage} iconType='homePage' />
+              {/*               <PDFLink src={data.contact.homepage} iconType='homePage' />
               <PDFLink src={data.contact.email} iconType='eMail' />
               <PDFLink src={data.contact.gitHub} iconType='gitHub' />
-              <PDFLink src={data.contact.linkedIn} iconType='linkedIn' />
+              <PDFLink src={data.contact.linkedIn} iconType='linkedIn' /> */}
               <Title title='Taidot' />
               <PDFSkillList skills={data.skill} />
               <Title title='Kielitaito' />
