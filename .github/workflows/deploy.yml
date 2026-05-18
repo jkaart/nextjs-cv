@@ -11,9 +11,20 @@ on:
   repository_dispatch:
     types: [sync-content]
 jobs:
+  Debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug workflow_run
+        run: |
+          echo "Event: ${{ github.event_name }}"
+          echo "Actor: ${{ github.event.workflow_run.actor.login }}"
+          echo "Branch: ${{ github.event.workflow_run.head_branch }}"
+          echo "SHA: ${{ github.event.workflow_run.head_sha }}"
+          echo "Message: ${{ github.event.workflow_run.head_commit.message }}"
   DeployProduction:
     if: >
       github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.actor.login != 'semantic-release-bot' &&
       github.event.workflow_run.head_branch == 'main'
 
     runs-on: ubuntu-latest
@@ -43,7 +54,9 @@ jobs:
   DeployPreview:
     if: >
       github.event.workflow_run.conclusion == 'success' &&
-      github.event.workflow_run.head_branch == 'dev'
+      github.event.workflow_run.actor.login != 'semantic-release-bot' &&
+      github.event.workflow_run.head_branch == 'dev' &&
+      github.event_name == 'workflow_run'
 
     runs-on: ubuntu-latest
     steps:
