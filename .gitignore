@@ -42,3 +42,6 @@ next-env.d.ts
 
 public/assets
 src/data
+
+all-dev-icon-types.ts
+selected-dev-icon-types.ts
