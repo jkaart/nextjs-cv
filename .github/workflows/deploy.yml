@@ -21,6 +21,9 @@ jobs:
           echo "Branch: ${{ github.event.workflow_run.head_branch }}"
           echo "SHA: ${{ github.event.workflow_run.head_sha }}"
           echo "Message: ${{ github.event.workflow_run.head_commit.message }}"
+          echo "Payload: ${{ github.event.client_payload}}"
+          echo "Payload branch: ${{ github.event.client_payload.branch }}"
+          echo "Payload content_only: ${{ github.event.client_payload.content_only }}"
   DeployProduction:
     if: >
       (github.event.workflow_run.conclusion == 'success' &&
