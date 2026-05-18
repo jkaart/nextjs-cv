@@ -1,9 +1,5 @@
-'use client'
-
-import PDFSvgIcon from '@components/PDFSvgIcon'
-import { View } from '@react-pdf/renderer'
-import { getDevIconPath, type IconPaths } from '@utils/getDevIcon'
-import { useEffect, useState } from 'react'
+import { Image, View } from '@react-pdf/renderer'
+import type { SelectedDevIconName } from '@selectedDevIconTypes'
 
 /**
  * Props interface for the PDFIcon component.
@@ -12,7 +8,7 @@ import { useEffect, useState } from 'react'
  */
 interface IconProps {
   /** The name of the icon to render (used to fetch corresponding SVG paths) */
-  iconName: string
+  iconName: SelectedDevIconName
 }
 
 /**
@@ -41,26 +37,12 @@ interface IconProps {
  * )
  * ```
  */
-const Icon = ({ iconName }: IconProps) => {
-  const [iconPaths, setIconPaths] = useState<IconPaths | null>(null)
-
-  useEffect(() => {
-    let isMounted = true
-    getDevIconPath(iconName).then(result => {
-      if (isMounted) setIconPaths(result)
-    })
-    return () => {
-      isMounted = false
-    }
-  }, [iconName])
-
-  if (!iconPaths) return null
-
+const PDFSkillIcon = ({ iconName }: IconProps) => {
   return (
     <View style={{ width: '24px', height: '24px' }}>
-      <PDFSvgIcon iconPaths={iconPaths} />
+      <Image src={`/assets/icons/png/dev-icons/${iconName}.png`} />
     </View>
   )
 }
 
-export default Icon
+export default PDFSkillIcon

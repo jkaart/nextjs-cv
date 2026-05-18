@@ -1,4 +1,4 @@
-import Icon from '@components/PDFIcon'
+import PDFSkillIcon from '@components/PDFSkillIcon'
 import { Text, View } from '@react-pdf/renderer'
 import type { Skill } from '@types'
 import { sortSkills } from '@utils/sortSkills'
@@ -49,7 +49,7 @@ const PDFSkillList = ({ skills }: PDFSkillListProps) => {
           }}
           key={skill.id}
         >
-          <Icon iconName={skill.iconName} />
+          <PDFSkillIcon iconName={skill.iconName} />
           <Text style={{ fontSize: '8px' }}>{skill.language}</Text>
         </View>
       ))}

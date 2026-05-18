@@ -3,6 +3,7 @@
 import CVDownloadMenu, {
   type CVDownloadMenuProps
 } from '@components/CVDownloadMenu'
+import { Icon } from '@iconify/react'
 import { useState } from 'react'
 import { FaRegFilePdf as PdfIcon } from 'react-icons/fa6'
 
@@ -44,7 +45,10 @@ const CVDownloadMenuButton = ({
 
   return (
     <div className='relative cursor-pointer'>
-      <PdfIcon onClick={() => setShowMenu(!showMenu)} />
+      <Icon
+        icon='fa6-regular:file-pdf'
+        onClick={() => setShowMenu(!showMenu)}
+      />
       {showMenu && (
         <CVDownloadMenu
           lastContentUpdate={lastContentUpdate}

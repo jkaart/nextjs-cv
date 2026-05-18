@@ -1,7 +1,6 @@
-import PDFSvgIcon from '@components/PDFSvgIcon'
+import type { IconType } from '@components/common/ContactIcon'
+import ContactIcon from '@components/common/ContactIcon'
 import { Link, View } from '@react-pdf/renderer'
-import { extractIconPaths } from '@utils/getDevIcon'
-import { getIcon, type IconType } from '@utils/getIcon'
 import { normalizeUrl } from '@utils/normalizeUrl'
 
 /**
@@ -43,12 +42,7 @@ interface PDFLinkProps {
  * ```
  */
 const PDFLink = ({ iconType, src }: PDFLinkProps) => {
-  const Icon = getIcon(iconType)
-  if (Icon instanceof Error) return null
-
-  const result = extractIconPaths(Icon)
-  if (!result || !result.viewBox || !result.paths) return null
-
+  console.log(iconType)
   return (
     <View style={{ flexDirection: 'row', gap: '2px', alignItems: 'center' }}>
       <View
@@ -59,7 +53,7 @@ const PDFLink = ({ iconType, src }: PDFLinkProps) => {
           height: '18px'
         }}
       >
-        <PDFSvgIcon iconPaths={result} />
+        <ContactIcon type={iconType} />
       </View>
       <View>
         <Link src={normalizeUrl(src)}>{src}</Link>
