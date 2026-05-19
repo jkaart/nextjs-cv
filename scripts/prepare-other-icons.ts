@@ -7,7 +7,7 @@ const usedIcons = [
   'material-symbols:alternate-email',
   'mdi:github',
   'mdi:linkedin',
-  'mdi:internet',
+  'ph:globe-bold',
   'mdi:loading',
   'fa6-regular:file-pdf'
 ]
