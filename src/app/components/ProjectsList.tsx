@@ -1,5 +1,5 @@
 import ProjectListItem from '@components/ProjectListItem'
-import type { ProjectMetadata } from '@utils/projects'
+import type { ProjectMetadata } from '@types'
 
 interface ProjectsListProps {
   projects: ProjectMetadata[]

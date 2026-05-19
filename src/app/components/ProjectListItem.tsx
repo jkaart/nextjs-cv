@@ -1,7 +1,7 @@
 import ProjectUrl from '@components/ProjectUrl'
+import type { ProjectMetadata } from '@types'
 import { formatProjectDates } from '@utils/formatProjectDates'
 import { formatString } from '@utils/formatString'
-import type { ProjectMetadata } from '@utils/projects'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { HTMLProps } from 'react'

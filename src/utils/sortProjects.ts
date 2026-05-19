@@ -1,4 +1,4 @@
-import type { ProjectMetadata } from '@utils/projects'
+import type { ProjectMetadata } from '@types'
 
 /**
  * Compares two project metadata entries by their end date in reverse alphabetical order.

@@ -12,7 +12,7 @@ import PDFSkillList from '@components/PDFSkills'
 import PDFWorkExperiences from '@components/PDFWorkExperiences'
 import { data } from '@data/data'
 import { Document, Page, StyleSheet, Text, View } from '@react-pdf/renderer'
-import type { ProjectMetadata } from '@utils/projects'
+import type { ProjectMetadata } from '@types'
 
 export const styles = StyleSheet.create({
   page: {

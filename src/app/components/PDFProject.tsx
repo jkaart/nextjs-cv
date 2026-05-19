@@ -1,10 +1,10 @@
 import { styles } from '@components/PDFResume'
 import type { ViewProps } from '@react-pdf/renderer'
 import { Link, Text, View } from '@react-pdf/renderer'
+import type { ProjectMetadata } from '@types'
 import { formatProjectDates } from '@utils/formatProjectDates'
 import { formatString } from '@utils/formatString'
 import { getBaseUrl } from '@utils/getBaseUrl'
-import type { ProjectMetadata } from '@utils/projects'
 
 interface TextContainerProps {
   label: string
