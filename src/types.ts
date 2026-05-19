@@ -131,3 +131,5 @@ export type Education = ParseDateFields<EducationRaw>
 
 /** Parsed work experience data with Date objects */
 export type WorkExperience = ParseDateFields<WorkExperienceRaw>
+
+export type ContactIconType = 'homePage' | 'eMail' | 'gitHub' | 'linkedIn'

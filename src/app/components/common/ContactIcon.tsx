@@ -1,21 +1,24 @@
-import { Icon as IconifyIcon } from '@iconify/react'
-
-export const icons = {
-  homePage: 'mdi:home',
-  eMail: 'mdi:email',
-  gitHub: 'simple-icons:github',
-  linkedIn: 'simple-icons:linkedin'
-} as const
-
-export type IconType = keyof typeof icons
+import type { ContactIconType } from '@types'
+import { getContactIconName } from '@utils/getContactIconName'
+import Image from 'next/image'
+import { twMerge } from 'tailwind-merge'
 
 interface ContactIconProps {
-  type: IconType
+  type: ContactIconType
   className?: string
 }
 
-const ContactIcon = ({ type, className }: ContactIconProps) => (
-  <IconifyIcon icon={icons[type]} className={className} />
-)
+const ContactIcon = ({ type, className }: ContactIconProps) => {
+  const mergedClassNames = twMerge(className, ['dark:invert'])
+  return (
+    <Image
+      src={`/assets/icons/svg/other/${getContactIconName(type)}.svg`}
+      width={40}
+      height={40}
+      alt=''
+      className={mergedClassNames}
+    />
+  )
+}
 
 export default ContactIcon
