@@ -16,7 +16,7 @@ import type { ProjectMetadata } from '@utils/projects'
 
 export const styles = StyleSheet.create({
   page: {
-    padding: '0.75cm'
+    padding: '0.50cm'
   },
   header: {
     textAlign: 'center',
@@ -24,41 +24,42 @@ export const styles = StyleSheet.create({
   },
   h1: {
     fontWeight: 'bold',
-    fontSize: '22px'
+    fontSize: '20px'
   },
   h2: {
     fontWeight: 'bold',
-    fontSize: '20px'
+    fontSize: '18px'
   },
   h3: {
     fontWeight: 'bold',
-    fontSize: '18px'
+    fontSize: '16px'
   },
   h4: {
     fontWeight: 'bold',
-    fontSize: '16px'
+    fontSize: '14px'
   },
   h5: {
     fontWeight: 'bold',
-    fontSize: '14px'
+    fontSize: '12px'
   },
   h6: {
     fontWeight: 'bold',
-    fontSize: '12px'
+    fontSize: '10px'
   },
   title: {
     marginTop: '10px'
   },
   container: {
     flexDirection: 'row',
-    fontSize: '10px',
-    gap: '0.5cm'
+    fontSize: '8px',
+    gap: '0.5cm',
+    border: '1px solid red'
   },
   sectionContainer: {
     padding: '5px',
     border: '1px black solid',
     borderRadius: '3px',
-    width: '12cm',
+    width: '13cm',
     backgroundColor: '#f9fafb'
   },
   infoAndSkillsContainer: {
