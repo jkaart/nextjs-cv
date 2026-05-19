@@ -9,7 +9,7 @@ describe('Skill', () => {
     language: 'React',
     level: 'excellent',
     type: 'frontend',
-    iconName: 'SiReact'
+    iconName: 'react'
   } satisfies SkillType
 
   beforeEach(async () => {
