@@ -1,11 +1,11 @@
-import type { IconType } from '@components/common/ContactIcon'
 import ContactIcon from '@components/common/ContactIcon'
+import type { ContactIconType } from '@types'
 import Link from 'next/link'
 import type { HTMLProps } from 'react'
 
 interface IconLinkProps {
   href: string
-  iconType: IconType
+  iconType: ContactIconType
   className?: HTMLProps<HTMLElement>['className']
 }
 
