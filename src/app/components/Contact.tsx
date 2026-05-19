@@ -9,17 +9,31 @@ interface ContactProps {
 }
 
 /**
- * Renders contact information with social media links.
- * Displays a section heading "Tiedot" followed by clickable icons for homepage, email, GitHub, and LinkedIn.
+ * Renders contact information with clickable social media and web links.
+ * Displays a section header "Tiedot" followed by contact details including email, LinkedIn, GitHub, and homepage URLs.
+ * Each link is rendered using the IconLink component with appropriate icon types (eMail, linkedIn, gitHub, homePage).
+ * Supports additional child elements for custom content after the standard links.
  *
- * @param {ContactProps} props - Component props containing contact data and children
- * @param {ContactType} props.contact - Contact information object with email, social media URLs
- * @param {React.JSX.Element} [props.children] - Additional child elements to render after the links
+ * @interface ContactProps - Props interface for Contact component
+ * @param {ContactType} props.contact - Contact information object containing: email address, LinkedIn profile URL, GitHub profile URL, and homepage/website URL
+ * @param {React.JSX.Element} [props.children] - Optional additional child elements to render after the standard contact links (e.g., custom buttons or sections)
  *
  * @example
  * ```tsx
- * <Contact contact={{ email: 'john@example.com', linkedIn: 'https://linkedin.com/in/john', homepage: 'https://john.dev', gitHub: 'https://github.com/john' }}>
- *   <IconLink href={normalizeUrl(data.workExperience[0].workplaceName)} iconType='company' />
+ * // Basic usage with sample contact data
+ * <Contact contact={{
+ *   email: 'john@example.com',
+ *   linkedIn: 'https://linkedin.com/in/john',
+ *   gitHub: 'https://github.com/john',
+ *   homepage: 'https://john.dev'
+ * }} />
+ *
+ * // Usage with full data object from context
+ * <Contact contact={data.contact} />
+ *
+ * // With additional custom child elements
+ * <Contact contact={{ email: 'john@example.com', linkedIn: 'https://linkedin.com/in/john', gitHub: 'https://github.com/john', homepage: 'https://john.dev' }}>
+ *   <a href="mailto:john@example.com" className="text-blue-500 hover:text-blue-700">Email me directly</a>
  * </Contact>
  * ```
  */
