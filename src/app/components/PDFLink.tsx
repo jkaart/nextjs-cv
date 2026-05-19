@@ -1,6 +1,6 @@
-import type { IconType } from '@components/common/ContactIcon'
-import ContactIcon from '@components/common/ContactIcon'
+import PDFContactIcon from '@components/PDFContactIcon'
 import { Link, View } from '@react-pdf/renderer'
+import type { ContactIconType } from '@types'
 import { normalizeUrl } from '@utils/normalizeUrl'
 
 /**
@@ -9,8 +9,8 @@ import { normalizeUrl } from '@utils/normalizeUrl'
  * @interface
  */
 interface PDFLinkProps {
-  /** The type of icon to display (e.g., 'email', 'phone', 'website') */
-  iconType: IconType
+  /** The type of icon to display (e.g., 'eMail', 'homePage', 'gitHub') */
+  iconType: ContactIconType
   /** The URL or link source to render as a clickable link */
   src: string
 }
@@ -41,25 +41,22 @@ interface PDFLinkProps {
  * )
  * ```
  */
-const PDFLink = ({ iconType, src }: PDFLinkProps) => {
-  console.log(iconType)
-  return (
-    <View style={{ flexDirection: 'row', gap: '2px', alignItems: 'center' }}>
-      <View
-        style={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '18px',
-          height: '18px'
-        }}
-      >
-        <ContactIcon type={iconType} />
-      </View>
-      <View>
-        <Link src={normalizeUrl(src)}>{src}</Link>
-      </View>
+const PDFLink = ({ iconType, src }: PDFLinkProps) => (
+  <View style={{ flexDirection: 'row', gap: '2px', alignItems: 'center' }}>
+    <View
+      style={{
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '18px',
+        height: '18px'
+      }}
+    >
+      <PDFContactIcon type={iconType} />
     </View>
-  )
-}
+    <View>
+      <Link src={normalizeUrl(src)}>{src}</Link>
+    </View>
+  </View>
+)
 
 export default PDFLink

@@ -2,6 +2,7 @@ import ProjectUrl from '@components/ProjectUrl'
 import { formatProjectDates } from '@utils/formatProjectDates'
 import { formatString } from '@utils/formatString'
 import type { ProjectMetadata } from '@utils/projects'
+import Image from 'next/image'
 import Link from 'next/link'
 import type { HTMLProps } from 'react'
 import { twMerge } from 'tailwind-merge'
@@ -59,28 +60,57 @@ const ProjectListItem = ({
   )
 
   return (
-    <Link href={href}>
-      <div className={mergedClassNames}>
-        <h3 className='text-l font-bold'>{project.title}</h3>
-        <p>{project.summary}</p>
-        <div className='my-2'>
-          <span className='inline-flex me-1 font-bold'>
-            Käytetyt teknologiat:
-          </span>
-          <div className='inline-flex gap-1 font-bold'>
-            {formatString(technologies)}
-          </div>
-        </div>
-        <div>
-          {startDate} - {endDate}
-        </div>
-        <div className='flex flex-col'>
-          {project.urls?.map(url => (
-            <ProjectUrl key={url.url} href={url.url} title={url.title} />
-          ))}
+    <div className={mergedClassNames}>
+      <h3 className='text-l font-bold'>{project.title}</h3>
+      <p>{project.summary}</p>
+      <div className='my-2'>
+        <span className='inline-flex me-1 font-bold'>
+          Käytetyt teknologiat:
+        </span>
+        <div className='inline-flex gap-1 font-bold'>
+          {formatString(technologies)}
         </div>
       </div>
-    </Link>
+      <div>
+        {startDate} - {endDate}
+      </div>
+      <div className='flex flex-col'>
+        {project.urls?.map(url => (
+          <div key={url.url} className='flex flex-row gap-1'>
+            {url.url.includes('github') ? (
+              <Image
+                className='dark:invert'
+                width={24}
+                height={24}
+                alt='Github icon'
+                src='/assets/icons/svg/other/github.svg'
+              />
+            ) : (
+              <Image
+                className='dark:invert'
+                width={24}
+                height={24}
+                alt='Github icon'
+                src='/assets/icons/svg/other/globe-bold.svg'
+              />
+            )}
+            <ProjectUrl href={url.url} title={url.title} />
+          </div>
+        ))}
+      </div>
+      <div className='flex flex-row gap-1'>
+        <Image
+          className='dark:invert'
+          width={24}
+          height={24}
+          alt='Github icon'
+          src='/assets/icons/svg/other/globe-bold.svg'
+        />
+        <Link href={href} className='hover:text-blue-600 hover:cursor-pointer'>
+          Lue lisää projektista
+        </Link>
+      </div>
+    </div>
   )
 }
 

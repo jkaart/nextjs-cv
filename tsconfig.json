@@ -30,7 +30,8 @@
       "@allDevIconTypes": ["./src/lib/icons/dev-icons/all-dev-icon-types.ts"],
       "@selectedDevIconTypes": [
         "./src/lib/icons/dev-icons/selected-dev-icon-types.ts"
-      ]
+      ],
+      "@otherIconTypes": ["./src/lib/icons/other-icons/other-icon-types.ts"]
     }
   },
   "include": [

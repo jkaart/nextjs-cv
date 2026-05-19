@@ -3,9 +3,8 @@
 import CVDownloadMenu, {
   type CVDownloadMenuProps
 } from '@components/CVDownloadMenu'
-import { Icon } from '@iconify/react'
+import PDFDownloadIcon from '@components/PDFDownloadIcon'
 import { useState } from 'react'
-import { FaRegFilePdf as PdfIcon } from 'react-icons/fa6'
 
 /**
  * Button component that toggles a dropdown menu for viewing or downloading the CV.
@@ -45,10 +44,9 @@ const CVDownloadMenuButton = ({
 
   return (
     <div className='relative cursor-pointer'>
-      <Icon
-        icon='fa6-regular:file-pdf'
-        onClick={() => setShowMenu(!showMenu)}
-      />
+      <button type='button' onClick={() => setShowMenu(!showMenu)}>
+        <PDFDownloadIcon />
+      </button>
       {showMenu && (
         <CVDownloadMenu
           lastContentUpdate={lastContentUpdate}

@@ -1,10 +1,16 @@
-import fs from 'node:fs'
+import fs, { mkdirSync } from 'node:fs'
 import path from 'node:path'
 import type { IconifyJSON } from '@iconify/react'
 import iconsJSONData from '@iconify-json/devicon/icons.json'
 
+console.log('Generate all dev icons types')
+
 const outputDir = path.join(process.cwd(), 'src/lib/icons/dev-icons/')
 const outputFile = path.join(outputDir, 'all-dev-icon-types.ts')
+
+mkdirSync(outputDir, {
+  recursive: true
+})
 
 const icons = iconsJSONData as IconifyJSON
 

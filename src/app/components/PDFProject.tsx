@@ -2,6 +2,7 @@ import { styles } from '@components/PDFResume'
 import { Link, Text, View } from '@react-pdf/renderer'
 import { formatProjectDates } from '@utils/formatProjectDates'
 import { formatString } from '@utils/formatString'
+import { getBaseUrl } from '@utils/getBaseUrl'
 import type { ProjectMetadata } from '@utils/projects'
 
 interface PDFProjectProps {
@@ -58,6 +59,7 @@ const PDFProject = ({ project }: PDFProjectProps) => {
   return (
     <View style={{ marginBottom: '10px' }}>
       <Text style={styles.h6}>{project.title}</Text>
+
       <Text style={{ marginBottom: '5px' }}>{project.summary}</Text>
       <Text style={{ fontWeight: 'bold', marginBottom: '5px' }}>
         {`Käytetyt teknologiat: ${formatString(technologies)}`}
@@ -72,6 +74,12 @@ const PDFProject = ({ project }: PDFProjectProps) => {
             <Link href={url.url}>{url.url}</Link>
           </View>
         ))}
+        <View style={{ flexDirection: 'row', gap: 2 }}>
+          <Text>Lue lisää:</Text>
+          <Link
+            href={`${getBaseUrl()}/projects/${project.slug}`}
+          >{`${getBaseUrl()}/projects/${project.slug}`}</Link>
+        </View>
       </View>
     </View>
   )
