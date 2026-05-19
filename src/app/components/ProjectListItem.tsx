@@ -59,28 +59,29 @@ const ProjectListItem = ({
   )
 
   return (
-    <Link href={href}>
-      <div className={mergedClassNames}>
-        <h3 className='text-l font-bold'>{project.title}</h3>
-        <p>{project.summary}</p>
-        <div className='my-2'>
-          <span className='inline-flex me-1 font-bold'>
-            Käytetyt teknologiat:
-          </span>
-          <div className='inline-flex gap-1 font-bold'>
-            {formatString(technologies)}
-          </div>
-        </div>
-        <div>
-          {startDate} - {endDate}
-        </div>
-        <div className='flex flex-col'>
-          {project.urls?.map(url => (
-            <ProjectUrl key={url.url} href={url.url} title={url.title} />
-          ))}
+    <div className={mergedClassNames}>
+      <h3 className='text-l font-bold'>{project.title}</h3>
+      <p>{project.summary}</p>
+      <div className='my-2'>
+        <span className='inline-flex me-1 font-bold'>
+          Käytetyt teknologiat:
+        </span>
+        <div className='inline-flex gap-1 font-bold'>
+          {formatString(technologies)}
         </div>
       </div>
-    </Link>
+      <div>
+        {startDate} - {endDate}
+      </div>
+      <div className='flex flex-col'>
+        {project.urls?.map(url => (
+          <ProjectUrl key={url.url} href={url.url} title={url.title} />
+        ))}
+      </div>
+      <Link href={href} className='hover:text-blue-600 hover:cursor-pointer'>
+        Lue lisää projektista
+      </Link>
+    </div>
   )
 }
 
