@@ -1,13 +1,40 @@
 import { styles } from '@components/PDFResume'
+import type { ViewProps } from '@react-pdf/renderer'
 import { Link, Text, View } from '@react-pdf/renderer'
 import { formatProjectDates } from '@utils/formatProjectDates'
 import { formatString } from '@utils/formatString'
 import { getBaseUrl } from '@utils/getBaseUrl'
 import type { ProjectMetadata } from '@utils/projects'
 
+interface TextContainerProps {
+  label: string
+  text: string
+  style?: ViewProps['style']
+}
+
+interface LinkContainerProps {
+  label: string
+  url: string
+  style?: ViewProps['style']
+}
+
 interface PDFProjectProps {
   project: ProjectMetadata
 }
+
+const TextContainer = ({ label, text, style }: TextContainerProps) => (
+  <View style={{ flexDirection: 'row', gap: 2, marginBottom: '5px', ...style }}>
+    <Text style={{ fontWeight: 'bold' }}>{label}</Text>
+    <Text>{text}</Text>
+  </View>
+)
+
+const LinkContainer = ({ label, url, style }: LinkContainerProps) => (
+  <View style={{ flexDirection: 'row', gap: 2, ...style }}>
+    <Text>{label}</Text>
+    <Link href={url}>{url}</Link>
+  </View>
+)
 
 /**
  * Renders a single project entry in the CV PDF.
@@ -59,27 +86,19 @@ const PDFProject = ({ project }: PDFProjectProps) => {
   return (
     <View style={{ marginBottom: '10px' }}>
       <Text style={styles.h6}>{project.title}</Text>
-
       <Text style={{ marginBottom: '5px' }}>{project.summary}</Text>
-      <Text style={{ fontWeight: 'bold', marginBottom: '5px' }}>
-        {`Käytetyt teknologiat: ${formatString(technologies)}`}
-      </Text>
+      <TextContainer label='Teknologiat:' text={formatString(technologies)} />
       <Text style={{ marginBottom: '5px' }}>
         {startDate} - {endDate}
       </Text>
       <View>
         {project.urls?.map(url => (
-          <View style={{ flexDirection: 'row', gap: 2 }} key={url.url}>
-            <Text>{url.title}</Text>
-            <Link href={url.url}>{url.url}</Link>
-          </View>
+          <LinkContainer url={url.url} label={url.title} key={url.url} />
         ))}
-        <View style={{ flexDirection: 'row', gap: 2 }}>
-          <Text>Lue lisää:</Text>
-          <Link
-            href={`${getBaseUrl()}/projects/${project.slug}`}
-          >{`${getBaseUrl()}/projects/${project.slug}`}</Link>
-        </View>
+        <LinkContainer
+          url={`${getBaseUrl()}/projects/${project.slug}`}
+          label='Lue lisää:'
+        />
       </View>
     </View>
   )
