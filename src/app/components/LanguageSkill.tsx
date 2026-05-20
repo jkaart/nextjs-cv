@@ -97,23 +97,32 @@ interface LanguageSkillProps {
  * )
  * ```
  */
-const LanguageSkill = ({ languageSkill }: LanguageSkillProps) => (
-  <>
-    <div className='font-bold'>{languageSkill.language}</div>
-    {languageSkill.motherLanguage === true && <div>Äidinkieli</div>}
-    {languageSkill.levels && (
-      <div className='ms-2'>
-        <div>
-          <span className='font-bold'>Puhuttu: </span>
-          {translateLevel(languageSkill.levels?.spoken)}
+const LanguageSkill = ({ languageSkill }: LanguageSkillProps) => {
+  const translatedSpoken = languageSkill.levels?.spoken
+    ? translateLevel(languageSkill.levels.spoken)
+    : '-'
+
+  const translatedWritten = languageSkill.levels?.written
+    ? translateLevel(languageSkill.levels.written)
+    : '-'
+  return (
+    <>
+      <div className='font-bold'>{languageSkill.language}</div>
+      {languageSkill.motherLanguage === true && <div>Äidinkieli</div>}
+      {languageSkill.levels && (
+        <div className='ms-2'>
+          <div>
+            <span className='font-bold'>Puhuttu: </span>
+            <span className='first-letter:uppercase'>{translatedSpoken}</span>
+          </div>
+          <div>
+            <span className='font-bold'>Kirjallinen: </span>
+            <span className='first-letter:uppercase'>{translatedWritten}</span>
+          </div>
         </div>
-        <div>
-          <span className='font-bold'>Kirjallinen: </span>
-          {translateLevel(languageSkill.levels?.written)}
-        </div>
-      </div>
-    )}
-  </>
-)
+      )}
+    </>
+  )
+}
 
 export default LanguageSkill

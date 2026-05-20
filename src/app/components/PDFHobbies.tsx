@@ -1,5 +1,6 @@
 import { Text, View } from '@react-pdf/renderer'
 import type { Hobby } from '@types'
+import { capitalizeString } from '@utils/capitalizeString'
 import { convertToString } from '@utils/convertToString'
 
 /**
@@ -42,8 +43,8 @@ interface PDFHobbiesProps {
  * ```
  */
 const PDFHobbies = ({ hobbies }: PDFHobbiesProps) => (
-  <View>
-    <Text>{convertToString(hobbies)}</Text>
+  <View style={{ marginLeft: '5px' }}>
+    <Text>{capitalizeString(convertToString(hobbies))}</Text>
   </View>
 )
 

@@ -11,8 +11,16 @@ import PDFProjects from '@components/PDFProjects'
 import PDFSkillList from '@components/PDFSkills'
 import PDFWorkExperiences from '@components/PDFWorkExperiences'
 import { data } from '@data/data'
-import { Document, Page, StyleSheet, Text, View } from '@react-pdf/renderer'
+import {
+  Document,
+  Font,
+  Page,
+  StyleSheet,
+  Text,
+  View
+} from '@react-pdf/renderer'
 import type { ProjectMetadata } from '@types'
+import { hyphenateSync as hyphenateFI } from 'hyphen/fi'
 
 export const styles = StyleSheet.create({
   page: {
@@ -52,8 +60,7 @@ export const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     fontSize: '8px',
-    gap: '0.5cm',
-    border: '1px solid red'
+    gap: '0.5cm'
   },
   sectionContainer: {
     padding: '5px',
@@ -148,7 +155,7 @@ const PDFResume = ({
   lastContentUpdate
 }: PDFResumeProps) => {
   return (
-    <Document>
+    <Document language='finnish'>
       <Page size='A4' style={styles.page}>
         <View style={styles.header}>
           <Text style={styles.h1}>Ansioluettelo ja portfolio</Text>
@@ -200,5 +207,12 @@ const PDFResume = ({
     </Document>
   )
 }
+
+const hyphenationCallback = (word: string) => {
+  // Return word syllables in an array
+  return hyphenateFI(word).split('\u00AD')
+}
+
+Font.registerHyphenationCallback(hyphenationCallback)
 
 export default PDFResume

@@ -1,5 +1,6 @@
 import ProjectUrl from '@components/ProjectUrl'
 import type { ProjectMetadata } from '@types'
+import { capitalizeString } from '@utils/capitalizeString'
 import { convertToString } from '@utils/convertToString'
 import { formatProjectDates } from '@utils/formatProjectDates'
 import Image from 'next/image'
@@ -16,14 +17,18 @@ interface ProjectListItemProps {
 interface TextContainerProps {
   label: string
   text: string
+  className?: HTMLProps<HTMLElement>['className']
 }
 
-const TextContainer = ({ label, text }: TextContainerProps) => (
-  <div className='my-2'>
-    <span className='me-1 font-semibold'>{label}</span>
-    <div className='inline-flex'>{text}</div>
-  </div>
-)
+const TextContainer = ({ label, text, className }: TextContainerProps) => {
+  const mergedClassNames = twMerge('inline', className)
+  return (
+    <p>
+      <span className='font-semibold'>{label}</span>
+      <span className={mergedClassNames}>{text}</span>
+    </p>
+  )
+}
 
 /**
  * Displays a single project as a list item with title, summary, technologies, dates, and external links.
@@ -82,16 +87,22 @@ const ProjectListItem = ({
       <h3 className='text-l font-bold'>{project.title}</h3>
       <p>{project.summary}</p>
       <TextContainer
-        label='Käytetyt teknologiat:'
-        text={convertToString(technologies)}
+        label='Käytetyt teknologiat: '
+        text={capitalizeString(convertToString(technologies))}
       />
-      <TextContainer label='Rooli(t):' text={convertToString(roles)} />
-      <TextContainer label='Työtehtävät:' text={convertToString(tasks)} />
       <TextContainer
-        label='Projektiin osallistumisaika:'
+        label='Rooli(t): '
+        text={capitalizeString(convertToString(roles))}
+      />
+      <TextContainer
+        label='Työtehtävä(t): '
+        text={capitalizeString(convertToString(tasks))}
+      />
+      <TextContainer
+        label='Projektiin osallistumisaika: '
         text={`${startDate} - ${endDate}`}
       />
-      <div className='flex flex-col'>
+      <div className='flex flex-col mt-2'>
         {project.urls?.map(url => (
           <div key={url.url} className='flex flex-row gap-1'>
             {url.url.includes('github') ? (

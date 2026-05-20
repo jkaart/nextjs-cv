@@ -1,4 +1,5 @@
 import type { Hobby } from '@types'
+import { capitalizeString } from '@utils/capitalizeString'
 import { convertToString } from '@utils/convertToString'
 import { sortHobbies } from '@utils/sortHobbies'
 import HeadingH2 from './common/HeadingH2'
@@ -82,7 +83,7 @@ const Hobbies = ({ hobbies }: HobbiesProps) => {
   return (
     <div>
       <HeadingH2 text='Harrastukset' />
-      <div>{hobbiesString}</div>
+      <div className='first-letter:uppercase'>{hobbiesString}</div>
     </div>
   )
 }
