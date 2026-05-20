@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# nextjs-cv
 
-## Getting Started
+A personal CV / portfolio website built with Next.js. The content is driven by markdown files and JavaScript objects, and the app includes both a normal website view and a PDF CV view.
 
-First, run the development server:
+## Features
+
+- Responsive CV landing page
+- Dedicated PDF CV route
+- Content-driven sections for:
+  - profile / introduction
+  - contact details
+  - work experience
+  - education
+  - skills
+  - language skills
+  - hobbies
+  - projects
+- Project listing / project overview pages
+- Theme support with `next-themes`
+- Sitemap generation
+- Automated content and asset preparation scripts
+- Conventional commits + semantic release workflow
+
+## Tech stack
+
+- Next.js
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- MDX (`@next/mdx`, `@mdx-js/*`, `next-mdx-remote`)
+- `@react-pdf/renderer` for PDF output
+- Iconify for icons
+- `next-themes` for theme handling
+- Biome for linting / formatting
+- Jest + Testing Library for tests
+- Husky, Commitizen, and semantic-release for Git workflow and releases
+
+## Getting started
+
+### Prerequisites
+
+- Node.js
+- npm
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Build for production
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Start the production server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Available scripts
 
-## Deploy on Vercel
+- `npm run dev` — prepare content/icons/assets and start the app in development mode
+- `npm run dev:webpack` — development mode using the Webpack-based Next.js dev server
+- `npm run build` — build the production app
+- `npm run start` — start the production server
+- `npm run lint` — run Biome checks
+- `npm run format` — format the codebase with Biome
+- `npm run test` — run the test suite
+- `npm run test:watch` — run tests in watch mode
+- `npm run commit` — open Commitizen commit flow
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Content workflow
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The project prepares content and assets with small helper scripts before development and build steps:
+
+- `prepare:content`
+- `prepare:assets`
+- `prepare:otherIcons`
+- `prepare:devIcons`
+- `watch:content`
+
+This keeps the site content, icons, and project data in sync with the source files.
+
+## Project structure
+
+```text
+src/
+  app/
+    (default)/
+    (fullscreen)/
+    api/
+    components/
+    hooks/
+    globals.css
+    layout.tsx
+    sitemap.ts
+  utils/
+  mdx-components.tsx
+  types.ts
+scripts/
+mockData/
+```
+
+## Notes
+
+- The root layout uses the Finnish locale (`lang="fi"`).
+- The homepage metadata title is set to `Etusivu`.
+- The project is released from the `main` branch with semantic-release.
+
+## License
+
+No license file is included in the repository.
