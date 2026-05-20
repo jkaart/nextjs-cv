@@ -3,7 +3,6 @@
 import HamburgerMenu from '@components/HamburgerMenu'
 import Link from 'next/link'
 import { type HTMLProps, useState } from 'react'
-import ThemeChange from './ThemeChange'
 
 interface NavBarProps {
   className?: HTMLProps<HTMLElement>['className']

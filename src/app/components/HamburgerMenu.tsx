@@ -41,7 +41,7 @@ interface HamburgerMenuProps {
 const HamburgerMenu = ({ state, onClick }: HamburgerMenuProps) => (
   <div
     data-testid='hamburger-menu'
-    className={`lg:hidden flex h-10 w-10 ${state ?? ' z-50 w-full'}`}
+    className={`lg:hidden flex h-10 w-10 ${state ? 'z-50 w-full' : ''}`}
   >
     <button onClick={onClick} className='flex flex-col gap-1.5' type='button'>
       <span
