@@ -74,7 +74,7 @@ const ThemeChange = ({ className }: ThemeChangeProps) => {
       <div className='flex gap-1'>
         <Image
           className='dark:invert'
-          alt={`Current theme: ${icon}`}
+          alt={`Switch to: ${icon}`}
           width={40}
           height={40}
           src={`/assets/icons/svg/other/${icon}.svg`}
