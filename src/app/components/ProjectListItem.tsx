@@ -13,6 +13,18 @@ interface ProjectListItemProps {
   className?: HTMLProps<HTMLElement>['className']
 }
 
+interface TextContainerProps {
+  label: string
+  text: string
+}
+
+const TextContainer = ({ label, text }: TextContainerProps) => (
+  <div className='my-2'>
+    <span className='me-1 font-bold'>{label}</span>
+    <div className='inline-flex'>{text}</div>
+  </div>
+)
+
 /**
  * Displays a single project as a list item with title, summary, technologies, dates, and external links.
  * Renders as a clickable link that navigates to the specified href when clicked.
@@ -33,6 +45,8 @@ interface ProjectListItemProps {
  *   technologies: ['React', 'TypeScript', 'Node.js'],
  *   startDate: '2023-01-01',
  *   endDate: '2023-12-31',
+ *   roles: ['programmer'],
+ *   tasks: ['implemented footer'],
  *   urls: [
  *     { url: 'https://github.com/example/repo', title: 'GitHub' },
  *     { url: 'https://example.com/docs', title: 'Documentation' }
@@ -47,7 +61,11 @@ const ProjectListItem = ({
   href,
   className
 }: ProjectListItemProps) => {
-  const technologies = project.technologies ? project.technologies.sort() : []
+  const technologies = project.technologies
+    ? [...project.technologies.sort()]
+    : []
+  const tasks = project.tasks ? [...project.tasks.sort()] : []
+  const roles = project.roles ? [...project.roles.sort()] : []
 
   const { startDate, endDate } = formatProjectDates(
     project.startDate,
@@ -63,14 +81,12 @@ const ProjectListItem = ({
     <div className={mergedClassNames}>
       <h3 className='text-l font-bold'>{project.title}</h3>
       <p>{project.summary}</p>
-      <div className='my-2'>
-        <span className='inline-flex me-1 font-bold'>
-          Käytetyt teknologiat:
-        </span>
-        <div className='inline-flex gap-1 font-bold'>
-          {formatString(technologies)}
-        </div>
-      </div>
+      <TextContainer
+        label='Käytetyt teknologiat:'
+        text={formatString(technologies)}
+      />
+      <TextContainer label='Rooli(t):' text={formatString(roles)} />
+      <TextContainer label='Työtehtävät:' text={formatString(tasks)} />
       <div>
         {startDate} - {endDate}
       </div>

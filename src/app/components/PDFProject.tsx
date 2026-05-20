@@ -76,7 +76,9 @@ const LinkContainer = ({ label, url, style }: LinkContainerProps) => (
  * ```
  */
 const PDFProject = ({ project }: PDFProjectProps) => {
-  const technologies = project.technologies ? project.technologies.sort() : []
+  const technologies = project.technologies ? [...project.technologies.sort()] : []
+  const tasks = project.tasks ? [...project.tasks.sort()] : []
+  const roles = project.roles ? [...project.roles.sort()] : []
 
   const { startDate, endDate } = formatProjectDates(
     project.startDate,
@@ -88,6 +90,8 @@ const PDFProject = ({ project }: PDFProjectProps) => {
       <Text style={styles.h6}>{project.title}</Text>
       <Text style={{ marginBottom: '5px' }}>{project.summary}</Text>
       <TextContainer label='Teknologiat:' text={formatString(technologies)} />
+      <TextContainer label='Rooli(t):' text={formatString(roles)}/>
+      <TextContainer label='Työtehtävä(t):' text={formatString(tasks)}/>
       <Text style={{ marginBottom: '5px' }}>
         {startDate} - {endDate}
       </Text>

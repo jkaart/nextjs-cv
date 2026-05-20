@@ -145,6 +145,8 @@ export interface ProjectMetadata {
   technologies?: string[]
   startDate?: string
   endDate?: string
+  tasks?: string[]
+  roles?: string[]
   urls?: Url[]
   slug: string
 }
