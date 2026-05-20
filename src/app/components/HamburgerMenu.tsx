@@ -41,20 +41,20 @@ interface HamburgerMenuProps {
 const HamburgerMenu = ({ state, onClick }: HamburgerMenuProps) => (
   <div
     data-testid='hamburger-menu'
-    className={`absolute lg:hidden ${state ? 'flex top-0 py-2 px-2 z-50 w-full bg-background' : 'left-1 top-1'}`}
+    className={`lg:hidden flex h-10 w-10 ${state ?? ' z-50 w-full'}`}
   >
     <button onClick={onClick} className='flex flex-col gap-1.5' type='button'>
       <span
         data-testid='hamburger-line'
-        className={`h-1 w-6 bg-black transition-all ${state && 'rotate-45 translate-y-2.5'}`}
+        className={`h-1.5 w-9 bg-black transition-all ${state && 'rotate-45 translate-y-3'}`}
       ></span>
       <span
         data-testid='hamburger-line'
-        className={`h-1 w-6 bg-black transition-all ${state && 'opacity-0'}`}
+        className={`h-1.5 w-9 bg-black transition-all ${state && 'opacity-0'}`}
       ></span>
       <span
         data-testid='hamburger-line'
-        className={`h-1 w-6 bg-black transition-all ${state && '-rotate-45 -translate-y-2.5'}`}
+        className={`h-1.5 w-9 bg-black transition-all ${state && '-rotate-45 -translate-y-3'}`}
       ></span>
     </button>
   </div>
