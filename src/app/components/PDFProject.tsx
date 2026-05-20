@@ -23,9 +23,11 @@ interface PDFProjectProps {
 }
 
 const TextContainer = ({ label, text, style }: TextContainerProps) => (
-  <View style={{ flexDirection: 'row', gap: 2, marginBottom: '5px', ...style }}>
-    <Text style={{ fontWeight: 'bold' }}>{label}</Text>
-    <Text>{text}</Text>
+  <View style={{ flexDirection: 'row', gap: 2, ...style }}>
+    <Text>
+      <Text style={{ fontWeight: 'bold' }}>{label}</Text>
+      {text}
+    </Text>
   </View>
 )
 
@@ -76,7 +78,9 @@ const LinkContainer = ({ label, url, style }: LinkContainerProps) => (
  * ```
  */
 const PDFProject = ({ project }: PDFProjectProps) => {
-  const technologies = project.technologies ? [...project.technologies.sort()] : []
+  const technologies = project.technologies
+    ? [...project.technologies.sort()]
+    : []
   const tasks = project.tasks ? [...project.tasks.sort()] : []
   const roles = project.roles ? [...project.roles.sort()] : []
 
@@ -88,21 +92,25 @@ const PDFProject = ({ project }: PDFProjectProps) => {
   return (
     <View style={{ marginBottom: '10px' }}>
       <Text style={styles.h6}>{project.title}</Text>
-      <Text style={{ marginBottom: '5px' }}>{project.summary}</Text>
-      <TextContainer label='Teknologiat:' text={formatString(technologies)} />
-      <TextContainer label='Rooli(t):' text={formatString(roles)}/>
-      <TextContainer label='Työtehtävä(t):' text={formatString(tasks)}/>
-      <Text style={{ marginBottom: '5px' }}>
-        {startDate} - {endDate}
-      </Text>
+      <Text style={{ marginBottom: '10px' }}>{project.summary}</Text>
+      <TextContainer label='Teknologiat: ' text={formatString(technologies)} />
+      <TextContainer label='Rooli(t): ' text={formatString(roles)} />
+      <TextContainer label='Työtehtävä(t): ' text={formatString(tasks)} />
+      <TextContainer
+        label='Projektiin osallistumisaika: '
+        text={`${startDate} - ${endDate}`}
+      />
       <View>
-        {project.urls?.map(url => (
-          <LinkContainer url={url.url} label={url.title} key={url.url} />
-        ))}
-        <LinkContainer
-          url={`${getBaseUrl()}/projects/${project.slug}`}
-          label='Lue lisää:'
-        />
+        <Text style={{ fontWeight: 'bold' }}>Linkit: </Text>
+        <View>
+          {project.urls?.map(url => (
+            <LinkContainer url={url.url} label={url.title} key={url.url} />
+          ))}
+          <LinkContainer
+            url={`${getBaseUrl()}/projects/${project.slug}`}
+            label='Lue lisää:'
+          />
+        </View>
       </View>
     </View>
   )
