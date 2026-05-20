@@ -69,8 +69,8 @@ const ProjectListItem = ({
   const technologies = project.technologies
     ? [...project.technologies.sort()]
     : []
-  const tasks = project.tasks ? [...project.tasks.sort()] : []
-  const roles = project.roles ? [...project.roles.sort()] : []
+  const tasks = project.tasks ? [...project.tasks].sort() : []
+  const roles = project.roles ? [...project.roles].sort() : []
 
   const { startDate, endDate } = formatProjectDates(
     project.startDate,
