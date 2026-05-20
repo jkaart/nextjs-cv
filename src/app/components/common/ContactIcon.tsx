@@ -15,7 +15,7 @@ const ContactIcon = ({ type, className }: ContactIconProps) => {
       src={`/assets/icons/svg/other/${getContactIconName(type)}.svg`}
       width={40}
       height={40}
-      alt=''
+      alt={`${type} icon`}
       className={mergedClassNames}
     />
   )

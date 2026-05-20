@@ -118,7 +118,7 @@ const ProjectListItem = ({
                 className='dark:invert'
                 width={24}
                 height={24}
-                alt='Github icon'
+                alt='Globe icon'
                 src='/assets/icons/svg/other/globe-bold.svg'
               />
             )}
@@ -131,7 +131,7 @@ const ProjectListItem = ({
           className='dark:invert'
           width={24}
           height={24}
-          alt='Github icon'
+          alt='Globe icon'
           src='/assets/icons/svg/other/globe-bold.svg'
         />
         <Link href={href} className='hover:text-blue-600 hover:cursor-pointer'>
