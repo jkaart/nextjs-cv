@@ -1,5 +1,5 @@
 import type { Hobby } from '@types'
-import { formatString } from '@utils/formatString'
+import { convertToString } from '@utils/convertToString'
 import { sortHobbies } from '@utils/sortHobbies'
 import HeadingH2 from './common/HeadingH2'
 
@@ -10,7 +10,7 @@ interface HobbiesProps {
 /**
  * Renders a hobbies section with alphabetical sorting and formatted comma-separated display.
  * Displays the "Harrastukset" (hobbies) section header followed by all hobby items sorted alphabetically.
- * Uses formatString utility to convert array into clean, readable comma-separated text for Finnish language output.
+ * Uses convertToString utility to convert array into clean, readable comma-separated text for Finnish language output.
  * Ideal for displaying leisure activities, interests, and personal pursuits in a CV/resume context.
  *
  * @interface HobbiesProps - Props interface for Hobbies component
@@ -78,7 +78,7 @@ interface HobbiesProps {
  */
 const Hobbies = ({ hobbies }: HobbiesProps) => {
   const sortedHobbies = sortHobbies(hobbies)
-  const hobbiesString = formatString(sortedHobbies)
+  const hobbiesString = convertToString(sortedHobbies)
   return (
     <div>
       <HeadingH2 text='Harrastukset' />

@@ -16,14 +16,14 @@ const stringReducer = (
 ): string => text + (index < array.length - 1 ? ', ' : ' ja ') + value
 
 /**
- * Formats an array of strings into a comma-separated list with Finnish conjunction.
+ * Converts an array of strings into a comma-separated list with Finnish conjunction.
  * Uses ', ' between items and ' ja ' before the last item for natural Finnish listing.
  * Returns empty string for empty arrays.
  *
- * @param stringArray - Array of strings to format
- * @returns Formatted string with items separated by commas, ending with ' ja ' before last item
+ * @param stringArray - Array of strings to convert
+ * @returns Converted string with items separated by commas, ending with ' ja ' before last item
  */
-export const formatString = (stringArray: string[]): string => {
+export const convertToString = (stringArray: string[]): string => {
   if (!stringArray.length) return ''
   return [...stringArray].reduce(stringReducer)
 }

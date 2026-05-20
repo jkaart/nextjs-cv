@@ -1,6 +1,6 @@
 import { Text, View } from '@react-pdf/renderer'
 import type { Hobby } from '@types'
-import { formatString } from '@utils/formatString'
+import { convertToString } from '@utils/convertToString'
 
 /**
  * Props interface for the PDFHobbies component.
@@ -14,7 +14,7 @@ interface PDFHobbiesProps {
 
 /**
  * A React PDF component that renders a bulleted list of hobbies from the CV data.
- * Uses formatString utility to convert the hobbies array into a formatted string with bullet points and proper line breaks.
+ * Uses convertToString utility to convert the hobbies array into a formatted string with bullet points and proper line breaks.
  *
  * @component
  *
@@ -43,7 +43,7 @@ interface PDFHobbiesProps {
  */
 const PDFHobbies = ({ hobbies }: PDFHobbiesProps) => (
   <View>
-    <Text>{formatString(hobbies)}</Text>
+    <Text>{convertToString(hobbies)}</Text>
   </View>
 )
 

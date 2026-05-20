@@ -1,7 +1,7 @@
 import ProjectUrl from '@components/ProjectUrl'
 import type { ProjectMetadata } from '@types'
+import { convertToString } from '@utils/convertToString'
 import { formatProjectDates } from '@utils/formatProjectDates'
-import { formatString } from '@utils/formatString'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { HTMLProps } from 'react'
@@ -83,10 +83,10 @@ const ProjectListItem = ({
       <p>{project.summary}</p>
       <TextContainer
         label='Käytetyt teknologiat:'
-        text={formatString(technologies)}
+        text={convertToString(technologies)}
       />
-      <TextContainer label='Rooli(t):' text={formatString(roles)} />
-      <TextContainer label='Työtehtävät:' text={formatString(tasks)} />
+      <TextContainer label='Rooli(t):' text={convertToString(roles)} />
+      <TextContainer label='Työtehtävät:' text={convertToString(tasks)} />
       <TextContainer
         label='Projektiin osallistumisaika:'
         text={`${startDate} - ${endDate}`}

@@ -2,8 +2,8 @@ import { styles } from '@components/PDFResume'
 import type { ViewProps } from '@react-pdf/renderer'
 import { Link, Text, View } from '@react-pdf/renderer'
 import type { ProjectMetadata } from '@types'
+import { convertToString } from '@utils/convertToString'
 import { formatProjectDates } from '@utils/formatProjectDates'
-import { formatString } from '@utils/formatString'
 import { getBaseUrl } from '@utils/getBaseUrl'
 
 interface TextContainerProps {
@@ -93,9 +93,12 @@ const PDFProject = ({ project }: PDFProjectProps) => {
     <View style={{ marginBottom: '10px' }}>
       <Text style={styles.h6}>{project.title}</Text>
       <Text style={{ marginBottom: '10px' }}>{project.summary}</Text>
-      <TextContainer label='Teknologiat: ' text={formatString(technologies)} />
-      <TextContainer label='Rooli(t): ' text={formatString(roles)} />
-      <TextContainer label='Työtehtävä(t): ' text={formatString(tasks)} />
+      <TextContainer
+        label='Teknologiat: '
+        text={convertToString(technologies)}
+      />
+      <TextContainer label='Rooli(t): ' text={convertToString(roles)} />
+      <TextContainer label='Työtehtävä(t): ' text={convertToString(tasks)} />
       <TextContainer
         label='Projektiin osallistumisaika: '
         text={`${startDate} - ${endDate}`}
