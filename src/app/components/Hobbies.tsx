@@ -8,23 +8,72 @@ interface HobbiesProps {
 }
 
 /**
- * Renders the Hobbies section of a CV with sorted and formatted hobby list.
- * Displays Finnish heading "Harrastukset" followed by alphabetically sorted hobbies
- * formatted as a comma-separated list with proper Finnish conjunctions (', ' between items,
- * ' ja ' before last item).
+ * Renders a hobbies section with alphabetical sorting and formatted comma-separated display.
+ * Displays the "Harrastukset" (hobbies) section header followed by all hobby items sorted alphabetically.
+ * Uses formatString utility to convert array into clean, readable comma-separated text for Finnish language output.
+ * Ideal for displaying leisure activities, interests, and personal pursuits in a CV/resume context.
  *
- * @param {HobbiesProps} props - Component props containing the hobbies array
- * @param {Hobby[]} props.hobbies - Array of hobby strings to display. Hobbies are sorted alphabetically
- *                                  and formatted with Finnish conjunctions for natural listing.
+ * @interface HobbiesProps - Props interface for Hobbies component
+ * @param {string[]} props.hobbies - Array of hobby strings representing leisure activities and interests (e.g., ['reading', 'hiking', 'cooking', 'photography']). Items are sorted alphabetically before display using sortHobbies utility. Empty array will show only the section header without any content
  *
- * @example
+ * @example Basic usage with sample hobbies data
  * ```tsx
- * <Hobbies hobbies={['reading', 'hiking', 'cooking']} />
- * // Renders: "Harrastukset" followed by "hiking, cooking ja reading" (sorted alphabetically)
+ * <Hobbies hobbies={['reading', 'hiking', 'cooking', 'photography']} />
+ * // Output: Harrastukset
+ * //        Hiking, Photography, Reading, Cooking (alphabetically sorted)
+ * ```
  *
- * const hobbies = ['gaming', 'photography', 'cycling']
- * <Hobbies hobbies={hobbies} />
- * // Renders: "Harrastukset" followed by "cycling, gaming ja photography"
+ * @example Usage with full data object from context (data.hobby array)
+ * ```tsx
+ * import Hobbies from './Hobbies'
+ *
+ * const App = () => {
+ *   const data = useData() // hypothetical data context
+ *
+ *   return <Hobbies hobbies={data.hobby} />
+ * }
+ * ```
+ *
+ * @example Empty hobbies list (will display only section header "Harrastukset")
+ * ```tsx
+ * import Hobbies from './Hobbies'
+ *
+ * const NoHobbies = () => (
+ *   <Hobbies hobbies={[]} />
+ *   // Output: Harrastukset (no hobby items)
+ * )
+ * ```
+ *
+ * @example Multiple hobbies in different contexts with Tailwind spacing
+ * ```tsx
+ * import Hobbies from './Hobbies'
+ *
+ * const HobbySections = () => (
+ *   <div className="space-y-8">
+ *     <section>
+ *       <h2>Harrastukset</h2>
+ *       <Hobbies hobbies={['reading', 'hiking']} />
+ *     </section>
+ *     <section>
+ *       <h2>Vapaa-aika</h2>
+ *       <Hobbies hobbies={['cooking', 'photography', 'gardening']} />
+ *     </section>
+ *   </div>
+ * )
+ * ```
+ *
+ * @example Rendering in a CV profile section with layout context
+ * ```tsx
+ * import Hobbies from './Hobbies'
+ *
+ * const ProfileSection = () => (
+ *   <section className="mb-8">
+ *     <h2>Harrastukset</h2>
+ *     <div className="space-y-4">
+ *       <Hobbies hobbies={['reading', 'hiking', 'cooking']} />
+ *     </div>
+ *   </section>
+ * )
  * ```
  */
 const Hobbies = ({ hobbies }: HobbiesProps) => {

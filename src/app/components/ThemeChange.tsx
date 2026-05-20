@@ -14,8 +14,8 @@ interface ThemeChangeProps {
  * Shows "Vaihda teemaa" text on large screens, hidden on mobile devices.
  * Uses aria-label and title attributes for accessibility with dynamic theme state.
  *
- * @param props - Component props containing optional className for styling customization
- * @param props.className - Optional CSS class name to apply additional styles to the button
+ * @interface ThemeChangeProps - Props interface for ThemeChange component
+ * @param {string} [props.className] - Optional CSS class name to apply additional styles to the button (e.g., 'text-white', 'bg-blue-500')
  *
  * @example
  * ```tsx
@@ -24,10 +24,20 @@ interface ThemeChangeProps {
  *   <ThemeChange />
  * </nav>
  *
- * // With custom styling
+ * // With custom styling for primary action
  * <button className='bg-blue-500 hover:bg-blue-600'>
  *   <ThemeChange className='text-white' />
  * </button>
+ *
+ * // Usage in a header component with responsive design
+ * function Header() {
+ *   return (
+ *     <header className="flex justify-between items-center p-4">
+ *       <h1 className="text-xl font-bold">My CV</h1>
+ *       <ThemeChange />
+ *     </header>
+ *   )
+ * }
  * ```
  */
 const ThemeChange = ({ className }: ThemeChangeProps) => {

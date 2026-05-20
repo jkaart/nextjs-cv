@@ -5,30 +5,57 @@ interface HeroHeaderProps {
 }
 
 /**
- * Header component for the hero section that displays the person's full name and job title.
- * Renders two centered heading elements with large typography using Tailwind CSS classes.
- * Includes test IDs for end-to-end testing of the header container, full name, and job title.
+ * Renders a hero header component for displaying personal information.
+ * Shows the full name and job title in centered layout with Tailwind styling.
+ * Uses data-testid attributes for testing purposes.
  *
  * @interface HeroHeaderProps - Props interface for HeroHeader component
- * @param {Me} props.me - Object containing personal information including firstName, lastName, and jobTitle
+ * @param {Me} props.me - The person object containing firstName, lastName, and jobTitle fields. These values are displayed prominently in the hero section with appropriate heading levels (h2). First name and last name are concatenated to form the full name display
  *
- * @example
+ * @example Basic usage with simple profile data
  * ```tsx
- * // In a page that uses server-side data fetching
- * import HeroHeader from '@components/HeroHeader'
+ * import HeroHeader from './HeroHeader'
  *
- * const HeaderSection = async () => {
- *   const meData = await getMeData()
- *   return (
- *     <HeroHeader
- *       me={{
- *         firstName: "John",
- *         lastName: "Doe",
- *         jobTitle: "Senior Software Engineer"
- *       }}
- *     />
- *   )
- * }
+ * <HeroHeader me={{ firstName: 'John', lastName: 'Doe', jobTitle: 'Software Developer' }} />
+ * // Output: John Doe (h2)
+ * //         Software Developer (h2)
+ * ```
+ *
+ * @example Rendering in a CV profile section with Tailwind layout classes
+ * ```tsx
+ * import HeroHeader from './HeroHeader'
+ *
+ * const ProfileSection = () => (
+ *   <section className="mb-8">
+ *     <HeroHeader me={{ firstName: 'Jane', lastName: 'Smith', jobTitle: 'Full Stack Developer' }} />
+ *   </section>
+ * )
+ * ```
+ *
+ * @example Multiple hero headers for different roles or contexts
+ * ```tsx
+ * import HeroHeader from './HeroHeader'
+ *
+ * const RoleHeaders = () => (
+ *   <div className="space-y-8">
+ *     {// Current role }
+ *     <HeroHeader me={{ firstName: 'John', lastName: 'Doe', jobTitle: 'Senior React Developer' }} />
+ *
+ *     {// Previous role }
+ *     <HeroHeader me={{ firstName: 'John', lastName: 'Doe', jobTitle: 'Junior Frontend Developer' }} />
+ *   </div>
+ * )
+ * ```
+ *
+ * @example Hero header with Finnish context (local developer profile)
+ * ```tsx
+ * import HeroHeader from './HeroHeader'
+ *
+ * const FinnishProfile = () => (
+ *   <section className="mb-8">
+ *     <HeroHeader me={{ firstName: 'Matti', lastName: 'Virtanen', jobTitle: 'Ohjelmistokehittäjä' }} />
+ *   </section>
+ * )
  * ```
  */
 const HeroHeader = ({ me }: HeroHeaderProps) => {

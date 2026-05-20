@@ -24,10 +24,10 @@ const PDFDownloadLink = dynamic(
  * Triggers CV generation when clicked, including latest 3 projects from useProjects hook.
  * The fileName prop controls the downloaded file name.
  *
- * @param {CVDownloadProps} props - Component props containing label and resume data
- * @param {string} props.label - Text displayed on the download button/link
+ * @interface CVDownloadProps - Props interface for CVDownload component
+ * @param {string} props.label - Text displayed on the download button/link (e.g., 'Download', 'Lataa')
  * @param {string} props.meDescriptionRaw - Raw MDX content for the description section of the CV
- * @param {string} props.lastContentUpdate - Last update timestamp shown in PDF footer
+ * @param {string} props.lastContentUpdate - Last update timestamp shown in PDF footer (ISO date string)
  * @param {string} props.pdfFileName - The file name for the downloaded PDF (e.g., 'johndoe-cv.pdf')
  * @param {string} [props.className] - Optional CSS class name for styling the download link
  *
