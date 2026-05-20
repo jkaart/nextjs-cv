@@ -7,15 +7,15 @@ interface SkillProps {
 }
 
 /**
- * Renders a skill component for displaying technology proficiency levels.
+ * Renders a skill component for displaying DevIcon icon and language name from skill.language prop.
  * Shows the technology name with Finnish translation (Tekniikka for technology).
  * Displays proficiency level when provided, using translateLevel utility.
- * Supports various proficiency levels: excellent, veryGood, good, fair, poor.
+ * Supports various proficiency levels: excellent, veryGood, good, fair, poor. *Currently do not render it*
  *
  * @interface SkillProps - Props interface for Skill component
- * @param {SkillType} props.skill - The skill object containing: id (unique identifier), language/technology name (e.g., 'React', 'Node.js'), level of proficiency, type category (frontend/backend/other), and optional iconName. Technology names display Finnish translations below the main name; proficiency levels map to Finnish via translateLevel utility
+ * @param {SkillType} props.skill - The skill object containing: id (unique identifier), language/technology name (e.g., 'React', 'Node.js'), level of proficiency, type category (frontend/backend/other) and iconName.
  *
- * @example Basic usage with single skill (shows tech name + proficiency)
+ * @example Basic usage with single skill (shows skill.language)
  * ```tsx
  * import Skill from './Skill'
  *

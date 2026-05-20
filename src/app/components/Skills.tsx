@@ -8,11 +8,10 @@ interface SkillsProps {
 }
 
 /**
- * Renders a comprehensive list of technical and programming skills with proficiency levels.
+ * Renders a comprehensive list of technical and programming skills.
  * Displays a section header "Taidot" followed by all skills, each rendered using the Skill component.
  * Skills are displayed as icons wrapped in tooltips showing the skill name on hover.
- * Supports Inconify DevIcons for technology recognition and automatic sorting by type.
- * Automatically sorts skills into frontend/backend/other categories for organized display.
+ * Supports Inconify DevIcons for technology recognition and sorted alphabetically by language.
  *
  * @interface SkillsProps - Props interface for Skills component
  * @param {SkillType[]} props.skills - Array of skill objects containing: id (unique identifier), language/technology name (e.g., 'JavaScript', 'React'), proficiency level (excellent/veryGood/good/fair/poor), type classification (frontend/backend/fullstack), and iconName from Iconify library DevIcons collection. The array should contain all skills to be displayed, sorted by the sortSkills utility function which organizes them into frontend, backend, and other categories.
@@ -55,7 +54,7 @@ interface SkillsProps {
  * // Renders "Taidot" header followed by JavaScript, TypeScript, and React icons in flex layout
  * ```
  *
- * @example Usage with full data object from context (skills will be sorted automatically)
+ * @example Usage with full data object from context
  * ```tsx
  * import Skills from './Skills'
  *

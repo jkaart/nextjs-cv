@@ -11,7 +11,7 @@ interface ShowMoreProps<T> {
  * A toggle button component to show/hide all items in a list or show only the first item.
  * Initially shows all items; clicking toggles between showing all and showing just the first item.
  * Used for pagination control in lists like job experiences, projects, skills, languages, and educations.
- * Displays Finnish text: "Näytä lisää" (Show more) when expanded, "Näytä vähemmän" (Show less) when collapsed.
+ * Displays Finnish text: "Näytä vähemmän" (Show less) when expanded, "Näytä lisää" (Show more) when collapsed.
  *
  * @template T - The type of data items being displayed (e.g., JobExperience, Project, Skill, Language, Education)
  * @interface ShowMoreProps<T> - Props interface for generic ShowMore component

@@ -78,7 +78,7 @@ interface LanguageSkillsProps {
  * const diverseLanguages = [
  *   { id: '1', language: 'Finnish', motherLanguage: true },
  *   { id: '2', language: 'English', levels: { spoken: 'veryGood', written: 'good' } },
- *   { id: '3', language: 'German', levels: { spoken: 'fair' } }, // only spoken level
+ *   { id: '3', language: 'German', levels: { spoken: 'good' } }, // only spoken level
  *   { id: '4', language: 'Swedish', motherLanguage: true }
  * ]
  *

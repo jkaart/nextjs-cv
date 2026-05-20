@@ -14,10 +14,9 @@ interface TooltipProps {
  * Supports dark mode with appropriate color scheme switching.
  * Includes data-testid attributes for testing and accessibility.
  *
- * @interface TooltipProps - Props interface for Tooltip component
- * @param {TooltipProps} props.content - The JSX element to display inside the tooltip when hovered, can be any valid React node including text, elements, or complex layouts
- * @param {TooltipProps} props.children - The child element that triggers the tooltip on hover, typically an icon, button, or label
- * @param {TooltipProps} [props.testid] - Optional test ID string for the parent container, useful for testing and accessibility tools (e.g., 'skill-tooltip-1')
+ * @param {JSX.Element} props.content - The JSX element to display inside the tooltip when hovered
+ * @param {JSX.Element} props.children - The JSX element that triggers the tooltip on hover, typically an icon, button, or label
+ * @param {string} [props.testid] - Optional test ID string for the parent container, useful for testing and accessibility tools (e.g., 'skill-tooltip-1')
  *
  * @example Tooltip with text content
  * ```tsx

@@ -13,13 +13,13 @@ interface HeadingH2Props {
  * @example Basic usage for section headers in English
  * ```tsx
  * <HeadingH2 text='About Me' />
- * // Renders: <h2 class="text-3xl font-bold mb-4">About Me</h2>
+ * // Renders: <h2 class="inline-block mb-2 text-2xl font-bold border-b-4">About Me</h2>
  * ```
  *
  * @example Usage with Finnish content (common in CV/resume context)
  * ```tsx
  * <HeadingH2 text='Tietoa minusta' />
- * // Renders: <h2 class="text-3xl font-bold mb-4">Tietoa minusta</h2>
+ * // Renders: <h2 class="inline-block mb-2 text-2xl font-bold border-b-4">Tietoa minusta</h2>
  * ```
  *
  * @example Multiple section headers with different styling contexts

@@ -11,7 +11,7 @@ interface ThemeChangeProps {
 /**
  * Renders a theme toggle button that switches between light and dark themes.
  * Displays sun icon for dark mode (switch to light) and moon icon for light mode (switch to dark).
- * Shows "Vaihda teemaa" text on large screens, hidden on mobile devices.
+ * Shows "Vaihda teemaa" text on smaller screens, hidden on large screens.
  * Uses aria-label and title attributes for accessibility with dynamic theme state.
  *
  * @interface ThemeChangeProps - Props interface for ThemeChange component

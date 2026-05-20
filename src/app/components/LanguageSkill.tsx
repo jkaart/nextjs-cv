@@ -9,7 +9,7 @@ interface LanguageSkillProps {
  * Renders a language skill component for displaying language proficiency levels.
  * Shows the language name with Finnish translation (Äidinkieli for mother tongue).
  * Displays spoken and written proficiency levels when provided, using translateLevel utility.
- * Supports various proficiency levels: excellent, veryGood, good, fair, poor.
+ * Supports various proficiency levels: excellent, veryGood, good, poor.
  *
  * @interface LanguageSkillProps - Props interface for LanguageSkill component
  * @param {LanguageSkillType} props.languageSkill - The language skill object containing: id (unique identifier), language name, whether it's a mother tongue, and proficiency levels for spoken/written skills. Mother tongue languages display "Äidinkieli" below the name; other languages show Finnish translations of proficiency levels

@@ -9,8 +9,8 @@ import { useState } from 'react'
 /**
  * Button component that triggers a dropdown menu for CV download options.
  * Displays a PDF icon and shows a menu with "View" link and "Download" button
- * when clicked or hovered. The menu appears to the right of the button.
- * Uses dynamic import for client-side rendering only.
+ * when clicked. The menu appears to the right of the button.
+ * This client component conditionally renders the menu based on local state.
  *
  * @interface CVDownloadMenuButtonProps - Props interface for CVDownloadMenuButton component
  * @param {string} props.lastContentUpdate - Timestamp of last content update shown in PDF footer

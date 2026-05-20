@@ -20,7 +20,7 @@ interface HobbiesProps {
  * ```tsx
  * <Hobbies hobbies={['reading', 'hiking', 'cooking', 'photography']} />
  * // Output: Harrastukset
- * //        Hiking, Photography, Reading, Cooking (alphabetically sorted)
+ * //         cooking, hiking, photography ja reading
  * ```
  *
  * @example Usage with full data object from context (data.hobby array)
