@@ -9,7 +9,11 @@ const usedIcons = [
   'mdi:linkedin',
   'ph:globe-bold',
   'mdi:loading',
-  'fa6-regular:file-pdf'
+  'fa6-regular:file-pdf',
+  'circum:dark',
+  'circum:light',
+  'fa7-solid:arrow-alt-circle-left',
+  'fa7-solid:arrow-alt-circle-right'
 ]
 
 console.log('Generate other icons...')

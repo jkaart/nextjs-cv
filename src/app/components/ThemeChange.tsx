@@ -1,8 +1,8 @@
 'use client'
 
+import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { type HTMLProps, useEffect, useState } from 'react'
-import { LuMoon as Moon, LuSun as Sun } from 'react-icons/lu'
 
 interface ThemeChangeProps {
   className?: HTMLProps<HTMLElement>['className']
@@ -11,7 +11,6 @@ interface ThemeChangeProps {
 /**
  * Renders a theme toggle button that switches between light and dark themes.
  * Displays sun icon for dark mode (switch to light) and moon icon for light mode (switch to dark).
- * Shows "Vaihda teemaa" text on smaller screens, hidden on large screens.
  * Uses aria-label and title attributes for accessibility with dynamic theme state.
  *
  * @interface ThemeChangeProps - Props interface for ThemeChange component
@@ -54,12 +53,7 @@ const ThemeChange = ({ className }: ThemeChangeProps) => {
 
   if (!mounted) return null
 
-  const currentIcon =
-    resolvedTheme === 'dark' ? (
-      <Sun className='w-8 h-8' />
-    ) : (
-      <Moon className='w-8 h-8' />
-    )
+  const icon = resolvedTheme === 'dark' ? 'light' : 'dark'
 
   return (
     <button
@@ -68,20 +62,25 @@ const ThemeChange = ({ className }: ThemeChangeProps) => {
       className={className}
       aria-label={
         resolvedTheme === 'dark'
-          ? 'Switch to light theme'
-          : 'Switch to dark theme'
+          ? 'Vaihda vaaleaan teemaan'
+          : 'Vaihda tummaan teemaan'
       }
       title={
         resolvedTheme === 'dark'
-          ? 'Switch to light theme'
-          : 'Switch to dark theme'
+          ? 'Vaihda vaaleaan teemaan'
+          : 'Vaihda tummaan teemaan'
       }
     >
       <div className='flex gap-1'>
-        <span className='lg:hidden'>Vaihda teemaa</span>
-        {currentIcon}
+        <Image
+          className='dark:invert'
+          alt={`Current theme: ${icon}`}
+          width={40}
+          height={40}
+          src={`/assets/icons/svg/other/${icon}.svg`}
+        />
       </div>
-      <span className='sr-only'>Theme switcher button</span>
+      <span className='sr-only'>Teeman vaihto nappi</span>
     </button>
   )
 }

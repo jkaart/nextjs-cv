@@ -1,7 +1,7 @@
 import FullScreenImage from '@components/FullScreenImage'
 import ImageGallery, { type ImageProps } from '@components/ImageGallery'
 import '@testing-library/jest-dom'
-import { render, screen } from '@testing-library/react'
+import { act, render, screen } from '@testing-library/react'
 
 describe('FullScreenImage', () => {
   const mockSetSelectedImage = jest.fn()
@@ -93,10 +93,16 @@ describe('FullScreenImage', () => {
     )
   })
 
-  it('renders FullScreenImage within ImageGallery component', () => {
+  it('renders FullScreenImage within ImageGallery component when image is selected', () => {
     const images = ['http://localhost/image1.jpg']
     const slug = 'test-project'
     render(<ImageGallery images={images} slug={slug} />)
-    expect(screen.getByRole('img')).toBeInTheDocument()
+
+    // Click on the first image to select it and show fullscreen view
+    act(() => {
+      screen.getByTestId('selected-image').click()
+    })
+
+    expect(screen.getByTestId('fullscreen-image')).toBeInTheDocument()
   })
 })
