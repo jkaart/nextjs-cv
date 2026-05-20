@@ -16,7 +16,9 @@ import { useEffect, useState } from 'react'
  * // Fetch only the latest 3 projects
  * const { projects, loading } = useProjects(3)
  */
-const useProjects = (limit?: number) => {
+const useProjects = (
+  limit?: number
+): { projects: ProjectMetadata[]; loading: boolean } => {
   const [projects, setProjects] = useState<ProjectMetadata[]>([])
   const [loading, setLoading] = useState<boolean>(true)
 
@@ -25,6 +27,11 @@ const useProjects = (limit?: number) => {
       .then(res => res.json())
       .then(data => {
         setProjects(JSON.parse(data))
+      })
+      .catch(error => {
+        console.error('Error in projects fetching', error)
+      })
+      .finally(() => {
         setLoading(false)
       })
   }, [limit])
