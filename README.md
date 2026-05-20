@@ -124,4 +124,4 @@ mockData/
 
 ## License
 
-No license file is included in the repository.
+MIT license file is included in the repository.
