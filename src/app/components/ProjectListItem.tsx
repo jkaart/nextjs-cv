@@ -20,7 +20,7 @@ interface TextContainerProps {
 
 const TextContainer = ({ label, text }: TextContainerProps) => (
   <div className='my-2'>
-    <span className='me-1 font-bold'>{label}</span>
+    <span className='me-1 font-semibold'>{label}</span>
     <div className='inline-flex'>{text}</div>
   </div>
 )
@@ -87,9 +87,10 @@ const ProjectListItem = ({
       />
       <TextContainer label='Rooli(t):' text={formatString(roles)} />
       <TextContainer label='Työtehtävät:' text={formatString(tasks)} />
-      <div>
-        {startDate} - {endDate}
-      </div>
+      <TextContainer
+        label='Projektiin osallistumisaika:'
+        text={`${startDate} - ${endDate}`}
+      />
       <div className='flex flex-col'>
         {project.urls?.map(url => (
           <div key={url.url} className='flex flex-row gap-1'>
