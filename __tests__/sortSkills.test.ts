@@ -8,28 +8,28 @@ describe('sortSkills', () => {
       language: 'HTML',
       level: 'excellent',
       type: 'frontend',
-      iconName: 'SiHtml5'
+      iconName: 'html5'
     },
     {
       id: '2',
       language: 'CSS',
       level: 'good',
       type: 'frontend',
-      iconName: 'SiCss'
+      iconName: 'css'
     },
     {
       id: '3',
       language: 'React',
       level: 'excellent',
       type: 'frontend',
-      iconName: 'SiReact'
+      iconName: 'react'
     },
     {
       id: '4',
       language: 'JavaScript',
       level: 'excellent',
       type: 'frontend',
-      iconName: 'SiJavascript'
+      iconName: 'javascript'
     }
   ] satisfies Skill[]
 
@@ -39,28 +39,28 @@ describe('sortSkills', () => {
       language: 'CSS',
       level: 'good',
       type: 'frontend',
-      iconName: 'SiCss'
+      iconName: 'css'
     },
     {
       id: '1',
       language: 'HTML',
       level: 'excellent',
       type: 'frontend',
-      iconName: 'SiHtml5'
+      iconName: 'html5'
     },
     {
       id: '4',
       language: 'JavaScript',
       level: 'excellent',
       type: 'frontend',
-      iconName: 'SiJavascript'
+      iconName: 'javascript'
     },
     {
       id: '3',
       language: 'React',
       level: 'excellent',
       type: 'frontend',
-      iconName: 'SiReact'
+      iconName: 'react'
     }
   ] satisfies Skill[]
 
@@ -73,14 +73,14 @@ describe('sortSkills', () => {
             language: 'a',
             level: 'good',
             type: 'frontend',
-            iconName: 'SiCss'
+            iconName: 'css'
           },
           {
             id: '1',
             language: 'b',
             level: 'excellent',
             type: 'frontend',
-            iconName: 'SiHtml5'
+            iconName: 'html5'
           }
         )
       ).toBe(-1)
@@ -94,14 +94,14 @@ describe('sortSkills', () => {
             language: 'b',
             level: 'excellent',
             type: 'frontend',
-            iconName: 'SiHtml5'
+            iconName: 'html5'
           },
           {
             id: '2',
             language: 'a',
             level: 'good',
             type: 'frontend',
-            iconName: 'SiCss'
+            iconName: 'css'
           }
         )
       ).toBe(1)
@@ -115,14 +115,14 @@ describe('sortSkills', () => {
             language: 'a',
             level: 'good',
             type: 'frontend',
-            iconName: 'SiCss'
+            iconName: 'css'
           },
           {
             id: '2',
             language: 'a',
             level: 'good',
             type: 'frontend',
-            iconName: 'SiCss'
+            iconName: 'css'
           }
         )
       ).toBe(0)
@@ -147,7 +147,7 @@ describe('sortSkills', () => {
           language: 'React',
           level: 'excellent',
           type: 'frontend',
-          iconName: 'SiReact'
+          iconName: 'react'
         }
       ] satisfies Skill[]
 

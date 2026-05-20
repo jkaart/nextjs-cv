@@ -1,7 +1,7 @@
 import ProjectListItem from '@components/ProjectListItem'
-import type { ProjectMetadata } from '@utils/projects'
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
+import type { ProjectMetadata } from '@types'
 
 describe('ProjectListItem', () => {
   const mockProject: Required<ProjectMetadata> = {

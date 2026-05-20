@@ -21,9 +21,9 @@ const Header = () => (
     <h1 className='text-center text-3xl lg:text-4xl font-semibold'>
       Ansioluettelo ja portfolio
     </h1>
-    <div className='lg:flex lg:justify-between lg:ms-1 lg:me-2 mb-3'>
+    <div className='flex justify-between items-center lg:ms-1 lg:me-2 mb-3'>
       <NavBar className='lg:m-1' />
-      <ThemeChange className='max-lg:hidden' />
+      <ThemeChange />
     </div>
   </header>
 )

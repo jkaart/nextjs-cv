@@ -12,16 +12,14 @@ describe('HamburgerMenu', () => {
     render(<HamburgerMenu {...defaultProps} />)
     expect(screen.getByRole('button')).toBeInTheDocument()
     const container = screen.getByTestId('hamburger-menu')
-    expect(container).toHaveClass('absolute lg:hidden')
+    expect(container).toHaveClass('lg:hidden flex h-10 w-10')
   })
 
   it('renders button with expanded classes when open', () => {
     render(<HamburgerMenu state={true} onClick={jest.fn()} />)
     expect(screen.getByRole('button')).toBeInTheDocument()
     const container = screen.getByTestId('hamburger-menu')
-    expect(container).toHaveClass(
-      'absolute lg:hidden flex top-0 py-2 px-2 z-50 w-full bg-background'
-    )
+    expect(container).toHaveClass('lg:hidden flex h-10 w-10 z-50 w-full')
   })
 
   it('calls onClick when button is clicked', () => {
@@ -47,18 +45,18 @@ describe('HamburgerMenu', () => {
   it('rotates top and bottom lines when open', () => {
     render(<HamburgerMenu state={true} onClick={jest.fn()} />)
     const spans = screen.getAllByTestId('hamburger-line')
-    // Top span is the first one (index 0) - should have rotate-45 translate-y-2.5
-    expect(spans[0]).toHaveClass('rotate-45', 'translate-y-2.5')
-    // Bottom span is the third one (index 2) - should have -rotate-45 -translate-y-2.5
-    expect(spans[2]).toHaveClass('-rotate-45', '-translate-y-2.5')
+    // Top span is the first one (index 0) - should have rotate-45 translate-y-3
+    expect(spans[0]).toHaveClass('rotate-45', 'translate-y-3')
+    // Bottom span is the third one (index 2) - should have -rotate-45 -translate-y-3
+    expect(spans[2]).toHaveClass('-rotate-45', '-translate-y-3')
   })
 
   it('does not transform lines when closed', () => {
     render(<HamburgerMenu state={false} onClick={jest.fn()} />)
     const spans = screen.getAllByTestId('hamburger-line')
-    expect(spans[0]).not.toHaveClass('rotate-45', 'translate-y-2.5')
+    expect(spans[0]).not.toHaveClass('rotate-45', 'translate-y-3')
     expect(spans[1]).not.toHaveClass('opacity-0')
-    expect(spans[2]).not.toHaveClass('-rotate-45', '-translate-y-2.5')
+    expect(spans[2]).not.toHaveClass('-rotate-45', '-translate-y-3')
   })
 
   it('has button with type="button"', () => {

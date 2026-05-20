@@ -133,3 +133,27 @@ export type Education = ParseDateFields<EducationRaw>
 export type WorkExperience = ParseDateFields<WorkExperienceRaw>
 
 export type ContactIconType = 'homePage' | 'eMail' | 'gitHub' | 'linkedIn'
+
+interface Url {
+  title: string
+  url: string
+}
+
+export interface ProjectMetadata {
+  title?: string
+  summary?: string
+  technologies?: string[]
+  startDate?: string
+  endDate?: string
+  tasks?: string[]
+  roles?: string[]
+  urls?: Url[]
+  slug: string
+}
+
+export type SSRProjectMetadata = ProjectMetadata & { lastUpdateDate: Date }
+
+export interface Project {
+  metadata: SSRProjectMetadata
+  content: string
+}

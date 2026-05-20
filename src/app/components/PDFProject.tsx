@@ -1,13 +1,43 @@
 import { styles } from '@components/PDFResume'
+import type { ViewProps } from '@react-pdf/renderer'
 import { Link, Text, View } from '@react-pdf/renderer'
+import type { ProjectMetadata } from '@types'
+import { capitalizeString } from '@utils/capitalizeString'
+import { convertToString } from '@utils/convertToString'
 import { formatProjectDates } from '@utils/formatProjectDates'
-import { formatString } from '@utils/formatString'
 import { getBaseUrl } from '@utils/getBaseUrl'
-import type { ProjectMetadata } from '@utils/projects'
+
+interface TextContainerProps {
+  label: string
+  text: string
+  style?: ViewProps['style']
+}
+
+interface LinkContainerProps {
+  label: string
+  url: string
+  style?: ViewProps['style']
+}
 
 interface PDFProjectProps {
   project: ProjectMetadata
 }
+
+const TextContainer = ({ label, text, style }: TextContainerProps) => (
+  <View style={{ flexDirection: 'row', gap: 2, ...style }}>
+    <Text>
+      <Text style={{ fontWeight: 'bold' }}>{label}</Text>
+      {text}
+    </Text>
+  </View>
+)
+
+const LinkContainer = ({ label, url, style }: LinkContainerProps) => (
+  <View style={{ flexDirection: 'row', gap: 2, ...style }}>
+    <Text>{label}</Text>
+    <Link href={url}>{url}</Link>
+  </View>
+)
 
 /**
  * Renders a single project entry in the CV PDF.
@@ -49,7 +79,11 @@ interface PDFProjectProps {
  * ```
  */
 const PDFProject = ({ project }: PDFProjectProps) => {
-  const technologies = project.technologies ? project.technologies.sort() : []
+  const technologies = project.technologies
+    ? [...project.technologies.sort()]
+    : []
+  const tasks = project.tasks ? [...project.tasks.sort()] : []
+  const roles = project.roles ? [...project.roles.sort()] : []
 
   const { startDate, endDate } = formatProjectDates(
     project.startDate,
@@ -59,26 +93,33 @@ const PDFProject = ({ project }: PDFProjectProps) => {
   return (
     <View style={{ marginBottom: '10px' }}>
       <Text style={styles.h6}>{project.title}</Text>
-
-      <Text style={{ marginBottom: '5px' }}>{project.summary}</Text>
-      <Text style={{ fontWeight: 'bold', marginBottom: '5px' }}>
-        {`Käytetyt teknologiat: ${formatString(technologies)}`}
-      </Text>
-      <Text style={{ marginBottom: '5px' }}>
-        {startDate} - {endDate}
-      </Text>
+      <Text style={{ marginBottom: '10px' }}>{project.summary}</Text>
+      <TextContainer
+        label='Teknologiat: '
+        text={capitalizeString(convertToString(technologies))}
+      />
+      <TextContainer
+        label='Rooli(t): '
+        text={capitalizeString(convertToString(roles))}
+      />
+      <TextContainer
+        label='Työtehtävä(t): '
+        text={capitalizeString(convertToString(tasks))}
+      />
+      <TextContainer
+        label='Projektiin osallistumisaika: '
+        text={`${startDate} - ${endDate}`}
+      />
       <View>
-        {project.urls?.map(url => (
-          <View style={{ flexDirection: 'row', gap: 2 }} key={url.url}>
-            <Text>{url.title}</Text>
-            <Link href={url.url}>{url.url}</Link>
-          </View>
-        ))}
-        <View style={{ flexDirection: 'row', gap: 2 }}>
-          <Text>Lue lisää:</Text>
-          <Link
-            href={`${getBaseUrl()}/projects/${project.slug}`}
-          >{`${getBaseUrl()}/projects/${project.slug}`}</Link>
+        <Text style={{ fontWeight: 'bold' }}>Linkit: </Text>
+        <View>
+          {project.urls?.map(url => (
+            <LinkContainer url={url.url} label={url.title} key={url.url} />
+          ))}
+          <LinkContainer
+            url={`${getBaseUrl()}/projects/${project.slug}`}
+            label='Lue lisää:'
+          />
         </View>
       </View>
     </View>

@@ -14,19 +14,24 @@ interface TooltipProps {
  * Supports dark mode with appropriate color scheme switching.
  * Includes data-testid attributes for testing and accessibility.
  *
- * @param props - Component props containing tooltip configuration
- * @param props.content - The JSX element to display inside the tooltip when hovered
- * @param props.children - The child element that triggers the tooltip on hover
- * @param props.testid - Optional test ID string for the parent container, useful for testing and accessibility tools
+ * @param {JSX.Element} props.content - The JSX element to display inside the tooltip when hovered
+ * @param {JSX.Element} props.children - The JSX element that triggers the tooltip on hover, typically an icon, button, or label
+ * @param {string} [props.testid] - Optional test ID string for the parent container, useful for testing and accessibility tools (e.g., 'skill-tooltip-1')
  *
- * @example
+ * @example Tooltip with text content
  * ```tsx
- * // Tooltip with text content
+ * import Tooltip from './Tooltip'
+ *
  * <Tooltip content={<span>Full name: John Doe</span>}>
  *   <button>John D.</button>
  * </Tooltip>
+ * // Output: Button shows "John D.", hovering displays tooltip with full name
+ * ```
  *
- * // Tooltip with icon and description
+ * @example Tooltip with icon and description (skill display)
+ * ```tsx
+ * import Tooltip from './Tooltip'
+ *
  * <Tooltip content={
  *   <div className='flex flex-col'>
  *     <span>JavaScript</span>
@@ -35,11 +40,54 @@ interface TooltipProps {
  * }>
  *   <span>JS</span>
  * </Tooltip>
+ * // Output: Shows "JS" icon, tooltip displays language name and description on hover
+ * ```
  *
- * // With custom test ID for testing
- * <Tooltip content={<span>Expert level proficiency</span>} testid='skill-tooltip-1'>
- *   <span className='text-green-500'>★</span>
- * </Tooltip>
+ * @example Rendering skill tooltips with test IDs for testing
+ * ```tsx
+ * import Tooltip from './Tooltip'
+ *
+ * const SkillTooltips = () => (
+ *   <div className="flex gap-3">
+ *     <Tooltip content={<span>Erinomainen taito</span>} testid='skill-tooltip-js'>
+ *       <span className='text-green-500'>★</span>
+ *     </Tooltip>
+ *
+ *     <Tooltip content={<span>Hyvä taito</span>} testid='skill-tooltip-react'>
+ *       <span className='text-blue-500'>⚛️</span>
+ *     </Tooltip>
+ *   </div>
+ * )
+ * ```
+ *
+ * @example Complete skills section with multiple tooltips (Finnish context)
+ * ```tsx
+ * import Tooltip from './Tooltip'
+ *
+ * const SkillsSection = () => (
+ *   <section className="mb-8">
+ *     <h3>Taidot</h3>
+ *     <div className="flex flex-wrap gap-2">
+ *       {// Frontend skills}
+ *       <Tooltip content={<span>React - Erinomainen</span>} testid='skill-react'>
+ *         <span>⚛️</span>
+ *       </Tooltip>
+ *
+ *       <Tooltip content={<span>TypeScript - Hyvä</span>} testid='skill-ts'>
+ *         <span>TS</span>
+ *       </Tooltip>
+ *
+ *       {// Backend skills }
+ *       <Tooltip content={<span>Node.js - Erinomainen</span>} testid='skill-nodejs'>
+ *         <span>NJ</span>
+ *       </Tooltip>
+ *
+ *       <Tooltip content={<span>Python - Hyvä</span>} testid='skill-python'>
+ *         <span>PY</span>
+ *       </Tooltip>
+ *     </div>
+ *   </section>
+ * )
  * ```
  */
 const Tooltip = ({ children, content, testid }: TooltipProps) => {

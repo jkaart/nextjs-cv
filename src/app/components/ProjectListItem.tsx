@@ -1,7 +1,8 @@
 import ProjectUrl from '@components/ProjectUrl'
+import type { ProjectMetadata } from '@types'
+import { capitalizeString } from '@utils/capitalizeString'
+import { convertToString } from '@utils/convertToString'
 import { formatProjectDates } from '@utils/formatProjectDates'
-import { formatString } from '@utils/formatString'
-import type { ProjectMetadata } from '@utils/projects'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { HTMLProps } from 'react'
@@ -11,6 +12,22 @@ interface ProjectListItemProps {
   project: ProjectMetadata
   href: string
   className?: HTMLProps<HTMLElement>['className']
+}
+
+interface TextContainerProps {
+  label: string
+  text: string
+  className?: HTMLProps<HTMLElement>['className']
+}
+
+const TextContainer = ({ label, text, className }: TextContainerProps) => {
+  const mergedClassNames = twMerge('inline', className)
+  return (
+    <p>
+      <span className='font-semibold'>{label}</span>
+      <span className={mergedClassNames}>{text}</span>
+    </p>
+  )
 }
 
 /**
@@ -33,6 +50,8 @@ interface ProjectListItemProps {
  *   technologies: ['React', 'TypeScript', 'Node.js'],
  *   startDate: '2023-01-01',
  *   endDate: '2023-12-31',
+ *   roles: ['programmer'],
+ *   tasks: ['implemented footer'],
  *   urls: [
  *     { url: 'https://github.com/example/repo', title: 'GitHub' },
  *     { url: 'https://example.com/docs', title: 'Documentation' }
@@ -47,7 +66,11 @@ const ProjectListItem = ({
   href,
   className
 }: ProjectListItemProps) => {
-  const technologies = project.technologies ? project.technologies.sort() : []
+  const technologies = project.technologies
+    ? [...project.technologies.sort()]
+    : []
+  const tasks = project.tasks ? [...project.tasks.sort()] : []
+  const roles = project.roles ? [...project.roles.sort()] : []
 
   const { startDate, endDate } = formatProjectDates(
     project.startDate,
@@ -63,18 +86,23 @@ const ProjectListItem = ({
     <div className={mergedClassNames}>
       <h3 className='text-l font-bold'>{project.title}</h3>
       <p>{project.summary}</p>
-      <div className='my-2'>
-        <span className='inline-flex me-1 font-bold'>
-          Käytetyt teknologiat:
-        </span>
-        <div className='inline-flex gap-1 font-bold'>
-          {formatString(technologies)}
-        </div>
-      </div>
-      <div>
-        {startDate} - {endDate}
-      </div>
-      <div className='flex flex-col'>
+      <TextContainer
+        label='Käytetyt teknologiat: '
+        text={capitalizeString(convertToString(technologies))}
+      />
+      <TextContainer
+        label='Rooli(t): '
+        text={capitalizeString(convertToString(roles))}
+      />
+      <TextContainer
+        label='Työtehtävä(t): '
+        text={capitalizeString(convertToString(tasks))}
+      />
+      <TextContainer
+        label='Projektiin osallistumisaika: '
+        text={`${startDate} - ${endDate}`}
+      />
+      <div className='flex flex-col mt-2'>
         {project.urls?.map(url => (
           <div key={url.url} className='flex flex-row gap-1'>
             {url.url.includes('github') ? (

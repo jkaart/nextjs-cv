@@ -1,5 +1,5 @@
 import ProjectListItem from '@components/ProjectListItem'
-import type { ProjectMetadata } from '@utils/projects'
+import type { ProjectMetadata } from '@types'
 
 interface ProjectsListProps {
   projects: ProjectMetadata[]
@@ -23,6 +23,8 @@ interface ProjectsListProps {
  *     technologies: ['React'],
  *     startDate: '2024-01-01',
  *     endDate: '2024-03-01',
+ *     roles: ['programmer'],
+ *     tasks: ['implement navBar'],
  *     urls: []
  *   },
  *   {
@@ -32,6 +34,8 @@ interface ProjectsListProps {
  *     technologies: ['Vue'],
  *     startDate: '2024-03-01',
  *     endDate: '2024-05-01',
+ *     roles: ['programmer'],
+ *     tasks: ['implemented footer'],
  *     urls: []
  *   }
  * ]

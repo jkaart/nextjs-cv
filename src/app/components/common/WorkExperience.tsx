@@ -6,33 +6,46 @@ interface WorkExperienceProps {
 }
 
 /**
- * Renders a work experience entry with title, workplace name, dates, and job description.
+ * Renders an individual work experience entry component displaying job title, company name, employment dates, and detailed job description.
+ * Used within the WorkExperiences container to display each work experience item in a list format with styled typography.
+ * Automatically formats date strings using the dateToString utility function for consistent display format.
  *
- * @param {WorkExperienceProps} props - Component props containing work experience data
- * @param {WorkExperienceType} props.workExperience - The work experience object to display
- * @param {string} props.workExperience.title - The job or position title (e.g., "Software Developer")
- * @param {string} props.workExperience.workplaceName - The name of the company or organization (e.g., "Tech Corp")
- * @param {string} props.workExperience.job - Description of responsibilities and achievements
- * @param {string} props.workExperience.startDate - Start date in YYYY-MM-DD format (e.g., "2020-01-15")
- * @param {string} props.workExperience.endDate - End date in YYYY-MM-DD format or empty string for current position
+ * @interface WorkExperienceProps - Props interface for WorkExperience component
+ * @param {WorkExperienceType} props.workExperience - The work experience object containing:
+ *   - `title` (string): Job or position title held at the workplace (e.g., "Senior Software Developer", "Junior Frontend Engineer")
+ *   - `workplaceName` (string): Full name of the company, organization, or institution where work was performed (e.g., "Tech Corp Oy", "Google Finland", "StartUp Co.")
+ *   - `job` (string): Detailed description of responsibilities, achievements, and key contributions in Finnish language; may include metrics like team size, performance improvements, or project outcomes
+ *   - `startDate` (string): Employment start date in YYYY-MM-DD format (e.g., "2021-03-01", "2019-06-15")
+ *   - `endDate` (string): Employment end date in YYYY-MM-DD format or empty string '' for current/ongoing positions; use empty string to indicate still employed at the workplace
  *
  * @example
  * ```tsx
+ * // Completed work experience with specific end date
  * <WorkExperience workExperience={{
  *   title: 'Senior Developer',
  *   workplaceName: 'Tech Solutions Inc.',
- *   job: 'Led a team of 5 developers building scalable web applications using React and Node.js.',
+ *   job: 'Led a team of 5 developers building scalable web applications using React and Node.js. Implemented CI/CD pipelines reducing deployment time by 40%.',
  *   startDate: '2021-03-01',
  *   endDate: '2023-12-31'
  * }} />
  *
+ * // Current work experience (ongoing position)
  * <WorkExperience workExperience={{
  *   title: 'Junior Developer',
  *   workplaceName: 'StartUp Co.',
- *   job: 'Developed and maintained customer-facing features for a SaaS platform.',
+ *   job: 'Developed and maintained customer-facing features for a SaaS platform. Collaborated with design team to implement user-friendly interfaces.',
  *   startDate: '2019-06-15',
  *   endDate: ''
  * }} />
+ *
+ * // Multiple work experiences (rendered within WorkExperiences container)
+ * <WorkExperiences workExperiences={[
+ *   { id: 1, title: 'Senior Software Developer', workplaceName: 'Tech Corp Oy', job: 'Led team of 5 developers to build scalable web applications using React and Node.js. Implemented CI/CD pipelines reducing deployment time by 40%.', startDate: '2021-03-01', endDate: '2023-12-31' },
+ *   { id: 2, title: 'Junior Developer', workplaceName: 'StartUp Co.', job: 'Developed features for customer-facing mobile application. Collaborated with design team to implement user-friendly interfaces.', startDate: '2019-06-15', endDate: '' }
+ * ]} />
+ *
+ * // Usage with full data object from context (dates automatically formatted)
+ * <WorkExperience workExperience={data.currentPosition} />
  * ```
  */
 const WorkExperience = ({ workExperience }: WorkExperienceProps) => {

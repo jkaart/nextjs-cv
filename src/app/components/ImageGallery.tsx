@@ -3,10 +3,6 @@
 import FullScreenImage from '@components/FullScreenImage'
 import Image from 'next/image'
 import { type HTMLProps, useState } from 'react'
-import {
-  FaArrowCircleLeft as ArrowLeft,
-  FaArrowCircleRight as ArrowRight
-} from 'react-icons/fa'
 
 export interface ImageProps {
   src: string
@@ -70,7 +66,13 @@ const PrevButton = ({
   return (
     <div className='my-auto'>
       <button className={className} onClick={prevSlide} type='button'>
-        <ArrowLeft data-testid='left-arrow' className='w-10 h-10' />
+        <Image
+          src='/assets/icons/svg/other/arrow-alt-circle-left.svg'
+          width={64}
+          height={64}
+          data-testid='left-arrow'
+          alt='Prev photo button'
+        />
       </button>
     </div>
   )
@@ -111,7 +113,13 @@ const NextButton = ({
   return (
     <div className='my-auto'>
       <button className={className} onClick={nextSlide} type='button'>
-        <ArrowRight data-testid='right-arrow' className='w-10 h-10' />
+        <Image
+          src='/assets/icons/svg/other/arrow-alt-circle-right.svg'
+          width={64}
+          height={64}
+          data-testid='right-arrow'
+          alt='Next photo button'
+        />
       </button>
     </div>
   )
@@ -219,7 +227,7 @@ const ImageGallery = ({ images, slug }: ImageGalleryProps) => {
             type='button'
             className='w-full'
           >
-            <div className='relative w-full h-75 lg:h-150'>
+            <div className='relative w-full h-50 sm:h-75 md:h-90 lg:h-120'>
               <Image
                 alt={`${slug} project image ${currentIndex + 1}`}
                 src={images[currentIndex]}

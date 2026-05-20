@@ -1,4 +1,4 @@
-import type { ProjectMetadata } from '@utils/projects'
+import type { ProjectMetadata } from '@types'
 import { sortProjects } from '@utils/sortProjects'
 
 describe('sortProjects', () => {

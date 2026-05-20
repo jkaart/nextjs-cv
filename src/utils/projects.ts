@@ -1,30 +1,9 @@
 import { readFileSync } from 'node:fs'
 import { readdir, stat } from 'node:fs/promises'
 import path from 'node:path'
+import type { Project, ProjectMetadata, SSRProjectMetadata } from '@types'
 import { sortProjects } from '@utils/sortProjects'
 import matter from 'gray-matter'
-
-interface Url {
-  title: string
-  url: string
-}
-
-export interface ProjectMetadata {
-  title?: string
-  summary?: string
-  technologies?: string[]
-  startDate?: string
-  endDate?: string
-  urls?: Url[]
-  slug: string
-}
-
-export type SSRProjectMetadata = ProjectMetadata & { lastUpdateDate: Date }
-
-interface Project {
-  metadata: SSRProjectMetadata
-  content: string
-}
 
 const dataRootDirectory = path.join(process.cwd(), 'src/data')
 

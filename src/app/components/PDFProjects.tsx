@@ -2,7 +2,7 @@
 
 import PDFProject from '@components/PDFProject'
 import { View } from '@react-pdf/renderer'
-import type { ProjectMetadata } from '@utils/projects'
+import type { ProjectMetadata } from '@types'
 
 /**
  * Renders a list of project entries in the CV PDF.

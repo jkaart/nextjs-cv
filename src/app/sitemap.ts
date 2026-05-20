@@ -1,5 +1,6 @@
+import type { SSRProjectMetadata } from '@types'
 import { getBaseUrl } from '@utils/getBaseUrl'
-import { getProjects, type SSRProjectMetadata } from '@utils/projects'
+import { getProjects } from '@utils/projects'
 import type { MetadataRoute } from 'next'
 
 const FALLBACK_BASE_URL = 'http://localhost:3000'

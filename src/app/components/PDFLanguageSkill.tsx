@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from '@react-pdf/renderer'
 import type { LanguageSkill, Level } from '@types'
+import { capitalizeString } from '@utils/capitalizeString'
 import { translateLevel } from '@utils/translateLevel'
 
 /**
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
 const LanguageLevelRow = ({ label, level }: LanguageLevelRowProps) => (
   <View style={styles.levelRow}>
     <Text style={styles.levelLabel}>{label}:</Text>
-    <Text>{translateLevel(level)}</Text>
+    <Text>{capitalizeString(translateLevel(level))}</Text>
   </View>
 )
 

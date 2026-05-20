@@ -7,13 +7,12 @@ import PDFDownloadIcon from '@components/PDFDownloadIcon'
 import { useState } from 'react'
 
 /**
- * Button component that toggles a dropdown menu for viewing or downloading the CV.
- * Displays a PDF icon that, when clicked, shows/hides the CVDownloadMenu with options
- * to view the CV on a separate page or download it as a PDF file. Uses React state
- * to manage menu visibility and Tailwind CSS for styling.
- * The pdfFileName prop is passed through to control the downloaded file name.
+ * Button component that triggers a dropdown menu for CV download options.
+ * Displays a PDF icon and shows a menu with "View" link and "Download" button
+ * when clicked. The menu appears to the right of the button.
+ * This client component conditionally renders the menu based on local state.
  *
- * @interface CVDownloadMenuProps - Props interface for CVDownloadMenuButton component
+ * @interface CVDownloadMenuButtonProps - Props interface for CVDownloadMenuButton component
  * @param {string} props.lastContentUpdate - Timestamp of last content update shown in PDF footer
  * @param {string} props.meDescriptionRaw - Raw MDX content for the description section of the CV
  * @param {string} props.pdfFileName - The file name for the downloaded PDF (e.g., 'johndoe-cv.pdf')
