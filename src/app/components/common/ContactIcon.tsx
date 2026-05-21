@@ -1,4 +1,5 @@
 import type { ContactIconType } from '@types'
+import { capitalizeString } from '@utils/capitalizeString'
 import { getContactIconName } from '@utils/getContactIconName'
 import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
@@ -15,7 +16,7 @@ const ContactIcon = ({ type, className }: ContactIconProps) => {
       src={`/assets/icons/svg/other/${getContactIconName(type)}.svg`}
       width={40}
       height={40}
-      alt={`${type} icon`}
+      alt={`${capitalizeString(type)} icon`}
       className={mergedClassNames}
     />
   )
