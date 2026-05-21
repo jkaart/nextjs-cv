@@ -1,3 +1,11 @@
+## [1.7.1](https://github.com/jkaart/nextjs-cv/compare/v1.7.0...v1.7.1) (2026-05-21)
+
+
+### Bug Fixes
+
+* improve error handling in useProjects hook and update alt text in ContactIcon component ([bd134d5](https://github.com/jkaart/nextjs-cv/commit/bd134d5025d114ae20c41cbce133ef26799cf9a6))
+* refactor useProjects hook to improve loading state management and error logging ([e1e1987](https://github.com/jkaart/nextjs-cv/commit/e1e1987f62ebb85d2060532e4da432829347e5ba))
+
 # [1.7.0](https://github.com/jkaart/nextjs-cv/compare/v1.6.0...v1.7.0) (2026-05-21)
 
 
