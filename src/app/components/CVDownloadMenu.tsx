@@ -47,6 +47,7 @@ const CVDownloadMenu = ({
           bg-blue-100
           text-black
           w-25
+          h-12
           absolute
           text-sm
           z-100
