@@ -1,3 +1,35 @@
+# [1.7.0](https://github.com/jkaart/nextjs-cv/compare/v1.6.0...v1.7.0) (2026-05-21)
+
+
+### Bug Fixes
+
+* array mutation problem  in PDFProject and ProjectListItem components in tasks and roles array ([4a4a4fd](https://github.com/jkaart/nextjs-cv/commit/4a4a4fd533c5f5b02201dc3f0896df4e79b748f2))
+* **biome:** remove leading slash from ignored icons directory ([1242488](https://github.com/jkaart/nextjs-cv/commit/1242488b3cfb2048138bce85ce1ae5f30cdd4eff))
+* correct alt texts ([78eda4d](https://github.com/jkaart/nextjs-cv/commit/78eda4dc59c2c5652b41809173a3a75ee8fd9658))
+* correct array sorting in PDFProject and ProjectListItem components ([937ebf1](https://github.com/jkaart/nextjs-cv/commit/937ebf1cf7c6b8a0cdee8d81aef68a6dfaddc9c6))
+* **getBaseUrl:** streamline base URL retrieval with default fallback ([39b4c76](https://github.com/jkaart/nextjs-cv/commit/39b4c76f87c0f30f04cfb72da78ab8a14cce0c7e))
+* **IconLink:** update iconType to use right types ([4269105](https://github.com/jkaart/nextjs-cv/commit/4269105aa10f70ea174d7b23c4604c2d3ba97e98))
+* **LanguageSkill:** capitalize spoken and written language skill levels ([17e4447](https://github.com/jkaart/nextjs-cv/commit/17e4447822cc929871dea88629fa429d7152b720))
+* **PDFResume:** adjust padding and font sizes for improved layout consistency ([cdfaad1](https://github.com/jkaart/nextjs-cv/commit/cdfaad1e947d553b358eaac58417ab62eda92a17))
+* **pdfResume:** pdfLinks to use png files ([8ff8837](https://github.com/jkaart/nextjs-cv/commit/8ff8837b7188742cd509058ec38bdf44c36eb7cd))
+* **pre-commit:** run build after linting ([d73ad3c](https://github.com/jkaart/nextjs-cv/commit/d73ad3caab032591199d3f1dc04f0039582f89a4))
+* **prepare-other-icons:** replace 'mdi:internet' with 'ph:globe-bold' in usedIcons array ([3cd5bca](https://github.com/jkaart/nextjs-cv/commit/3cd5bca6a4cf4c463077265f18fe44138eae7c98))
+* **ProjectListItem:** add icons for project URLs and update layout for better visibility ([b103c53](https://github.com/jkaart/nextjs-cv/commit/b103c53a296fba7dfeb94075ef09eb1404c9d0d3))
+* **ProjectListItem:** restructure project item layout and add link to project details ([d3ebd9a](https://github.com/jkaart/nextjs-cv/commit/d3ebd9a9d744ed463dbaadde426cf7274f303d84))
+* **ProjectsList:** remove unnecessary grid wrapper from project list and updated margins ([38da98e](https://github.com/jkaart/nextjs-cv/commit/38da98ef5c79a5c76164747c6a0fafea1c7a80b9))
+* **sortSkills:** update iconName values to use correct naming conventions ([fc99373](https://github.com/jkaart/nextjs-cv/commit/fc99373ec31a74ab3634fae086e2989bdefa51f7))
+* **ThemeChange:** update alt text for theme toggle icon ([182cda0](https://github.com/jkaart/nextjs-cv/commit/182cda0fd16980040736d8650533d6839765c3c4))
+* update .gitignore to include icon types ([37a6ea4](https://github.com/jkaart/nextjs-cv/commit/37a6ea44ad7e9755bf70f54b46ecfce6c0ac8e6a))
+
+
+### Features
+
+* add hyphenation support and capitalize utility; update components to use new utility ([4a14a93](https://github.com/jkaart/nextjs-cv/commit/4a14a93307ef3cefac5f68edd29805d0869336f0))
+* add license file and update README with project details and setup instructions ([eb0439a](https://github.com/jkaart/nextjs-cv/commit/eb0439a9ea38b024a4903a44a46e4f1d186b1020))
+* **PDFProject:** add project detail link with base URL retrieval ([cecb683](https://github.com/jkaart/nextjs-cv/commit/cecb683f64a6c6220290e967cc64bacc5d73f6b2))
+* **PDFProject:** refactor project display components for improved readability and structure ([0ce01ec](https://github.com/jkaart/nextjs-cv/commit/0ce01ece7fdf4ba0b634eac4e9af4d0e16deaef3))
+* **Projects:** roles and tasks to project metadata and components ([2fd5e62](https://github.com/jkaart/nextjs-cv/commit/2fd5e6227534e56dd0939a575969fcc01c915ab7))
+
 # [1.5.0](https://github.com/jkaart/nextjs-cv/compare/v1.4.0...v1.5.0) (2026-05-17)
 
 
