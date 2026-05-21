@@ -23,13 +23,25 @@ const useProjects = (
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    fetch(limit && limit > 0 ? `/api/projects?limit=${limit}` : '/api/projects')
-      .then(res => res.json())
+    setLoading(true)
+
+    const url =
+      limit && limit > 0 ? `/api/projects?limit=${limit}` : '/api/projects'
+
+    fetch(url)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(
+            `Failed to fetch projects: ${res.status} ${res.statusText}`
+          )
+        }
+        return res.json()
+      })
       .then(data => {
         setProjects(JSON.parse(data))
       })
       .catch(error => {
-        console.error('Error in projects fetching', error)
+        console.error(`Error fetching projects from ${url}`, error)
       })
       .finally(() => {
         setLoading(false)

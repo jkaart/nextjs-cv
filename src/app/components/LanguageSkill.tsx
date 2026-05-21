@@ -114,15 +114,11 @@ const LanguageSkill = ({ languageSkill }: LanguageSkillProps) => {
         <div className='ms-2'>
           <div>
             <span className='font-bold'>Puhuttu: </span>
-            <span className='first-letter:uppercase'>
-              {capitalizeString(translatedSpoken)}
-            </span>
+            <span>{capitalizeString(translatedSpoken)}</span>
           </div>
           <div>
             <span className='font-bold'>Kirjallinen: </span>
-            <span className='first-letter:uppercase'>
-              {capitalizeString(translatedWritten)}
-            </span>
+            <span>{capitalizeString(translatedWritten)}</span>
           </div>
         </div>
       )}
