@@ -67,7 +67,7 @@ const ProjectListItem = ({
   className
 }: ProjectListItemProps) => {
   const technologies = project.technologies
-    ? [...project.technologies.sort()]
+    ? [...project.technologies].sort()
     : []
   const tasks = project.tasks ? [...project.tasks].sort() : []
   const roles = project.roles ? [...project.roles].sort() : []

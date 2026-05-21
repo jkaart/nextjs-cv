@@ -80,7 +80,7 @@ const LinkContainer = ({ label, url, style }: LinkContainerProps) => (
  */
 const PDFProject = ({ project }: PDFProjectProps) => {
   const technologies = project.technologies
-    ? [...project.technologies.sort()]
+    ? [...project.technologies].sort()
     : []
   const tasks = project.tasks ? [...project.tasks].sort() : []
   const roles = project.roles ? [...project.roles].sort() : []
