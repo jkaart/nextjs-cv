@@ -1,3 +1,18 @@
+# [1.8.0](https://github.com/jkaart/nextjs-cv/compare/v1.7.2...v1.8.0) (2026-05-22)
+
+
+### Bug Fixes
+
+* update DataWithoutId interface to omit 'id' from SkillRaw in skill field ([45314bc](https://github.com/jkaart/nextjs-cv/commit/45314bc5a2da68008b69f32e66c67972c0b40457))
+* update sitemap URL generation to remove trailing slash ([5575543](https://github.com/jkaart/nextjs-cv/commit/557554388c9daca34c924ce24ed667455750d653))
+* update Skill type to SkillRaw and adjust addIdToData for iconName handling ([39f930e](https://github.com/jkaart/nextjs-cv/commit/39f930e1339d88edb5df052040871d77d85ac40e))
+
+
+### Features
+
+* add health check endpoint with no-store cache control ([c0168f9](https://github.com/jkaart/nextjs-cv/commit/c0168f984175079faacac2bc39b6ad6890aeaf27))
+* add robots.txt generation for SEO optimization ([0091b15](https://github.com/jkaart/nextjs-cv/commit/0091b15dfc845893a24ba6ad265ecea1b8fd333b))
+
 ## [1.7.2](https://github.com/jkaart/nextjs-cv/compare/v1.7.1...v1.7.2) (2026-05-21)
 
 
