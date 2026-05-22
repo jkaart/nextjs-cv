@@ -61,7 +61,7 @@ const PDFProjects = ({ projects }: PDFProjectsProps) => {
         }}
       >
         <Text style={{ fontWeight: 'bold' }}>Lisää projekteja:</Text>
-        <Link href={projectsUrl}>{projectsUrl}</Link>
+        <Link src={projectsUrl}>{projectsUrl}</Link>
       </View>
     </View>
   )

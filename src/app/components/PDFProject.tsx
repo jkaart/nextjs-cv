@@ -53,7 +53,7 @@ const LinkContainer = ({ label, url, style }: LinkContainerProps) => (
       </View>
     )}
     <Text>{label}:</Text>
-    <Link href={url}>{url}</Link>
+    <Link src={url}>{url}</Link>
   </View>
 )
 
