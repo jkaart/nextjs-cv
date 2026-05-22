@@ -1,5 +1,5 @@
 import Skill from '@components/Skill'
-import type { Skill as SkillType } from '@types'
+import type { SkillRaw as SkillType } from '@types'
 import '@testing-library/jest-dom'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 
