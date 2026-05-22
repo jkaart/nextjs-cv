@@ -3,7 +3,6 @@
 
 ### Bug Fixes
 
-* add height to CVDownloadMenu button for improved layout ([92ed422](https://github.com/jkaart/nextjs-cv/commit/92ed4227e6aa60667b66821d1a4e0ac470978198))
 * add height to CVDownloadMenu button for improved layout ([d1b370c](https://github.com/jkaart/nextjs-cv/commit/d1b370c7e7c0880be38f9b78d7a72740f1dca85c))
 * adjust width and minimum height of CVDownloadMenu button for better layout ([1db55fd](https://github.com/jkaart/nextjs-cv/commit/1db55fd1b8e907b133b62fe173c1937702466398))
 
