@@ -1,3 +1,18 @@
+# [1.9.0](https://github.com/jkaart/nextjs-cv/compare/v1.8.0...v1.9.0) (2026-05-22)
+
+
+### Bug Fixes
+
+* capitalize first letter of hobbies string in Hobbies component ([3346e80](https://github.com/jkaart/nextjs-cv/commit/3346e80e742cba54e8592f1da3baa4df2c7d71fc))
+* trim trailing slashes from base URL in getBaseUrl function ([869b4b2](https://github.com/jkaart/nextjs-cv/commit/869b4b22218d49297b52cb893e3f8df551fafe96))
+* update Link component usage to use 'src' prop instead of 'href' in PDFProjects and ([7ac7556](https://github.com/jkaart/nextjs-cv/commit/7ac755689abbdefcf8c970abc5546a57d16d8efd))
+
+
+### Features
+
+* enhance LinkContainer to display icons based on URL type and update label text ([be5608d](https://github.com/jkaart/nextjs-cv/commit/be5608d66cb2c0ea1d244cbca0014abfbe290dc7))
+* enhance PDFProjects component to include project URL and 'Lue lisää' text ([91dc070](https://github.com/jkaart/nextjs-cv/commit/91dc070bf311d69eb7e9903a93b07e895d3fb063))
+
 # [1.8.0](https://github.com/jkaart/nextjs-cv/compare/v1.7.2...v1.8.0) (2026-05-22)
 
 
