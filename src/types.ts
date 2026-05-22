@@ -113,7 +113,7 @@ export interface DataWithId {
 
 /** Main data structure without ID fields for display purposes */
 export interface DataWithoutId extends Omit<WithoutId<DataWithId>, 'skill'> {
-  skill: WithoutId<SkillRaw[]>
+  skill: Omit<SkillRaw, 'id'>[]
 }
 
 /** Utility type that converts date string fields to Date objects */
