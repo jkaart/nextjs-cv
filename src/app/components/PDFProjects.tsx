@@ -1,8 +1,9 @@
 'use client'
 
 import PDFProject from '@components/PDFProject'
-import { View } from '@react-pdf/renderer'
+import { Link, Text, View } from '@react-pdf/renderer'
 import type { ProjectMetadata } from '@types'
+import { getBaseUrl } from '@utils/getBaseUrl'
 
 /**
  * Renders a list of project entries in the CV PDF.
@@ -43,12 +44,27 @@ interface PDFProjectsProps {
   projects: ProjectMetadata[]
 }
 
-const PDFProjects = ({ projects }: PDFProjectsProps) => (
-  <View style={{ marginLeft: '5px' }}>
-    {projects.map(project => (
-      <PDFProject key={project.slug} project={project} />
-    ))}
-  </View>
-)
+const PDFProjects = ({ projects }: PDFProjectsProps) => {
+  const projectsUrl = `${getBaseUrl()}/projects`
+
+  return (
+    <View style={{ marginLeft: '5px' }}>
+      {projects.map(project => (
+        <PDFProject key={project.slug} project={project} />
+      ))}
+      <View
+        style={{
+          marginTop: '10px',
+          flexDirection: 'row',
+          gap: 2,
+          justifyContent: 'center'
+        }}
+      >
+        <Text style={{ fontWeight: 'bold' }}>Lisää projekteja:</Text>
+        <Link src={projectsUrl}>{projectsUrl}</Link>
+      </View>
+    </View>
+  )
+}
 
 export default PDFProjects

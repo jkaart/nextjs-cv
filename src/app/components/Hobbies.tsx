@@ -83,7 +83,7 @@ const Hobbies = ({ hobbies }: HobbiesProps) => {
   return (
     <div>
       <HeadingH2 text='Harrastukset' />
-      <div className='first-letter:uppercase'>{hobbiesString}</div>
+      <div>{capitalizeString(hobbiesString)}</div>
     </div>
   )
 }
