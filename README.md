@@ -18,6 +18,8 @@ A personal CV / portfolio website built with Next.js. The content is driven by m
 - Project listing / project overview pages
 - Theme support with `next-themes`
 - Sitemap generation
+- robots.txt generation
+- Health check `/api/health` endpoint
 - Automated content and asset preparation scripts
 - Conventional commits + semantic release workflow
 

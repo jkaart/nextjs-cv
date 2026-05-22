@@ -58,7 +58,9 @@ export interface Skill {
   iconName: SelectedDevIconName
 }
 
-export type SkillRaw = Skill & { skillName: DevIconName }
+export interface SkillRaw extends Omit<Skill, 'iconName'> {
+  iconName: DevIconName
+}
 
 /** Raw work experience data from source */
 export interface WorkExperienceRaw {
@@ -110,7 +112,9 @@ export interface DataWithId {
 }
 
 /** Main data structure without ID fields for display purposes */
-export type DataWithoutId = WithoutId<DataWithId>
+export interface DataWithoutId extends Omit<WithoutId<DataWithId>, 'skill'> {
+  skill: Omit<SkillRaw, 'id'>[]
+}
 
 /** Utility type that converts date string fields to Date objects */
 export type ParseDateFields<T> = {
