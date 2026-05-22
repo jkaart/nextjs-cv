@@ -6,5 +6,5 @@ export const getBaseUrl = (): string => {
   if (!baseUrl) {
     throw new Error('NEXT_PUBLIC_BASE_URL missing from env')
   }
-  return baseUrl
+  return baseUrl.replace(/\/+$/, '')
 }
