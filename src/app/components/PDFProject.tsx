@@ -1,6 +1,6 @@
 import { styles } from '@components/PDFResume'
 import type { ViewProps } from '@react-pdf/renderer'
-import { Link, Text, View } from '@react-pdf/renderer'
+import { Image, Link, StyleSheet, Text, View } from '@react-pdf/renderer'
 import type { ProjectMetadata } from '@types'
 import { capitalizeString } from '@utils/capitalizeString'
 import { convertToString } from '@utils/convertToString'
@@ -23,6 +23,13 @@ interface PDFProjectProps {
   project: ProjectMetadata
 }
 
+const linkStyles = StyleSheet.create({
+  linkImage: {
+    width: '12px',
+    height: '12px'
+  }
+})
+
 const TextContainer = ({ label, text, style }: TextContainerProps) => (
   <View style={{ flexDirection: 'row', gap: 2, ...style }}>
     <Text>
@@ -33,8 +40,19 @@ const TextContainer = ({ label, text, style }: TextContainerProps) => (
 )
 
 const LinkContainer = ({ label, url, style }: LinkContainerProps) => (
-  <View style={{ flexDirection: 'row', gap: 2, ...style }}>
-    <Text>{label}</Text>
+  <View
+    style={{ flexDirection: 'row', gap: 2, alignItems: 'center', ...style }}
+  >
+    {url.includes('github') ? (
+      <View style={linkStyles.linkImage}>
+        <Image src='/assets/icons/png/other/github.png' />
+      </View>
+    ) : (
+      <View style={linkStyles.linkImage}>
+        <Image src='/assets/icons/png/other/globe-bold.png' />
+      </View>
+    )}
+    <Text>{label}:</Text>
     <Link href={url}>{url}</Link>
   </View>
 )
@@ -118,7 +136,7 @@ const PDFProject = ({ project }: PDFProjectProps) => {
           ))}
           <LinkContainer
             url={`${getBaseUrl()}/projects/${project.slug}`}
-            label='Lue lisää:'
+            label='Lue lisää'
           />
         </View>
       </View>
