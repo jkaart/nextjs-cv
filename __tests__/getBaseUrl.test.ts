@@ -62,11 +62,32 @@ describe('getBaseUrl', () => {
     it('should throw an error with descriptive message', () => {
       expect(() => getBaseUrl()).toThrow(/NEXT_PUBLIC_BASE_URL missing/)
     })
+
+    describe('in development mode', () => {
+      beforeEach(() => {
+        process.env.NODE_ENV = 'development'
+      })
+
+      it('should return localhost URL when env variable is not set', () => {
+        expect(getBaseUrl()).toBe('http://localhost:3000')
+      })
+
+      it('should use default development URL even with empty env variable', () => {
+        process.env.NEXT_PUBLIC_BASE_URL = ''
+        expect(getBaseUrl()).toBe('http://localhost:3000')
+      })
+
+      it('should use default development URL even with whitespace env variable', () => {
+        process.env.NEXT_PUBLIC_BASE_URL = '   '
+        expect(getBaseUrl()).toBe('http://localhost:3000')
+      })
+    })
   })
 
   describe('edge cases', () => {
     beforeEach(() => {
       delete process.env.NEXT_PUBLIC_BASE_URL
+      process.env.NODE_ENV = 'production'
     })
 
     it('should throw error for empty string env variable', () => {
