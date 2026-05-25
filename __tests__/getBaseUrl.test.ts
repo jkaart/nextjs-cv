@@ -64,8 +64,14 @@ describe('getBaseUrl', () => {
     })
 
     describe('in development mode', () => {
+      const originalEnv = { ...process.env }
+
       beforeEach(() => {
-        process.env.NODE_ENV = 'development'
+        Object.assign(process.env, { NODE_ENV: 'development' })
+      })
+
+      afterEach(() => {
+        Object.assign(process.env, originalEnv)
       })
 
       it('should return localhost URL when env variable is not set', () => {
@@ -85,9 +91,15 @@ describe('getBaseUrl', () => {
   })
 
   describe('edge cases', () => {
+    const originalEnv = { ...process.env }
+
     beforeEach(() => {
       delete process.env.NEXT_PUBLIC_BASE_URL
-      process.env.NODE_ENV = 'production'
+      Object.assign(process.env, { NODE_ENV: 'production' })
+    })
+
+    afterEach(() => {
+      Object.assign(process.env, originalEnv)
     })
 
     it('should throw error for empty string env variable', () => {
