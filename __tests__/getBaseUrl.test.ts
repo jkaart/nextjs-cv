@@ -1,6 +1,8 @@
 import { getBaseUrl } from '@utils/getBaseUrl'
 
 describe('getBaseUrl', () => {
+  const originalEnv = { ...process.env }
+
   describe('with valid NEXT_PUBLIC_BASE_URL', () => {
     beforeEach(() => {
       process.env.NEXT_PUBLIC_BASE_URL = 'https://example.com'
@@ -64,8 +66,6 @@ describe('getBaseUrl', () => {
     })
 
     describe('in development mode', () => {
-      const originalEnv = { ...process.env }
-
       beforeEach(() => {
         Object.assign(process.env, { NODE_ENV: 'development' })
       })
@@ -91,8 +91,6 @@ describe('getBaseUrl', () => {
   })
 
   describe('edge cases', () => {
-    const originalEnv = { ...process.env }
-
     beforeEach(() => {
       delete process.env.NEXT_PUBLIC_BASE_URL
       Object.assign(process.env, { NODE_ENV: 'production' })
