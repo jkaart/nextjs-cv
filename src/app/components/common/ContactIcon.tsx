@@ -10,7 +10,10 @@ interface ContactIconProps {
 }
 
 const ContactIcon = ({ type, className }: ContactIconProps) => {
-  const mergedClassNames = twMerge(className, ['dark:invert'])
+  const mergedClassNames = twMerge(className, [
+    'dark:invert',
+    'hover:scale-125'
+  ])
   return (
     <Image
       src={`/assets/icons/svg/other/${getContactIconName(type)}.svg`}
