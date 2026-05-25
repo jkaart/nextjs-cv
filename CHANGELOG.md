@@ -1,3 +1,15 @@
+## [1.9.1](https://github.com/jkaart/nextjs-cv/compare/v1.9.0...v1.9.1) (2026-05-25)
+
+
+### Bug Fixes
+
+* add hover effect to icons in PDFDownloadIcon , ContactIcon and ThemeChange components ([8d2a615](https://github.com/jkaart/nextjs-cv/commit/8d2a615d358ee655a7cded4777ee4c7847ce460d))
+* ensure development environment returns localhost URL in getBaseUrl function ([86eb8cd](https://github.com/jkaart/nextjs-cv/commit/86eb8cd970c4c1c30185b78ea903b745df0c0c29))
+* improve environment variable handling in development mode tests ([63674e3](https://github.com/jkaart/nextjs-cv/commit/63674e37a6642de8e05667a807bcd93d6998c9ef))
+* remove redundant originalEnv declaration in getBaseUrl tests ([674dff0](https://github.com/jkaart/nextjs-cv/commit/674dff01399dfaa955ba694ef3cdbe9406a9dca7))
+* translate loading messages to Finnish in CVDownload component ([f1b5a5b](https://github.com/jkaart/nextjs-cv/commit/f1b5a5b401aa73e569d1ff68c452dd7a4be47c6d))
+* update loading message variable in PDFDownloadLink for clarity ([0bf4ad4](https://github.com/jkaart/nextjs-cv/commit/0bf4ad40d0af92ed0f984fb088a479a63c4e4e31))
+
 # [1.9.0](https://github.com/jkaart/nextjs-cv/compare/v1.8.0...v1.9.0) (2026-05-22)
 
 
