@@ -82,7 +82,9 @@ const CVDownload = ({
         />
       }
     >
-      {({ loading }) => (loading ? 'Ladataan sisältöä...' : label)}
+      {({ loading: pdfLoading }) =>
+        pdfLoading ? 'Ladataan sisältöä...' : label
+      }
     </PDFDownloadLink>
   )
 }
