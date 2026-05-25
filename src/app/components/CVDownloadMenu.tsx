@@ -46,7 +46,7 @@ const CVDownloadMenu = ({
           dark:text-black
           bg-blue-100
           text-black
-          w-24
+          min-w-24
           min-h-12
           absolute
           text-sm
@@ -61,6 +61,7 @@ const CVDownloadMenu = ({
           border
           rounded-lg
           font-semibold
+          text-nowrap
           '
   >
     <Link href='/pdf-cv'>Näytä</Link>

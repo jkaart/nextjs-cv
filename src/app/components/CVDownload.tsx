@@ -69,7 +69,7 @@ const CVDownload = ({
   className
 }: CVDownloadProps) => {
   const { projects, loading } = useProjects(3)
-  if (loading) return <div>Loading...</div>
+  if (loading) return <div>Ladataan projekteja...</div>
   return (
     <PDFDownloadLink
       className={className}
@@ -82,7 +82,7 @@ const CVDownload = ({
         />
       }
     >
-      {label}
+      {({ loading }) => (loading ? 'Ladataan sisältöä...' : label)}
     </PDFDownloadLink>
   )
 }
