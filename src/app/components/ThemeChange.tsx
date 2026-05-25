@@ -73,7 +73,7 @@ const ThemeChange = ({ className }: ThemeChangeProps) => {
     >
       <div className='flex gap-1'>
         <Image
-          className='dark:invert'
+          className='dark:invert hover:scale-125'
           alt={`Switch to: ${icon}`}
           width={40}
           height={40}
