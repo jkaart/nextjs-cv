@@ -2,6 +2,11 @@ import type { Data, DataWithId, DataWithoutId } from '@types'
 import { addIdToData } from '@utils/addIdToData'
 import { parseDateFields } from '@utils/parseDateFields'
 
+/*
+ * THIS MOCK DATA IN ABOVE IS NOT USED IN TO THE TESTS OR ANYTHING
+ * IT'S ONLY FOR MOCK PRIVATE DATA'S FROM PRIVATE REPOSITORY
+ */
+
 export const rawData: DataWithoutId = {
   me: {
     firstName: 'John',
