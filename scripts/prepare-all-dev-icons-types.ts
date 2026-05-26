@@ -17,10 +17,15 @@ const icons = iconsJSONData as IconifyJSON
 const names = Object.keys(icons.icons)
 const union = names.map(name => `'${name}'`).join(' | ')
 
+const namesAsString = names.map(name => `'${name}'`)
+
 const fileContent = `
 /* AUTO-GENERATED FILE — DO NOT EDIT */
 
 export type DevIconName = ${union}
+
+export const allDevIcons = [${namesAsString}]
+
 `
 
 fs.writeFileSync(outputFile, fileContent)
