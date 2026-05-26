@@ -16,6 +16,6 @@ export const validateDevIcon: (
   if (iconName === '') throw new Error('iconName must be a non-empty string')
 
   if (typeof iconName !== 'string' || !allDevIconsSet.has(iconName)) {
-    throw new Error(`${iconName} is not a valid icon name`)
+    throw new Error(`${String(iconName)} is not a valid icon name`)
   }
 }
