@@ -1,11 +1,8 @@
-'use server'
-
 import type { Data, DataWithId, DataWithoutId } from '@types'
 import { addIdToData } from '@utils/addIdToData'
 import { parseDateFields } from '@utils/parseDateFields'
-import { validateRawSkills } from '@utils/validators'
 
-const rawData: DataWithoutId = {
+export const rawData: DataWithoutId = {
   me: {
     firstName: 'John',
     lastName: 'Doe',
@@ -34,8 +31,6 @@ const rawData: DataWithoutId = {
   ],
   workExperience: []
 }
-
-validateRawSkills(rawData.skill)
 
 const dataWithId: DataWithId = addIdToData(rawData)
 
