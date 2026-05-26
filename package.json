@@ -8,7 +8,7 @@
     "prepare:rawData": "tsx scripts/prepare-raw-data.ts",
     "prepare:devIcons:selected": "tsx scripts/prepare-selected-dev-icons.ts",
     "prepare:devIcons": "npm run prepare:devIcons:allTypes && npm run prepare:devIcons:selected",
-    "prepare:allIcons": "npm run prepare:rawData && npm run prepare:otherIcons && npm run prepare:devIcons",
+    "prepare:allIcons": "npm run prepare:otherIcons && npm run prepare:devIcons && npm run prepare:rawData",
     "prepare:dev": "npm run prepare:allIcons && npm run prepare:content",
     "prepare:content": "node scripts/prepare-content.js",
     "prepare:assets": "node scripts/copy-assets.js",
