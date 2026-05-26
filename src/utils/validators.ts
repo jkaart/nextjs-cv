@@ -1,7 +1,8 @@
 import { allDevIcons } from '@allDevIconTypes'
-import type { SkillRaw } from '@types'
 
-export const validateRawSkill = (skills: SkillRaw[]) => {
+export const validateRawSkill = (
+  skills: ReadonlyArray<{ iconName: string }>
+) => {
   skills.forEach(skill => {
     validateDevIcon(skill.iconName)
   })
@@ -9,9 +10,9 @@ export const validateRawSkill = (skills: SkillRaw[]) => {
 
 export const validateDevIcon = (iconName: string) => {
   if (iconName === '') {
-    throw new Error('an empty string is not acceptable')
+    throw new Error('iconName must be a non-empty string')
   }
-  if (!allDevIcons.includes(iconName)) {
+  if (!(allDevIcons as ReadonlyArray<string>).includes(iconName)) {
     throw new Error(`${iconName} is not valid icon name`)
   }
 }

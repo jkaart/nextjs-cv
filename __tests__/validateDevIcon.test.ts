@@ -3,13 +3,13 @@ import { validateDevIcon } from '@utils/validators'
 
 describe('validateDevIcon', () => {
   it('return nothing if valid css iconName', () => {
-    const validIconName = allDevIcons[allDevIcons.indexOf('css')]
-    expect(() => validateDevIcon(validIconName)).not.toThrow()
+    expect(allDevIcons).toContain('css')
+    expect(() => validateDevIcon('css')).not.toThrow()
   })
 
   it('return nothing if valid react iconName', () => {
-    const validIconName = allDevIcons[allDevIcons.indexOf('react')]
-    expect(() => validateDevIcon(validIconName)).not.toThrow()
+    expect(allDevIcons).toContain('react')
+    expect(() => validateDevIcon('react')).not.toThrow()
   })
 
   it('returns Error if iconName not acceptable', () => {
@@ -20,7 +20,7 @@ describe('validateDevIcon', () => {
 
   it('returns Error if iconName is empty string', () => {
     expect(() => validateDevIcon('')).toThrow(
-      'an empty string is not acceptable'
+      'iconName must be a non-empty string'
     )
   })
 })
