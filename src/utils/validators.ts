@@ -13,6 +13,6 @@ export const validateDevIcon = (iconName: string) => {
     throw new Error('iconName must be a non-empty string')
   }
   if (!(allDevIcons as ReadonlyArray<string>).includes(iconName)) {
-    throw new Error(`${iconName} is not valid icon name`)
+    throw new Error(`${iconName} is not a valid icon name`)
   }
 }
