@@ -1,3 +1,5 @@
+'use server'
+
 import type { Data, DataWithId, DataWithoutId } from '@types'
 import { addIdToData } from '@utils/addIdToData'
 import { parseDateFields } from '@utils/parseDateFields'
