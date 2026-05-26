@@ -1,3 +1,27 @@
+# [1.10.0](https://github.com/jkaart/nextjs-cv/compare/v1.9.1...v1.10.0) (2026-05-26)
+
+
+### Bug Fixes
+
+* correct error messages in validateDevIcon tests and implementation ([ba91aba](https://github.com/jkaart/nextjs-cv/commit/ba91abaf9b815cbe0cdc6e8a1a2d75a501ea0268))
+* correct test descriptions in validateDevIcon tests for clarity ([3716de7](https://github.com/jkaart/nextjs-cv/commit/3716de790289721ef25ed6fbeddba6338ebcc2aa))
+* enhance validation logic in validateDevIcon and add tests for validateRawSkills ([03df186](https://github.com/jkaart/nextjs-cv/commit/03df186d5dd414e0d370c0ea1d3e5855bf302b62))
+* ensure icon name is converted to string in validation error message ([08793e5](https://github.com/jkaart/nextjs-cv/commit/08793e59122bd907be8f02b65d917dfcd8be15c4))
+* improve icon validation logic and update test cases for clarity ([75f7334](https://github.com/jkaart/nextjs-cv/commit/75f7334a76fbeb141d894ba8aa3b19887cd3e05b))
+* improve validation error messages and refactor test cases for dev icons ([aa3203e](https://github.com/jkaart/nextjs-cv/commit/aa3203e34eda68f8e83abafe4b70e2d64e637178))
+* rename validateRawSkill to validateRawSkills and update usage in data.ts ([926c6e6](https://github.com/jkaart/nextjs-cv/commit/926c6e6759161d2f0bfd611cf3a2eda921f910aa))
+* reorder commands in prepare:allIcons script for consistency ([a1c1434](https://github.com/jkaart/nextjs-cv/commit/a1c1434a237854c6d9e4f56f792a95a238b54026))
+* reorder commands in prepare:devIcons and prepare:allIcons scripts for consistency ([4258494](https://github.com/jkaart/nextjs-cv/commit/4258494a950ac640b77bbdab67eabef4cb9a227a))
+* update console log messages in prepare-raw-data script for clarity ([980765c](https://github.com/jkaart/nextjs-cv/commit/980765cebc0e7758098a7625fefb1d33791762b0))
+* update iconName references from 'css' to 'css3' in validation tests and data ([be5a927](https://github.com/jkaart/nextjs-cv/commit/be5a92702084b83d7012dcdcd7fce584aeac4ac2))
+* update test scripts to include dev icons preparation ([2513b5d](https://github.com/jkaart/nextjs-cv/commit/2513b5d02ae73022120e0a08d17710c7a615002e))
+
+
+### Features
+
+* add validation for dev icons ([291a903](https://github.com/jkaart/nextjs-cv/commit/291a90354f56890ca0a52384ca462544666281c5))
+* implement raw data preparation script and update allIcons script ([b607e95](https://github.com/jkaart/nextjs-cv/commit/b607e957d150ecdbfc670f55e5c22d355dd8566d))
+
 ## [1.9.1](https://github.com/jkaart/nextjs-cv/compare/v1.9.0...v1.9.1) (2026-05-25)
 
 
