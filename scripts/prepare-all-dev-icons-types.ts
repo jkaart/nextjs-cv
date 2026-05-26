@@ -14,7 +14,7 @@ mkdirSync(outputDir, {
 
 const icons = iconsJSONData as IconifyJSON
 
-const names = Object.keys(icons.icons)
+const names = [...Object.keys(icons.icons)].sort()
 const union = names.map(name => `'${name}'`).join(' | ')
 
 const namesAsString = names.map(name => `'${name}'`).join(', ')
