@@ -1,6 +1,6 @@
 import { allDevIcons } from '@allDevIconTypes'
 
-export const validateRawSkill = (
+export const validateRawSkills = (
   skills: ReadonlyArray<{ iconName: string }>
 ) => {
   skills.forEach(skill => {

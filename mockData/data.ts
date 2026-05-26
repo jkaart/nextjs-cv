@@ -1,7 +1,7 @@
 import type { Data, DataWithId, DataWithoutId } from '@types'
 import { addIdToData } from '@utils/addIdToData'
 import { parseDateFields } from '@utils/parseDateFields'
-import { validateRawSkill } from '@utils/validators'
+import { validateRawSkills } from '@utils/validators'
 
 const rawData: DataWithoutId = {
   me: {
@@ -33,8 +33,8 @@ const rawData: DataWithoutId = {
   workExperience: []
 }
 
-const dataWithId: DataWithId = addIdToData(rawData)
+validateRawSkills(rawData.skill)
 
-validateRawSkill(dataWithId.skill)
+const dataWithId: DataWithId = addIdToData(rawData)
 
 export const data: Data = parseDateFields(dataWithId)
