@@ -11,4 +11,16 @@ describe('validateDevIcon', () => {
     expect(allDevIcons).toContain('react')
     expect(() => validateDevIcon('react')).not.toThrow()
   })
+
+  it('returns Error if iconName not acceptable', () => {
+    expect(() => validateDevIcon('random-text')).toThrow(
+      'random-text is not a valid icon name'
+    )
+  })
+
+  it('returns Error if iconName is empty string', () => {
+    expect(() => validateDevIcon('')).toThrow(
+      'iconName must be a non-empty string'
+    )
+  })
 })
