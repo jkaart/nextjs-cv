@@ -32,7 +32,7 @@ export const rawData: DataWithoutId = {
       language: 'CSS',
       level: 'excellent',
       type: 'frontend',
-      iconName: 'css'
+      iconName: 'css3'
     },
     {
       language: 'JavaScript',
