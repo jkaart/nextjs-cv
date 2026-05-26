@@ -20,8 +20,8 @@
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "npm run prepare:devIcons:allTypes && jest",
+    "test:watch": "npm run prepare:devIcons:allTypes && jest --watch",
     "prepare": "npx husky",
     "commit": "npx cz"
   },
