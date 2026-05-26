@@ -2,7 +2,7 @@ import type { Data, DataWithId, DataWithoutId } from '@types'
 import { addIdToData } from '@utils/addIdToData'
 import { parseDateFields } from '@utils/parseDateFields'
 
-const rawData: DataWithoutId = {
+export const rawData: DataWithoutId = {
   me: {
     firstName: 'John',
     lastName: 'Doe',
@@ -21,7 +21,32 @@ const rawData: DataWithoutId = {
   languageSkill: [],
   hobby: [],
   education: [],
-  skill: [],
+  skill: [
+    {
+      language: 'HTML',
+      level: 'excellent',
+      type: 'frontend',
+      iconName: 'html5'
+    },
+    {
+      language: 'CSS',
+      level: 'excellent',
+      type: 'frontend',
+      iconName: 'css3'
+    },
+    {
+      language: 'JavaScript',
+      level: 'excellent',
+      type: 'frontend',
+      iconName: 'javascript'
+    },
+    {
+      language: 'React',
+      level: 'excellent',
+      type: 'frontend',
+      iconName: 'react'
+    }
+  ],
   workExperience: []
 }
 
