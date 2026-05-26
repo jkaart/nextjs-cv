@@ -27,6 +27,24 @@ export const rawData: DataWithoutId = {
       level: 'excellent',
       type: 'frontend',
       iconName: 'html5'
+    },
+    {
+      language: 'CSS',
+      level: 'excellent',
+      type: 'frontend',
+      iconName: 'css'
+    },
+    {
+      language: 'JavaScript',
+      level: 'excellent',
+      type: 'frontend',
+      iconName: 'javascript'
+    },
+    {
+      language: 'React',
+      level: 'excellent',
+      type: 'frontend',
+      iconName: 'react'
     }
   ],
   workExperience: []
