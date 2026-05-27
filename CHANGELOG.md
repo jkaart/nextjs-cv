@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/jkaart/nextjs-cv/compare/v1.10.0...v1.10.1) (2026-05-27)
+
+
+### Bug Fixes
+
+* remove unused @iconify/tools dependency from package.json and package-lock.json ([4b7cb01](https://github.com/jkaart/nextjs-cv/commit/4b7cb014da06a4f81f464b14f6776c48b2ea46ef))
+
 # [1.10.0](https://github.com/jkaart/nextjs-cv/compare/v1.9.1...v1.10.0) (2026-05-26)
 
 
