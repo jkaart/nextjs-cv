@@ -56,7 +56,6 @@
     "@commitlint/config-conventional": "^20.5.0",
     "@iconify-json/devicon": "^1.2.62",
     "@iconify/json": "^2.2.474",
-    "@iconify/tools": "^5.0.11",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
