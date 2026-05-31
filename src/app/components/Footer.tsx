@@ -62,6 +62,8 @@ const Footer = async ({ me, sourceCodeUrl }: FooterProps) => {
             className='text-xs'
             href='https://www.flaticon.com/free-icons/resume-and-cv'
             title='resume and cv icons'
+            target='_blank'
+            rel='noopener noreferrer'
           >
             Resume and cv icons created by feen - Flaticon
           </a>
