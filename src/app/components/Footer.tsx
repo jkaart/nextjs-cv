@@ -24,11 +24,6 @@ interface FooterProps {
  * ```tsx
  * <Footer me={{ firstName: 'John', lastName: 'Doe' }} sourceCodeUrl='https://github.com/user/repo' />
  * ```
- *
- * @example
- * ```tsx
- * <Footer me={{ firstName: 'John', lastName: 'Doe' }} />
- * ```
  */
 const Footer = async ({ me, sourceCodeUrl }: FooterProps) => {
   const lastUpdated = await getLastContentUpdate()
@@ -38,7 +33,7 @@ const Footer = async ({ me, sourceCodeUrl }: FooterProps) => {
       className={`items-center w-full ${sourceCodeUrl ? 'grid lg:grid-cols-3 grid-cols-1 gap-2' : 'flex flex-col py-5 '}`}
     >
       {sourceCodeUrl && (
-        <div className='lg:text-start order-2 lg:oder-1 lg:ms-2 mx-auto'>
+        <div className='lg:text-start order-2 lg:order-1 lg:ms-2 mx-auto'>
           <Link
             className='cursor-pointer'
             target='_blank'
@@ -46,7 +41,7 @@ const Footer = async ({ me, sourceCodeUrl }: FooterProps) => {
             href={sourceCodeUrl}
           >
             <Image
-              alt='Open source icon'
+              alt='Open source repository'
               width={48}
               height={48}
               src={'/assets/icons/svg/other/open-source.svg'}
@@ -56,7 +51,7 @@ const Footer = async ({ me, sourceCodeUrl }: FooterProps) => {
         </div>
       )}
       <div
-        className={`text-center flex flex-col ${sourceCodeUrl && 'order-1 lg:order-2'}`}
+        className={`text-center flex flex-col ${sourceCodeUrl ? 'order-1 lg:order-2' : ''}`}
       >
         <span>
           &#169; 2026 {me.firstName} {me.lastName}
