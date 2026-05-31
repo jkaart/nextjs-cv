@@ -13,6 +13,9 @@
 
   --secondary: hsl(220, 13.04%, 90.98%);
   --secondary-foreground: hsl(0, 0%, 0%);
+
+  --background-header: oklch(86.9% 0.022 252.894);
+  --background-footer: oklch(86.9% 0.022 252.894);
 }
 
 /* Dark theme */
@@ -25,6 +28,9 @@
 
   --secondary: hsl(217.24, 21.17%, 26.86%);
   --secondary-foreground: hsl(0, 0%, 93%);
+
+  --background-header: oklch(26.9% 0 0);
+  --background-footer: oklch(26.9% 0 0);
 }
 
 @theme inline {
@@ -45,6 +51,14 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background: var(--background-header);
+}
+
+footer {
+  background: var(--background-footer);
 }
 
 @layer utilities {

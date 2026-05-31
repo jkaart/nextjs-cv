@@ -24,7 +24,7 @@ const Footer = async ({ me }: FooterProps) => {
   const lastUpdated = await getLastContentUpdate()
 
   return (
-    <footer className='w-full py-5 text-center flex flex-col bg-slate-300 dark:bg-neutral-800'>
+    <footer className='w-full py-5 text-center flex flex-col'>
       <span>
         &#169; 2026 {me.firstName} {me.lastName}
       </span>
