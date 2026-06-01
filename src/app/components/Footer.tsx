@@ -30,7 +30,7 @@ const Footer = async ({ me, sourceCodeUrl }: FooterProps) => {
 
   return (
     <footer
-      className={`items-center w-full ${sourceCodeUrl ? 'grid lg:grid-cols-3 grid-cols-1 gap-2' : 'flex flex-col py-5 '}`}
+      className={`bg-(--background-footer) items-center w-full py-5 ${sourceCodeUrl ? 'grid lg:grid-cols-[1fr_auto_1fr] grid-cols-1 gap-2' : 'flex flex-col'}`}
     >
       {sourceCodeUrl && (
         <div className='lg:text-start order-2 lg:order-1 lg:ms-2 mx-auto'>
@@ -69,6 +69,7 @@ const Footer = async ({ me, sourceCodeUrl }: FooterProps) => {
           </a>
         </span>
       </div>
+      {sourceCodeUrl && <div className='order-3'></div>}
     </footer>
   )
 }

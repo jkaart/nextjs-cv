@@ -53,14 +53,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-header {
-  background: var(--background-header);
-}
-
-footer {
-  background: var(--background-footer);
-}
-
 @layer utilities {
   .prose {
     max-width: 100%;
