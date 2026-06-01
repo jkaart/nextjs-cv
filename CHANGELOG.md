@@ -1,3 +1,10 @@
+## [1.11.3](https://github.com/jkaart/nextjs-cv/compare/v1.11.2...v1.11.3) (2026-06-01)
+
+
+### Bug Fixes
+
+* update file filter to include TypeScript files in getLastContentUpdate function ([03fee34](https://github.com/jkaart/nextjs-cv/commit/03fee34086e3e9ea70bf5ec7df3797361aae06c0))
+
 ## [1.11.2](https://github.com/jkaart/nextjs-cv/compare/v1.11.1...v1.11.2) (2026-06-01)
 
 
