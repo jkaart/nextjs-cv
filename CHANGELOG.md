@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/jkaart/nextjs-cv/compare/v1.11.0...v1.11.1) (2026-06-01)
+
+
+### Bug Fixes
+
+* darker header and footer background colors in the light theme ([ccbcad4](https://github.com/jkaart/nextjs-cv/commit/ccbcad45311aafd43df45f93baee044dcfd38ccf))
+
 # [1.11.0](https://github.com/jkaart/nextjs-cv/compare/v1.10.1...v1.11.0) (2026-06-01)
 
 
