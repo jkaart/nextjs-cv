@@ -1,3 +1,19 @@
+# [1.11.0](https://github.com/jkaart/nextjs-cv/compare/v1.10.1...v1.11.0) (2026-06-01)
+
+
+### Bug Fixes
+
+* add sourceCodeUrl to rawData ([12e5a40](https://github.com/jkaart/nextjs-cv/commit/12e5a40c309b0d1e6dd8779b263afd2b9d7ab3fc))
+* add target and rel attributes to external link for security ([7ddd86f](https://github.com/jkaart/nextjs-cv/commit/7ddd86f0db299fde2bcdd6bf799a6c02b7f61563))
+* clean up Footer component documentation and fix typo in className ([ec7491d](https://github.com/jkaart/nextjs-cv/commit/ec7491d8a0fccf8dc48c7ba6b3331031c8cf4e0a))
+* header and footer background colors  and render conditional last div in the footer grid ([1093900](https://github.com/jkaart/nextjs-cv/commit/1093900728399972477fb573b9fbc07979a75b0c))
+* remove background color ([035b2de](https://github.com/jkaart/nextjs-cv/commit/035b2dea8c1885b2a9c043d0c3e372e22ee2a406))
+
+
+### Features
+
+* add optional source code ([7803fa5](https://github.com/jkaart/nextjs-cv/commit/7803fa5e8186a67944370d688b0a4f6c5415fa3d))
+
 ## [1.10.1](https://github.com/jkaart/nextjs-cv/compare/v1.10.0...v1.10.1) (2026-05-27)
 
 
