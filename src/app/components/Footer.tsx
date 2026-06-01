@@ -42,8 +42,8 @@ const Footer = async ({ me, sourceCodeUrl }: FooterProps) => {
           >
             <Image
               alt='Open source repository'
-              width={48}
-              height={48}
+              width={32}
+              height={32}
               src={'/assets/icons/svg/other/open-source.svg'}
               className='dark:invert'
             />
