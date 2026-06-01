@@ -148,7 +148,7 @@ const scanDir = async (dir: string): Promise<string[]> => {
 
 /**
  * Finds the last modification time across all project content and asset files.
- * Scans the data directory recursively for MDX, TSX, and image files,
+ * Scans the data directory recursively for MDX, TS, and image files,
  * retrieves their modification times, and returns the most recent one.
  * Useful for determining when content was last updated.
  *
