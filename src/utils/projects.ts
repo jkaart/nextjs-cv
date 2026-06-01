@@ -159,7 +159,7 @@ export const getLastContentUpdate = async () => {
 
   const times = await Promise.all(
     files
-      .filter(file => /\.(mdx|tsx|jpg|jpeg|png|webp)$/.test(file))
+      .filter(file => /\.(mdx|ts|jpg|jpeg|png|webp)$/.test(file))
       .map(async file => {
         const fileStat = await stat(file)
         return fileStat.mtimeMs
