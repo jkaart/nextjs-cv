@@ -14,8 +14,8 @@
   --secondary: hsl(220, 13.04%, 90.98%);
   --secondary-foreground: hsl(0, 0%, 0%);
 
-  --background-header: oklch(86.9% 0.022 252.894);
-  --background-footer: oklch(86.9% 0.022 252.894);
+  --background-header: oklch(82.0% 0.022 252.894);
+  --background-footer: oklch(82.0% 0.022 252.894);
 }
 
 /* Dark theme */
