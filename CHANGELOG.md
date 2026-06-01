@@ -1,3 +1,10 @@
+## [1.11.2](https://github.com/jkaart/nextjs-cv/compare/v1.11.1...v1.11.2) (2026-06-01)
+
+
+### Bug Fixes
+
+* reduce image size for open source repository icon in Footer component ([10d99d2](https://github.com/jkaart/nextjs-cv/commit/10d99d2c91f1a7971d5e0c01b32e2c7ec5797ad5))
+
 ## [1.11.1](https://github.com/jkaart/nextjs-cv/compare/v1.11.0...v1.11.1) (2026-06-01)
 
 
