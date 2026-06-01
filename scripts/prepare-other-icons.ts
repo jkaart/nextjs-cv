@@ -13,7 +13,8 @@ const usedIcons = [
   'circum:dark',
   'circum:light',
   'fa7-solid:arrow-alt-circle-left',
-  'fa7-solid:arrow-alt-circle-right'
+  'fa7-solid:arrow-alt-circle-right',
+  'meteor-icons:open-source'
 ]
 
 console.log('Generate other icons...')

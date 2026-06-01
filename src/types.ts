@@ -102,6 +102,7 @@ type WithoutId<T> = {
 
 /** Main data structure containing all profile information with IDs */
 export interface DataWithId {
+  sourceCodeUrl?: string
   me: Me
   contact: Contact
   languageSkill: LanguageSkill[]

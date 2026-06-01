@@ -3,6 +3,7 @@ import { addIdToData } from '@utils/addIdToData'
 import { parseDateFields } from '@utils/parseDateFields'
 
 export const rawData: DataWithoutId = {
+  sourceCodeUrl: 'https://github.com/user/repo',
   me: {
     firstName: 'John',
     lastName: 'Doe',

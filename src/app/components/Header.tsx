@@ -17,7 +17,7 @@ import ThemeChange from './ThemeChange'
  * ```
  */
 const Header = () => (
-  <header className='sticky top-0 w-full border-b mb-1 bg-slate-300 dark:bg-neutral-800 z-50'>
+  <header className='bg-(--background-header) sticky top-0 w-full border-b mb-1 z-50'>
     <h1 className='text-center text-3xl lg:text-4xl font-semibold'>
       Ansioluettelo ja portfolio
     </h1>

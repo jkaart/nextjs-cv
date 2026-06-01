@@ -30,7 +30,7 @@ const RootLayout = ({
         <ThemeProvider enableSystem={true} defaultTheme='system'>
           <Header />
           {children}
-          <Footer me={data.me} />
+          <Footer me={data.me} sourceCodeUrl={data.sourceCodeUrl} />
         </ThemeProvider>
       </body>
     </html>
